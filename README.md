@@ -12,7 +12,7 @@ Required python packages requirements:
 - pandas
 
 Required configuration:
-provide the following files according to the examples.
+provide the following files according to the examples in the same directory that MappingGenerator.py is located:
 - mappingInput.ini
 - prefixFile.txt
 
