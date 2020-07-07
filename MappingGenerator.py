@@ -4,9 +4,6 @@
 from configparser import ConfigParser, ExtendedInterpolation
 import rdflib as rdf
 import pandas as pd
-import readline
-#import numpy as np
-#import csv
 
 #################################################################################
 
@@ -48,8 +45,6 @@ def readPrefix(config):
     return list_of_prefixes
 
 def handler():
-    line = readline.get_line_buffer().split()
-    print (line)
     config_path = "./mappingInput.ini"
     config = ConfigParser(interpolation=ExtendedInterpolation())
     config.read(config_path)
