@@ -4,6 +4,8 @@
 from configparser import ConfigParser, ExtendedInterpolation
 import rdflib as rdf
 import pandas as pd
+#import numpy as np
+#import csv
 
 #################################################################################
 
@@ -45,20 +47,20 @@ def readPrefix(config):
     return list_of_prefixes
 
 def handler():
-    config_path = "mappingInput.ini"
-    prefix_df = pd.read_csv("/prefixFile.txt", low_memory=False)
+    config_path = "./mappingInput.ini"
     config = ConfigParser(interpolation=ExtendedInterpolation())
     config.read(config_path)
+    prefix_df = pd.read_csv(str(config['triplesMaps']['prefixes_file']), low_memory=False)
+    outputPath = config['default']['output_folder']
     for i in range(1,int(config['default']['number_of_mappingFiles'])+1):
         list_of_prefixes, TM = readConfig(config)
-        mappingFileName = "/mappingGenerating/" + str(config['mappingFile'+str(i)]['name']) + ".ttl"
+        mappingFileName = str(outputPath) + str(config['mappingFile'+str(i)]['name']) + ".ttl"
         mappingFile = open(mappingFileName, "w")
         for p in list_of_prefixes:
             mappingFile.write(p)
         mappingFile.write("\n"+TM)
         mappingFile.close()
-  
-                     
+
 
 if __name__ == "__main__":
         handler()
