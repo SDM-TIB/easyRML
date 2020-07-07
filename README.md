@@ -16,4 +16,5 @@ Required configuration:
 - prefixFile.txt
 
 Run:
+
 python3 MappingGenerator.py
