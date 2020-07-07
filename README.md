@@ -12,6 +12,7 @@ Required python packages requirements:
 - pandas
 
 Required configuration:
+provide the following files according to the examples that are provided.
 - mappingInput.ini
 - prefixFile.txt
 
