@@ -45,15 +45,13 @@ def readPrefix(config):
     return list_of_prefixes
 
 def handler():
-    #config_path = "/mnt/e/Script/MappingGenerator/mappingInput.ini"
-    config_path = "/Users/sam/Documents/GitHub/mappingGenerating/mappingInput.ini"
-    #prefix_df = pd.read_csv("/mnt/e/Script/MappingGenerator/prefixFile.txt", low_memory=False)
-    prefix_df = pd.read_csv("/Users/sam/Documents/GitHub/mappingGenerating/prefixFile.txt", low_memory=False)
+    config_path = "mappingInput.ini"
+    prefix_df = pd.read_csv("/prefixFile.txt", low_memory=False)
     config = ConfigParser(interpolation=ExtendedInterpolation())
     config.read(config_path)
     for i in range(1,int(config['default']['number_of_mappingFiles'])+1):
         list_of_prefixes, TM = readConfig(config)
-        mappingFileName = "/Users/sam/Documents/GitHub/mappingGenerating/" + str(config['mappingFile'+str(i)]['name']) + ".ttl"
+        mappingFileName = "/mappingGenerating/" + str(config['mappingFile'+str(i)]['name']) + ".ttl"
         mappingFile = open(mappingFileName, "w")
         for p in list_of_prefixes:
             mappingFile.write(p)
