@@ -18,15 +18,22 @@ def readConfig(config):
 
     ##read source and subject
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
-        "rml:referenceFormulation ql:" + config['TM'+str(t)]['referenceFormulation'] + " ];\n\trr:subjectMap [\n\t\t" + config['TM'+str(t)]['subjectType'] + \
+        "rml:referenceFormulation ql:" + config['TM'+str(t)]['referenceFormulation'] + " ];\n\trr:subjectMap [\n\t\t" + "rr:template" + \
         " \"" + config['TM'+str(t)]['subjectMap'] + "\"\n\t]" 
 
     ##read predicate objects
         for i in range(1,int(config['TM'+str(t)]['number_of_POM'])+1):
             TM = TM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + config[str("TM"+str(t)+"_POM"+str(i))]['predicate']
-            TM = TM + ";\n\t\t" + "rr:objectMap [\n\t\t\t" + config[str("TM"+str(t)+"_POM"+str(i))]['objectType']
-            ##check if "" or <> needs to be added around the object
-            if config[str("TM"+str(t)+"_POM"+str(i))]['objectType'] == "rr:parentTriplesMap":
+            TM = TM + ";\n\t\t" + "rr:objectMap [\n\t\t\t"
+            objectType = config[str("TM"+str(t)+"_POM"+str(i))]['objectType']
+            if  objectType == "string":
+                TM = TM + "rr:template"
+                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +"\"\n\t\t\t]\n\t]"
+            elif objectType == "reference to data":
+                TM = TM + "rml:reference"
+                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +"\"\n\t\t\t]\n\t]"
+            elif objectType == "reference to triplesMap" : 
+                TM = TM + "rr:parentTriplesMap"
                 ##join condition checking
                 if config[str("TM"+str(t)+"_POM"+str(i))]['joinCondition'] == "yes":
                     TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +">;\n\t\t\trr:joinCondition [\n\t\t\t\trr:child \"" \
@@ -35,7 +42,7 @@ def readConfig(config):
                 else:
                     TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +">\n\t\t\t]\n\t]" 
             else:
-                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +"\"\n\t\t\t]\n\t]"
+                print ("object type is not correct!!")
         TM = TM + ".\n"           
     return list_of_prefixes, TM
 
