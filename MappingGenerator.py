@@ -19,8 +19,11 @@ def readConfig(config):
     ##read source and subject
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
         "rml:referenceFormulation ql:" + config['TM'+str(t)]['referenceFormulation'] + " ];\n\trr:subjectMap [\n\t\t" + "rr:template" + \
-        " \"" + config['TM'+str(t)]['subjectMap'] + "\"\n\t]" 
-
+        " \"" + config['TM'+str(t)]['subjectMap'] + "\""
+        if config['TM'+str(t)]['termType'] != "no":
+            TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t]"
+        else:
+            Tm = TM + "\n\t]" 
     ##read predicate objects
         for i in range(1,int(config['TM'+str(t)]['number_of_POM'])+1):
             TM = TM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + config[str("TM"+str(t)+"_POM"+str(i))]['predicate']
