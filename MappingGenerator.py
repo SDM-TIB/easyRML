@@ -4,17 +4,25 @@
 from configparser import ConfigParser, ExtendedInterpolation
 import rdflib as rdf
 import pandas as pd
+import sys
+import os
 
 #################################################################################
 
 def readConfig(config):
 
     ##read prefix
-    list_of_prefixes = readPrefix(config)
-    TM = ""
+    prefixList = []
+    p = config['main']['number_of_prefixes']
+    for z in range(1,(int(p)+1)):
+        pre = "pre" + str(z)
+        prefix = "prefix"+ str(z)
+        finalString = "@PREFIX "+ config['prefixes'][pre] + ": " + config['prefixes'][prefix] + " ."
+        prefixList.append(finalString)
 
     #read TMs
-    for t in range (1,int(config['triplesMaps']['number_of_TMs'])+1):
+    TM = ""
+    for t in range (1,int(config['main']['number_of_TMs'])+1):
 
     ##read source and subject
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
@@ -47,28 +55,20 @@ def readConfig(config):
             else:
                 print ("object type is not correct!!")
         TM = TM + ".\n"           
-    return list_of_prefixes, TM
-
-def readPrefix(config):
-    prefix = open(config['triplesMaps']['prefixes_file'], "r")
-    list_of_prefixes = prefix.readlines()
-    return list_of_prefixes
+    return prefixList,TM
 
 def handler():
-    config_path = "./mappingInput.ini"
+    user_input = input("Enter the path of your file: ")
+    print (user_input)
     config = ConfigParser(interpolation=ExtendedInterpolation())
-    config.read(config_path)
-    prefix_df = pd.read_csv(str(config['triplesMaps']['prefixes_file']), low_memory=False)
-    outputPath = config['default']['output_folder']
-    for i in range(1,int(config['default']['number_of_mappingFiles'])+1):
-        list_of_prefixes, TM = readConfig(config)
-        mappingFileName = str(outputPath) + str(config['mappingFile'+str(i)]['name']) + ".ttl"
-        mappingFile = open(mappingFileName, "w")
-        for p in list_of_prefixes:
-            mappingFile.write(p)
-        mappingFile.write("\n"+TM)
-        mappingFile.close()
-
-
+    config.read(user_input)
+    outputPath = config['main']['output_folder']
+    prefixList,TM = readConfig(config)
+    mappingFileName = str(outputPath) + str(config['main']['mapping_file_name']) + ".ttl"
+    mappingFile = open(mappingFileName, "w")
+    for p in prefixList:
+        mappingFile.write(p+"\n")
+    mappingFile.write(TM)
+    mappingFile.close()
 if __name__ == "__main__":
         handler()
