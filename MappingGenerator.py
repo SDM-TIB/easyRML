@@ -70,5 +70,16 @@ def handler():
         mappingFile.write(p+"\n")
     mappingFile.write(TM)
     mappingFile.close()
-if __name__ == "__main__":
-        handler()
+    
+def process_config(user_input):
+    config = ConfigParser(interpolation=ExtendedInterpolation())
+    config.read_string(user_input)
+    #outputPath = config['main']['output_folder']
+    prefixList,TM = readConfig(config)
+    response = ""
+    for p in prefixList:
+        response+=p+"\n"
+    response+=TM
+    return response
+#if __name__ == "__main__":
+        #handler()
