@@ -1,4 +1,4 @@
-# RMLMappingRuleGenerator
+# easyRML
 This tool facilitates the RML Mapping rule generation. It receives a configuration file with mapping data and translate it into a validated turtle file including RML mapping rules.
 
 # Installating and running
