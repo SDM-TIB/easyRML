@@ -11,12 +11,15 @@ import os
 def readConfig(config):
 
     ##read prefix
-    prefixList = []
+    prefixList = ["@PREFIX rr: <http://www.w3.org/ns/r2rml#> .","@PREFIX rml: <http://semweb.mmlab.be/ns/rml#> .",
+    "@PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .","@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
+    "@PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .","@PREFIX rev: <http://purl.org/stuff/rev#> .",
+    "@PREFIX schema: <http://schema.org/> .","@PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> ."]
     p = config['main']['number_of_prefixes']
-    for z in range(1,(int(p)+1)):
+    for z in range(1,(int(p)+9)):
         pre = "pre" + str(z)
         prefix = "prefix"+ str(z)
-        finalString = "@PREFIX "+ config['prefixes'][pre] + ": " + config['prefixes'][prefix] + " ."
+        finalString = "@PREFIX "+ config['prefixes'][pre] + ": <" + config['prefixes'][prefix] + "> ."
         prefixList.append(finalString)
 
     #read TMs
