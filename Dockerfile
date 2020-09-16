@@ -5,7 +5,6 @@ ADD . /RMLMappingRuleGenerator
 
 RUN apt-get --assume-yes update
 RUN apt-get --assume-yes install python3 python3-flask
-
 # Make port 5003 available to the world outside this container
 EXPOSE 5000
 
