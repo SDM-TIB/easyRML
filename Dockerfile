@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
-WORKDIR /RMLMappingRuleGenerator
-ADD . /RMLMappingRuleGenerator
+WORKDIR /easyRML
+ADD . /easyRML
 
 RUN apt-get --assume-yes update
 RUN apt-get --assume-yes install python3 python3-flask
