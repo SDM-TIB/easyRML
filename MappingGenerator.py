@@ -2,7 +2,6 @@
 @auther: samiscoding@github
 '''
 from configparser import ConfigParser, ExtendedInterpolation
-import rdflib as rdf
 import pandas as pd
 import sys
 import os
