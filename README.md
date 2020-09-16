@@ -6,9 +6,8 @@ This tool facilitates the RML Mapping rule generation. It receives a configurati
 Required python version:
 3
 
-Required python packages requirements:
+Required python packages:
 - configparser
-- rdflib
 - pandas
 
 Required configuration:
