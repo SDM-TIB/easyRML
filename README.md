@@ -9,3 +9,5 @@ Required python packages:
 - configparser
 - pandas
 
+# Authors
+The easyRML has been developed by members of the Scientific Data Management Group at TIB, Samaneh Jozashoori (samaneh.jozashoori@tib.eu), Emetis Niazmand (emetis.niazmand@tib.eu), and Ahmad Sakor (ahmad.sakor@tib.eu) under the supervision of Maria-Esther Vidal (maria.vidal@tib.eu).
