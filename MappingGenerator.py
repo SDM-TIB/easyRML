@@ -16,7 +16,7 @@ def readConfig(config):
     "@PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .","@PREFIX rev: <http://purl.org/stuff/rev#> .",
     "@PREFIX schema: <http://schema.org/> .","@PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> ."]
     p = config['main']['number_of_prefixes']
-    for z in range(1,(int(p)+9)):
+    for z in range(1,(int(p))):
         pre = "pre" + str(z)
         prefix = "prefix"+ str(z)
         finalString = "@PREFIX "+ config['prefixes'][pre] + ": <" + config['prefixes'][prefix] + "> ."
@@ -66,22 +66,13 @@ def handler():
     config.read(user_input)
     outputPath = config['main']['output_folder']
     prefixList,TM = readConfig(config)
-    mappingFileName = str(outputPath) + str(config['main']['mapping_file_name']) + ".ttl"
+    mappingFileName = str(outputPath) + "/" + str(config['main']['mapping_file_name']) + ".ttl"
+    print(mappingFileName)
     mappingFile = open(mappingFileName, "w")
     for p in prefixList:
         mappingFile.write(p+"\n")
     mappingFile.write(TM)
     mappingFile.close()
-    
-def process_config(user_input):
-    config = ConfigParser(interpolation=ExtendedInterpolation())
-    config.read_string(user_input)
-    #outputPath = config['main']['output_folder']
-    prefixList,TM = readConfig(config)
-    response = ""
-    for p in prefixList:
-        response+=p+"\n"
-    response+=TM
-    return response
-#if __name__ == "__main__":
-        #handler()
+
+if __name__ == "__main__":
+        handler()
