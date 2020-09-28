@@ -16,7 +16,7 @@ def readConfig(config):
     "@PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .","@PREFIX rev: <http://purl.org/stuff/rev#> .",
     "@PREFIX schema: <http://schema.org/> .","@PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> ."]
     p = config['main']['number_of_prefixes']
-    for z in range(1,(int(p))):
+    for z in range(1,(int(p)+1)):
         pre = "pre" + str(z)
         prefix = "prefix"+ str(z)
         finalString = "@PREFIX "+ config['prefixes'][pre] + ": <" + config['prefixes'][prefix] + "> ."
