@@ -1,0 +1,696 @@
+* {
+    margin: 0px;
+    padding: 0px;   
+  }
+
+body{
+    background-color: beige;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    
+  }
+
+.header {
+background-color: #99D19C;
+padding-top: 40px;
+padding-bottom: 40px;
+}
+
+.first-logo img {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.second-logo img {
+    max-width: 10%;
+    margin-top: -150px;
+    margin-right: 150px;
+    float: right;
+}
+
+
+.content {
+    padding-bottom: 4.5rem;    /* content height */
+  }
+
+h3 {
+    margin: 0;
+    color: gray;
+    font-size: 30px;
+    text-align: center;
+    font-style: italic;
+    font-family: sans-serif;
+}
+
+#getnumberTM {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 180px;
+    margin-top: 5px;
+   }
+
+#nextbutton {
+    border: 1px solid black ;
+    border-radius: 26px;
+    background-color: #79C7C5;
+    height: 25px;
+    width: 100px;
+   }
+
+   #resultPrefix{
+    height: 100px;
+    width: 400px; 
+   }
+
+/* Style for index.html */
+.container ul {
+    list-style: none;
+}
+
+.container ul li {
+    background-color: #063247;
+    width: 250px;
+    border: 1px solid white;
+    border-radius: 26px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    color: white;
+    font-size: 19px;
+    position: relative;
+}
+
+.container ul li:hover {
+background-color: #99D19C;
+}
+
+.container ul ul {
+    display: none;
+} 
+
+.container ul li:hover > ul {
+    display: block;
+}
+
+.container ul ul ul {
+    margin-left: 250px;
+    top: 0px;
+    position: absolute;
+}
+
+/* Style for index2.html */
+h4 {
+    margin: 5px;
+    color: green;
+    font-size: 20px;
+    text-align: left;
+}
+
+#class {
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+#propertyclass1 {
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+#propertyclass2 {
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+#resultClass1{
+    margin-left: -10px;
+    margin-top: 8px;
+}
+
+#resultClass2{
+    margin-left: -10px;
+    margin-top: 8px;
+}
+
+
+#selectMR {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #79C7C5;
+}
+
+.radioSelect {
+    padding:5px;
+    margin: 5px;
+    display: block;
+}
+
+#getnumberPOM {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 180px;
+    margin-top: 5px;
+   }
+
+
+#getSubjMap {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 120px;
+    margin-top: 5px;
+   }
+
+
+   /* For Iterate 1 over TM1 */
+
+   #field-predicate {
+    text-align: left;
+    margin-top: 20px;
+}
+
+   #parent {
+    text-align: left;
+    margin-top: 20px;
+}  
+
+   #getPredicate {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 120px;
+    margin-top: 5px;
+   }
+   #getObject {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 160px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferData {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 180px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferTM {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 200px;
+    margin-top: 5px;
+   }
+
+    /* For Iterate 2 over TM1 */
+
+    #field-predicate2 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent2 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }
+
+           /* For Iterate 3 over TM1 */
+
+    #field-predicate3 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent3 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }
+
+   /* For Iterate 1 over TM2 */
+
+   #field-predicate1-2 {
+    text-align: left;
+    margin-top: 20px;
+}
+
+   #parent1-2 {
+    text-align: left;
+    margin-top: 20px;
+}  
+
+   #getPredicate1-2 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 120px;
+    margin-top: 5px;
+   }
+   #getObject1-2 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 160px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferData1-2 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 180px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferTM1-2 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 200px;
+    margin-top: 5px;
+   }
+
+    /* For Iterate 2 over TM2 */
+
+    #field-predicate2-2 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent2-2 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate2-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject2-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData2-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM2-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }
+
+           /* For Iterate 3 over TM2 */
+
+    #field-predicate3-2 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent3-2 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate3-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject3-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData3-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM3-2 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }
+       /* For Iterate 1 over TM3 */
+
+   #field-predicate1-3 {
+    text-align: left;
+    margin-top: 20px;
+}
+
+   #parent1-3 {
+    text-align: left;
+    margin-top: 20px;
+}  
+
+   #getPredicate1-3 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 120px;
+    margin-top: 5px;
+   }
+   #getObject1-3 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 160px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferData1-3 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 180px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferTM1-3 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 200px;
+    margin-top: 5px;
+   }
+
+    /* For Iterate 2 over TM3 */
+
+    #field-predicate2-3 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent2-3 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate2-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject2-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData2-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM2-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }
+
+           /* For Iterate 3 over TM3 */
+
+    #field-predicate3-3 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent3-3 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate3-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject3-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData3-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM3-3 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }   
+    /* For Iterate 1 over TM4 */
+
+   #field-predicate1-4 {
+    text-align: left;
+    margin-top: 20px;
+}
+
+   #parent1-4 {
+    text-align: left;
+    margin-top: 20px;
+}  
+
+   #getPredicate1-4 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 120px;
+    margin-top: 5px;
+   }
+   #getObject1-4 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 20px;
+    width: 160px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferData1-4 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 180px;
+    margin-top: 5px;
+   }
+
+   #getObjectReferTM1-4 {
+    border: 0.5px solid black ;
+    background-color: #ECECEC;
+    height: 40px;
+    width: 200px;
+    margin-top: 5px;
+   }
+
+    /* For Iterate 2 over TM4 */
+
+    #field-predicate2-4 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent2-4 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate2-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject2-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData2-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM2-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       }
+
+           /* For Iterate 3 over TM4 */
+
+    #field-predicate3-4 {
+        text-align: left;
+        margin-top: 20px;
+    }
+    
+       #parent3-4 {
+        text-align: left;
+        margin-top: 20px;
+    }  
+    
+       #getPredicate3-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 120px;
+        margin-top: 5px;
+       }
+       #getObject3-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 20px;
+        width: 160px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferData3-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 180px;
+        margin-top: 5px;
+       }
+    
+       #getObjectReferTM3-4 {
+        border: 0.5px solid black ;
+        background-color: #ECECEC;
+        height: 40px;
+        width: 200px;
+        margin-top: 5px;
+       } 
+
+       #fixedbutton {
+        background-color: #99D19C;
+        float: left;
+    } 
+ .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #638475;
+    color: white;
+    text-align: center;
+}
