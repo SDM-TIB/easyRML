@@ -72,8 +72,7 @@ def readConfig(config):
             config[str("F"+str(w)+"P"+str(z))]['parameter'] + ";\n\t\t\t"
             if config[str("F"+str(w)+"P"+str(z))]['parameterType'] == "reference to functionMap":
                 FM = FM + "rr:objectMap <" + config[str("F"+str(w)+"P"+str(z))]['value'] + ">\n\t\t];"
-                functionFlag = True
-                print (functionFlag)  
+                functionFlag = True 
                 w = w+1              
             elif config[str("F"+str(w)+"P"+str(z))]['parameterType'] == "reference to data":
                 FM = FM + "rr:objectMap [\n\t\t\t\trml:reference \"" + config[str("F"+str(w)+"P"+str(z))]['value'] + "\"\n\t\t\t]\n\t\t];"
