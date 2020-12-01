@@ -23,7 +23,6 @@ def readConfig(config):
         prefixList.append(finalString)
 
     #read TMs
-    functionFlag = False
     TM = ""
     for t in range (1,int(config['main']['number_of_TMs'])+1):
 
@@ -47,37 +46,36 @@ def readConfig(config):
                 TM = TM + "[\n\t\t\trml:reference"
                 TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +"\"\n\t\t\t]\n\t]"
             elif objectType == "reference to functionMap":
-                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] + ">;\n\t]"  
-                functionFlag = True  
+                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] + ">;\n\t]"   
             elif objectType == "reference to triplesMap" : 
                 TM = TM + "[\n\t\t\trr:parentTriplesMap"
-                ## joinCondition
-                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +">;\n\t\t\trr:joinCondition [\n\t\t\t\trr:child \"" \
-                + config[str("TM"+str(t)+"_POM"+str(i))]['child'] + "\";\n\t\t\t\trr:parent \"" + config[str("TM"+str(t)+\
-                "_POM"+str(i))]['child'] + "\";\n\t\t\t];\n\t\t]\n\t]"                   
+                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +">;"
+                ## check joinCondition
+                if config[str("TM"+str(t)+"_POM"+str(i))]['joinCondition'] == "yes":
+                    TM = TM + "\n\t\t\trr:joinCondition [\n\t\t\t\trr:child \"" \
+                    + config[str("TM"+str(t)+"_POM"+str(i))]['child'] + "\";\n\t\t\t\trr:parent \"" + config[str("TM"+str(t)+\
+                    "_POM"+str(i))]['parent'] + "\";\n\t\t\t];\n\t\t]\n\t]"  
+                else: 
+                    TM = TM + "\n\t\t]\n\t]"                
             else:
                 print ("object type is not correct!!")   
+        TM = TM + ".\n"        
     ##read functionMap    
-        TM = TM + ".\n"
-    w = 1    
-    while functionFlag == True:
-        FM = "\n<" + config[str("F"+str(w))]['functionMapName'] + \
+    for f in range (1,int(config['main']['number_of_FMs'])+1):
+        FM = "\n<" + config[str("F"+str(f))]['functionMapName'] + \
         ">\n\tfnml:functionValue [\n\t\trml:logicalSource [ rml:source \"" + \
-        config[str("F"+str(w))]['source'] + "\";\n\t\trml:referenceFormulation ql:" + config[str("F"+str(w))]['sourceFormat'] + \
+        config[str("F"+str(f))]['source'] + "\";\n\t\trml:referenceFormulation ql:" + config[str("F"+str(f))]['sourceFormat'] + \
         "\n\t\t];\n\t\trr:predicateObjectMap [\n\t\t\trr:predicate fno:executes ;\n\t\t\trr:objectMap [\n\t\t\t\trr:constant ex:" + \
-        config[str("F"+str(w))]['functionName'] + "\n\t\t\t]\n\t\t];"
-        functionFlag = False
-        for z in range(1,int(config[str("F"+str(w))]['numberOfParameters'])+1):
+        config[str("F"+str(f))]['functionName'] + "\n\t\t\t]\n\t\t];"
+        for z in range(1,int(config[str("F"+str(f))]['numberOfParameters'])+1):
             FM = FM + "\n\t\trr:predicateObjectMap [\n\t\t\trr:predicate ex:" + \
-            config[str("F"+str(w)+"P"+str(z))]['parameter'] + ";\n\t\t\t"
-            if config[str("F"+str(w)+"P"+str(z))]['parameterType'] == "reference to functionMap":
-                FM = FM + "rr:objectMap <" + config[str("F"+str(w)+"P"+str(z))]['value'] + ">\n\t\t];"
-                functionFlag = True 
-                w = w+1              
-            elif config[str("F"+str(w)+"P"+str(z))]['parameterType'] == "reference to data":
-                FM = FM + "rr:objectMap [\n\t\t\t\trml:reference \"" + config[str("F"+str(w)+"P"+str(z))]['value'] + "\"\n\t\t\t]\n\t\t];"
-            elif config[str("F"+str(w)+"P"+str(z))]['parameterType'] == "constant":
-                FM = FM + "rr:objectMap [\n\t\t\t\trr:constant \"" + config[str("F"+str(w)+"P"+str(z))]['value'] + "\"\n\t\t\t]\n\t\t];"
+            config[str("F"+str(f)+"P"+str(z))]['parameter'] + ";\n\t\t\t"
+            if config[str("F"+str(f)+"P"+str(z))]['parameterType'] == "reference to functionMap":
+                FM = FM + "rr:objectMap <" + config[str("F"+str(f)+"P"+str(z))]['value'] + ">\n\t\t];"             
+            elif config[str("F"+str(f)+"P"+str(z))]['parameterType'] == "reference to data":
+                FM = FM + "rr:objectMap [\n\t\t\t\trml:reference \"" + config[str("F"+str(f)+"P"+str(z))]['value'] + "\"\n\t\t\t]\n\t\t];"
+            elif config[str("F"+str(f)+"P"+str(z))]['parameterType'] == "constant":
+                FM = FM + "rr:objectMap [\n\t\t\t\trr:constant \"" + config[str("F"+str(f)+"P"+str(z))]['value'] + "\"\n\t\t\t]\n\t\t];"
         FM = FM + "\n\t].\n"        
         TM = TM + FM                
     return prefixList,TM
