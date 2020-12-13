@@ -2,13 +2,140 @@
 var config = "";
 var responseConfig = "";
 var filename = "";
+var tripleColor = "";
+var mapColor = mapColor2 = mapColor3 = mapColor4 = mapColor5 = mapColor6 = mapColor7 = mapColor8 = mapColor9 = "";
+var functionColor = fun = FUN1 = FUN2 = FUN3 = FUN4 = FUN5 = FUN6 = FUN7 = FUN8 = FUN9 =
+ propertyColor = nop = F11P1 = F11P2 = F11P3 = F11P4 = F11P5 = F11P6 = F11P7 = F11P8 = F11P9 = propertyColor2 = nop2 =  F21P1 = F21P2 = F21P3 = F21P4 = F21P5 = F21P6 = F21P7 = F21P8 = F21P9 = propertyColor3 = nop3 =  F31P1 = F31P2 = F31P3 = F31P4 = F31P5 = F31P6 = F31P7 = F31P8 = F31P9 = propertyColor4 = nop4 =  F41P1 = F41P2 = F41P3 = F41P4 = F41P5 = F41P6 = F41P7 = F41P8 = F41P9 = propertyColor5 = nop5 =  F51P1 = F51P2 = F51P3 = F51P4 = F51P5 = F51P6 = F51P7 = F51P8 = F51P9 =
+ propertyColor6 = nop6 = F61P1 = F61P2 = F61P3 = F61P4 = F61P5 = F61P6 = F61P7 = F61P8 = F61P9 = propertyColor7 = nop7 =  F71P1 = F71P2 = F71P3 = F71P4 = F71P5 = F71P6 = F71P7 = F71P8 = F71P9 = propertyColor8 = nop8 =  F81P1 = F81P2 = F81P3 = F81P4 = F81P5 = F81P6 = F81P7 = F81P8 = F81P9 = propertyColor9 = nop =  F91P1 = F91P2 = F91P3 = F91P4 = F91P5 = F91P6 = F91P7 = F91P8 = F91P9 =
+"";
+
+function GetVariables() {
+mapColor = document.getElementById("mapColor");
+mapColor2 = document.getElementById("mapColor2");
+mapColor3 = document.getElementById("mapColor3");
+mapColor4 = document.getElementById("mapColor4");
+mapColor5 = document.getElementById("mapColor5");
+mapColor6 = document.getElementById("mapColor6");
+mapColor7 = document.getElementById("mapColor7");
+mapColor8 = document.getElementById("mapColor8");
+mapColor9 = document.getElementById("mapColor9");
+functionColor = document.getElementById("functionColor");
+fun = document.getElementById("fun").value;
+FUN1 = document.getElementById("F11-1");
+FUN2 = document.getElementById("F21-1");
+FUN3 = document.getElementById("F31-1");
+FUN4 = document.getElementById("F41-1");
+FUN5 = document.getElementById("F51-1");
+FUN6 = document.getElementById("F61-1");
+FUN7 = document.getElementById("F71-1");
+FUN8 = document.getElementById("F81-1");
+FUN9 = document.getElementById("F91-1");
+propertyColor = document.getElementById("propertyColor");
+nop = document.getElementById("nop").value;
+F11P1 = document.getElementById("F1-1P1");
+F11P2 = document.getElementById("F1-1P2");
+F11P3 = document.getElementById("F1-1P3");
+F11P4 = document.getElementById("F1-1P4");
+F11P5 = document.getElementById("F1-1P5");
+F11P6 = document.getElementById("F1-1P6");
+F11P7 = document.getElementById("F1-1P7");
+F11P8 = document.getElementById("F1-1P8");
+F11P9 = document.getElementById("F1-1P9");
+propertyColor2 = document.getElementById("propertyColor2");
+nop2 = document.getElementById("nop2").value;
+F21P1 = document.getElementById("F2-1P1");
+F21P2 = document.getElementById("F2-1P2");
+F21P3 = document.getElementById("F2-1P3");
+F21P4 = document.getElementById("F2-1P4");
+F21P5 = document.getElementById("F2-1P5");
+F21P6 = document.getElementById("F2-1P6");
+F21P7 = document.getElementById("F2-1P7");
+F21P8 = document.getElementById("F2-1P8");
+F21P9 = document.getElementById("F2-1P9");
+propertyColor3 = document.getElementById("propertyColor3");
+nop3 = document.getElementById("nop3").value;
+F31P1 = document.getElementById("F3-1P1");
+F31P2 = document.getElementById("F3-1P2");
+F31P3 = document.getElementById("F3-1P3");
+F31P4 = document.getElementById("F3-1P4");
+F31P5 = document.getElementById("F3-1P5");
+F31P6 = document.getElementById("F3-1P6");
+F31P7 = document.getElementById("F3-1P7");
+F31P8 = document.getElementById("F3-1P8");
+F31P9 = document.getElementById("F3-1P9");
+propertyColor4 = document.getElementById("propertyColor4");
+nop4 = document.getElementById("nop4").value;
+F41P1 = document.getElementById("F4-1P1");
+F41P2 = document.getElementById("F4-1P2");
+F41P3 = document.getElementById("F4-1P3");
+F41P4 = document.getElementById("F4-1P4");
+F41P5 = document.getElementById("F4-1P5");
+F41P6 = document.getElementById("F4-1P6");
+F41P7 = document.getElementById("F4-1P7");
+F41P8 = document.getElementById("F4-1P8");
+F41P9 = document.getElementById("F4-1P9");
+propertyColor5 = document.getElementById("propertyColor5");
+nop5 = document.getElementById("nop5").value;
+F51P1 = document.getElementById("F5-1P1");
+F51P2 = document.getElementById("F5-1P2");
+F51P3 = document.getElementById("F5-1P3");
+F51P4 = document.getElementById("F5-1P4");
+F51P5 = document.getElementById("F5-1P5");
+F51P6 = document.getElementById("F5-1P6");
+F51P7 = document.getElementById("F5-1P7");
+F51P8 = document.getElementById("F5-1P8");
+F51P9 = document.getElementById("F5-1P9");
+propertyColor6 = document.getElementById("propertyColor6");
+nop6 = document.getElementById("nop6").value;
+F61P1 = document.getElementById("F6-1P1");
+F61P2 = document.getElementById("F6-1P2");
+F61P3 = document.getElementById("F6-1P3");
+F61P4 = document.getElementById("F6-1P4");
+F61P5 = document.getElementById("F6-1P5");
+F61P6 = document.getElementById("F6-1P6");
+F61P7 = document.getElementById("F6-1P7");
+F61P8 = document.getElementById("F6-1P8");
+F61P9 = document.getElementById("F6-1P9");
+propertyColor7 = document.getElementById("propertyColor7");
+nop7 = document.getElementById("nop7").value;
+F71P1 = document.getElementById("F7-1P1");
+F71P2 = document.getElementById("F7-1P2");
+F71P3 = document.getElementById("F7-1P3");
+F71P4 = document.getElementById("F7-1P4");
+F71P5 = document.getElementById("F7-1P5");
+F71P6 = document.getElementById("F7-1P6");
+F71P7 = document.getElementById("F7-1P7");
+F71P8 = document.getElementById("F7-1P8");
+F71P9 = document.getElementById("F7-1P9");
+propertyColor8 = document.getElementById("propertyColor8");
+nop8 = document.getElementById("nop8").value;
+F81P1 = document.getElementById("F8-1P1");
+F81P2 = document.getElementById("F8-1P2");
+F81P3 = document.getElementById("F8-1P3");
+F81P4 = document.getElementById("F8-1P4");
+F81P5 = document.getElementById("F8-1P5");
+F81P6 = document.getElementById("F8-1P6");
+F81P7 = document.getElementById("F8-1P7");
+F81P8 = document.getElementById("F8-1P8");
+F81P9 = document.getElementById("F8-1P9");
+propertyColor9 = document.getElementById("propertyColor9");
+nop9 = document.getElementById("nop9").value;
+F91P1 = document.getElementById("F9-1P1");
+F91P2 = document.getElementById("F9-1P2");
+F91P3 = document.getElementById("F9-1P3");
+F91P4 = document.getElementById("F9-1P4");
+F91P5 = document.getElementById("F9-1P5");
+F91P6 = document.getElementById("F9-1P6");
+F91P7 = document.getElementById("F9-1P7");
+F91P8 = document.getElementById("F9-1P8");
+F91P9 = document.getElementById("F9-1P9");
+}
+
 
 
 /* Selecting Number of Prefixes */
 function GetNumberPre() {
   var pref = document.getElementById("pref").value;
-  
-
   if (pref == 0) {
     pref01.style.display = "none";
     pref02.style.display = "none";
@@ -156,14 +283,11 @@ function GetNumberPre() {
   }
 }
 
-
-
-
 /* Counting Triples Map */
 function countNumberTM() {
-
+  GetVariables();
   var tm = document.getElementById("tm").value;
-  
+  tripleColor = document.getElementById("tripleColor");
   var TM1 = document.getElementById("TM1");
   var TM2 = document.getElementById("TM2");
   var TM3 = document.getElementById("TM3");
@@ -175,6 +299,7 @@ function countNumberTM() {
   var TM9 = document.getElementById("TM9");
 
   if (tm == 0) {
+    tripleColor.style.display = "none";
     TM1.style.display = "none";
     TM2.style.display = "none";
     TM3.style.display = "none";
@@ -185,6 +310,7 @@ function countNumberTM() {
     TM8.style.display = "none";
     TM9.style.display = "none";
   } else if (tm == 1) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "none";
     TM3.style.display = "none";
@@ -194,7 +320,16 @@ function countNumberTM() {
     TM7.style.display = "none";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor2.style.display = "none";
+    mapColor3.style.display = "none";
+    mapColor4.style.display = "none";
+    mapColor5.style.display = "none";
+    mapColor6.style.display = "none";
+    mapColor7.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 2) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "none";
@@ -204,7 +339,15 @@ function countNumberTM() {
     TM7.style.display = "none";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor3.style.display = "none";
+    mapColor4.style.display = "none";
+    mapColor5.style.display = "none";
+    mapColor6.style.display = "none";
+    mapColor7.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 3) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -214,7 +357,14 @@ function countNumberTM() {
     TM7.style.display = "none";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor4.style.display = "none";
+    mapColor5.style.display = "none";
+    mapColor6.style.display = "none";
+    mapColor7.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 4) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -224,7 +374,13 @@ function countNumberTM() {
     TM7.style.display = "none";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor5.style.display = "none";
+    mapColor6.style.display = "none";
+    mapColor7.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 5) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -234,7 +390,12 @@ function countNumberTM() {
     TM7.style.display = "none";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor6.style.display = "none";
+    mapColor7.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 6) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -244,7 +405,11 @@ function countNumberTM() {
     TM7.style.display = "none";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor7.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 7) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -254,7 +419,10 @@ function countNumberTM() {
     TM7.style.display = "block";
     TM8.style.display = "none";
     TM9.style.display = "none";
+    mapColor8.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 8) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -264,7 +432,9 @@ function countNumberTM() {
     TM7.style.display = "block";
     TM8.style.display = "block";
     TM9.style.display = "none";
+    mapColor9.style.display = "none";
   } else if (tm == 9) {
+    tripleColor.style.display = "block";
     TM1.style.display = "block";
     TM2.style.display = "block";
     TM3.style.display = "block";
@@ -278,13 +448,10 @@ function countNumberTM() {
 
 }
 
-
-
 /* Counting Triples Map */
-function countNumberPOM() {
-  
+function countNumberPOM() {  
+  GetVariables();
   var pom = document.getElementById("pom").value;
-  
   var POM11 = document.getElementById("POM1-1");
   var POM21 = document.getElementById("POM2-1");
   var POM31 = document.getElementById("POM3-1");
@@ -296,6 +463,7 @@ function countNumberPOM() {
   var POM91 = document.getElementById("POM9-1");
 
   if (pom == 0) {
+    mapColor.style.display = "none";
     POM11.style.display = "none";
     POM21.style.display = "none";
     POM31.style.display = "none";
@@ -306,6 +474,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 1) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "none";
     POM31.style.display = "none";
@@ -316,6 +485,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 2) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "none";
@@ -326,6 +496,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 3) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -336,6 +507,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 4) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -346,6 +518,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 5) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -356,6 +529,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 6) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -366,6 +540,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 7) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -376,6 +551,7 @@ function countNumberPOM() {
     POM81.style.display = "none";
     POM91.style.display = "none";
   } else if (pom == 8) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -386,6 +562,7 @@ function countNumberPOM() {
     POM81.style.display = "block";
     POM91.style.display = "none";
   } else if (pom == 9) {
+    mapColor.style.display = "block";
     POM11.style.display = "block";
     POM21.style.display = "block";
     POM31.style.display = "block";
@@ -399,12 +576,9 @@ function countNumberPOM() {
 }
 
 
-
-
-
 /* Selecting joinCondition*/
 function GetSelectedjoinCondition() {
- 
+
   var joinCondition = document.getElementById("joinCondition").value;
   var fieldchildparent = document.getElementById("field-child-parent");
 
@@ -1196,13 +1370,10 @@ function GetSelectedjoinCondition99() {
 }
 /* ====================TM2========================== */
 
-
-
 /* Counting Triples Map */
 function countNumberPOM2() {
  
   var pom = document.getElementById("pom2").value;
-  
   var POM12 = document.getElementById("POM1-2");
   var POM22 = document.getElementById("POM2-2");
   var POM32 = document.getElementById("POM3-2");
@@ -1214,6 +1385,7 @@ function countNumberPOM2() {
   var POM92 = document.getElementById("POM9-2");
 
   if (pom == 0) {
+    mapColor2.style.display = "none";
     POM12.style.display = "none";
     POM22.style.display = "none";
     POM32.style.display = "none";
@@ -1224,6 +1396,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 1) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "none";
     POM32.style.display = "none";
@@ -1234,6 +1407,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 2) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "none";
@@ -1244,6 +1418,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 3) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1254,6 +1429,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 4) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1264,6 +1440,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 5) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1274,6 +1451,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 6) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1284,6 +1462,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 7) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1294,6 +1473,7 @@ function countNumberPOM2() {
     POM82.style.display = "none";
     POM92.style.display = "none";
   } else if (pom == 8) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1304,6 +1484,7 @@ function countNumberPOM2() {
     POM82.style.display = "block";
     POM92.style.display = "none";
   } else if (pom == 9) {
+    mapColor2.style.display = "block";
     POM12.style.display = "block";
     POM22.style.display = "block";
     POM32.style.display = "block";
@@ -1387,7 +1568,6 @@ function GetSelectedjoinCondition32() {
 function countNumberPOM3() {
  
   var pom = document.getElementById("pom3").value;
- 
   var POM13 = document.getElementById("POM1-3");
   var POM23 = document.getElementById("POM2-3");
   var POM33 = document.getElementById("POM3-3");
@@ -1399,6 +1579,7 @@ function countNumberPOM3() {
   var POM93 = document.getElementById("POM9-3");
 
   if (pom == 0) {
+    mapColor3.style.display = "none";
     POM13.style.display = "none";
     POM23.style.display = "none";
     POM33.style.display = "none";
@@ -1409,6 +1590,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 1) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "none";
     POM33.style.display = "none";
@@ -1419,6 +1601,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 2) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "none";
@@ -1429,6 +1612,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 3) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1439,6 +1623,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 4) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1449,6 +1634,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 5) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1459,6 +1645,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 6) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1469,6 +1656,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 7) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1479,6 +1667,7 @@ function countNumberPOM3() {
     POM83.style.display = "none";
     POM93.style.display = "none";
   } else if (pom == 8) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1489,6 +1678,7 @@ function countNumberPOM3() {
     POM83.style.display = "block";
     POM93.style.display = "none";
   } else if (pom == 9) {
+    mapColor3.style.display = "block";
     POM13.style.display = "block";
     POM23.style.display = "block";
     POM33.style.display = "block";
@@ -1572,7 +1762,6 @@ function GetSelectedjoinCondition33() {
 function countNumberPOM4() {
  
   var pom = document.getElementById("pom4").value;
- 
   var POM14 = document.getElementById("POM1-4");
   var POM24 = document.getElementById("POM2-4");
   var POM34 = document.getElementById("POM3-4");
@@ -1584,6 +1773,7 @@ function countNumberPOM4() {
   var POM94 = document.getElementById("POM9-4");
 
   if (pom == 0) {
+    mapColor4.style.display = "none";
     POM14.style.display = "none";
     POM24.style.display = "none";
     POM34.style.display = "none";
@@ -1594,6 +1784,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 1) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "none";
     POM34.style.display = "none";
@@ -1604,6 +1795,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 2) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "none";
@@ -1614,6 +1806,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 3) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1624,6 +1817,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 4) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1634,6 +1828,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 5) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1644,6 +1839,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 6) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1654,6 +1850,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 7) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1664,6 +1861,7 @@ function countNumberPOM4() {
     POM84.style.display = "none";
     POM94.style.display = "none";
   } else if (pom == 8) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1674,6 +1872,7 @@ function countNumberPOM4() {
     POM84.style.display = "block";
     POM94.style.display = "none";
   } else if (pom == 9) {
+    mapColor4.style.display = "block";
     POM14.style.display = "block";
     POM24.style.display = "block";
     POM34.style.display = "block";
@@ -1757,7 +1956,6 @@ function GetSelectedjoinCondition34() {
 function countNumberPOM5() {
   
   var pom = document.getElementById("pom5").value;
-  
   var POM15 = document.getElementById("POM1-5");
   var POM25 = document.getElementById("POM2-5");
   var POM35 = document.getElementById("POM3-5");
@@ -1769,6 +1967,7 @@ function countNumberPOM5() {
   var POM95 = document.getElementById("POM9-5");
 
   if (pom == 0) {
+    mapColor5.style.display = "none";
     POM15.style.display = "none";
     POM25.style.display = "none";
     POM35.style.display = "none";
@@ -1779,6 +1978,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 1) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "none";
     POM35.style.display = "none";
@@ -1789,6 +1989,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 2) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "none";
@@ -1799,6 +2000,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 3) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1809,6 +2011,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 4) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1819,6 +2022,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 5) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1829,6 +2033,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 6) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1839,6 +2044,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 7) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1849,6 +2055,7 @@ function countNumberPOM5() {
     POM85.style.display = "none";
     POM95.style.display = "none";
   } else if (pom == 8) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1859,6 +2066,7 @@ function countNumberPOM5() {
     POM85.style.display = "block";
     POM95.style.display = "none";
   } else if (pom == 9) {
+    mapColor5.style.display = "block";
     POM15.style.display = "block";
     POM25.style.display = "block";
     POM35.style.display = "block";
@@ -1942,7 +2150,6 @@ function GetSelectedjoinCondition35() {
 function countNumberPOM6() {
   
   var pom = document.getElementById("pom6").value;
-  
   var POM16 = document.getElementById("POM1-6");
   var POM26 = document.getElementById("POM2-6");
   var POM36 = document.getElementById("POM3-6");
@@ -1954,6 +2161,7 @@ function countNumberPOM6() {
   var POM96 = document.getElementById("POM9-6");
 
   if (pom == 0) {
+    mapColor6.style.display = "none";
     POM16.style.display = "none";
     POM26.style.display = "none";
     POM36.style.display = "none";
@@ -1964,6 +2172,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 1) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "none";
     POM36.style.display = "none";
@@ -1974,6 +2183,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 2) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "none";
@@ -1984,6 +2194,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 3) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -1994,6 +2205,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 4) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -2004,6 +2216,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 5) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -2014,6 +2227,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 6) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -2024,6 +2238,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 7) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -2034,6 +2249,7 @@ function countNumberPOM6() {
     POM86.style.display = "none";
     POM96.style.display = "none";
   } else if (pom == 8) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -2044,6 +2260,7 @@ function countNumberPOM6() {
     POM86.style.display = "block";
     POM96.style.display = "none";
   } else if (pom == 9) {
+    mapColor6.style.display = "block";
     POM16.style.display = "block";
     POM26.style.display = "block";
     POM36.style.display = "block";
@@ -2126,7 +2343,6 @@ function GetSelectedjoinCondition36() {
 function countNumberPOM7() {
   
   var pom = document.getElementById("pom7").value;
-  
   var POM17 = document.getElementById("POM1-7");
   var POM27 = document.getElementById("POM2-7");
   var POM37 = document.getElementById("POM3-7");
@@ -2138,6 +2354,7 @@ function countNumberPOM7() {
   var POM97 = document.getElementById("POM9-7");
 
   if (pom == 0) {
+    mapColor7.style.display = "none";
     POM17.style.display = "none";
     POM27.style.display = "none";
     POM37.style.display = "none";
@@ -2148,6 +2365,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 1) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "none";
     POM37.style.display = "none";
@@ -2158,6 +2376,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 2) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "none";
@@ -2168,6 +2387,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 3) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2178,6 +2398,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 4) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2188,6 +2409,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 5) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2198,6 +2420,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 6) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2208,6 +2431,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 7) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2218,6 +2442,7 @@ function countNumberPOM7() {
     POM87.style.display = "none";
     POM97.style.display = "none";
   } else if (pom == 8) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2228,6 +2453,7 @@ function countNumberPOM7() {
     POM87.style.display = "block";
     POM97.style.display = "none";
   } else if (pom == 9) {
+    mapColor7.style.display = "block";
     POM17.style.display = "block";
     POM27.style.display = "block";
     POM37.style.display = "block";
@@ -2312,7 +2538,6 @@ function GetSelectedjoinCondition37() {
 function countNumberPOM8() {
   
   var pom = document.getElementById("pom8").value;
-  
   var POM18 = document.getElementById("POM1-8");
   var POM28 = document.getElementById("POM2-8");
   var POM38 = document.getElementById("POM3-8");
@@ -2324,6 +2549,7 @@ function countNumberPOM8() {
   var POM98 = document.getElementById("POM9-8");
 
   if (pom == 0) {
+    mapColor8.style.display = "none";
     POM18.style.display = "none";
     POM28.style.display = "none";
     POM38.style.display = "none";
@@ -2334,6 +2560,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 1) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "none";
     POM38.style.display = "none";
@@ -2344,6 +2571,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 2) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "none";
@@ -2354,6 +2582,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 3) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2364,6 +2593,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 4) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2374,6 +2604,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 5) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2384,6 +2615,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 6) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2394,6 +2626,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 7) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2404,6 +2637,7 @@ function countNumberPOM8() {
     POM88.style.display = "none";
     POM98.style.display = "none";
   } else if (pom == 8) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2414,6 +2648,7 @@ function countNumberPOM8() {
     POM88.style.display = "block";
     POM98.style.display = "none";
   } else if (pom == 9) {
+    mapColor8.style.display = "block";
     POM18.style.display = "block";
     POM28.style.display = "block";
     POM38.style.display = "block";
@@ -2498,7 +2733,6 @@ function GetSelectedjoinCondition38() {
 function countNumberPOM9() {
   
   var pom = document.getElementById("pom9").value;
-  
   var POM19 = document.getElementById("POM1-9");
   var POM29 = document.getElementById("POM2-9");
   var POM39 = document.getElementById("POM3-9");
@@ -2510,6 +2744,7 @@ function countNumberPOM9() {
   var POM99 = document.getElementById("POM9-9");
 
   if (pom == 0) {
+    mapColor9.style.display = "none";
     POM19.style.display = "none";
     POM29.style.display = "none";
     POM39.style.display = "none";
@@ -2520,6 +2755,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 1) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "none";
     POM39.style.display = "none";
@@ -2530,6 +2766,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 2) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "none";
@@ -2540,6 +2777,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 3) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2550,6 +2788,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 4) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2560,6 +2799,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 5) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2570,6 +2810,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 6) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2580,6 +2821,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 7) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2590,6 +2832,7 @@ function countNumberPOM9() {
     POM89.style.display = "none";
     POM99.style.display = "none";
   } else if (pom == 8) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2600,6 +2843,7 @@ function countNumberPOM9() {
     POM89.style.display = "block";
     POM99.style.display = "none";
   } else if (pom == 9) {
+    mapColor9.style.display = "block";
     POM19.style.display = "block";
     POM29.style.display = "block";
     POM39.style.display = "block";
@@ -2676,11 +2920,1261 @@ function GetSelectedjoinCondition39() {
 
 
 
+/* Counting Functions Map */
+function countNumberFun() {
+  GetVariables();
 
+  if (fun == 0) {
+    functionColor.style.display = "none";
+    FUN1.style.display = "none";
+    FUN2.style.display = "none";
+    FUN3.style.display = "none";
+    FUN4.style.display = "none";
+    FUN5.style.display = "none";
+    FUN6.style.display = "none";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+  } else if (fun == 1) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "none";
+    FUN3.style.display = "none";
+    FUN4.style.display = "none";
+    FUN5.style.display = "none";
+    FUN6.style.display = "none";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor2.style.display = "none";
+    propertyColor3.style.display = "none";
+    propertyColor4.style.display = "none";
+    propertyColor5.style.display = "none";
+    propertyColor6.style.display = "none";
+    propertyColor7.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 2) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "none";
+    FUN4.style.display = "none";
+    FUN5.style.display = "none";
+    FUN6.style.display = "none";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor3.style.display = "none";
+    propertyColor4.style.display = "none";
+    propertyColor5.style.display = "none";
+    propertyColor6.style.display = "none";
+    propertyColor7.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 3) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "none";
+    FUN5.style.display = "none";
+    FUN6.style.display = "none";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor4.style.display = "none";
+    propertyColor5.style.display = "none";
+    propertyColor6.style.display = "none";
+    propertyColor7.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 4) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "block";
+    FUN5.style.display = "none";
+    FUN6.style.display = "none";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor5.style.display = "none";
+    propertyColor6.style.display = "none";
+    propertyColor7.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 5) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "block";
+    FUN5.style.display = "block";
+    FUN6.style.display = "none";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor6.style.display = "none";
+    propertyColor7.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 6) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "block";
+    FUN5.style.display = "block";
+    FUN6.style.display = "block";
+    FUN7.style.display = "none";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor7.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 7) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "block";
+    FUN5.style.display = "block";
+    FUN6.style.display = "block";
+    FUN7.style.display = "block";
+    FUN8.style.display = "none";
+    FUN9.style.display = "none";
+    propertyColor8.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 8) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "block";
+    FUN5.style.display = "block";
+    FUN6.style.display = "block";
+    FUN7.style.display = "block";
+    FUN8.style.display = "block";
+    FUN9.style.display = "none";
+    propertyColor9.style.display = "none";
+  } else if (fun == 9) {
+    functionColor.style.display = "block";
+    FUN1.style.display = "block";
+    FUN2.style.display = "block";
+    FUN3.style.display = "block";
+    FUN4.style.display = "block";
+    FUN5.style.display = "block";
+    FUN6.style.display = "block";
+    FUN7.style.display = "block";
+    FUN8.style.display = "block";
+    FUN9.style.display = "block";
+  }
 
+}
+
+function countNumberNOP() {
+  GetVariables();
+  if (nop == 0) {
+    propertyColor.style.display = "none";
+    F11P1.style.display = "none";
+    F11P2.style.display = "none";
+    F11P3.style.display = "none";
+    F11P4.style.display = "none";
+    F11P5.style.display = "none";
+    F11P6.style.display = "none";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+    // functionMap2.style.display = "none";
+  } else if (nop == 1) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "none";
+    F11P3.style.display = "none";
+    F11P4.style.display = "none";
+    F11P5.style.display = "none";
+    F11P6.style.display = "none";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+   } else if (nop == 2) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "none";
+    F11P4.style.display = "none";
+    F11P5.style.display = "none";
+    F11P6.style.display = "none";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+   } else if (nop == 3) {
+    propertyColor.style.display = "block";
+     F11P1.style.display = "block";
+     F11P2.style.display = "block";
+     F11P3.style.display = "block";
+    F11P4.style.display = "none";
+    F11P5.style.display = "none";
+    F11P6.style.display = "none";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+  } else if (nop == 4) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "block";
+    F11P4.style.display = "block";
+    F11P5.style.display = "none";
+    F11P6.style.display = "none";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+  } else if (nop == 5) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "block";
+    F11P4.style.display = "block";
+    F11P5.style.display = "block";
+    F11P6.style.display = "none";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+  } else if (nop == 6) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "block";
+    F11P4.style.display = "block";
+    F11P5.style.display = "block";
+    F11P6.style.display = "block";
+    F11P7.style.display = "none";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+  } else if (nop == 7) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "block";
+    F11P4.style.display = "block";
+    F11P5.style.display = "block";
+    F11P6.style.display = "block";
+    F11P7.style.display = "block";
+    F11P8.style.display = "none";
+    F11P9.style.display = "none";
+  } else if (nop == 8) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "block";
+    F11P4.style.display = "block";
+    F11P5.style.display = "block";
+    F11P6.style.display = "block";
+    F11P7.style.display = "block";
+    F11P8.style.display = "block";
+    F11P9.style.display = "none";
+  } else if (nop == 9) {
+    propertyColor.style.display = "block";
+    F11P1.style.display = "block";
+    F11P2.style.display = "block";
+    F11P3.style.display = "block";
+    F11P4.style.display = "block";
+    F11P5.style.display = "block";
+    F11P6.style.display = "block";
+    F11P7.style.display = "block";
+    F11P8.style.display = "block";
+    F11P9.style.display = "block";
+   }
+
+//    $("#nop").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap2.style.display = "none";
+// });
+ }
+ function countNumberNOP2() {
+ GetVariables();
+  if (nop2 == 0) {
+    propertyColor2.style.display = "none";
+    F21P1.style.display = "none";
+    F21P2.style.display = "none";
+    F21P3.style.display = "none";
+    F21P4.style.display = "none";
+    F21P5.style.display = "none";
+    F21P6.style.display = "none";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+  } else if (nop2 == 1) {
+    propertyColor2.style.display = "block";
+     F21P1.style.display = "block";
+    F21P2.style.display = "none";
+    F21P3.style.display = "none";
+    F21P4.style.display = "none";
+    F21P5.style.display = "none";
+    F21P6.style.display = "none";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+   } else if (nop2 == 2) {
+    propertyColor2.style.display = "block";
+    F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "none";
+    F21P4.style.display = "none";
+    F21P5.style.display = "none";
+    F21P6.style.display = "none";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+   } else if (nop2 == 3) {
+    propertyColor2.style.display = "block";
+      F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "none";
+    F21P5.style.display = "none";
+    F21P6.style.display = "none";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+  } else if (nop2 == 4) {
+    propertyColor2.style.display = "block";
+    F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "block";
+    F21P5.style.display = "none";
+    F21P6.style.display = "none";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+  } else if (nop2 == 5) {
+    propertyColor2.style.display = "block";
+    F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "block";
+    F21P5.style.display = "block";
+    F21P6.style.display = "none";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+  } else if (nop2 == 6) {
+    propertyColor2.style.display = "block";
+     F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "block";
+    F21P5.style.display = "block";
+    F21P6.style.display = "block";
+    F21P7.style.display = "none";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+  } else if (nop2 == 7) {
+    propertyColor2.style.display = "block";
+   F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "block";
+    F21P5.style.display = "block";
+    F21P6.style.display = "block";
+    F21P7.style.display = "block";
+    F21P8.style.display = "none";
+    F21P9.style.display = "none";
+  } else if (nop2 == 8) {
+    propertyColor2.style.display = "block";
+    F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "block";
+    F21P5.style.display = "block";
+    F21P6.style.display = "block";
+    F21P7.style.display = "block";
+    F21P8.style.display = "block";
+    F21P9.style.display = "none";
+  } else if (nop2 == 9) {
+    propertyColor2.style.display = "block";
+     F21P1.style.display = "block";
+    F21P2.style.display = "block";
+    F21P3.style.display = "block";
+    F21P4.style.display = "block";
+    F21P5.style.display = "block";
+    F21P6.style.display = "block";
+    F21P7.style.display = "block";
+    F21P8.style.display = "block";
+    F21P9.style.display = "block";
+   }
+
+//    $("#nop2").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap3.style.display = "none";
+// });
+ }
+
+function countNumberNOP3() {
+ GetVariables();
+  if (nop3 == 0) {
+    propertyColor3.style.display = "none";
+    F31P1.style.display = "none";
+    F31P2.style.display = "none";
+    F31P3.style.display = "none";
+    F31P4.style.display = "none";
+    F31P5.style.display = "none";
+    F31P6.style.display = "none";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+  } else if (nop3 == 1) {
+    propertyColor3.style.display = "block";
+     F31P1.style.display = "block";
+    F31P2.style.display = "none";
+    F31P3.style.display = "none";
+    F31P4.style.display = "none";
+    F31P5.style.display = "none";
+    F31P6.style.display = "none";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+   } else if (nop3 == 2) {
+    propertyColor3.style.display = "block";
+    F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "none";
+    F31P4.style.display = "none";
+    F31P5.style.display = "none";
+    F31P6.style.display = "none";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+   } else if (nop3 == 3) {
+    propertyColor3.style.display = "block";
+      F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "none";
+    F31P5.style.display = "none";
+    F31P6.style.display = "none";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+  } else if (nop3 == 4) {
+    propertyColor3.style.display = "block";
+    F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "block";
+    F31P5.style.display = "none";
+    F31P6.style.display = "none";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+  } else if (nop3 == 5) {
+    propertyColor3.style.display = "block";
+    F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "block";
+    F31P5.style.display = "block";
+    F31P6.style.display = "none";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+  } else if (nop3 == 6) {
+    propertyColor3.style.display = "block";
+     F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "block";
+    F31P5.style.display = "block";
+    F31P6.style.display = "block";
+    F31P7.style.display = "none";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+  } else if (nop3 == 7) {
+    propertyColor3.style.display = "block";
+   F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "block";
+    F31P5.style.display = "block";
+    F31P6.style.display = "block";
+    F31P7.style.display = "block";
+    F31P8.style.display = "none";
+    F31P9.style.display = "none";
+  } else if (nop3 == 8) {
+    propertyColor3.style.display = "block";
+    F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "block";
+    F31P5.style.display = "block";
+    F31P6.style.display = "block";
+    F31P7.style.display = "block";
+    F31P8.style.display = "block";
+    F31P9.style.display = "none";
+  } else if (nop3 == 9) {
+    propertyColor3.style.display = "block";
+     F31P1.style.display = "block";
+    F31P2.style.display = "block";
+    F31P3.style.display = "block";
+    F31P4.style.display = "block";
+    F31P5.style.display = "block";
+    F31P6.style.display = "block";
+    F31P7.style.display = "block";
+    F31P8.style.display = "block";
+    F31P9.style.display = "block";
+   }
+
+//    $("#nop3").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap4.style.display = "none";
+// });
+ }
+
+function countNumberNOP4() {
+ GetVariables();
+  if (nop4 == 0) {
+    propertyColor4.style.display = "none";
+    F41P1.style.display = "none";
+    F41P2.style.display = "none";
+    F41P3.style.display = "none";
+    F41P4.style.display = "none";
+    F41P5.style.display = "none";
+    F41P6.style.display = "none";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+  } else if (nop4 == 1) {
+    propertyColor4.style.display = "block";
+     F41P1.style.display = "block";
+    F41P2.style.display = "none";
+    F41P3.style.display = "none";
+    F41P4.style.display = "none";
+    F41P5.style.display = "none";
+    F41P6.style.display = "none";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+   } else if (nop4 == 2) {
+    propertyColor4.style.display = "block";
+    F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "none";
+    F41P4.style.display = "none";
+    F41P5.style.display = "none";
+    F41P6.style.display = "none";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+   } else if (nop4 == 3) {
+    propertyColor4.style.display = "block";
+      F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "none";
+    F41P5.style.display = "none";
+    F41P6.style.display = "none";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+  } else if (nop4 == 4) {
+    propertyColor4.style.display = "block";
+    F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "block";
+    F41P5.style.display = "none";
+    F41P6.style.display = "none";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+  } else if (nop4 == 5) {
+    propertyColor4.style.display = "block";
+    F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "block";
+    F41P5.style.display = "block";
+    F41P6.style.display = "none";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+  } else if (nop4 == 6) {
+    propertyColor4.style.display = "block";
+     F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "block";
+    F41P5.style.display = "block";
+    F41P6.style.display = "block";
+    F41P7.style.display = "none";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+  } else if (nop4 == 7) {
+    propertyColor4.style.display = "block";
+   F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "block";
+    F41P5.style.display = "block";
+    F41P6.style.display = "block";
+    F41P7.style.display = "block";
+    F41P8.style.display = "none";
+    F41P9.style.display = "none";
+  } else if (nop4 == 8) {
+    propertyColor4.style.display = "block";
+    F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "block";
+    F41P5.style.display = "block";
+    F41P6.style.display = "block";
+    F41P7.style.display = "block";
+    F41P8.style.display = "block";
+    F41P9.style.display = "none";
+  } else if (nop4 == 9) {
+    propertyColor4.style.display = "block";
+     F41P1.style.display = "block";
+    F41P2.style.display = "block";
+    F41P3.style.display = "block";
+    F41P4.style.display = "block";
+    F41P5.style.display = "block";
+    F41P6.style.display = "block";
+    F41P7.style.display = "block";
+    F41P8.style.display = "block";
+    F41P9.style.display = "block";
+   }
+
+//    $("#nop4").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap5.style.display = "none";
+// });
+ }
+
+function countNumberNOP5() {
+ GetVariables();
+  if (nop5 == 0) {
+    propertyColor5.style.display = "none";
+    F51P1.style.display = "none";
+    F51P2.style.display = "none";
+    F51P3.style.display = "none";
+    F51P4.style.display = "none";
+    F51P5.style.display = "none";
+    F51P6.style.display = "none";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+  } else if (nop5 == 1) {
+    propertyColor5.style.display = "block";
+     F51P1.style.display = "block";
+    F51P2.style.display = "none";
+    F51P3.style.display = "none";
+    F51P4.style.display = "none";
+    F51P5.style.display = "none";
+    F51P6.style.display = "none";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+   } else if (nop5 == 2) {
+    propertyColor5.style.display = "block";
+    F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "none";
+    F51P4.style.display = "none";
+    F51P5.style.display = "none";
+    F51P6.style.display = "none";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+   } else if (nop5 == 3) {
+    propertyColor5.style.display = "block";
+      F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "none";
+    F51P5.style.display = "none";
+    F51P6.style.display = "none";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+  } else if (nop5 == 4) {
+    propertyColor5.style.display = "block";
+    F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "block";
+    F51P5.style.display = "none";
+    F51P6.style.display = "none";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+  } else if (nop5 == 5) {
+    propertyColor5.style.display = "block";
+    F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "block";
+    F51P5.style.display = "block";
+    F51P6.style.display = "none";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+  } else if (nop5 == 6) {
+    propertyColor5.style.display = "block";
+     F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "block";
+    F51P5.style.display = "block";
+    F51P6.style.display = "block";
+    F51P7.style.display = "none";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+  } else if (nop5 == 7) {
+    propertyColor5.style.display = "block";
+   F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "block";
+    F51P5.style.display = "block";
+    F51P6.style.display = "block";
+    F51P7.style.display = "block";
+    F51P8.style.display = "none";
+    F51P9.style.display = "none";
+  } else if (nop5 == 8) {
+    propertyColor5.style.display = "block";
+    F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "block";
+    F51P5.style.display = "block";
+    F51P6.style.display = "block";
+    F51P7.style.display = "block";
+    F51P8.style.display = "block";
+    F51P9.style.display = "none";
+  } else if (nop5 == 9) {
+    propertyColor5.style.display = "block";
+     F51P1.style.display = "block";
+    F51P2.style.display = "block";
+    F51P3.style.display = "block";
+    F51P4.style.display = "block";
+    F51P5.style.display = "block";
+    F51P6.style.display = "block";
+    F51P7.style.display = "block";
+    F51P8.style.display = "block";
+    F51P9.style.display = "block";
+   }
+
+//    $("#nop5").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap6.style.display = "none";
+// });
+ }
+
+ function countNumberNOP6() {
+ GetVariables();
+  if (nop6 == 0) {
+    propertyColor6.style.display = "none";
+    F61P1.style.display = "none";
+    F61P2.style.display = "none";
+    F61P3.style.display = "none";
+    F61P4.style.display = "none";
+    F61P5.style.display = "none";
+    F61P6.style.display = "none";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+  } else if (nop6 == 1) {
+    propertyColor6.style.display = "block";
+     F61P1.style.display = "block";
+    F61P2.style.display = "none";
+    F61P3.style.display = "none";
+    F61P4.style.display = "none";
+    F61P5.style.display = "none";
+    F61P6.style.display = "none";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+   } else if (nop6 == 2) {
+    propertyColor6.style.display = "block";
+    F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "none";
+    F61P4.style.display = "none";
+    F61P5.style.display = "none";
+    F61P6.style.display = "none";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+   } else if (nop6 == 3) {
+    propertyColor6.style.display = "block";
+      F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "none";
+    F61P5.style.display = "none";
+    F61P6.style.display = "none";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+  } else if (nop6 == 4) {
+    propertyColor6.style.display = "block";
+    F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "block";
+    F61P5.style.display = "none";
+    F61P6.style.display = "none";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+  } else if (nop6 == 5) {
+    propertyColor6.style.display = "block";
+    F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "block";
+    F61P5.style.display = "block";
+    F61P6.style.display = "none";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+  } else if (nop6 == 6) {
+    propertyColor6.style.display = "block";
+     F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "block";
+    F61P5.style.display = "block";
+    F61P6.style.display = "block";
+    F61P7.style.display = "none";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+  } else if (nop6 == 7) {
+    propertyColor6.style.display = "block";
+   F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "block";
+    F61P5.style.display = "block";
+    F61P6.style.display = "block";
+    F61P7.style.display = "block";
+    F61P8.style.display = "none";
+    F61P9.style.display = "none";
+  } else if (nop6 == 8) {
+    propertyColor6.style.display = "block";
+    F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "block";
+    F61P5.style.display = "block";
+    F61P6.style.display = "block";
+    F61P7.style.display = "block";
+    F61P8.style.display = "block";
+    F61P9.style.display = "none";
+  } else if (nop6 == 9) {
+    propertyColor6.style.display = "block";
+     F61P1.style.display = "block";
+    F61P2.style.display = "block";
+    F61P3.style.display = "block";
+    F61P4.style.display = "block";
+    F61P5.style.display = "block";
+    F61P6.style.display = "block";
+    F61P7.style.display = "block";
+    F61P8.style.display = "block";
+    F61P9.style.display = "block";
+   }
+
+//    $("#nop6").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap6.style.display = "none";
+// });
+ }
+
+function countNumberNOP7() {
+ GetVariables();
+  if (nop7 == 0) {
+    propertyColor7.style.display = "none";
+    F71P1.style.display = "none";
+    F71P2.style.display = "none";
+    F71P3.style.display = "none";
+    F71P4.style.display = "none";
+    F71P5.style.display = "none";
+    F71P6.style.display = "none";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+  } else if (nop7 == 1) {
+    propertyColor7.style.display = "block";
+     F71P1.style.display = "block";
+    F71P2.style.display = "none";
+    F71P3.style.display = "none";
+    F71P4.style.display = "none";
+    F71P5.style.display = "none";
+    F71P6.style.display = "none";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+   } else if (nop7 == 2) {
+    propertyColor7.style.display = "block";
+    F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "none";
+    F71P4.style.display = "none";
+    F71P5.style.display = "none";
+    F71P6.style.display = "none";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+   } else if (nop7 == 3) {
+    propertyColor7.style.display = "block";
+      F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "none";
+    F71P5.style.display = "none";
+    F71P6.style.display = "none";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+  } else if (nop7 == 4) {
+    propertyColor7.style.display = "block";
+    F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "block";
+    F71P5.style.display = "none";
+    F71P6.style.display = "none";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+  } else if (nop7 == 5) {
+    propertyColor7.style.display = "block";
+    F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "block";
+    F71P5.style.display = "block";
+    F71P6.style.display = "none";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+  } else if (nop7 == 6) {
+    propertyColor7.style.display = "block";
+     F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "block";
+    F71P5.style.display = "block";
+    F71P6.style.display = "block";
+    F71P7.style.display = "none";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+  } else if (nop7 == 7) {
+    propertyColor7.style.display = "block";
+   F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "block";
+    F71P5.style.display = "block";
+    F71P6.style.display = "block";
+    F71P7.style.display = "block";
+    F71P8.style.display = "none";
+    F71P9.style.display = "none";
+  } else if (nop7 == 8) {
+    propertyColor7.style.display = "block";
+    F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "block";
+    F71P5.style.display = "block";
+    F71P6.style.display = "block";
+    F71P7.style.display = "block";
+    F71P8.style.display = "block";
+    F71P9.style.display = "none";
+  } else if (nop7 == 9) {
+    propertyColor7.style.display = "block";
+     F71P1.style.display = "block";
+    F71P2.style.display = "block";
+    F71P3.style.display = "block";
+    F71P4.style.display = "block";
+    F71P5.style.display = "block";
+    F71P6.style.display = "block";
+    F71P7.style.display = "block";
+    F71P8.style.display = "block";
+    F71P9.style.display = "block";
+   }
+
+//    $("#nop7").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap6.style.display = "none";
+// });
+ }
+
+ function countNumberNOP8() {
+ GetVariables();
+  if (nop8 == 0) {
+    propertyColor8.style.display = "none";
+    F81P1.style.display = "none";
+    F81P2.style.display = "none";
+    F81P3.style.display = "none";
+    F81P4.style.display = "none";
+    F81P5.style.display = "none";
+    F81P6.style.display = "none";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+  } else if (nop8 == 1) {
+    propertyColor8.style.display = "block";
+     F81P1.style.display = "block";
+    F81P2.style.display = "none";
+    F81P3.style.display = "none";
+    F81P4.style.display = "none";
+    F81P5.style.display = "none";
+    F81P6.style.display = "none";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+   } else if (nop8 == 2) {
+    propertyColor8.style.display = "block";
+    F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "none";
+    F81P4.style.display = "none";
+    F81P5.style.display = "none";
+    F81P6.style.display = "none";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+   } else if (nop8 == 3) {
+    propertyColor8.style.display = "block";
+      F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "none";
+    F81P5.style.display = "none";
+    F81P6.style.display = "none";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+  } else if (nop8 == 4) {
+    propertyColor8.style.display = "block";
+    F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "block";
+    F81P5.style.display = "none";
+    F81P6.style.display = "none";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+  } else if (nop8 == 5) {
+    propertyColor8.style.display = "block";
+    F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "block";
+    F81P5.style.display = "block";
+    F81P6.style.display = "none";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+  } else if (nop8 == 6) {
+    propertyColor8.style.display = "block";
+     F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "block";
+    F81P5.style.display = "block";
+    F81P6.style.display = "block";
+    F81P7.style.display = "none";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+  } else if (nop8 == 7) {
+    propertyColor8.style.display = "block";
+   F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "block";
+    F81P5.style.display = "block";
+    F81P6.style.display = "block";
+    F81P7.style.display = "block";
+    F81P8.style.display = "none";
+    F81P9.style.display = "none";
+  } else if (nop8 == 8) {
+    propertyColor8.style.display = "block";
+    F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "block";
+    F81P5.style.display = "block";
+    F81P6.style.display = "block";
+    F81P7.style.display = "block";
+    F81P8.style.display = "block";
+    F81P9.style.display = "none";
+  } else if (nop8 == 9) {
+    propertyColor8.style.display = "block";
+     F81P1.style.display = "block";
+    F81P2.style.display = "block";
+    F81P3.style.display = "block";
+    F81P4.style.display = "block";
+    F81P5.style.display = "block";
+    F81P6.style.display = "block";
+    F81P7.style.display = "block";
+    F81P8.style.display = "block";
+    F81P9.style.display = "block";
+   }
+
+//    $("#nop8").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap6.style.display = "none";
+// });
+ }
+
+ function countNumberNOP9() {
+ GetVariables();
+  if (nop9 == 0) {
+    propertyColor9.style.display = "none";
+    F91P1.style.display = "none";
+    F91P2.style.display = "none";
+    F91P3.style.display = "none";
+    F91P4.style.display = "none";
+    F91P5.style.display = "none";
+    F91P6.style.display = "none";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+  } else if (nop9 == 1) {
+    propertyColor9.style.display = "block";
+     F91P1.style.display = "block";
+    F91P2.style.display = "none";
+    F91P3.style.display = "none";
+    F91P4.style.display = "none";
+    F91P5.style.display = "none";
+    F91P6.style.display = "none";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+   } else if (nop9 == 2) {
+    propertyColor9.style.display = "block";
+    F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "none";
+    F91P4.style.display = "none";
+    F91P5.style.display = "none";
+    F91P6.style.display = "none";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+   } else if (nop9 == 3) {
+    propertyColor9.style.display = "block";
+      F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "none";
+    F91P5.style.display = "none";
+    F91P6.style.display = "none";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+  } else if (nop9 == 4) {
+    propertyColor9.style.display = "block";
+    F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "block";
+    F91P5.style.display = "none";
+    F91P6.style.display = "none";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+  } else if (nop9 == 5) {
+    propertyColor9.style.display = "block";
+    F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "block";
+    F91P5.style.display = "block";
+    F91P6.style.display = "none";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+  } else if (nop9 == 6) {
+    propertyColor9.style.display = "block";
+     F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "block";
+    F91P5.style.display = "block";
+    F91P6.style.display = "block";
+    F91P7.style.display = "none";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+  } else if (nop9 == 7) {
+    propertyColor9.style.display = "block";
+   F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "block";
+    F91P5.style.display = "block";
+    F91P6.style.display = "block";
+    F91P7.style.display = "block";
+    F91P8.style.display = "none";
+    F91P9.style.display = "none";
+  } else if (nop9 == 8) {
+    propertyColor9.style.display = "block";
+    F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "block";
+    F91P5.style.display = "block";
+    F91P6.style.display = "block";
+    F91P7.style.display = "block";
+    F91P8.style.display = "block";
+    F91P9.style.display = "none";
+  } else if (nop9 == 9) {
+    propertyColor9.style.display = "block";
+    F91P1.style.display = "block";
+    F91P2.style.display = "block";
+    F91P3.style.display = "block";
+    F91P4.style.display = "block";
+    F91P5.style.display = "block";
+    F91P6.style.display = "block";
+    F91P7.style.display = "block";
+    F91P8.style.display = "block";
+    F91P9.style.display = "block";
+   }
+
+//    $("#nop9").change(function () {
+//     var direction = this.defaultValue < this.value
+//     this.defaultValue = this.value;
+//     if (direction) console.log("increase!");
+//     else functionMap6.style.display = "none";
+// });
+ }
 
 /* Generating Mapping Rule*/
 function GenerateMR() {
+  
 	var downloadlink = document.getElementById('downloadlink');
 	downloadlink.style.display = "block";
   
@@ -3532,27 +5026,344 @@ function GenerateMR() {
   joinCondition99 = document.getElementById("joinCondition9-9"),
   child99 = document.getElementById("child9-9"),
   parents99 = document.getElementById("parent9-9"),
+	//functionMaps
+  funMapN = document.getElementById("funMapN"),
+  funsource = document.getElementById("funsource"),
+  funsourceformat = document.getElementById("funsourceformat"),
+  funN = document.getElementById("funN"),
+  nop = document.getElementById("nop")
+  parameter = document.getElementById("parameter"),
+  parameters = document.getElementById("parameters"),
+  value = document.getElementById("value"),
+  parameter2 = document.getElementById("parameter2"),
+  parameters2 = document.getElementById("parameters2"),
+  value2 = document.getElementById("value2"),
+  parameter3 = document.getElementById("parameter3"),
+  parameters3 = document.getElementById("parameters3"),
+  value3 = document.getElementById("value3"),
+  parameter4 = document.getElementById("parameter4"),
+  parameters4 = document.getElementById("parameters4"),
+  value4 = document.getElementById("value4"),
+  parameter5 = document.getElementById("parameter5"),
+  parameters5 = document.getElementById("parameters5"),
+  value5 = document.getElementById("value5"),
+  parameter6 = document.getElementById("parameter6"),
+  parameters6 = document.getElementById("parameters6"),
+  value6 = document.getElementById("value6"),
+  parameter7 = document.getElementById("parameter7"),
+  parameters7 = document.getElementById("parameters7"),
+  value7 = document.getElementById("value7"),
+  parameter8 = document.getElementById("parameter8"),
+  parameters8 = document.getElementById("parameters8"),
+  value8 = document.getElementById("value8"),
+  parameter9 = document.getElementById("parameter9"),
+  parameters9 = document.getElementById("parameters9"),
+  value9 = document.getElementById("value9"),
+
+  funMapN2 = document.getElementById("funMapN2"),
+  funsource2 = document.getElementById("funsource2"),
+  funsourceformat2 = document.getElementById("funsourceformat2"),
+  funN2 = document.getElementById("funN2"),
+  nop2 = document.getElementById("nop2")
+  parameter12 = document.getElementById("parameter12"),
+  parameters12 = document.getElementById("parameters12"),
+  value12 = document.getElementById("value12"),
+  parameter22 = document.getElementById("parameter22"),
+  parameters22 = document.getElementById("parameters22"),
+  value22 = document.getElementById("value22"),
+  parameter32 = document.getElementById("parameter32"),
+  parameters32 = document.getElementById("parameters32"),
+  value32 = document.getElementById("value32"),
+  parameter42 = document.getElementById("parameter42"),
+  parameters42 = document.getElementById("parameters42"),
+  value42 = document.getElementById("value42"),
+  parameter52 = document.getElementById("parameter52"),
+  parameters52 = document.getElementById("parameters52"),
+  value52 = document.getElementById("value52"),
+  parameter62 = document.getElementById("parameter62"),
+  parameters62 = document.getElementById("parameters62"),
+  value62 = document.getElementById("value62"),
+  parameter72 = document.getElementById("parameter72"),
+  parameters72 = document.getElementById("parameters72"),
+  value72 = document.getElementById("value72"),
+  parameter82 = document.getElementById("parameter82"),
+  parameters82 = document.getElementById("parameters82"),
+  value82 = document.getElementById("value82"),
+  parameter92 = document.getElementById("parameter92"),
+  parameters92 = document.getElementById("parameters92"),
+  value92 = document.getElementById("value92"),
+
+  funMapN3 = document.getElementById("funMapN3"),
+  funsource3 = document.getElementById("funsource3"),
+  funsourceformat3 = document.getElementById("funsourceformat3"),
+  funN3 = document.getElementById("funN3"),
+  nop3 = document.getElementById("nop3")
+  parameter13 = document.getElementById("parameter13"),
+  parameters13 = document.getElementById("parameters13"),
+  value13 = document.getElementById("value13"),
+  parameter23 = document.getElementById("parameter23"),
+  parameters23 = document.getElementById("parameters23"),
+  value23 = document.getElementById("value23"),
+  parameter33 = document.getElementById("parameter33"),
+  parameters33 = document.getElementById("parameters33"),
+  value33 = document.getElementById("value33"),
+  parameter43 = document.getElementById("parameter43"),
+  parameters43 = document.getElementById("parameters43"),
+  value43 = document.getElementById("value43"),
+  parameter53 = document.getElementById("parameter53"),
+  parameters53 = document.getElementById("parameters53"),
+  value53 = document.getElementById("value53"),
+  parameter63 = document.getElementById("parameter63"),
+  parameters63 = document.getElementById("parameters63"),
+  value63 = document.getElementById("value63"),
+  parameter73 = document.getElementById("parameter73"),
+  parameters73 = document.getElementById("parameters73"),
+  value73 = document.getElementById("value73"),
+  parameter83 = document.getElementById("parameter83"),
+  parameters83 = document.getElementById("parameters83"),
+  value83 = document.getElementById("value83"),
+  parameter93 = document.getElementById("parameter93"),
+  parameters93 = document.getElementById("parameters93"),
+  value93 = document.getElementById("value93"),
+
+  funMapN4 = document.getElementById("funMapN4"),
+  funsource4 = document.getElementById("funsource4"),
+  funsourceformat4 = document.getElementById("funsourceformat4"),
+  funN4 = document.getElementById("funN4"),
+  nop4 = document.getElementById("nop4")
+  parameter14 = document.getElementById("parameter14"),
+  parameters14 = document.getElementById("parameters14"),
+  value14 = document.getElementById("value14"),
+  parameter24 = document.getElementById("parameter24"),
+  parameters24 = document.getElementById("parameters24"),
+  value24 = document.getElementById("value24"),
+  parameter34 = document.getElementById("parameter34"),
+  parameters34 = document.getElementById("parameters34"),
+  value34 = document.getElementById("value34"),
+  parameter44 = document.getElementById("parameter44"),
+  parameters44 = document.getElementById("parameters44"),
+  value44 = document.getElementById("value44"),
+  parameter54 = document.getElementById("parameter54"),
+  parameters54 = document.getElementById("parameters54"),
+  value54 = document.getElementById("value54"),
+  parameter64 = document.getElementById("parameter64"),
+  parameters64 = document.getElementById("parameters64"),
+  value64 = document.getElementById("value64"),
+  parameter74 = document.getElementById("parameter74"),
+  parameters74 = document.getElementById("parameters74"),
+  value74 = document.getElementById("value74"),
+  parameter84 = document.getElementById("parameter84"),
+  parameters84 = document.getElementById("parameters84"),
+  value84 = document.getElementById("value84"),
+  parameter94 = document.getElementById("parameter94"),
+  parameters94 = document.getElementById("parameters94"),
+  value94 = document.getElementById("value94"),
+
+  funMapN5 = document.getElementById("funMapN5"),
+  funsource5 = document.getElementById("funsource5"),
+  funsourceformat5 = document.getElementById("funsourceformat5"),
+  funN5 = document.getElementById("funN5"),
+  nop5 = document.getElementById("nop5")
+  parameter15 = document.getElementById("parameter15"),
+  parameters15 = document.getElementById("parameters15"),
+  value15 = document.getElementById("value15"),
+  parameter25 = document.getElementById("parameter25"),
+  parameters25 = document.getElementById("parameters25"),
+  value25 = document.getElementById("value25"),
+  parameter35 = document.getElementById("parameter35"),
+  parameters35 = document.getElementById("parameters35"),
+  value35 = document.getElementById("value35"),
+  parameter45 = document.getElementById("parameter45"),
+  parameters45 = document.getElementById("parameters45"),
+  value45 = document.getElementById("value45"),
+  parameter55 = document.getElementById("parameter55"),
+  parameters55 = document.getElementById("parameters55"),
+  value55 = document.getElementById("value55"),
+  parameter65 = document.getElementById("parameter65"),
+  parameters65 = document.getElementById("parameters65"),
+  value65 = document.getElementById("value65"),
+  parameter75 = document.getElementById("parameter75"),
+  parameters75 = document.getElementById("parameters75"),
+  value75 = document.getElementById("value75"),
+  parameter85 = document.getElementById("parameter85"),
+  parameters85 = document.getElementById("parameters85"),
+  value85 = document.getElementById("value85"),
+  parameter95 = document.getElementById("parameter95"),
+  parameters95 = document.getElementById("parameters95"),
+  value95 = document.getElementById("value95"),
+
+  funMapN6 = document.getElementById("funMapN6"),
+  funsource6 = document.getElementById("funsource6"),
+  funsourceformat6 = document.getElementById("funsourceformat6"),
+  funN6 = document.getElementById("funN6"),
+  nop6 = document.getElementById("nop6")
+  parameter16 = document.getElementById("parameter16"),
+  parameters16 = document.getElementById("parameters16"),
+  value16 = document.getElementById("value16"),
+  parameter26 = document.getElementById("parameter26"),
+  parameters26 = document.getElementById("parameters26"),
+  value26 = document.getElementById("value26"),
+  parameter36 = document.getElementById("parameter36"),
+  parameters36 = document.getElementById("parameters36"),
+  value36 = document.getElementById("value36"),
+  parameter46 = document.getElementById("parameter46"),
+  parameters46 = document.getElementById("parameters46"),
+  value46 = document.getElementById("value46"),
+  parameter56 = document.getElementById("parameter56"),
+  parameters56 = document.getElementById("parameters56"),
+  value56 = document.getElementById("value56"),
+  parameter66 = document.getElementById("parameter66"),
+  parameters66 = document.getElementById("parameters66"),
+  value66 = document.getElementById("value66"),
+  parameter76 = document.getElementById("parameter76"),
+  parameters76 = document.getElementById("parameters76"),
+  value76 = document.getElementById("value76"),
+  parameter86 = document.getElementById("parameter86"),
+  parameters86 = document.getElementById("parameters86"),
+  value86 = document.getElementById("value86"),
+  parameter96 = document.getElementById("parameter96"),
+  parameters96 = document.getElementById("parameters96"),
+  value96 = document.getElementById("value96"),
+
+  funMapN7 = document.getElementById("funMapN7"),
+  funsource7 = document.getElementById("funsource7"),
+  funsourceformat7 = document.getElementById("funsourceformat7"),
+  funN7 = document.getElementById("funN7"),
+  nop7 = document.getElementById("nop7")
+  parameter17 = document.getElementById("parameter17"),
+  parameters17 = document.getElementById("parameters17"),
+  value17 = document.getElementById("value17"),
+  parameter27 = document.getElementById("parameter27"),
+  parameters27 = document.getElementById("parameters27"),
+  value27 = document.getElementById("value27"),
+  parameter37 = document.getElementById("parameter37"),
+  parameters37 = document.getElementById("parameters37"),
+  value37 = document.getElementById("value37"),
+  parameter47 = document.getElementById("parameter47"),
+  parameters47 = document.getElementById("parameters47"),
+  value47 = document.getElementById("value47"),
+  parameter57 = document.getElementById("parameter57"),
+  parameters57 = document.getElementById("parameters57"),
+  value57 = document.getElementById("value57"),
+  parameter67 = document.getElementById("parameter67"),
+  parameters67 = document.getElementById("parameters67"),
+  value67 = document.getElementById("value67"),
+  parameter77 = document.getElementById("parameter77"),
+  parameters77 = document.getElementById("parameters77"),
+  value77 = document.getElementById("value77"),
+  parameter87 = document.getElementById("parameter87"),
+  parameters87 = document.getElementById("parameters87"),
+  value87 = document.getElementById("value87"),
+  parameter97 = document.getElementById("parameter97"),
+  parameters97 = document.getElementById("parameters97"),
+  value97 = document.getElementById("value97"),
+
+  funMapN8 = document.getElementById("funMapN8"),
+  funsource8 = document.getElementById("funsource8"),
+  funsourceformat8 = document.getElementById("funsourceformat8"),
+  funN8 = document.getElementById("funN8"),
+  nop8 = document.getElementById("nop8")
+  parameter18 = document.getElementById("parameter18"),
+  parameters18 = document.getElementById("parameters18"),
+  value18 = document.getElementById("value18"),
+  parameter28 = document.getElementById("parameter28"),
+  parameters28 = document.getElementById("parameters28"),
+  value28 = document.getElementById("value28"),
+  parameter38 = document.getElementById("parameter38"),
+  parameters38 = document.getElementById("parameters38"),
+  value38 = document.getElementById("value38"),
+  parameter48 = document.getElementById("parameter48"),
+  parameters48 = document.getElementById("parameters48"),
+  value48 = document.getElementById("value48"),
+  parameter58 = document.getElementById("parameter58"),
+  parameters58 = document.getElementById("parameters58"),
+  value58 = document.getElementById("value58"),
+  parameter68 = document.getElementById("parameter68"),
+  parameters68 = document.getElementById("parameters68"),
+  value68 = document.getElementById("value68"),
+  parameter78 = document.getElementById("parameter78"),
+  parameters78 = document.getElementById("parameters78"),
+  value78 = document.getElementById("value78"),
+  parameter88 = document.getElementById("parameter88"),
+  parameters88 = document.getElementById("parameters88"),
+  value88 = document.getElementById("value88"),
+  parameter98 = document.getElementById("parameter98"),
+  parameters98 = document.getElementById("parameters98"),
+  value98 = document.getElementById("value98"),
+
+  funMapN9 = document.getElementById("funMapN9"),
+  funsource9 = document.getElementById("funsource9"),
+  funsourceformat9 = document.getElementById("funsourceformat9"),
+  funN9 = document.getElementById("funN9"),
+  nop9 = document.getElementById("nop9")
+  parameter19 = document.getElementById("parameter19"),
+  parameters19 = document.getElementById("parameters19"),
+  value19 = document.getElementById("value19"),
+  parameter29 = document.getElementById("parameter29"),
+  parameters29 = document.getElementById("parameters29"),
+  value29 = document.getElementById("value29"),
+  parameter39 = document.getElementById("parameter39"),
+  parameters39 = document.getElementById("parameters39"),
+  value39 = document.getElementById("value39"),
+  parameter49 = document.getElementById("parameter49"),
+  parameters49 = document.getElementById("parameters49"),
+  value49 = document.getElementById("value49"),
+  parameter59 = document.getElementById("parameter59"),
+  parameters59 = document.getElementById("parameters59"),
+  value59 = document.getElementById("value59"),
+  parameter69 = document.getElementById("parameter69"),
+  parameters69 = document.getElementById("parameters69"),
+  value69 = document.getElementById("value69"),
+  parameter79 = document.getElementById("parameter79"),
+  parameters79 = document.getElementById("parameters79"),
+  value79 = document.getElementById("value79"),
+  parameter89 = document.getElementById("parameter89"),
+  parameters89 = document.getElementById("parameters89"),
+  value89 = document.getElementById("value89"),
+  parameter99 = document.getElementById("parameter99"),
+  parameters99 = document.getElementById("parameters99"),
+  value99 = document.getElementById("value99");
+
+
+ 
 	
-	console.log("joinCondition: " + joinCondition.value);
-  console.log("child: " + child.value);
-  console.log("parent: " + parents.value);
-	
-	
-  config = "[main]\nmapping_file_name : " + filename.value + "\nnumber_of_prefixes: " + pref.value + "\nnumber_of_TMs : " + tm.value + "\noutput_folder: " + output.value + "\n\n[prefixes]\npre1 : " + labpre1.value + "\nprefix1 : " + prefix1.value + "\npre2 : " + labpre2.value + "\nprefix2 : " + prefix2.value + "\npre3 : " + labpre3.value + "\nprefix3 : " + prefix3.value + "\npre4 : " + labpre4.value + "\nprefix4 : " + prefix4.value + "\npre5 : " + labpre5.value + "\nprefix5 :  " + prefix5.value + "\npre6 : " + labpre6.value + "\nprefix6 : " + prefix6.value + "\npre7 : " + labpre7.value + "\nprefix7 : " + prefix7.value + "\npre8 : " + labpre8.value + "\nprefix8 : " + prefix8.value + "\npre9 : " + labpre9.value + "\nprefix9 : " + prefix9.value + "\npre10 : " + labpre10.value + "\nprefix10 : " + prefix10.value + "\npre11 : " + labpre11.value + "\nprefix11 : " + prefix11.value + "\n\n[TM1]\nname: TriplesMap1\nsource: " + source.value + "\nreferenceFormulation: " + referenceFormulation.value + "\nsubjectType: " + resultSubj.value + "\nsubjectMap: " + subjectMap.value + "\ntermType: " + term.value + "\nnumber_of_POM: " + pom.value + "\n\n[TM1_POM1]\npredicate: " + predicate.value + " \nobjectType: " + selectedObjectType.value + "\nobject: " + objmap.value + "\ndataType: " + data.value + "\ntermType: " + termPOM.value + "\njoinCondition: " + joinCondition.value + "\child: " + child.value + "\parent: " + parents.value + "\n\n[TM1_POM2]\npredicate: " + predicate2.value + "\nobjectType: " + selectedObjectType2.value + "\nobject: " + objmap2.value + "\ndataType: " + data2.value + "\ntermType: " + termPOM2.value + "\njoinCondition: " + joinCondition2.value + "\nchild: " + child2.value + "\nparent: " + parents2.value + "\n\n[TM1_POM3]\npredicate: " + predicate3.value + "\nobjectType: " + selectedObjectType3.value + "\nobject: " + objmap3.value + "\ndataType: " + data3.value + "\ntermType: " + termPOM3.value + "\njoinCondition: " + joinCondition3.value + "\nchild: " + child3.value + "\nparent: " + parents3.value + "\n\n[TM1_POM4]\npredicate: " + predicate4.value + "\nobjectType: " + selectedObjectType4.value + "\nobject: " + objmap4.value + "\ndataType: " + data4.value + "\ntermType: " + termPOM4.value + "\njoinCondition: " + joinCondition4.value + "\nchild: " + child4.value + "\nparent: " + parents4.value + "\n\n[TM1_POM5]\npredicate: " + predicate5.value + "\nobjectType: " + selectedObjectType5.value + "\nobject: " + objmap5.value + "\ndataType: " + data5.value + "\ntermType: " + termPOM5.value + "\njoinCondition: " + joinCondition5.value + "\nchild: " + child5.value + "\nparent: " + parents5.value +"\n\n[TM1_POM6]\npredicate: " + predicate6.value + "\nobjectType: " + selectedObjectType6.value + "\nobject: " + objmap6.value + "\ndataType: " + data6.value + "\ntermType: " + termPOM6.value + "\njoinCondition: " + joinCondition6.value + "\nchild: " + child6.value + "\nparent: " + parents6.value + "\n\n[TM1_POM7]\npredicate: " + predicate7.value + "\nobjectType: " + selectedObjectType7.value + "\nobject: " + objmap7.value + "\ndataType: " + data7.value + "\ntermType: " + termPOM7.value + "\njoinCondition: " + joinCondition7.value + "\nchild: " + child7.value + "\nparent: " + parents7.value + "\n\n[TM1_POM8]\npredicate: " + predicate8.value + "\nobjectType: " + selectedObjectType8.value + "\nobject: " + objmap8.value + "\ndataType: " + data8.value + "\ntermType: " + termPOM8.value + "\njoinCondition: " + joinCondition8.value + "\nchild: " + child8.value + "\nparent: " + parents8.value + "\n\n[TM1_POM9]\npredicate: " + predicate9.value + "\nobjectType: " + selectedObjectType9.value + "\nobject: " + objmap9.value + "\ndataType: " + data9.value + "\ntermType: " + termPOM9.value + "\njoinCondition: " + joinCondition9.value + "\nchild: " + child9.value + "\nparent: " + parents9.value + "\n\n[TM2]\nname: TriplesMap2\nsource: " + source2.value + "\nreferenceFormulation: " + referenceFormulation2.value + "\nsubjectType: " + resultSubj2.value + "\nsubjectMap: " + subjectMap2.value + "\ntermType: " + term2.value + "\nnumber_of_POM: " + pom2.value + "\n\n[TM2_POM1]\npredicate: " + predicate12.value + " \nobjectType: " + selectedObjectType12.value + "\nobject: " + objmap12.value + "\ndataType: " + data12.value + "\ntermType: " + termPOM12.value + "\njoinCondition: " + joinCondition12.value + "\nchild: " + child12.value + "\nparent: " + parents12.value + "\n\n[TM2_POM2]\npredicate: " + predicate22.value + "\nobjectType: " + selectedObjectType22.value + "\nobject: " + objmap22.value + "\ndataType: " + data22.value + "\ntermType: " + termPOM22.value + "\njoinCondition: " + joinCondition22.value + "\nchild: " + child22.value + "\nparent: " + parents22.value + "\n\n[TM2_POM3]\npredicate: " + predicate32.value + "\nobjectType: " + selectedObjectType32.value + "\nobject: " + objmap32.value + "\ndataType: " + data32.value + "\ntermType: " + termPOM32.value + "\njoinCondition: " + joinCondition32.value + "\nchild: " + child32.value + "\nparent: " + parents32.value + "\n\n[TM2_POM4]\npredicate: " + predicate42.value + "\nobjectType: " + selectedObjectType42.value + "\nobject: " + objmap42.value + "\ndataType: " + data42.value + "\ntermType: " + termPOM42.value + "\njoinCondition: " + joinCondition42.value + "\nchild: " + child42.value + "\nparent: " + parents42.value + "\n\n[TM2_POM5]\npredicate: " + predicate52.value + "\nobjectType: " + selectedObjectType52.value + "\nobject: " + objmap52.value + "\ndataType: " + data52.value + "\ntermType: " + termPOM52.value + "\njoinCondition: " + joinCondition52.value + "\nchild: " + child52.value + "\nparent: " + parents52.value + "\n\n[TM2_POM6]\npredicate: " + predicate62.value + "\nobjectType: " + selectedObjectType62.value + "\nobject: " + objmap62.value + "\ndataType: " + data62.value + "\ntermType: " + termPOM62.value + "\njoinCondition: " + joinCondition62.value + "\nchild: " + child62.value + "\nparent: " + parents62.value + "\n\n[TM2_POM7]\npredicate: " + predicate72.value + "\nobjectType: " + selectedObjectType72.value + "\nobject: " + objmap72.value + "\ndataType: " + data72.value + "\ntermType: " + termPOM72.value + "\njoinCondition: " + joinCondition72.value + "\nchild: " + child72.value + "\nparent: " + parents72.value + "\n\n[TM2_POM8]\npredicate: " + predicate82.value + "\nobjectType: " + selectedObjectType82.value + "\nobject: " + objmap82.value + "\ndataType: " + data82.value + "\ntermType: " + termPOM82.value + "\njoinCondition: " + joinCondition82.value + "\nchild: " + child82.value + "\nparent: " + parents82.value + "\n\n[TM2_POM9]\npredicate: " + predicate92.value + "\nobjectType: " + selectedObjectType92.value + "\nobject: " + objmap92.value + "\ndataType: " + data92.value + "\ntermType: " + termPOM92.value + "\njoinCondition: " + joinCondition92.value + "\nchild: " + child92.value + "\nparent: " + parents92.value +  "\n\n[TM3]\nname: TriplesMap3\nsource: " + source3.value + "\nreferenceFormulation: " + referenceFormulation3.value + "\nsubjectType: " + resultSubj3.value + "\nsubjectMap: " + subjectMap3.value + "\ntermType: " + term3.value + "\nnumber_of_POM: " + pom3.value + "\n\n[TM3_POM1]\npredicate: " + predicate13.value + " \nobjectType: " + selectedObjectType13.value + "\nobject: " + objmap13.value + "\ndataType: " + data13.value + "\ntermType: " + termPOM13.value + "\njoinCondition: " + joinCondition13.value + "\nchild: " + child13.value + "\nparent: " + parents13.value + "\n\n[TM3_POM2]\npredicate: " + predicate23.value + "\nobjectType: " + selectedObjectType23.value + "\nobject: " + objmap23.value + "\ndataType: " + data23.value + "\ntermType: " + termPOM23.value + "\njoinCondition: " + joinCondition23.value + "\nchild: " + child23.value + "\nparent: " + parents23.value + "\n\n[TM3_POM3]\npredicate: " + predicate33.value + "\nobjectType: " + selectedObjectType33.value + "\nobject: " + objmap33.value + "\ndataType: " + data33.value + "\ntermType: " + termPOM33.value + "\njoinCondition: " + joinCondition33.value + "\nchild: " + child33.value + "\nparent: " + parents33.value + "\n\n[TM3_POM4]\npredicate: " + predicate43.value + "\nobjectType: " + selectedObjectType43.value + "\nobject: " + objmap43.value + "\ndataType: " + data43.value + "\ntermType: " + termPOM43.value + "\njoinCondition: " + joinCondition43.value + "\nchild: " + child43.value + "\nparent: " + parents43.value + "\n\n[TM3_POM5]\npredicate: " + predicate53.value + "\nobjectType: " + selectedObjectType53.value + "\nobject: " + objmap53.value + "\ndataType: " + data53.value + "\ntermType: " + termPOM53.value + "\njoinCondition: " + joinCondition53.value + "\nchild: " + child53.value + "\nparent: " + parents53.value + "\n\n[TM3_POM6]\npredicate: " + predicate63.value + "\nobjectType: " + selectedObjectType63.value + "\nobject: " + objmap63.value + "\ndataType: " + data63.value + "\ntermType: " + termPOM63.value + "\njoinCondition: " + joinCondition63.value + "\nchild: " + child63.value + "\nparent: " + parents63.value + "\n\n[TM3_POM7]\npredicate: " + predicate73.value + "\nobjectType: " + selectedObjectType73.value + "\nobject: " + objmap73.value + "\ndataType: " + data73.value + "\ntermType: " + termPOM73.value + "\njoinCondition: " + joinCondition73.value + "\nchild: " + child73.value + "\nparent: " + parents73.value + "\n\n[TM3_POM8]\npredicate: " + predicate83.value + "\nobjectType: " + selectedObjectType83.value + "\nobject: " + objmap83.value + "\ndataType: " + data83.value + "\ntermType: " + termPOM83.value + "\njoinCondition: " + joinCondition83.value + "\nchild: " + child83.value + "\nparent: " + parents83.value + "\n\n[TM3_POM9]\npredicate: " + predicate93.value + "\nobjectType: " + selectedObjectType93.value + "\nobject: " + objmap93.value + "\ndataType: " + data93.value + "\ntermType: " + termPOM93.value + "\njoinCondition: " + joinCondition93.value + "\nchild: " + child93.value + "\nparent: " + parents93.value + "\n\n[TM4]\nname: TriplesMap4\nsource: " + source4.value + "\nreferenceFormulation: " + referenceFormulation4.value + "\nsubjectType: " + resultSubj4.value + "\nsubjectMap: " + subjectMap4.value + "\ntermType: " + term4.value + "\nnumber_of_POM: " + pom4.value + 
-  "\n\n[TM4_POM1]\npredicate: " + predicate14.value + " \nobjectType: " + selectedObjectType14.value + "\nobject: " + objmap14.value + "\ndataType: " + data14.value + "\ntermType: " + termPOM14.value + "\njoinCondition: " + joinCondition14.value + "\nchild: " + child14.value + "\nparent: " + parents14.value + "\n\n[TM4_POM2]\npredicate: " + predicate24.value + "\nobjectType: " + selectedObjectType24.value + "\nobject: " + objmap24.value + "\ndataType: " + data24.value + "\ntermType: " + termPOM24.value + "\njoinCondition: " + joinCondition24.value + "\nchild: " + child24.value + "\nparent: " + parents24.value + "\n\n[TM4_POM3]\npredicate: " + predicate34.value + "\nobjectType: " + selectedObjectType34.value + "\nobject: " + objmap34.value + "\ndataType: " + data34.value + "\ntermType: " + termPOM34.value + "\njoinCondition: " + joinCondition34.value + "\nchild: " + child34.value + "\nparent: " + parents34.value + "\n\n[TM4_POM4]\npredicate: " + predicate44.value + "\nobjectType: " + selectedObjectType44.value + "\nobject: " + objmap44.value + "\ndataType: " + data44.value + "\ntermType: " + termPOM44.value + "\njoinCondition: " + joinCondition44.value + "\nchild: " + child44.value + "\nparent: " + parents44.value + "\n\n[TM4_POM5]\npredicate: " + predicate54.value + "\nobjectType: " + selectedObjectType54.value + "\nobject: " + objmap54.value + "\ndataType: " + data54.value + "\ntermType: " + termPOM54.value + "\njoinCondition: " + joinCondition54.value + "\nchild: " + child54.value + "\nparent: " + parents54.value + "\n\n[TM4_POM6]\npredicate: " + predicate64.value + "\nobjectType: " + selectedObjectType64.value + "\nobject: " + objmap64.value + "\ndataType: " + data64.value + "\ntermType: " + termPOM64.value + "\njoinCondition: " + joinCondition64.value + "\nchild: " + child64.value + "\nparent: " + parents64.value + "\n\n[TM4_POM7]\npredicate: " + predicate74.value + "\nobjectType: " + selectedObjectType74.value + "\nobject: " + objmap74.value + "\ndataType: " + data74.value + "\ntermType: " + termPOM74.value + "\njoinCondition: " + joinCondition74.value + "\nchild: " + child74.value + "\nparent: " + parents74.value + "\n\n[TM4_POM8]\npredicate: " + predicate84.value + "\nobjectType: " + selectedObjectType84.value + "\nobject: " + objmap84.value + "\ndataType: " + data84.value + "\ntermType: " + termPOM84.value + "\njoinCondition: " + joinCondition84.value + "\nchild: " + child84.value + "\nparent: " + parents84.value + "\n\n[TM4_POM9]\npredicate: " + predicate94.value + "\nobjectType: " + selectedObjectType94.value + "\nobject: " + objmap94.value + "\ndataType: " + data94.value + "\ntermType: " + termPOM94.value + "\njoinCondition: " + joinCondition94.value + "\nchild: " + child94.value + "\nparent: " + parents94.value + "\n\n[TM5]\nname: TriplesMap5\nsource: " + source5.value + "\nreferenceFormulation: " + referenceFormulation5.value + "\nsubjectType: " + resultSubj5.value + "\nsubjectMap: " + subjectMap5.value + "\ntermType: " + term5.value + "\nnumber_of_POM: " + pom5.value + "\n\n[TM5_POM1]\npredicate: " + predicate15.value + " \nobjectType: " + selectedObjectType15.value + "\nobject: " + objmap15.value + "\ndataType: " + data15.value + "\ntermType: " + termPOM15.value + "\njoinCondition: " + joinCondition15.value + "\nchild: " + child15.value + "\nparent: " + parents15.value + "\n\n[TM5_POM2]\npredicate: " + predicate25.value + "\nobjectType: " + selectedObjectType25.value + "\nobject: " + objmap25.value + "\ndataType: " + data25.value + "\ntermType: " + termPOM25.value + "\njoinCondition: " + joinCondition25.value + "\nchild: " + child25.value + "\nparent: " + parents25.value + "\n\n[TM5_POM3]\npredicate: " + predicate35.value + "\nobjectType: " + selectedObjectType35.value + "\nobject: " + objmap35.value + "\ndataType: " + data35.value + "\ntermType: " + termPOM35.value + "\njoinCondition: " + joinCondition35.value + "\nchild: " + child35.value + "\nparent: " + parents35.value + "\n\n[TM5_POM4]\npredicate: " + predicate45.value + "\nobjectType: " + selectedObjectType45.value + "\nobject: " + objmap45.value + "\ndataType: " + data45.value + "\ntermType: " + termPOM45.value + "\njoinCondition: " + joinCondition45.value + "\nchild: " + child45.value + "\nparent: " + parents45.value + "\n\n[TM5_POM5]\npredicate: " + predicate55.value + "\nobjectType: " + selectedObjectType55.value + "\nobject: " + objmap55.value + "\ndataType: " + data55.value + "\ntermType: " + termPOM55.value + "\njoinCondition: " + joinCondition55.value + "\nchild: " + child55.value + "\nparent: " + parents55.value + "\n\n[TM5_POM6]\npredicate: " + predicate65.value + "\nobjectType: " + selectedObjectType65.value + "\nobject: " + objmap65.value + "\ndataType: " + data65.value + "\ntermType: " + termPOM65.value + "\njoinCondition: " + joinCondition65.value + "\nchild: " + child65.value + "\nparent: " + parents65.value + "\n\n[TM5_POM7]\npredicate: " + predicate75.value + "\nobjectType: " + selectedObjectType75.value + "\nobject: " + objmap75.value + "\ndataType: " + data75.value + "\ntermType: " + termPOM75.value + "\njoinCondition: " + joinCondition75.value + "\nchild: " + child75.value + "\nparent: " + parents75.value + "\n\n[TM5_POM8]\npredicate: " + predicate85.value + "\nobjectType: " + selectedObjectType85.value + "\nobject: " + objmap85.value + "\ndataType: " + data85.value + "\ntermType: " + termPOM85.value + "\njoinCondition: " + joinCondition85.value + "\nchild: " + child85.value + "\nparent: " + parents85.value + "\n\n[TM5_POM9]\npredicate: " + predicate95.value + "\nobjectType: " + selectedObjectType95.value + "\nobject: " + objmap95.value + "\ndataType: " + data95.value + "\ntermType: " + termPOM95.value + "\njoinCondition: " + joinCondition95.value + "\nchild: " + child95.value + "\nparent: " + parents95.value + 
-  "\n\n[TM6]\nname: TriplesMap6\nsource: " + source6.value + "\nreferenceFormulation: " + referenceFormulation6.value + "\nsubjectType: " + resultSubj6.value + "\nsubjectMap: " + subjectMap6.value + "\ntermType: " + term6.value + "\nnumber_of_POM: " + pom6.value + "\n\n[TM6_POM1]\npredicate: " + predicate16.value + " \nobjectType: " + selectedObjectType16.value + "\nobject: " + objmap16.value + "\ndataType: " + data16.value + "\ntermType: " + termPOM16.value + "\njoinCondition: " + joinCondition16.value + "\nchild: " + child16.value + "\nparent: " + parents16.value + "\n\n[TM6_POM2]\npredicate: " + predicate26.value + "\nobjectType: " + selectedObjectType26.value + "\nobject: " + objmap26.value + "\ndataType: " + data26.value + "\ntermType: " + termPOM26.value + "\njoinCondition: " + joinCondition26.value + "\nchild: " + child26.value + "\nparent: " + parents26.value + "\n\n[TM6_POM3]\npredicate: " + predicate36.value + "\nobjectType: " + selectedObjectType36.value + "\nobject: " + objmap36.value + "\ndataType: " + data36.value + "\ntermType: " + termPOM36.value + "\njoinCondition: " + joinCondition36.value + "\nchild: " + child36.value + "\nparent: " + parents36.value + "\n\n[TM6_POM4]\npredicate: " + predicate46.value + "\nobjectType: " + selectedObjectType46.value + "\nobject: " + objmap46.value + "\ndataType: " + data46.value + "\ntermType: " + termPOM46.value + "\njoinCondition: " + joinCondition46.value + "\nchild: " + child46.value + "\nparent: " + parents46.value + "\n\n[TM6_POM5]\npredicate: " + predicate56.value + "\nobjectType: " + selectedObjectType56.value + "\nobject: " + objmap56.value + "\ndataType: " + data56.value + "\ntermType: " + termPOM56.value + "\njoinCondition: " + joinCondition56.value + "\nchild: " + child56.value + "\nparent: " + parents56.value + "\n\n[TM6_POM6]\npredicate: " + predicate66.value + "\nobjectType: " + selectedObjectType66.value + "\nobject: " + objmap66.value + "\ndataType: " + data66.value + "\ntermType: " + termPOM66.value + "\njoinCondition: " + joinCondition66.value + "\nchild: " + child66.value + "\nparent: " + parents66.value + "\n\n[TM6_POM7]\npredicate: " + predicate76.value + "\nobjectType: " + selectedObjectType76.value + "\nobject: " + objmap76.value + "\ndataType: " + data76.value + "\ntermType: " + termPOM76.value + "\njoinCondition: " + joinCondition76.value + "\nchild: " + child76.value + "\nparent: " + parents76.value + "\n\n[TM6_POM8]\npredicate: " + predicate86.value + "\nobjectType: " + selectedObjectType86.value + "\nobject: " + objmap86.value + "\ndataType: " + data86.value + "\ntermType: " + termPOM86.value + "\njoinCondition: " + joinCondition86.value + "\nchild: " + child86.value + "\nparent: " + parents86.value + "\n\n[TM6_POM9]\npredicate: " + predicate96.value + "\nobjectType: " + selectedObjectType96.value + "\nobject: " + objmap96.value + "\ndataType: " + data96.value + "\ntermType: " + termPOM96.value + "\njoinCondition: " + joinCondition96.value + "\nchild: " + child96.value + "\nparent: " + parents96.value + "\n\n[TM7]\nname: TriplesMap7\nsource: " + source7.value + "\nreferenceFormulation: " + referenceFormulation7.value + "\nsubjectType: " + resultSubj7.value + "\nsubjectMap: " + subjectMap7.value + "\ntermType: " + term7.value + "\nnumber_of_POM: " + pom7.value + "\n\n[TM7_POM1]\npredicate: " + predicate17.value + " \nobjectType: " + selectedObjectType17.value + "\nobject: " + objmap17.value + "\ndataType: " + data17.value + "\ntermType: " + termPOM17.value + "\njoinCondition: " + joinCondition17.value + "\nchild: " + child17.value + "\nparent: " + parents17.value + "\n\n[TM7_POM2]\npredicate: " + predicate27.value + "\nobjectType: " + selectedObjectType27.value + "\nobject: " + objmap27.value + "\ndataType: " + data27.value + "\ntermType: " + termPOM27.value + "\njoinCondition: " + joinCondition27.value + "\nchild: " + child27.value + "\nparent: " + parents27.value + "\n\n[TM7_POM3]\npredicate: " + predicate37.value + "\nobjectType: " + selectedObjectType37.value + "\nobject: " + objmap37.value + "\ndataType: " + data37.value + "\ntermType: " + termPOM37.value + "\njoinCondition: " + joinCondition37.value + "\nchild: " + child37.value + "\nparent: " + parents37.value + "\n\n[TM7_POM4]\npredicate: " + predicate47.value + "\nobjectType: " + selectedObjectType47.value + "\nobject: " + objmap47.value + "\ndataType: " + data47.value + "\ntermType: " + termPOM47.value + "\njoinCondition: " + joinCondition47.value + "\nchild: " + child47.value + "\nparent: " + parents47.value + "\n\n[TM7_POM5]\npredicate: " + predicate57.value + "\nobjectType: " + selectedObjectType57.value + "\nobject: " + objmap57.value + "\ndataType: " + data57.value + "\ntermType: " + termPOM57.value + "\njoinCondition: " + joinCondition57.value + "\nchild: " + child57.value + "\nparent: " + parents57.value + "\n\n[TM7_POM6]\npredicate: " + predicate67.value + "\nobjectType: " + selectedObjectType67.value + "\nobject: " + objmap67.value + "\ndataType: " + data67.value + "\ntermType: " + termPOM67.value + "\njoinCondition: " + joinCondition67.value + "\nchild: " + child67.value + "\nparent: " + parents67.value + "\n\n[TM7_POM7]\npredicate: " + predicate77.value + "\nobjectType: " + selectedObjectType77.value + "\nobject: " + objmap77.value + "\ndataType: " + data77.value + "\ntermType: " + termPOM77.value + "\njoinCondition: " + joinCondition77.value + "\nchild: " + child77.value + "\nparent: " + parents77.value + "\n\n[TM7_POM8]\npredicate: " + predicate87.value + "\nobjectType: " + selectedObjectType87.value + "\nobject: " + objmap87.value + "\ndataType: " + data87.value + "\ntermType: " + termPOM87.value + "\njoinCondition: " + joinCondition87.value + "\nchild: " + child87.value + "\nparent: " + parents87.value + "\n\n[TM7_POM9]\npredicate: " + predicate97.value + "\nobjectType: " + selectedObjectType97.value + "\nobject: " + objmap97.value + "\ndataType: " + data97.value + "\ntermType: " + termPOM97.value + "\njoinCondition: " + joinCondition97.value + "\nchild: " + child97.value + "\nparent: " + parents97.value +
-   "\n\n[TM8]\nname: TriplesMap8\nsource: " + source8.value + "\nreferenceFormulation: " + referenceFormulation8.value + "\nsubjectType: " + resultSubj8.value + "\nsubjectMap: " + subjectMap8.value + "\ntermType: " + term8.value + "\nnumber_of_POM: " + pom8.value + "\n\n[TM8_POM1]\npredicate: " + predicate18.value + " \nobjectType: " + selectedObjectType18.value + "\nobject: " + objmap18.value + "\ndataType: " + data18.value + "\ntermType: " + termPOM18.value + "\njoinCondition: " + joinCondition18.value + "\nchild: " + child18.value + "\nparent: " + parents18.value + "\n\n[TM8_POM2]\npredicate: " + predicate28.value + "\nobjectType: " + selectedObjectType28.value + "\nobject: " + objmap28.value + "\ndataType: " + data28.value + "\ntermType: " + termPOM28.value + "\njoinCondition: " + joinCondition28.value + "\nchild: " + child28.value + "\nparent: " + parents28.value + "\n\n[TM8_POM3]\npredicate: " + predicate38.value + "\nobjectType: " + selectedObjectType38.value + "\nobject: " + objmap38.value + "\ndataType: " + data38.value + "\ntermType: " + termPOM38.value + "\njoinCondition: " + joinCondition38.value + "\nchild: " + child38.value + "\nparent: " + parents38.value + "\n\n[TM8_POM4]\npredicate: " + predicate48.value + "\nobjectType: " + selectedObjectType48.value + "\nobject: " + objmap48.value + "\ndataType: " + data48.value + "\ntermType: " + termPOM48.value + "\njoinCondition: " + joinCondition48.value + "\nchild: " + child48.value + "\nparent: " + parents48.value + "\n\n[TM8_POM5]\npredicate: " + predicate58.value + "\nobjectType: " + selectedObjectType58.value + "\nobject: " + objmap58.value + "\ndataType: " + data58.value + "\ntermType: " + termPOM58.value + "\njoinCondition: " + joinCondition58.value + "\nchild: " + child58.value + "\nparent: " + parents58.value + "\n\n[TM8_POM6]\npredicate: " + predicate68.value + "\nobjectType: " + selectedObjectType68.value + "\nobject: " + objmap68.value + "\ndataType: " + data68.value + "\ntermType: " + termPOM68.value + "\njoinCondition: " + joinCondition68.value + "\nchild: " + child68.value + "\nparent: " + parents68.value + "\n\n[TM8_POM7]\npredicate: " + predicate78.value + "\nobjectType: " + selectedObjectType78.value + "\nobject: " + objmap78.value + "\ndataType: " + data78.value + "\ntermType: " + termPOM78.value + "\njoinCondition: " + joinCondition78.value + "\nchild: " + child78.value + "\nparent: " + parents78.value + "\n\n[TM8_POM8]\npredicate: " + predicate88.value + "\nobjectType: " + selectedObjectType88.value + "\nobject: " + objmap88.value + "\ndataType: " + data88.value + "\ntermType: " + termPOM88.value + "\njoinCondition: " + joinCondition88.value + "\nchild: " + child88.value + "\nparent: " + parents88.value + "\n\n[TM8_POM9]\npredicate: " + predicate98.value + "\nobjectType: " + selectedObjectType98.value + "\nobject: " + objmap98.value + "\ndataType: " + data98.value + "\ntermType: " + termPOM98.value + "\njoinCondition: " + joinCondition98.value + "\nchild: " + child98.value + "\nparent: " + parents98.value + "\n\n[TM9]\nname: TriplesMap9\nsource: " + source9.value + "\nreferenceFormulation: " + referenceFormulation9.value + "\nsubjectType: " + resultSubj9.value + "\nsubjectMap: " + subjectMap9.value + "\ntermType: " + term9.value + "\nnumber_of_POM: " + pom9.value + "\n\n[TM9_POM1]\npredicate: " + predicate19.value + " \nobjectType: " + selectedObjectType19.value + "\nobject: " + objmap19.value + "\ndataType: " + data19.value + "\ntermType: " + termPOM19.value + "\njoinCondition: " + joinCondition19.value + "\nchild: " + child19.value + "\nparent: " + parents19.value + "\n\n[TM9_POM2]\npredicate: " + predicate29.value + "\nobjectType: " + selectedObjectType29.value + "\nobject: " + objmap29.value + "\ndataType: " + data29.value + "\ntermType: " + termPOM29.value + "\njoinCondition: " + joinCondition29.value + "\nchild: " + child29.value + "\nparent: " + parents29.value + "\n\n[TM9_POM3]\npredicate: " + predicate39.value + "\nobjectType: " + selectedObjectType39.value + "\nobject: " + objmap39.value + "\ndataType: " + data39.value + "\ntermType: " + termPOM39.value + "\njoinCondition: " + joinCondition39.value + "\nchild: " + child39.value + "\nparent: " + parents39.value + "\n\n[TM9_POM4]\npredicate: " + predicate49.value + "\nobjectType: " + selectedObjectType49.value + "\nobject: " + objmap49.value + "\ndataType: " + data49.value + "\ntermType: " + termPOM49.value + "\njoinCondition: " + joinCondition49.value + "\nchild: " + child49.value + "\nparent: " + parents49.value + "\n\n[TM9_POM5]\npredicate: " + predicate59.value + "\nobjectType: " + selectedObjectType59.value + "\nobject: " + objmap59.value + "\ndataType: " + data59.value + "\ntermType: " + termPOM59.value + "\njoinCondition: " + joinCondition59.value + "\nchild: " + child59.value + "\nparent: " + parents59.value + "\n\n[TM9_POM6]\npredicate: " + predicate69.value + "\nobjectType: " + selectedObjectType69.value + "\nobject: " + objmap69.value + "\ndataType: " + data69.value + "\ntermType: " + termPOM69.value + "\njoinCondition: " + joinCondition69.value + "\nchild: " + child69.value + "\nparent: " + parents69.value + "\n\n[TM9_POM7]\npredicate: " + predicate79.value + "\nobjectType: " + selectedObjectType79.value + "\nobject: " + objmap79.value + "\ndataType: " + data79.value + "\ntermType: " + termPOM79.value + "\njoinCondition: " + joinCondition79.value + "\nchild: " + child79.value + "\nparent: " + parents79.value + "\n\n[TM9_POM8]\npredicate: " + predicate89.value + "\nobjectType: " + selectedObjectType89.value + "\nobject: " + objmap89.value + "\ndataType: " + data89.value + "\ntermType: " + termPOM89.value + "\njoinCondition: " + joinCondition89.value + "\nchild: " + child89.value + "\nparent: " + parents89.value + "\n\n[TM9_POM9]\npredicate: " + predicate99.value + "\nobjectType: " + selectedObjectType99.value + "\nobject: " + objmap99.value + "\ndataType: " + data99.value + "\ntermType: " + termPOM99.value + "\njoinCondition: " + joinCondition99.value + "\nchild: " + child99.value + "\nparent: " + parents99.value;
-  
+  // config = "[main]\nmapping_file_name : " + filename.value + "\nnumber_of_prefixes: " + pref.value + "\nnumber_of_TMs : " + tm.value + "\noutput_folder: " + output.value + "\n\n[prefixes]\npre1 : " + labpre1.value + "\nprefix1 : " + prefix1.value + "\npre2 : " + labpre2.value + "\nprefix2 : " + prefix2.value + "\npre3 : " + labpre3.value + "\nprefix3 : " + prefix3.value + "\npre4 : " + labpre4.value + "\nprefix4 : " + prefix4.value + "\npre5 : " + labpre5.value + "\nprefix5 :  " + prefix5.value + "\npre6 : " + labpre6.value + "\nprefix6 : " + prefix6.value + "\npre7 : " + labpre7.value + "\nprefix7 : " + prefix7.value + "\npre8 : " + labpre8.value + "\nprefix8 : " + prefix8.value + "\npre9 : " + labpre9.value + "\nprefix9 : " + prefix9.value + "\npre10 : " + labpre10.value + "\nprefix10 : " + prefix10.value + "\npre11 : " + labpre11.value + "\nprefix11 : " + prefix11.value + "\n\n[TM1]\nname: TriplesMap1\nsource: " + source.value + "\nsourceFormat: " + referenceFormulation.value + "\nsubjectType: " + resultSubj.value + "\nsubjectMap: " + subjectMap.value + "\ntermType: " + term.value + "\nnumber_of_POM: " + pom.value + "\n\n[TM1_POM1]\npredicate: " + predicate.value + " \nobjectType: " + selectedObjectType.value + "\nobject: " + objmap.value + "\ndataType: " + data.value + "\ntermType: " + termPOM.value + "\njoinCondition: " + joinCondition.value + "\nchild: " + child.value + "\nparent: " + parents.value  + "\n\n[TM1_POM2]\npredicate: " + predicate2.value + "\nobjectType: " + selectedObjectType2.value + "\nobject: " + objmap2.value + "\ndataType: " + data2.value + "\ntermType: " + termPOM2.value + "\njoinCondition: " + joinCondition2.value + "\nchild: " + child2.value + "\nparent: " + parents2.value + "\n\n[TM1_POM3]\npredicate: " + predicate3.value + "\nobjectType: " + selectedObjectType3.value + "\nobject: " + objmap3.value + "\ndataType: " + data3.value + "\ntermType: " + termPOM3.value + "\njoinCondition: " + joinCondition3.value + "\nchild: " + child3.value + "\nparent: " + parents3.value + "\n\n[TM1_POM4]\npredicate: " + predicate4.value + "\nobjectType: " + selectedObjectType4.value + "\nobject: " + objmap4.value + "\ndataType: " + data4.value + "\ntermType: " + termPOM4.value + "\njoinCondition: " + joinCondition4.value + "\nchild: " + child4.value + "\nparent: " + parents4.value + "\n\n[TM1_POM5]\npredicate: " + predicate5.value + "\nobjectType: " + selectedObjectType5.value + "\nobject: " + objmap5.value + "\ndataType: " + data5.value + "\ntermType: " + termPOM5.value + "\njoinCondition: " + joinCondition5.value + "\nchild: " + child5.value + "\nparent: " + parents5.value +"\n\n[TM1_POM6]\npredicate: " + predicate6.value + "\nobjectType: " + selectedObjectType6.value + "\nobject: " + objmap6.value + "\ndataType: " + data6.value + "\ntermType: " + termPOM6.value + "\njoinCondition: " + joinCondition6.value + "\nchild: " + child6.value + "\nparent: " + parents6.value + "\n\n[TM1_POM7]\npredicate: " + predicate7.value + "\nobjectType: " + selectedObjectType7.value + "\nobject: " + objmap7.value + "\ndataType: " + data7.value + "\ntermType: " + termPOM7.value + "\njoinCondition: " + joinCondition7.value + "\nchild: " + child7.value + "\nparent: " + parents7.value + "\n\n[TM1_POM8]\npredicate: " + predicate8.value + "\nobjectType: " + selectedObjectType8.value + "\nobject: " + objmap8.value + "\ndataType: " + data8.value + "\ntermType: " + termPOM8.value + "\njoinCondition: " + joinCondition8.value + "\nchild: " + child8.value + "\nparent: " + parents8.value + "\n\n[TM1_POM9]\npredicate: " + predicate9.value + "\nobjectType: " + selectedObjectType9.value + "\nobject: " + objmap9.value + "\ndataType: " + data9.value + "\ntermType: " + termPOM9.value + "\njoinCondition: " + joinCondition9.value + "\nchild: " + child9.value + "\nparent: " + parents9.value + "\n\n[TM2]\nname: TriplesMap2\nsource: " + source2.value + "\nsourceFormat: " + referenceFormulation2.value + "\nsubjectType: " + resultSubj2.value + "\nsubjectMap: " + subjectMap2.value + "\ntermType: " + term2.value + "\nnumber_of_POM: " + pom2.value + "\n\n[TM2_POM1]\npredicate: " + predicate12.value + " \nobjectType: " + selectedObjectType12.value + "\nobject: " + objmap12.value + "\ndataType: " + data12.value + "\ntermType: " + termPOM12.value + "\njoinCondition: " + joinCondition12.value + "\nchild: " + child12.value + "\nparent: " + parents12.value + "\n\n[TM2_POM2]\npredicate: " + predicate22.value + "\nobjectType: " + selectedObjectType22.value + "\nobject: " + objmap22.value + "\ndataType: " + data22.value + "\ntermType: " + termPOM22.value + "\njoinCondition: " + joinCondition22.value + "\nchild: " + child22.value + "\nparent: " + parents22.value + "\n\n[TM2_POM3]\npredicate: " + predicate32.value + "\nobjectType: " + selectedObjectType32.value + "\nobject: " + objmap32.value + "\ndataType: " + data32.value + "\ntermType: " + termPOM32.value + "\njoinCondition: " + joinCondition32.value + "\nchild: " + child32.value + "\nparent: " + parents32.value + "\n\n[TM2_POM4]\npredicate: " + predicate42.value + "\nobjectType: " + selectedObjectType42.value + "\nobject: " + objmap42.value + "\ndataType: " + data42.value + "\ntermType: " + termPOM42.value + "\njoinCondition: " + joinCondition42.value + "\nchild: " + child42.value + "\nparent: " + parents42.value + "\n\n[TM2_POM5]\npredicate: " + predicate52.value + "\nobjectType: " + selectedObjectType52.value + "\nobject: " + objmap52.value + "\ndataType: " + data52.value + "\ntermType: " + termPOM52.value + "\njoinCondition: " + joinCondition52.value + "\nchild: " + child52.value + "\nparent: " + parents52.value + "\n\n[TM2_POM6]\npredicate: " + predicate62.value + "\nobjectType: " + selectedObjectType62.value + "\nobject: " + objmap62.value + "\ndataType: " + data62.value + "\ntermType: " + termPOM62.value + "\njoinCondition: " + joinCondition62.value + "\nchild: " + child62.value + "\nparent: " + parents62.value + "\n\n[TM2_POM7]\npredicate: " + predicate72.value + "\nobjectType: " + selectedObjectType72.value + "\nobject: " + objmap72.value + "\ndataType: " + data72.value + "\ntermType: " + termPOM72.value + "\njoinCondition: " + joinCondition72.value + "\nchild: " + child72.value + "\nparent: " + parents72.value + "\n\n[TM2_POM8]\npredicate: " + predicate82.value + "\nobjectType: " + selectedObjectType82.value + "\nobject: " + objmap82.value + "\ndataType: " + data82.value + "\ntermType: " + termPOM82.value + "\njoinCondition: " + joinCondition82.value + "\nchild: " + child82.value + "\nparent: " + parents82.value + "\n\n[TM2_POM9]\npredicate: " + predicate92.value + "\nobjectType: " + selectedObjectType92.value + "\nobject: " + objmap92.value + "\ndataType: " + data92.value + "\ntermType: " + termPOM92.value + "\njoinCondition: " + joinCondition92.value + "\nchild: " + child92.value + "\nparent: " + parents92.value +  "\n\n[TM3]\nname: TriplesMap3\nsource: " + source3.value + "\nsourceFormat: " + referenceFormulation3.value + "\nsubjectType: " + resultSubj3.value + "\nsubjectMap: " + subjectMap3.value + "\ntermType: " + term3.value + "\nnumber_of_POM: " + pom3.value + "\n\n[TM3_POM1]\npredicate: " + predicate13.value + " \nobjectType: " + selectedObjectType13.value + "\nobject: " + objmap13.value + "\ndataType: " + data13.value + "\ntermType: " + termPOM13.value + "\njoinCondition: " + joinCondition13.value + "\nchild: " + child13.value + "\nparent: " + parents13.value + "\n\n[TM3_POM2]\npredicate: " + predicate23.value + "\nobjectType: " + selectedObjectType23.value + "\nobject: " + objmap23.value + "\ndataType: " + data23.value + "\ntermType: " + termPOM23.value + "\njoinCondition: " + joinCondition23.value + "\nchild: " + child23.value + "\nparent: " + parents23.value + "\n\n[TM3_POM3]\npredicate: " + predicate33.value + "\nobjectType: " + selectedObjectType33.value + "\nobject: " + objmap33.value + "\ndataType: " + data33.value + "\ntermType: " + termPOM33.value + "\njoinCondition: " + joinCondition33.value + "\nchild: " + child33.value + "\nparent: " + parents33.value + "\n\n[TM3_POM4]\npredicate: " + predicate43.value + "\nobjectType: " + selectedObjectType43.value + "\nobject: " + objmap43.value + "\ndataType: " + data43.value + "\ntermType: " + termPOM43.value + "\njoinCondition: " + joinCondition43.value + "\nchild: " + child43.value + "\nparent: " + parents43.value + "\n\n[TM3_POM5]\npredicate: " + predicate53.value + "\nobjectType: " + selectedObjectType53.value + "\nobject: " + objmap53.value + "\ndataType: " + data53.value + "\ntermType: " + termPOM53.value + "\njoinCondition: " + joinCondition53.value + "\nchild: " + child53.value + "\nparent: " + parents53.value + "\n\n[TM3_POM6]\npredicate: " + predicate63.value + "\nobjectType: " + selectedObjectType63.value + "\nobject: " + objmap63.value + "\ndataType: " + data63.value + "\ntermType: " + termPOM63.value + "\njoinCondition: " + joinCondition63.value + "\nchild: " + child63.value + "\nparent: " + parents63.value + "\n\n[TM3_POM7]\npredicate: " + predicate73.value + "\nobjectType: " + selectedObjectType73.value + "\nobject: " + objmap73.value + "\ndataType: " + data73.value + "\ntermType: " + termPOM73.value + "\njoinCondition: " + joinCondition73.value + "\nchild: " + child73.value + "\nparent: " + parents73.value + "\n\n[TM3_POM8]\npredicate: " + predicate83.value + "\nobjectType: " + selectedObjectType83.value + "\nobject: " + objmap83.value + "\ndataType: " + data83.value + "\ntermType: " + termPOM83.value + "\njoinCondition: " + joinCondition83.value + "\nchild: " + child83.value + "\nparent: " + parents83.value + "\n\n[TM3_POM9]\npredicate: " + predicate93.value + "\nobjectType: " + selectedObjectType93.value + "\nobject: " + objmap93.value + "\ndataType: " + data93.value + "\ntermType: " + termPOM93.value + "\njoinCondition: " + joinCondition93.value + "\nchild: " + child93.value + "\nparent: " + parents93.value + "\n\n[TM4]\nname: TriplesMap4\nsource: " + source4.value + "\nsourceFormat: " + referenceFormulation4.value + "\nsubjectType: " + resultSubj4.value + "\nsubjectMap: " + subjectMap4.value + "\ntermType: " + term4.value + "\nnumber_of_POM: " + pom4.value + 
+  // "\n\n[TM4_POM1]\npredicate: " + predicate14.value + " \nobjectType: " + selectedObjectType14.value + "\nobject: " + objmap14.value + "\ndataType: " + data14.value + "\ntermType: " + termPOM14.value + "\njoinCondition: " + joinCondition14.value + "\nchild: " + child14.value + "\nparent: " + parents14.value + "\n\n[TM4_POM2]\npredicate: " + predicate24.value + "\nobjectType: " + selectedObjectType24.value + "\nobject: " + objmap24.value + "\ndataType: " + data24.value + "\ntermType: " + termPOM24.value + "\njoinCondition: " + joinCondition24.value + "\nchild: " + child24.value + "\nparent: " + parents24.value + "\n\n[TM4_POM3]\npredicate: " + predicate34.value + "\nobjectType: " + selectedObjectType34.value + "\nobject: " + objmap34.value + "\ndataType: " + data34.value + "\ntermType: " + termPOM34.value + "\njoinCondition: " + joinCondition34.value + "\nchild: " + child34.value + "\nparent: " + parents34.value + "\n\n[TM4_POM4]\npredicate: " + predicate44.value + "\nobjectType: " + selectedObjectType44.value + "\nobject: " + objmap44.value + "\ndataType: " + data44.value + "\ntermType: " + termPOM44.value + "\njoinCondition: " + joinCondition44.value + "\nchild: " + child44.value + "\nparent: " + parents44.value + "\n\n[TM4_POM5]\npredicate: " + predicate54.value + "\nobjectType: " + selectedObjectType54.value + "\nobject: " + objmap54.value + "\ndataType: " + data54.value + "\ntermType: " + termPOM54.value + "\njoinCondition: " + joinCondition54.value + "\nchild: " + child54.value + "\nparent: " + parents54.value + "\n\n[TM4_POM6]\npredicate: " + predicate64.value + "\nobjectType: " + selectedObjectType64.value + "\nobject: " + objmap64.value + "\ndataType: " + data64.value + "\ntermType: " + termPOM64.value + "\njoinCondition: " + joinCondition64.value + "\nchild: " + child64.value + "\nparent: " + parents64.value + "\n\n[TM4_POM7]\npredicate: " + predicate74.value + "\nobjectType: " + selectedObjectType74.value + "\nobject: " + objmap74.value + "\ndataType: " + data74.value + "\ntermType: " + termPOM74.value + "\njoinCondition: " + joinCondition74.value + "\nchild: " + child74.value + "\nparent: " + parents74.value + "\n\n[TM4_POM8]\npredicate: " + predicate84.value + "\nobjectType: " + selectedObjectType84.value + "\nobject: " + objmap84.value + "\ndataType: " + data84.value + "\ntermType: " + termPOM84.value + "\njoinCondition: " + joinCondition84.value + "\nchild: " + child84.value + "\nparent: " + parents84.value + "\n\n[TM4_POM9]\npredicate: " + predicate94.value + "\nobjectType: " + selectedObjectType94.value + "\nobject: " + objmap94.value + "\ndataType: " + data94.value + "\ntermType: " + termPOM94.value + "\njoinCondition: " + joinCondition94.value + "\nchild: " + child94.value + "\nparent: " + parents94.value + "\n\n[TM5]\nname: TriplesMap5\nsource: " + source5.value + "\nsourceFormat: " + referenceFormulation5.value + "\nsubjectType: " + resultSubj5.value + "\nsubjectMap: " + subjectMap5.value + "\ntermType: " + term5.value + "\nnumber_of_POM: " + pom5.value + "\n\n[TM5_POM1]\npredicate: " + predicate15.value + " \nobjectType: " + selectedObjectType15.value + "\nobject: " + objmap15.value + "\ndataType: " + data15.value + "\ntermType: " + termPOM15.value + "\njoinCondition: " + joinCondition15.value + "\nchild: " + child15.value + "\nparent: " + parents15.value + "\n\n[TM5_POM2]\npredicate: " + predicate25.value + "\nobjectType: " + selectedObjectType25.value + "\nobject: " + objmap25.value + "\ndataType: " + data25.value + "\ntermType: " + termPOM25.value + "\njoinCondition: " + joinCondition25.value + "\nchild: " + child25.value + "\nparent: " + parents25.value + "\n\n[TM5_POM3]\npredicate: " + predicate35.value + "\nobjectType: " + selectedObjectType35.value + "\nobject: " + objmap35.value + "\ndataType: " + data35.value + "\ntermType: " + termPOM35.value + "\njoinCondition: " + joinCondition35.value + "\nchild: " + child35.value + "\nparent: " + parents35.value + "\n\n[TM5_POM4]\npredicate: " + predicate45.value + "\nobjectType: " + selectedObjectType45.value + "\nobject: " + objmap45.value + "\ndataType: " + data45.value + "\ntermType: " + termPOM45.value + "\njoinCondition: " + joinCondition45.value + "\nchild: " + child45.value + "\nparent: " + parents45.value + "\n\n[TM5_POM5]\npredicate: " + predicate55.value + "\nobjectType: " + selectedObjectType55.value + "\nobject: " + objmap55.value + "\ndataType: " + data55.value + "\ntermType: " + termPOM55.value + "\njoinCondition: " + joinCondition55.value + "\nchild: " + child55.value + "\nparent: " + parents55.value + "\n\n[TM5_POM6]\npredicate: " + predicate65.value + "\nobjectType: " + selectedObjectType65.value + "\nobject: " + objmap65.value + "\ndataType: " + data65.value + "\ntermType: " + termPOM65.value + "\njoinCondition: " + joinCondition65.value + "\nchild: " + child65.value + "\nparent: " + parents65.value + "\n\n[TM5_POM7]\npredicate: " + predicate75.value + "\nobjectType: " + selectedObjectType75.value + "\nobject: " + objmap75.value + "\ndataType: " + data75.value + "\ntermType: " + termPOM75.value + "\njoinCondition: " + joinCondition75.value + "\nchild: " + child75.value + "\nparent: " + parents75.value + "\n\n[TM5_POM8]\npredicate: " + predicate85.value + "\nobjectType: " + selectedObjectType85.value + "\nobject: " + objmap85.value + "\ndataType: " + data85.value + "\ntermType: " + termPOM85.value + "\njoinCondition: " + joinCondition85.value + "\nchild: " + child85.value + "\nparent: " + parents85.value + "\n\n[TM5_POM9]\npredicate: " + predicate95.value + "\nobjectType: " + selectedObjectType95.value + "\nobject: " + objmap95.value + "\ndataType: " + data95.value + "\ntermType: " + termPOM95.value + "\njoinCondition: " + joinCondition95.value + "\nchild: " + child95.value + "\nparent: " + parents95.value + 
+  // "\n\n[TM6]\nname: TriplesMap6\nsource: " + source6.value + "\nsourceFormat: " + referenceFormulation6.value + "\nsubjectType: " + resultSubj6.value + "\nsubjectMap: " + subjectMap6.value + "\ntermType: " + term6.value + "\nnumber_of_POM: " + pom6.value + "\n\n[TM6_POM1]\npredicate: " + predicate16.value + " \nobjectType: " + selectedObjectType16.value + "\nobject: " + objmap16.value + "\ndataType: " + data16.value + "\ntermType: " + termPOM16.value + "\njoinCondition: " + joinCondition16.value + "\nchild: " + child16.value + "\nparent: " + parents16.value + "\n\n[TM6_POM2]\npredicate: " + predicate26.value + "\nobjectType: " + selectedObjectType26.value + "\nobject: " + objmap26.value + "\ndataType: " + data26.value + "\ntermType: " + termPOM26.value + "\njoinCondition: " + joinCondition26.value + "\nchild: " + child26.value + "\nparent: " + parents26.value + "\n\n[TM6_POM3]\npredicate: " + predicate36.value + "\nobjectType: " + selectedObjectType36.value + "\nobject: " + objmap36.value + "\ndataType: " + data36.value + "\ntermType: " + termPOM36.value + "\njoinCondition: " + joinCondition36.value + "\nchild: " + child36.value + "\nparent: " + parents36.value + "\n\n[TM6_POM4]\npredicate: " + predicate46.value + "\nobjectType: " + selectedObjectType46.value + "\nobject: " + objmap46.value + "\ndataType: " + data46.value + "\ntermType: " + termPOM46.value + "\njoinCondition: " + joinCondition46.value + "\nchild: " + child46.value + "\nparent: " + parents46.value + "\n\n[TM6_POM5]\npredicate: " + predicate56.value + "\nobjectType: " + selectedObjectType56.value + "\nobject: " + objmap56.value + "\ndataType: " + data56.value + "\ntermType: " + termPOM56.value + "\njoinCondition: " + joinCondition56.value + "\nchild: " + child56.value + "\nparent: " + parents56.value + "\n\n[TM6_POM6]\npredicate: " + predicate66.value + "\nobjectType: " + selectedObjectType66.value + "\nobject: " + objmap66.value + "\ndataType: " + data66.value + "\ntermType: " + termPOM66.value + "\njoinCondition: " + joinCondition66.value + "\nchild: " + child66.value + "\nparent: " + parents66.value + "\n\n[TM6_POM7]\npredicate: " + predicate76.value + "\nobjectType: " + selectedObjectType76.value + "\nobject: " + objmap76.value + "\ndataType: " + data76.value + "\ntermType: " + termPOM76.value + "\njoinCondition: " + joinCondition76.value + "\nchild: " + child76.value + "\nparent: " + parents76.value + "\n\n[TM6_POM8]\npredicate: " + predicate86.value + "\nobjectType: " + selectedObjectType86.value + "\nobject: " + objmap86.value + "\ndataType: " + data86.value + "\ntermType: " + termPOM86.value + "\njoinCondition: " + joinCondition86.value + "\nchild: " + child86.value + "\nparent: " + parents86.value + "\n\n[TM6_POM9]\npredicate: " + predicate96.value + "\nobjectType: " + selectedObjectType96.value + "\nobject: " + objmap96.value + "\ndataType: " + data96.value + "\ntermType: " + termPOM96.value + "\njoinCondition: " + joinCondition96.value + "\nchild: " + child96.value + "\nparent: " + parents96.value + "\n\n[TM7]\nname: TriplesMap7\nsource: " + source7.value + "\nsourceFormat: " + referenceFormulation7.value + "\nsubjectType: " + resultSubj7.value + "\nsubjectMap: " + subjectMap7.value + "\ntermType: " + term7.value + "\nnumber_of_POM: " + pom7.value + "\n\n[TM7_POM1]\npredicate: " + predicate17.value + " \nobjectType: " + selectedObjectType17.value + "\nobject: " + objmap17.value + "\ndataType: " + data17.value + "\ntermType: " + termPOM17.value + "\njoinCondition: " + joinCondition17.value + "\nchild: " + child17.value + "\nparent: " + parents17.value + "\n\n[TM7_POM2]\npredicate: " + predicate27.value + "\nobjectType: " + selectedObjectType27.value + "\nobject: " + objmap27.value + "\ndataType: " + data27.value + "\ntermType: " + termPOM27.value + "\njoinCondition: " + joinCondition27.value + "\nchild: " + child27.value + "\nparent: " + parents27.value + "\n\n[TM7_POM3]\npredicate: " + predicate37.value + "\nobjectType: " + selectedObjectType37.value + "\nobject: " + objmap37.value + "\ndataType: " + data37.value + "\ntermType: " + termPOM37.value + "\njoinCondition: " + joinCondition37.value + "\nchild: " + child37.value + "\nparent: " + parents37.value + "\n\n[TM7_POM4]\npredicate: " + predicate47.value + "\nobjectType: " + selectedObjectType47.value + "\nobject: " + objmap47.value + "\ndataType: " + data47.value + "\ntermType: " + termPOM47.value + "\njoinCondition: " + joinCondition47.value + "\nchild: " + child47.value + "\nparent: " + parents47.value + "\n\n[TM7_POM5]\npredicate: " + predicate57.value + "\nobjectType: " + selectedObjectType57.value + "\nobject: " + objmap57.value + "\ndataType: " + data57.value + "\ntermType: " + termPOM57.value + "\njoinCondition: " + joinCondition57.value + "\nchild: " + child57.value + "\nparent: " + parents57.value + "\n\n[TM7_POM6]\npredicate: " + predicate67.value + "\nobjectType: " + selectedObjectType67.value + "\nobject: " + objmap67.value + "\ndataType: " + data67.value + "\ntermType: " + termPOM67.value + "\njoinCondition: " + joinCondition67.value + "\nchild: " + child67.value + "\nparent: " + parents67.value + "\n\n[TM7_POM7]\npredicate: " + predicate77.value + "\nobjectType: " + selectedObjectType77.value + "\nobject: " + objmap77.value + "\ndataType: " + data77.value + "\ntermType: " + termPOM77.value + "\njoinCondition: " + joinCondition77.value + "\nchild: " + child77.value + "\nparent: " + parents77.value + "\n\n[TM7_POM8]\npredicate: " + predicate87.value + "\nobjectType: " + selectedObjectType87.value + "\nobject: " + objmap87.value + "\ndataType: " + data87.value + "\ntermType: " + termPOM87.value + "\njoinCondition: " + joinCondition87.value + "\nchild: " + child87.value + "\nparent: " + parents87.value + "\n\n[TM7_POM9]\npredicate: " + predicate97.value + "\nobjectType: " + selectedObjectType97.value + "\nobject: " + objmap97.value + "\ndataType: " + data97.value + "\ntermType: " + termPOM97.value + "\njoinCondition: " + joinCondition97.value + "\nchild: " + child97.value + "\nparent: " + parents97.value +
+  //  "\n\n[TM8]\nname: TriplesMap8\nsource: " + source8.value + "\nsourceFormat: " + referenceFormulation8.value + "\nsubjectType: " + resultSubj8.value + "\nsubjectMap: " + subjectMap8.value + "\ntermType: " + term8.value + "\nnumber_of_POM: " + pom8.value + "\n\n[TM8_POM1]\npredicate: " + predicate18.value + " \nobjectType: " + selectedObjectType18.value + "\nobject: " + objmap18.value + "\ndataType: " + data18.value + "\ntermType: " + termPOM18.value + "\njoinCondition: " + joinCondition18.value + "\nchild: " + child18.value + "\nparent: " + parents18.value + "\n\n[TM8_POM2]\npredicate: " + predicate28.value + "\nobjectType: " + selectedObjectType28.value + "\nobject: " + objmap28.value + "\ndataType: " + data28.value + "\ntermType: " + termPOM28.value + "\njoinCondition: " + joinCondition28.value + "\nchild: " + child28.value + "\nparent: " + parents28.value + "\n\n[TM8_POM3]\npredicate: " + predicate38.value + "\nobjectType: " + selectedObjectType38.value + "\nobject: " + objmap38.value + "\ndataType: " + data38.value + "\ntermType: " + termPOM38.value + "\njoinCondition: " + joinCondition38.value + "\nchild: " + child38.value + "\nparent: " + parents38.value + "\n\n[TM8_POM4]\npredicate: " + predicate48.value + "\nobjectType: " + selectedObjectType48.value + "\nobject: " + objmap48.value + "\ndataType: " + data48.value + "\ntermType: " + termPOM48.value + "\njoinCondition: " + joinCondition48.value + "\nchild: " + child48.value + "\nparent: " + parents48.value + "\n\n[TM8_POM5]\npredicate: " + predicate58.value + "\nobjectType: " + selectedObjectType58.value + "\nobject: " + objmap58.value + "\ndataType: " + data58.value + "\ntermType: " + termPOM58.value + "\njoinCondition: " + joinCondition58.value + "\nchild: " + child58.value + "\nparent: " + parents58.value + "\n\n[TM8_POM6]\npredicate: " + predicate68.value + "\nobjectType: " + selectedObjectType68.value + "\nobject: " + objmap68.value + "\ndataType: " + data68.value + "\ntermType: " + termPOM68.value + "\njoinCondition: " + joinCondition68.value + "\nchild: " + child68.value + "\nparent: " + parents68.value + "\n\n[TM8_POM7]\npredicate: " + predicate78.value + "\nobjectType: " + selectedObjectType78.value + "\nobject: " + objmap78.value + "\ndataType: " + data78.value + "\ntermType: " + termPOM78.value + "\njoinCondition: " + joinCondition78.value + "\nchild: " + child78.value + "\nparent: " + parents78.value + "\n\n[TM8_POM8]\npredicate: " + predicate88.value + "\nobjectType: " + selectedObjectType88.value + "\nobject: " + objmap88.value + "\ndataType: " + data88.value + "\ntermType: " + termPOM88.value + "\njoinCondition: " + joinCondition88.value + "\nchild: " + child88.value + "\nparent: " + parents88.value + "\n\n[TM8_POM9]\npredicate: " + predicate98.value + "\nobjectType: " + selectedObjectType98.value + "\nobject: " + objmap98.value + "\ndataType: " + data98.value + "\ntermType: " + termPOM98.value + "\njoinCondition: " + joinCondition98.value + "\nchild: " + child98.value + "\nparent: " + parents98.value + "\n\n[TM9]\nname: TriplesMap9\nsource: " + source9.value + "\nsourceFormat: " + referenceFormulation9.value + "\nsubjectType: " + resultSubj9.value + "\nsubjectMap: " + subjectMap9.value + "\ntermType: " + term9.value + "\nnumber_of_POM: " + pom9.value + "\n\n[TM9_POM1]\npredicate: " + predicate19.value + " \nobjectType: " + selectedObjectType19.value + "\nobject: " + objmap19.value + "\ndataType: " + data19.value + "\ntermType: " + termPOM19.value + "\njoinCondition: " + joinCondition19.value + "\nchild: " + child19.value + "\nparent: " + parents19.value + "\n\n[TM9_POM2]\npredicate: " + predicate29.value + "\nobjectType: " + selectedObjectType29.value + "\nobject: " + objmap29.value + "\ndataType: " + data29.value + "\ntermType: " + termPOM29.value + "\njoinCondition: " + joinCondition29.value + "\nchild: " + child29.value + "\nparent: " + parents29.value + "\n\n[TM9_POM3]\npredicate: " + predicate39.value + "\nobjectType: " + selectedObjectType39.value + "\nobject: " + objmap39.value + "\ndataType: " + data39.value + "\ntermType: " + termPOM39.value + "\njoinCondition: " + joinCondition39.value + "\nchild: " + child39.value + "\nparent: " + parents39.value + "\n\n[TM9_POM4]\npredicate: " + predicate49.value + "\nobjectType: " + selectedObjectType49.value + "\nobject: " + objmap49.value + "\ndataType: " + data49.value + "\ntermType: " + termPOM49.value + "\njoinCondition: " + joinCondition49.value + "\nchild: " + child49.value + "\nparent: " + parents49.value + "\n\n[TM9_POM5]\npredicate: " + predicate59.value + "\nobjectType: " + selectedObjectType59.value + "\nobject: " + objmap59.value + "\ndataType: " + data59.value + "\ntermType: " + termPOM59.value + "\njoinCondition: " + joinCondition59.value + "\nchild: " + child59.value + "\nparent: " + parents59.value + "\n\n[TM9_POM6]\npredicate: " + predicate69.value + "\nobjectType: " + selectedObjectType69.value + "\nobject: " + objmap69.value + "\ndataType: " + data69.value + "\ntermType: " + termPOM69.value + "\njoinCondition: " + joinCondition69.value + "\nchild: " + child69.value + "\nparent: " + parents69.value + "\n\n[TM9_POM7]\npredicate: " + predicate79.value + "\nobjectType: " + selectedObjectType79.value + "\nobject: " + objmap79.value + "\ndataType: " + data79.value + "\ntermType: " + termPOM79.value + "\njoinCondition: " + joinCondition79.value + "\nchild: " + child79.value + "\nparent: " + parents79.value + "\n\n[TM9_POM8]\npredicate: " + predicate89.value + "\nobjectType: " + selectedObjectType89.value + "\nobject: " + objmap89.value + "\ndataType: " + data89.value + "\ntermType: " + termPOM89.value + "\njoinCondition: " + joinCondition89.value + "\nchild: " + child89.value + "\nparent: " + parents89.value + "\n\n[TM9_POM9]\npredicate: " + predicate99.value + "\nobjectType: " + selectedObjectType99.value + "\nobject: " + objmap99.value + "\ndataType: " + data99.value + "\ntermType: " + termPOM99.value + "\njoinCondition: " + joinCondition99.value + "\nchild: " + child99.value + "\nparent: " + parents99.value +
+  //  "\n\n[F1]\nfunctionMapName: " + funMapN.value + "\nsource: " + funsource.value + "\nsourceFormat: " + funsourceformat.value+ "\nfunctionName: " + funN.value+ "\nnumberOfParameters: " + nop.value + "\n\n[F1P1]\nparameter: " + parameter.value + "\nparameterType: " + parameters.value + "\nvalue: " + value.value+ "\n\n[F1P2]\nparameter: " + parameter2.value + "\nparameterType: " + parameters2.value + "\nvalue: " + value2.value+ "\n\n[F1P3]\nparameter: " + parameter3.value + "\nparameterType: " + parameters3.value + "\nvalue: " + value3.value+ "\n\n[F1P4]\nparameter: " + parameter4.value + "\nparameterType: " + parameters4.value + "\nvalue: " + value4.value+ "\n\n[F1P5]\nparameter: " + parameter5.value + "\nparameterType: " + parameters5.value + "\nvalue: " + value5.value+ "\n\n[F1P6]\nparameter: " + parameter6.value + "\nparameterType: " + parameters6.value + "\nvalue: " + value6.value+ "\n\n[F1P7]\nparameter: " + parameter7.value + "\nparameterType: " + parameters7.value + "\nvalue: " + value7.value+ "\n\n[F1P8]\nparameter: " + parameter8.value + "\nparameterType: " + parameters8.value + "\nvalue: " + value8.value+ "\n\n[F1P9]\nparameter: " + parameter9.value + "\nparameterType: " + parameters9.value + "\nvalue: " + value9.value +
+  //  "\n\n[F2]\nfunctionMapName: " + funMapN2.value + "\nsource: " + funsource2.value + "\nsourceFormat: " + funsourceformat2.value+ "\nfunctionName: " + funN2.value+ "\nnumberOfParameters: " + nop2.value + "\n\n[F2P1]\nparameter: " + parameter12.value + "\nparameterType: " + parameters12.value + "\nvalue: " + value12.value+ "\n\n[F2P2]\nparameter: " + parameter22.value + "\nparameterType: " + parameters22.value + "\nvalue: " + value22.value+ "\n\n[F2P3]\nparameter: " + parameter32.value + "\nparameterType: " + parameters32.value + "\nvalue: " + value32.value+ "\n\n[F2P4]\nparameter: " + parameter42.value + "\nparameterType: " + parameters42.value + "\nvalue: " + value42.value+ "\n\n[F2P5]\nparameter: " + parameter52.value + "\nparameterType: " + parameters52.value + "\nvalue: " + value52.value+ "\n\n[F2P6]\nparameter: " + parameter62.value + "\nparameterType: " + parameters62.value + "\nvalue: " + value62.value+ "\n\n[F2P7]\nparameter: " + parameter72.value + "\nparameterType: " + parameters72.value + "\nvalue: " + value72.value+ "\n\n[F2P8]\nparameter: " + parameter82.value + "\nparameterType: " + parameters82.value + "\nvalue: " + value82.value+ "\n\n[F2P9]\nparameter: " + parameter92.value + "\nparameterType: " + parameters92.value + "\nvalue: " + value92.value +
+  //  "\n\n[F3]\nfunctionMapName: " + funMapN3.value + "\nsource: " + funsource3.value + "\nsourceFormat: " + funsourceformat3.value+ "\nfunctionName: " + funN3.value+ "\nnumberOfParameters: " + nop3.value + "\n\n[F3P1]\nparameter: " + parameter13.value + "\nparameterType: " + parameters13.value + "\nvalue: " + value13.value+ "\n\n[F3P2]\nparameter: " + parameter23.value + "\nparameterType: " + parameters23.value + "\nvalue: " + value23.value+ "\n\n[F3P3]\nparameter: " + parameter33.value + "\nparameterType: " + parameters33.value + "\nvalue: " + value33.value+ "\n\n[F3P4]\nparameter: " + parameter43.value + "\nparameterType: " + parameters43.value + "\nvalue: " + value43.value+ "\n\n[F3P5]\nparameter: " + parameter53.value + "\nparameterType: " + parameters53.value + "\nvalue: " + value53.value+ "\n\n[F3P6]\nparameter: " + parameter63.value + "\nparameterType: " + parameters63.value + "\nvalue: " + value63.value+ "\n\n[F3P7]\nparameter: " + parameter73.value + "\nparameterType: " + parameters73.value + "\nvalue: " + value73.value+ "\n\n[F3P8]\nparameter: " + parameter83.value + "\nparameterType: " + parameters83.value + "\nvalue: " + value83.value+ "\n\n[F3P9]\nparameter: " + parameter93.value + "\nparameterType: " + parameters93.value + "\nvalue: " + value93.value +
+  //   "\n\n[F4]\nfunctionMapName: " + funMapN4.value + "\nsource: " + funsource4.value + "\nsourceFormat: " + funsourceformat4.value+ "\nfunctionName: " + funN4.value+ "\nnumberOfParameters: " + nop4.value + "\n\n[F4P1]\nparameter: " + parameter14.value + "\nparameterType: " + parameters14.value + "\nvalue: " + value14.value+ "\n\n[F4P2]\nparameter: " + parameter24.value + "\nparameterType: " + parameters24.value + "\nvalue: " + value24.value+ "\n\n[F4P3]\nparameter: " + parameter34.value + "\nparameterType: " + parameters34.value + "\nvalue: " + value34.value+ "\n\n[F4P4]\nparameter: " + parameter44.value + "\nparameterType: " + parameters44.value + "\nvalue: " + value44.value+ "\n\n[F4P5]\nparameter: " + parameter54.value + "\nparameterType: " + parameters54.value + "\nvalue: " + value54.value+ "\n\n[F4P6]\nparameter: " + parameter64.value + "\nparameterType: " + parameters64.value + "\nvalue: " + value64.value+ "\n\n[F4P7]\nparameter: " + parameter74.value + "\nparameterType: " + parameters74.value + "\nvalue: " + value74.value+ "\n\n[F4P8]\nparameter: " + parameter84.value + "\nparameterType: " + parameters84.value + "\nvalue: " + value84.value+ "\n\n[F4P9]\nparameter: " + parameter94.value + "\nparameterType: " + parameters94.value + "\nvalue: " + value94.value +
+  //  "\n\n[F5]\nfunctionMapName: " + funMapN5.value + "\nsource: " + funsource5.value + "\nsourceFormat: " + funsourceformat5.value+ "\nfunctionName: " + funN5.value+ "\nnumberOfParameters: " + nop5.value + "\n\n[F5P1]\nparameter: " + parameter15.value + "\nparameterType: " + parameters15.value + "\nvalue: " + value15.value+ "\n\n[F5P2]\nparameter: " + parameter25.value + "\nparameterType: " + parameters25.value + "\nvalue: " + value25.value+ "\n\n[F5P3]\nparameter: " + parameter35.value + "\nparameterType: " + parameters35.value + "\nvalue: " + value35.value+ "\n\n[F5P4]\nparameter: " + parameter45.value + "\nparameterType: " + parameters45.value + "\nvalue: " + value45.value+ "\n\n[F5P5]\nparameter: " + parameter55.value + "\nparameterType: " + parameters55.value + "\nvalue: " + value55.value+ "\n\n[F5P6]\nparameter: " + parameter65.value + "\nparameterType: " + parameters65.value + "\nvalue: " + value65.value+ "\n\n[F5P7]\nparameter: " + parameter75.value + "\nparameterType: " + parameters75.value + "\nvalue: " + value75.value+ "\n\n[F5P8]\nparameter: " + parameter85.value + "\nparameterType: " + parameters85.value + "\nvalue: " + value85.value+ "\n\n[F5P9]\nparameter: " + parameter95.value + "\nparameterType: " + parameters95.value + "\nvalue: " + value95.value +
+  //  "\n\n[F6]\nfunctionMapName: " + funMapN6.value + "\nsource: " + funsource6.value + "\nsourceFormat: " + funsourceformat6.value+ "\nfunctionName: " + funN6.value+ "\nnumberOfParameters: " + nop6.value + "\n\n[F6P1]\nparameter: " + parameter16.value + "\nparameterType: " + parameters16.value + "\nvalue: " + value16.value+ "\n\n[F6P2]\nparameter: " + parameter26.value + "\nparameterType: " + parameters26.value + "\nvalue: " + value26.value+ "\n\n[F6P3]\nparameter: " + parameter36.value + "\nparameterType: " + parameters36.value + "\nvalue: " + value36.value+ "\n\n[F6P4]\nparameter: " + parameter46.value + "\nparameterType: " + parameters46.value + "\nvalue: " + value46.value+ "\n\n[F6P5]\nparameter: " + parameter56.value + "\nparameterType: " + parameters56.value + "\nvalue: " + value56.value+ "\n\n[F6P6]\nparameter: " + parameter66.value + "\nparameterType: " + parameters66.value + "\nvalue: " + value66.value+ "\n\n[F6P7]\nparameter: " + parameter76.value + "\nparameterType: " + parameters76.value + "\nvalue: " + value76.value+ "\n\n[F6P8]\nparameter: " + parameter86.value + "\nparameterType: " + parameters86.value + "\nvalue: " + value86.value+ "\n\n[F6P9]\nparameter: " + parameter96.value + "\nparameterType: " + parameters96.value + "\nvalue: " + value96.value +
+  //  "\n\n[F7]\nfunctionMapName: " + funMapN7.value + "\nsource: " + funsource7.value + "\nsourceFormat: " + funsourceformat7.value+ "\nfunctionName: " + funN7.value+ "\nnumberOfParameters: " + nop7.value + "\n\n[F7P1]\nparameter: " + parameter17.value + "\nparameterType: " + parameters17.value + "\nvalue: " + value17.value+ "\n\n[F7P2]\nparameter: " + parameter27.value + "\nparameterType: " + parameters27.value + "\nvalue: " + value27.value+ "\n\n[F7P3]\nparameter: " + parameter37.value + "\nparameterType: " + parameters37.value + "\nvalue: " + value37.value+ "\n\n[F7P4]\nparameter: " + parameter47.value + "\nparameterType: " + parameters47.value + "\nvalue: " + value47.value+ "\n\n[F7P5]\nparameter: " + parameter57.value + "\nparameterType: " + parameters57.value + "\nvalue: " + value57.value+ "\n\n[F7P6]\nparameter: " + parameter67.value + "\nparameterType: " + parameters67.value + "\nvalue: " + value67.value+ "\n\n[F7P7]\nparameter: " + parameter77.value + "\nparameterType: " + parameters77.value + "\nvalue: " + value77.value+ "\n\n[F7P8]\nparameter: " + parameter87.value + "\nparameterType: " + parameters87.value + "\nvalue: " + value87.value+ "\n\n[F7P9]\nparameter: " + parameter97.value + "\nparameterType: " + parameters97.value + "\nvalue: " + value97.value +
+  //  "\n\n[F8]\nfunctionMapName: " + funMapN8.value + "\nsource: " + funsource8.value + "\nsourceFormat: " + funsourceformat8.value+ "\nfunctionName: " + funN8.value+ "\nnumberOfParameters: " + nop8.value + "\n\n[F8P1]\nparameter: " + parameter18.value + "\nparameterType: " + parameters18.value + "\nvalue: " + value18.value+ "\n\n[F8P2]\nparameter: " + parameter28.value + "\nparameterType: " + parameters28.value + "\nvalue: " + value28.value+ "\n\n[F8P3]\nparameter: " + parameter38.value + "\nparameterType: " + parameters38.value + "\nvalue: " + value38.value+ "\n\n[F8P4]\nparameter: " + parameter48.value + "\nparameterType: " + parameters48.value + "\nvalue: " + value48.value+ "\n\n[F8P5]\nparameter: " + parameter58.value + "\nparameterType: " + parameters58.value + "\nvalue: " + value58.value+ "\n\n[F8P6]\nparameter: " + parameter68.value + "\nparameterType: " + parameters68.value + "\nvalue: " + value68.value+ "\n\n[F8P7]\nparameter: " + parameter78.value + "\nparameterType: " + parameters78.value + "\nvalue: " + value78.value+ "\n\n[F8P8]\nparameter: " + parameter88.value + "\nparameterType: " + parameters88.value + "\nvalue: " + value88.value+ "\n\n[F8P9]\nparameter: " + parameter98.value + "\nparameterType: " + parameters98.value + "\nvalue: " + value98.value +
+  //  "\n\n[F9]\nfunctionMapName: " + funMapN9.value + "\nsource: " + funsource9.value + "\nsourceFormat: " + funsourceformat9.value+ "\nfunctionName: " + funN9.value+ "\nnumberOfParameters: " + nop9.value + "\n\n[F9P1]\nparameter: " + parameter19.value + "\nparameterType: " + parameters19.value + "\nvalue: " + value19.value+ "\n\n[F9P2]\nparameter: " + parameter29.value + "\nparameterType: " + parameters29.value + "\nvalue: " + value29.value+ "\n\n[F9P3]\nparameter: " + parameter39.value + "\nparameterType: " + parameters39.value + "\nvalue: " + value39.value+ "\n\n[F9P4]\nparameter: " + parameter49.value + "\nparameterType: " + parameters49.value + "\nvalue: " + value49.value+ "\n\n[F9P5]\nparameter: " + parameter59.value + "\nparameterType: " + parameters59.value + "\nvalue: " + value59.value+ "\n\n[F9P6]\nparameter: " + parameter69.value + "\nparameterType: " + parameters69.value + "\nvalue: " + value69.value+ "\n\n[F9P7]\nparameter: " + parameter79.value + "\nparameterType: " + parameters79.value + "\nvalue: " + value79.value+ "\n\n[F9P8]\nparameter: " + parameter89.value + "\nparameterType: " + parameters89.value + "\nvalue: " + value89.value+ "\n\n[F9P9]\nparameter: " + parameter99.value + "\nparameterType: " + parameters99.value + "\nvalue: " + value99.value;
+   
+   
   var settings = {
     //"url": "http://localhost:5000/easyRML/api.php",
     url: "/api/mappings",
     type: "POST",
 
     contenType: "text/plain",
-    data: "[main]\nmapping_file_name : " + filename.value + "\nnumber_of_prefixes: " + pref.value + "\nnumber_of_TMs : " + tm.value + "\noutput_folder: " + output.value + "\n\n[prefixes]\npre1 : " + labpre1.value + "\nprefix1 : " + prefix1.value + "\npre2 : " + labpre2.value + "\nprefix2 : " + prefix2.value + "\npre3 : " + labpre3.value + "\nprefix3 : " + prefix3.value + "\npre4 : " + labpre4.value + "\nprefix4 : " + prefix4.value + "\npre5 : " + labpre5.value + "\nprefix5 :  " + prefix5.value + "\npre6 : " + labpre6.value + "\nprefix6 : " + prefix6.value + "\npre7 : " + labpre7.value + "\nprefix7 : " + prefix7.value + "\npre8 : " + labpre8.value + "\nprefix8 : " + prefix8.value + "\npre9 : " + labpre9.value + "\nprefix9 : " + prefix9.value + "\npre10 : " + labpre10.value + "\nprefix10 : " + prefix10.value + "\npre11 : " + labpre11.value + "\nprefix11 : " + prefix11.value + "\n\n[TM1]\nname: TriplesMap1\nsource: " + source.value + "\nreferenceFormulation: " + referenceFormulation.value + "\nsubjectType: " + resultSubj.value + "\nsubjectMap: " + subjectMap.value + "\ntermType: " + term.value + "\nnumber_of_POM: " + pom.value + "\n\n[TM1_POM1]\npredicate: " + predicate.value + " \nobjectType: " + selectedObjectType.value + "\nobject: " + objmap.value + "\ndataType: " + data.value + "\ntermType: " + termPOM.value + "\njoinCondition: " + joinCondition.value + "\child: " + child.value + "\parent: " + parents.value + "\n\n[TM1_POM2]\npredicate: " + predicate2.value + "\nobjectType: " + selectedObjectType2.value + "\nobject: " + objmap2.value + "\ndataType: " + data2.value + "\ntermType: " + termPOM2.value + "\njoinCondition: " + joinCondition2.value + "\nchild: " + child2.value + "\nparent: " + parents2.value + "\n\n[TM1_POM3]\npredicate: " + predicate3.value + "\nobjectType: " + selectedObjectType3.value + "\nobject: " + objmap3.value + "\ndataType: " + data3.value + "\ntermType: " + termPOM3.value + "\njoinCondition: " + joinCondition3.value + "\nchild: " + child3.value + "\nparent: " + parents3.value + "\n\n[TM1_POM4]\npredicate: " + predicate4.value + "\nobjectType: " + selectedObjectType4.value + "\nobject: " + objmap4.value + "\ndataType: " + data4.value + "\ntermType: " + termPOM4.value + "\njoinCondition: " + joinCondition4.value + "\nchild: " + child4.value + "\nparent: " + parents4.value + "\n\n[TM1_POM5]\npredicate: " + predicate5.value + "\nobjectType: " + selectedObjectType5.value + "\nobject: " + objmap5.value + "\ndataType: " + data5.value + "\ntermType: " + termPOM5.value + "\njoinCondition: " + joinCondition5.value + "\nchild: " + child5.value + "\nparent: " + parents5.value +"\n\n[TM1_POM6]\npredicate: " + predicate6.value + "\nobjectType: " + selectedObjectType6.value + "\nobject: " + objmap6.value + "\ndataType: " + data6.value + "\ntermType: " + termPOM6.value + "\njoinCondition: " + joinCondition6.value + "\nchild: " + child6.value + "\nparent: " + parents6.value + "\n\n[TM1_POM7]\npredicate: " + predicate7.value + "\nobjectType: " + selectedObjectType7.value + "\nobject: " + objmap7.value + "\ndataType: " + data7.value + "\ntermType: " + termPOM7.value + "\njoinCondition: " + joinCondition7.value + "\nchild: " + child7.value + "\nparent: " + parents7.value + "\n\n[TM1_POM8]\npredicate: " + predicate8.value + "\nobjectType: " + selectedObjectType8.value + "\nobject: " + objmap8.value + "\ndataType: " + data8.value + "\ntermType: " + termPOM8.value + "\njoinCondition: " + joinCondition8.value + "\nchild: " + child8.value + "\nparent: " + parents8.value + "\n\n[TM1_POM9]\npredicate: " + predicate9.value + "\nobjectType: " + selectedObjectType9.value + "\nobject: " + objmap9.value + "\ndataType: " + data9.value + "\ntermType: " + termPOM9.value + "\njoinCondition: " + joinCondition9.value + "\nchild: " + child9.value + "\nparent: " + parents9.value + "\n\n[TM2]\nname: TriplesMap2\nsource: " + source2.value + "\nreferenceFormulation: " + referenceFormulation2.value + "\nsubjectType: " + resultSubj2.value + "\nsubjectMap: " + subjectMap2.value + "\ntermType: " + term2.value + "\nnumber_of_POM: " + pom2.value + "\n\n[TM2_POM1]\npredicate: " + predicate12.value + " \nobjectType: " + selectedObjectType12.value + "\nobject: " + objmap12.value + "\ndataType: " + data12.value + "\ntermType: " + termPOM12.value + "\njoinCondition: " + joinCondition12.value + "\nchild: " + child12.value + "\nparent: " + parents12.value + "\n\n[TM2_POM2]\npredicate: " + predicate22.value + "\nobjectType: " + selectedObjectType22.value + "\nobject: " + objmap22.value + "\ndataType: " + data22.value + "\ntermType: " + termPOM22.value + "\njoinCondition: " + joinCondition22.value + "\nchild: " + child22.value + "\nparent: " + parents22.value + "\n\n[TM2_POM3]\npredicate: " + predicate32.value + "\nobjectType: " + selectedObjectType32.value + "\nobject: " + objmap32.value + "\ndataType: " + data32.value + "\ntermType: " + termPOM32.value + "\njoinCondition: " + joinCondition32.value + "\nchild: " + child32.value + "\nparent: " + parents32.value + "\n\n[TM2_POM4]\npredicate: " + predicate42.value + "\nobjectType: " + selectedObjectType42.value + "\nobject: " + objmap42.value + "\ndataType: " + data42.value + "\ntermType: " + termPOM42.value + "\njoinCondition: " + joinCondition42.value + "\nchild: " + child42.value + "\nparent: " + parents42.value + "\n\n[TM2_POM5]\npredicate: " + predicate52.value + "\nobjectType: " + selectedObjectType52.value + "\nobject: " + objmap52.value + "\ndataType: " + data52.value + "\ntermType: " + termPOM52.value + "\njoinCondition: " + joinCondition52.value + "\nchild: " + child52.value + "\nparent: " + parents52.value + "\n\n[TM2_POM6]\npredicate: " + predicate62.value + "\nobjectType: " + selectedObjectType62.value + "\nobject: " + objmap62.value + "\ndataType: " + data62.value + "\ntermType: " + termPOM62.value + "\njoinCondition: " + joinCondition62.value + "\nchild: " + child62.value + "\nparent: " + parents62.value + "\n\n[TM2_POM7]\npredicate: " + predicate72.value + "\nobjectType: " + selectedObjectType72.value + "\nobject: " + objmap72.value + "\ndataType: " + data72.value + "\ntermType: " + termPOM72.value + "\njoinCondition: " + joinCondition72.value + "\nchild: " + child72.value + "\nparent: " + parents72.value + "\n\n[TM2_POM8]\npredicate: " + predicate82.value + "\nobjectType: " + selectedObjectType82.value + "\nobject: " + objmap82.value + "\ndataType: " + data82.value + "\ntermType: " + termPOM82.value + "\njoinCondition: " + joinCondition82.value + "\nchild: " + child82.value + "\nparent: " + parents82.value + "\n\n[TM2_POM9]\npredicate: " + predicate92.value + "\nobjectType: " + selectedObjectType92.value + "\nobject: " + objmap92.value + "\ndataType: " + data92.value + "\ntermType: " + termPOM92.value + "\njoinCondition: " + joinCondition92.value + "\nchild: " + child92.value + "\nparent: " + parents92.value +  "\n\n[TM3]\nname: TriplesMap3\nsource: " + source3.value + "\nreferenceFormulation: " + referenceFormulation3.value + "\nsubjectType: " + resultSubj3.value + "\nsubjectMap: " + subjectMap3.value + "\ntermType: " + term3.value + "\nnumber_of_POM: " + pom3.value + "\n\n[TM3_POM1]\npredicate: " + predicate13.value + " \nobjectType: " + selectedObjectType13.value + "\nobject: " + objmap13.value + "\ndataType: " + data13.value + "\ntermType: " + termPOM13.value + "\njoinCondition: " + joinCondition13.value + "\nchild: " + child13.value + "\nparent: " + parents13.value + "\n\n[TM3_POM2]\npredicate: " + predicate23.value + "\nobjectType: " + selectedObjectType23.value + "\nobject: " + objmap23.value + "\ndataType: " + data23.value + "\ntermType: " + termPOM23.value + "\njoinCondition: " + joinCondition23.value + "\nchild: " + child23.value + "\nparent: " + parents23.value + "\n\n[TM3_POM3]\npredicate: " + predicate33.value + "\nobjectType: " + selectedObjectType33.value + "\nobject: " + objmap33.value + "\ndataType: " + data33.value + "\ntermType: " + termPOM33.value + "\njoinCondition: " + joinCondition33.value + "\nchild: " + child33.value + "\nparent: " + parents33.value + "\n\n[TM3_POM4]\npredicate: " + predicate43.value + "\nobjectType: " + selectedObjectType43.value + "\nobject: " + objmap43.value + "\ndataType: " + data43.value + "\ntermType: " + termPOM43.value + "\njoinCondition: " + joinCondition43.value + "\nchild: " + child43.value + "\nparent: " + parents43.value + "\n\n[TM3_POM5]\npredicate: " + predicate53.value + "\nobjectType: " + selectedObjectType53.value + "\nobject: " + objmap53.value + "\ndataType: " + data53.value + "\ntermType: " + termPOM53.value + "\njoinCondition: " + joinCondition53.value + "\nchild: " + child53.value + "\nparent: " + parents53.value + "\n\n[TM3_POM6]\npredicate: " + predicate63.value + "\nobjectType: " + selectedObjectType63.value + "\nobject: " + objmap63.value + "\ndataType: " + data63.value + "\ntermType: " + termPOM63.value + "\njoinCondition: " + joinCondition63.value + "\nchild: " + child63.value + "\nparent: " + parents63.value + "\n\n[TM3_POM7]\npredicate: " + predicate73.value + "\nobjectType: " + selectedObjectType73.value + "\nobject: " + objmap73.value + "\ndataType: " + data73.value + "\ntermType: " + termPOM73.value + "\njoinCondition: " + joinCondition73.value + "\nchild: " + child73.value + "\nparent: " + parents73.value + "\n\n[TM3_POM8]\npredicate: " + predicate83.value + "\nobjectType: " + selectedObjectType83.value + "\nobject: " + objmap83.value + "\ndataType: " + data83.value + "\ntermType: " + termPOM83.value + "\njoinCondition: " + joinCondition83.value + "\nchild: " + child83.value + "\nparent: " + parents83.value + "\n\n[TM3_POM9]\npredicate: " + predicate93.value + "\nobjectType: " + selectedObjectType93.value + "\nobject: " + objmap93.value + "\ndataType: " + data93.value + "\ntermType: " + termPOM93.value + "\njoinCondition: " + joinCondition93.value + "\nchild: " + child93.value + "\nparent: " + parents93.value + "\n\n[TM4]\nname: TriplesMap4\nsource: " + source4.value + "\nreferenceFormulation: " + referenceFormulation4.value + "\nsubjectType: " + resultSubj4.value + "\nsubjectMap: " + subjectMap4.value + "\ntermType: " + term4.value + "\nnumber_of_POM: " + pom4.value + 
-  "\n\n[TM4_POM1]\npredicate: " + predicate14.value + " \nobjectType: " + selectedObjectType14.value + "\nobject: " + objmap14.value + "\ndataType: " + data14.value + "\ntermType: " + termPOM14.value + "\njoinCondition: " + joinCondition14.value + "\nchild: " + child14.value + "\nparent: " + parents14.value + "\n\n[TM4_POM2]\npredicate: " + predicate24.value + "\nobjectType: " + selectedObjectType24.value + "\nobject: " + objmap24.value + "\ndataType: " + data24.value + "\ntermType: " + termPOM24.value + "\njoinCondition: " + joinCondition24.value + "\nchild: " + child24.value + "\nparent: " + parents24.value + "\n\n[TM4_POM3]\npredicate: " + predicate34.value + "\nobjectType: " + selectedObjectType34.value + "\nobject: " + objmap34.value + "\ndataType: " + data34.value + "\ntermType: " + termPOM34.value + "\njoinCondition: " + joinCondition34.value + "\nchild: " + child34.value + "\nparent: " + parents34.value + "\n\n[TM4_POM4]\npredicate: " + predicate44.value + "\nobjectType: " + selectedObjectType44.value + "\nobject: " + objmap44.value + "\ndataType: " + data44.value + "\ntermType: " + termPOM44.value + "\njoinCondition: " + joinCondition44.value + "\nchild: " + child44.value + "\nparent: " + parents44.value + "\n\n[TM4_POM5]\npredicate: " + predicate54.value + "\nobjectType: " + selectedObjectType54.value + "\nobject: " + objmap54.value + "\ndataType: " + data54.value + "\ntermType: " + termPOM54.value + "\njoinCondition: " + joinCondition54.value + "\nchild: " + child54.value + "\nparent: " + parents54.value + "\n\n[TM4_POM6]\npredicate: " + predicate64.value + "\nobjectType: " + selectedObjectType64.value + "\nobject: " + objmap64.value + "\ndataType: " + data64.value + "\ntermType: " + termPOM64.value + "\njoinCondition: " + joinCondition64.value + "\nchild: " + child64.value + "\nparent: " + parents64.value + "\n\n[TM4_POM7]\npredicate: " + predicate74.value + "\nobjectType: " + selectedObjectType74.value + "\nobject: " + objmap74.value + "\ndataType: " + data74.value + "\ntermType: " + termPOM74.value + "\njoinCondition: " + joinCondition74.value + "\nchild: " + child74.value + "\nparent: " + parents74.value + "\n\n[TM4_POM8]\npredicate: " + predicate84.value + "\nobjectType: " + selectedObjectType84.value + "\nobject: " + objmap84.value + "\ndataType: " + data84.value + "\ntermType: " + termPOM84.value + "\njoinCondition: " + joinCondition84.value + "\nchild: " + child84.value + "\nparent: " + parents84.value + "\n\n[TM4_POM9]\npredicate: " + predicate94.value + "\nobjectType: " + selectedObjectType94.value + "\nobject: " + objmap94.value + "\ndataType: " + data94.value + "\ntermType: " + termPOM94.value + "\njoinCondition: " + joinCondition94.value + "\nchild: " + child94.value + "\nparent: " + parents94.value + "\n\n[TM5]\nname: TriplesMap5\nsource: " + source5.value + "\nreferenceFormulation: " + referenceFormulation5.value + "\nsubjectType: " + resultSubj5.value + "\nsubjectMap: " + subjectMap5.value + "\ntermType: " + term5.value + "\nnumber_of_POM: " + pom5.value + "\n\n[TM5_POM1]\npredicate: " + predicate15.value + " \nobjectType: " + selectedObjectType15.value + "\nobject: " + objmap15.value + "\ndataType: " + data15.value + "\ntermType: " + termPOM15.value + "\njoinCondition: " + joinCondition15.value + "\nchild: " + child15.value + "\nparent: " + parents15.value + "\n\n[TM5_POM2]\npredicate: " + predicate25.value + "\nobjectType: " + selectedObjectType25.value + "\nobject: " + objmap25.value + "\ndataType: " + data25.value + "\ntermType: " + termPOM25.value + "\njoinCondition: " + joinCondition25.value + "\nchild: " + child25.value + "\nparent: " + parents25.value + "\n\n[TM5_POM3]\npredicate: " + predicate35.value + "\nobjectType: " + selectedObjectType35.value + "\nobject: " + objmap35.value + "\ndataType: " + data35.value + "\ntermType: " + termPOM35.value + "\njoinCondition: " + joinCondition35.value + "\nchild: " + child35.value + "\nparent: " + parents35.value + "\n\n[TM5_POM4]\npredicate: " + predicate45.value + "\nobjectType: " + selectedObjectType45.value + "\nobject: " + objmap45.value + "\ndataType: " + data45.value + "\ntermType: " + termPOM45.value + "\njoinCondition: " + joinCondition45.value + "\nchild: " + child45.value + "\nparent: " + parents45.value + "\n\n[TM5_POM5]\npredicate: " + predicate55.value + "\nobjectType: " + selectedObjectType55.value + "\nobject: " + objmap55.value + "\ndataType: " + data55.value + "\ntermType: " + termPOM55.value + "\njoinCondition: " + joinCondition55.value + "\nchild: " + child55.value + "\nparent: " + parents55.value + "\n\n[TM5_POM6]\npredicate: " + predicate65.value + "\nobjectType: " + selectedObjectType65.value + "\nobject: " + objmap65.value + "\ndataType: " + data65.value + "\ntermType: " + termPOM65.value + "\njoinCondition: " + joinCondition65.value + "\nchild: " + child65.value + "\nparent: " + parents65.value + "\n\n[TM5_POM7]\npredicate: " + predicate75.value + "\nobjectType: " + selectedObjectType75.value + "\nobject: " + objmap75.value + "\ndataType: " + data75.value + "\ntermType: " + termPOM75.value + "\njoinCondition: " + joinCondition75.value + "\nchild: " + child75.value + "\nparent: " + parents75.value + "\n\n[TM5_POM8]\npredicate: " + predicate85.value + "\nobjectType: " + selectedObjectType85.value + "\nobject: " + objmap85.value + "\ndataType: " + data85.value + "\ntermType: " + termPOM85.value + "\njoinCondition: " + joinCondition85.value + "\nchild: " + child85.value + "\nparent: " + parents85.value + "\n\n[TM5_POM9]\npredicate: " + predicate95.value + "\nobjectType: " + selectedObjectType95.value + "\nobject: " + objmap95.value + "\ndataType: " + data95.value + "\ntermType: " + termPOM95.value + "\njoinCondition: " + joinCondition95.value + "\nchild: " + child95.value + "\nparent: " + parents95.value + 
-  "\n\n[TM6]\nname: TriplesMap6\nsource: " + source6.value + "\nreferenceFormulation: " + referenceFormulation6.value + "\nsubjectType: " + resultSubj6.value + "\nsubjectMap: " + subjectMap6.value + "\ntermType: " + term6.value + "\nnumber_of_POM: " + pom6.value + "\n\n[TM6_POM1]\npredicate: " + predicate16.value + " \nobjectType: " + selectedObjectType16.value + "\nobject: " + objmap16.value + "\ndataType: " + data16.value + "\ntermType: " + termPOM16.value + "\njoinCondition: " + joinCondition16.value + "\nchild: " + child16.value + "\nparent: " + parents16.value + "\n\n[TM6_POM2]\npredicate: " + predicate26.value + "\nobjectType: " + selectedObjectType26.value + "\nobject: " + objmap26.value + "\ndataType: " + data26.value + "\ntermType: " + termPOM26.value + "\njoinCondition: " + joinCondition26.value + "\nchild: " + child26.value + "\nparent: " + parents26.value + "\n\n[TM6_POM3]\npredicate: " + predicate36.value + "\nobjectType: " + selectedObjectType36.value + "\nobject: " + objmap36.value + "\ndataType: " + data36.value + "\ntermType: " + termPOM36.value + "\njoinCondition: " + joinCondition36.value + "\nchild: " + child36.value + "\nparent: " + parents36.value + "\n\n[TM6_POM4]\npredicate: " + predicate46.value + "\nobjectType: " + selectedObjectType46.value + "\nobject: " + objmap46.value + "\ndataType: " + data46.value + "\ntermType: " + termPOM46.value + "\njoinCondition: " + joinCondition46.value + "\nchild: " + child46.value + "\nparent: " + parents46.value + "\n\n[TM6_POM5]\npredicate: " + predicate56.value + "\nobjectType: " + selectedObjectType56.value + "\nobject: " + objmap56.value + "\ndataType: " + data56.value + "\ntermType: " + termPOM56.value + "\njoinCondition: " + joinCondition56.value + "\nchild: " + child56.value + "\nparent: " + parents56.value + "\n\n[TM6_POM6]\npredicate: " + predicate66.value + "\nobjectType: " + selectedObjectType66.value + "\nobject: " + objmap66.value + "\ndataType: " + data66.value + "\ntermType: " + termPOM66.value + "\njoinCondition: " + joinCondition66.value + "\nchild: " + child66.value + "\nparent: " + parents66.value + "\n\n[TM6_POM7]\npredicate: " + predicate76.value + "\nobjectType: " + selectedObjectType76.value + "\nobject: " + objmap76.value + "\ndataType: " + data76.value + "\ntermType: " + termPOM76.value + "\njoinCondition: " + joinCondition76.value + "\nchild: " + child76.value + "\nparent: " + parents76.value + "\n\n[TM6_POM8]\npredicate: " + predicate86.value + "\nobjectType: " + selectedObjectType86.value + "\nobject: " + objmap86.value + "\ndataType: " + data86.value + "\ntermType: " + termPOM86.value + "\njoinCondition: " + joinCondition86.value + "\nchild: " + child86.value + "\nparent: " + parents86.value + "\n\n[TM6_POM9]\npredicate: " + predicate96.value + "\nobjectType: " + selectedObjectType96.value + "\nobject: " + objmap96.value + "\ndataType: " + data96.value + "\ntermType: " + termPOM96.value + "\njoinCondition: " + joinCondition96.value + "\nchild: " + child96.value + "\nparent: " + parents96.value + "\n\n[TM7]\nname: TriplesMap7\nsource: " + source7.value + "\nreferenceFormulation: " + referenceFormulation7.value + "\nsubjectType: " + resultSubj7.value + "\nsubjectMap: " + subjectMap7.value + "\ntermType: " + term7.value + "\nnumber_of_POM: " + pom7.value + "\n\n[TM7_POM1]\npredicate: " + predicate17.value + " \nobjectType: " + selectedObjectType17.value + "\nobject: " + objmap17.value + "\ndataType: " + data17.value + "\ntermType: " + termPOM17.value + "\njoinCondition: " + joinCondition17.value + "\nchild: " + child17.value + "\nparent: " + parents17.value + "\n\n[TM7_POM2]\npredicate: " + predicate27.value + "\nobjectType: " + selectedObjectType27.value + "\nobject: " + objmap27.value + "\ndataType: " + data27.value + "\ntermType: " + termPOM27.value + "\njoinCondition: " + joinCondition27.value + "\nchild: " + child27.value + "\nparent: " + parents27.value + "\n\n[TM7_POM3]\npredicate: " + predicate37.value + "\nobjectType: " + selectedObjectType37.value + "\nobject: " + objmap37.value + "\ndataType: " + data37.value + "\ntermType: " + termPOM37.value + "\njoinCondition: " + joinCondition37.value + "\nchild: " + child37.value + "\nparent: " + parents37.value + "\n\n[TM7_POM4]\npredicate: " + predicate47.value + "\nobjectType: " + selectedObjectType47.value + "\nobject: " + objmap47.value + "\ndataType: " + data47.value + "\ntermType: " + termPOM47.value + "\njoinCondition: " + joinCondition47.value + "\nchild: " + child47.value + "\nparent: " + parents47.value + "\n\n[TM7_POM5]\npredicate: " + predicate57.value + "\nobjectType: " + selectedObjectType57.value + "\nobject: " + objmap57.value + "\ndataType: " + data57.value + "\ntermType: " + termPOM57.value + "\njoinCondition: " + joinCondition57.value + "\nchild: " + child57.value + "\nparent: " + parents57.value + "\n\n[TM7_POM6]\npredicate: " + predicate67.value + "\nobjectType: " + selectedObjectType67.value + "\nobject: " + objmap67.value + "\ndataType: " + data67.value + "\ntermType: " + termPOM67.value + "\njoinCondition: " + joinCondition67.value + "\nchild: " + child67.value + "\nparent: " + parents67.value + "\n\n[TM7_POM7]\npredicate: " + predicate77.value + "\nobjectType: " + selectedObjectType77.value + "\nobject: " + objmap77.value + "\ndataType: " + data77.value + "\ntermType: " + termPOM77.value + "\njoinCondition: " + joinCondition77.value + "\nchild: " + child77.value + "\nparent: " + parents77.value + "\n\n[TM7_POM8]\npredicate: " + predicate87.value + "\nobjectType: " + selectedObjectType87.value + "\nobject: " + objmap87.value + "\ndataType: " + data87.value + "\ntermType: " + termPOM87.value + "\njoinCondition: " + joinCondition87.value + "\nchild: " + child87.value + "\nparent: " + parents87.value + "\n\n[TM7_POM9]\npredicate: " + predicate97.value + "\nobjectType: " + selectedObjectType97.value + "\nobject: " + objmap97.value + "\ndataType: " + data97.value + "\ntermType: " + termPOM97.value + "\njoinCondition: " + joinCondition97.value + "\nchild: " + child97.value + "\nparent: " + parents97.value +
-   "\n\n[TM8]\nname: TriplesMap8\nsource: " + source8.value + "\nreferenceFormulation: " + referenceFormulation8.value + "\nsubjectType: " + resultSubj8.value + "\nsubjectMap: " + subjectMap8.value + "\ntermType: " + term8.value + "\nnumber_of_POM: " + pom8.value + "\n\n[TM8_POM1]\npredicate: " + predicate18.value + " \nobjectType: " + selectedObjectType18.value + "\nobject: " + objmap18.value + "\ndataType: " + data18.value + "\ntermType: " + termPOM18.value + "\njoinCondition: " + joinCondition18.value + "\nchild: " + child18.value + "\nparent: " + parents18.value + "\n\n[TM8_POM2]\npredicate: " + predicate28.value + "\nobjectType: " + selectedObjectType28.value + "\nobject: " + objmap28.value + "\ndataType: " + data28.value + "\ntermType: " + termPOM28.value + "\njoinCondition: " + joinCondition28.value + "\nchild: " + child28.value + "\nparent: " + parents28.value + "\n\n[TM8_POM3]\npredicate: " + predicate38.value + "\nobjectType: " + selectedObjectType38.value + "\nobject: " + objmap38.value + "\ndataType: " + data38.value + "\ntermType: " + termPOM38.value + "\njoinCondition: " + joinCondition38.value + "\nchild: " + child38.value + "\nparent: " + parents38.value + "\n\n[TM8_POM4]\npredicate: " + predicate48.value + "\nobjectType: " + selectedObjectType48.value + "\nobject: " + objmap48.value + "\ndataType: " + data48.value + "\ntermType: " + termPOM48.value + "\njoinCondition: " + joinCondition48.value + "\nchild: " + child48.value + "\nparent: " + parents48.value + "\n\n[TM8_POM5]\npredicate: " + predicate58.value + "\nobjectType: " + selectedObjectType58.value + "\nobject: " + objmap58.value + "\ndataType: " + data58.value + "\ntermType: " + termPOM58.value + "\njoinCondition: " + joinCondition58.value + "\nchild: " + child58.value + "\nparent: " + parents58.value + "\n\n[TM8_POM6]\npredicate: " + predicate68.value + "\nobjectType: " + selectedObjectType68.value + "\nobject: " + objmap68.value + "\ndataType: " + data68.value + "\ntermType: " + termPOM68.value + "\njoinCondition: " + joinCondition68.value + "\nchild: " + child68.value + "\nparent: " + parents68.value + "\n\n[TM8_POM7]\npredicate: " + predicate78.value + "\nobjectType: " + selectedObjectType78.value + "\nobject: " + objmap78.value + "\ndataType: " + data78.value + "\ntermType: " + termPOM78.value + "\njoinCondition: " + joinCondition78.value + "\nchild: " + child78.value + "\nparent: " + parents78.value + "\n\n[TM8_POM8]\npredicate: " + predicate88.value + "\nobjectType: " + selectedObjectType88.value + "\nobject: " + objmap88.value + "\ndataType: " + data88.value + "\ntermType: " + termPOM88.value + "\njoinCondition: " + joinCondition88.value + "\nchild: " + child88.value + "\nparent: " + parents88.value + "\n\n[TM8_POM9]\npredicate: " + predicate98.value + "\nobjectType: " + selectedObjectType98.value + "\nobject: " + objmap98.value + "\ndataType: " + data98.value + "\ntermType: " + termPOM98.value + "\njoinCondition: " + joinCondition98.value + "\nchild: " + child98.value + "\nparent: " + parents98.value + "\n\n[TM9]\nname: TriplesMap9\nsource: " + source9.value + "\nreferenceFormulation: " + referenceFormulation9.value + "\nsubjectType: " + resultSubj9.value + "\nsubjectMap: " + subjectMap9.value + "\ntermType: " + term9.value + "\nnumber_of_POM: " + pom9.value + "\n\n[TM9_POM1]\npredicate: " + predicate19.value + " \nobjectType: " + selectedObjectType19.value + "\nobject: " + objmap19.value + "\ndataType: " + data19.value + "\ntermType: " + termPOM19.value + "\njoinCondition: " + joinCondition19.value + "\nchild: " + child19.value + "\nparent: " + parents19.value + "\n\n[TM9_POM2]\npredicate: " + predicate29.value + "\nobjectType: " + selectedObjectType29.value + "\nobject: " + objmap29.value + "\ndataType: " + data29.value + "\ntermType: " + termPOM29.value + "\njoinCondition: " + joinCondition29.value + "\nchild: " + child29.value + "\nparent: " + parents29.value + "\n\n[TM9_POM3]\npredicate: " + predicate39.value + "\nobjectType: " + selectedObjectType39.value + "\nobject: " + objmap39.value + "\ndataType: " + data39.value + "\ntermType: " + termPOM39.value + "\njoinCondition: " + joinCondition39.value + "\nchild: " + child39.value + "\nparent: " + parents39.value + "\n\n[TM9_POM4]\npredicate: " + predicate49.value + "\nobjectType: " + selectedObjectType49.value + "\nobject: " + objmap49.value + "\ndataType: " + data49.value + "\ntermType: " + termPOM49.value + "\njoinCondition: " + joinCondition49.value + "\nchild: " + child49.value + "\nparent: " + parents49.value + "\n\n[TM9_POM5]\npredicate: " + predicate59.value + "\nobjectType: " + selectedObjectType59.value + "\nobject: " + objmap59.value + "\ndataType: " + data59.value + "\ntermType: " + termPOM59.value + "\njoinCondition: " + joinCondition59.value + "\nchild: " + child59.value + "\nparent: " + parents59.value + "\n\n[TM9_POM6]\npredicate: " + predicate69.value + "\nobjectType: " + selectedObjectType69.value + "\nobject: " + objmap69.value + "\ndataType: " + data69.value + "\ntermType: " + termPOM69.value + "\njoinCondition: " + joinCondition69.value + "\nchild: " + child69.value + "\nparent: " + parents69.value + "\n\n[TM9_POM7]\npredicate: " + predicate79.value + "\nobjectType: " + selectedObjectType79.value + "\nobject: " + objmap79.value + "\ndataType: " + data79.value + "\ntermType: " + termPOM79.value + "\njoinCondition: " + joinCondition79.value + "\nchild: " + child79.value + "\nparent: " + parents79.value + "\n\n[TM9_POM8]\npredicate: " + predicate89.value + "\nobjectType: " + selectedObjectType89.value + "\nobject: " + objmap89.value + "\ndataType: " + data89.value + "\ntermType: " + termPOM89.value + "\njoinCondition: " + joinCondition89.value + "\nchild: " + child89.value + "\nparent: " + parents89.value + "\n\n[TM9_POM9]\npredicate: " + predicate99.value + "\nobjectType: " + selectedObjectType99.value + "\nobject: " + objmap99.value + "\ndataType: " + data99.value + "\ntermType: " + termPOM99.value + "\njoinCondition: " + joinCondition99.value + "\nchild: " + child99.value + "\nparent: " + parents99.value,
+    data: "[main]\nmapping_file_name : " + filename.value + "\nnumber_of_prefixes: " + pref.value + "\nnumber_of_TMs : " + tm.value + "\noutput_folder: " + output.value + "\n\n[prefixes]\npre1 : " + labpre1.value + "\nprefix1 : " + prefix1.value + "\npre2 : " + labpre2.value + "\nprefix2 : " + prefix2.value + "\npre3 : " + labpre3.value + "\nprefix3 : " + prefix3.value + "\npre4 : " + labpre4.value + "\nprefix4 : " + prefix4.value + "\npre5 : " + labpre5.value + "\nprefix5 :  " + prefix5.value + "\npre6 : " + labpre6.value + "\nprefix6 : " + prefix6.value + "\npre7 : " + labpre7.value + "\nprefix7 : " + prefix7.value + "\npre8 : " + labpre8.value + "\nprefix8 : " + prefix8.value + "\npre9 : " + labpre9.value + "\nprefix9 : " + prefix9.value + "\npre10 : " + labpre10.value + "\nprefix10 : " + prefix10.value + "\npre11 : " + labpre11.value + "\nprefix11 : " + prefix11.value + "\n\n[TM1]\nname: TriplesMap1\nsource: " + source.value + "\nsourceFormat: " + referenceFormulation.value + "\nsubjectType: " + resultSubj.value + "\nsubjectMap: " + subjectMap.value + "\ntermType: " + term.value + "\nnumber_of_POM: " + pom.value + "\n\n[TM1_POM1]\npredicate: " + predicate.value + " \nobjectType: " + selectedObjectType.value + "\nobject: " + objmap.value + "\ndataType: " + data.value + "\ntermType: " + termPOM.value + "\njoinCondition: " + joinCondition.value + "\nchild: " + child.value + "\nparent: " + parents.value  + "\n\n[TM1_POM2]\npredicate: " + predicate2.value + "\nobjectType: " + selectedObjectType2.value + "\nobject: " + objmap2.value + "\ndataType: " + data2.value + "\ntermType: " + termPOM2.value + "\njoinCondition: " + joinCondition2.value + "\nchild: " + child2.value + "\nparent: " + parents2.value + "\n\n[TM1_POM3]\npredicate: " + predicate3.value + "\nobjectType: " + selectedObjectType3.value + "\nobject: " + objmap3.value + "\ndataType: " + data3.value + "\ntermType: " + termPOM3.value + "\njoinCondition: " + joinCondition3.value + "\nchild: " + child3.value + "\nparent: " + parents3.value + "\n\n[TM1_POM4]\npredicate: " + predicate4.value + "\nobjectType: " + selectedObjectType4.value + "\nobject: " + objmap4.value + "\ndataType: " + data4.value + "\ntermType: " + termPOM4.value + "\njoinCondition: " + joinCondition4.value + "\nchild: " + child4.value + "\nparent: " + parents4.value + "\n\n[TM1_POM5]\npredicate: " + predicate5.value + "\nobjectType: " + selectedObjectType5.value + "\nobject: " + objmap5.value + "\ndataType: " + data5.value + "\ntermType: " + termPOM5.value + "\njoinCondition: " + joinCondition5.value + "\nchild: " + child5.value + "\nparent: " + parents5.value +"\n\n[TM1_POM6]\npredicate: " + predicate6.value + "\nobjectType: " + selectedObjectType6.value + "\nobject: " + objmap6.value + "\ndataType: " + data6.value + "\ntermType: " + termPOM6.value + "\njoinCondition: " + joinCondition6.value + "\nchild: " + child6.value + "\nparent: " + parents6.value + "\n\n[TM1_POM7]\npredicate: " + predicate7.value + "\nobjectType: " + selectedObjectType7.value + "\nobject: " + objmap7.value + "\ndataType: " + data7.value + "\ntermType: " + termPOM7.value + "\njoinCondition: " + joinCondition7.value + "\nchild: " + child7.value + "\nparent: " + parents7.value + "\n\n[TM1_POM8]\npredicate: " + predicate8.value + "\nobjectType: " + selectedObjectType8.value + "\nobject: " + objmap8.value + "\ndataType: " + data8.value + "\ntermType: " + termPOM8.value + "\njoinCondition: " + joinCondition8.value + "\nchild: " + child8.value + "\nparent: " + parents8.value + "\n\n[TM1_POM9]\npredicate: " + predicate9.value + "\nobjectType: " + selectedObjectType9.value + "\nobject: " + objmap9.value + "\ndataType: " + data9.value + "\ntermType: " + termPOM9.value + "\njoinCondition: " + joinCondition9.value + "\nchild: " + child9.value + "\nparent: " + parents9.value + "\n\n[TM2]\nname: TriplesMap2\nsource: " + source2.value + "\nsourceFormat: " + referenceFormulation2.value + "\nsubjectType: " + resultSubj2.value + "\nsubjectMap: " + subjectMap2.value + "\ntermType: " + term2.value + "\nnumber_of_POM: " + pom2.value + "\n\n[TM2_POM1]\npredicate: " + predicate12.value + " \nobjectType: " + selectedObjectType12.value + "\nobject: " + objmap12.value + "\ndataType: " + data12.value + "\ntermType: " + termPOM12.value + "\njoinCondition: " + joinCondition12.value + "\nchild: " + child12.value + "\nparent: " + parents12.value + "\n\n[TM2_POM2]\npredicate: " + predicate22.value + "\nobjectType: " + selectedObjectType22.value + "\nobject: " + objmap22.value + "\ndataType: " + data22.value + "\ntermType: " + termPOM22.value + "\njoinCondition: " + joinCondition22.value + "\nchild: " + child22.value + "\nparent: " + parents22.value + "\n\n[TM2_POM3]\npredicate: " + predicate32.value + "\nobjectType: " + selectedObjectType32.value + "\nobject: " + objmap32.value + "\ndataType: " + data32.value + "\ntermType: " + termPOM32.value + "\njoinCondition: " + joinCondition32.value + "\nchild: " + child32.value + "\nparent: " + parents32.value + "\n\n[TM2_POM4]\npredicate: " + predicate42.value + "\nobjectType: " + selectedObjectType42.value + "\nobject: " + objmap42.value + "\ndataType: " + data42.value + "\ntermType: " + termPOM42.value + "\njoinCondition: " + joinCondition42.value + "\nchild: " + child42.value + "\nparent: " + parents42.value + "\n\n[TM2_POM5]\npredicate: " + predicate52.value + "\nobjectType: " + selectedObjectType52.value + "\nobject: " + objmap52.value + "\ndataType: " + data52.value + "\ntermType: " + termPOM52.value + "\njoinCondition: " + joinCondition52.value + "\nchild: " + child52.value + "\nparent: " + parents52.value + "\n\n[TM2_POM6]\npredicate: " + predicate62.value + "\nobjectType: " + selectedObjectType62.value + "\nobject: " + objmap62.value + "\ndataType: " + data62.value + "\ntermType: " + termPOM62.value + "\njoinCondition: " + joinCondition62.value + "\nchild: " + child62.value + "\nparent: " + parents62.value + "\n\n[TM2_POM7]\npredicate: " + predicate72.value + "\nobjectType: " + selectedObjectType72.value + "\nobject: " + objmap72.value + "\ndataType: " + data72.value + "\ntermType: " + termPOM72.value + "\njoinCondition: " + joinCondition72.value + "\nchild: " + child72.value + "\nparent: " + parents72.value + "\n\n[TM2_POM8]\npredicate: " + predicate82.value + "\nobjectType: " + selectedObjectType82.value + "\nobject: " + objmap82.value + "\ndataType: " + data82.value + "\ntermType: " + termPOM82.value + "\njoinCondition: " + joinCondition82.value + "\nchild: " + child82.value + "\nparent: " + parents82.value + "\n\n[TM2_POM9]\npredicate: " + predicate92.value + "\nobjectType: " + selectedObjectType92.value + "\nobject: " + objmap92.value + "\ndataType: " + data92.value + "\ntermType: " + termPOM92.value + "\njoinCondition: " + joinCondition92.value + "\nchild: " + child92.value + "\nparent: " + parents92.value +  "\n\n[TM3]\nname: TriplesMap3\nsource: " + source3.value + "\nsourceFormat: " + referenceFormulation3.value + "\nsubjectType: " + resultSubj3.value + "\nsubjectMap: " + subjectMap3.value + "\ntermType: " + term3.value + "\nnumber_of_POM: " + pom3.value + "\n\n[TM3_POM1]\npredicate: " + predicate13.value + " \nobjectType: " + selectedObjectType13.value + "\nobject: " + objmap13.value + "\ndataType: " + data13.value + "\ntermType: " + termPOM13.value + "\njoinCondition: " + joinCondition13.value + "\nchild: " + child13.value + "\nparent: " + parents13.value + "\n\n[TM3_POM2]\npredicate: " + predicate23.value + "\nobjectType: " + selectedObjectType23.value + "\nobject: " + objmap23.value + "\ndataType: " + data23.value + "\ntermType: " + termPOM23.value + "\njoinCondition: " + joinCondition23.value + "\nchild: " + child23.value + "\nparent: " + parents23.value + "\n\n[TM3_POM3]\npredicate: " + predicate33.value + "\nobjectType: " + selectedObjectType33.value + "\nobject: " + objmap33.value + "\ndataType: " + data33.value + "\ntermType: " + termPOM33.value + "\njoinCondition: " + joinCondition33.value + "\nchild: " + child33.value + "\nparent: " + parents33.value + "\n\n[TM3_POM4]\npredicate: " + predicate43.value + "\nobjectType: " + selectedObjectType43.value + "\nobject: " + objmap43.value + "\ndataType: " + data43.value + "\ntermType: " + termPOM43.value + "\njoinCondition: " + joinCondition43.value + "\nchild: " + child43.value + "\nparent: " + parents43.value + "\n\n[TM3_POM5]\npredicate: " + predicate53.value + "\nobjectType: " + selectedObjectType53.value + "\nobject: " + objmap53.value + "\ndataType: " + data53.value + "\ntermType: " + termPOM53.value + "\njoinCondition: " + joinCondition53.value + "\nchild: " + child53.value + "\nparent: " + parents53.value + "\n\n[TM3_POM6]\npredicate: " + predicate63.value + "\nobjectType: " + selectedObjectType63.value + "\nobject: " + objmap63.value + "\ndataType: " + data63.value + "\ntermType: " + termPOM63.value + "\njoinCondition: " + joinCondition63.value + "\nchild: " + child63.value + "\nparent: " + parents63.value + "\n\n[TM3_POM7]\npredicate: " + predicate73.value + "\nobjectType: " + selectedObjectType73.value + "\nobject: " + objmap73.value + "\ndataType: " + data73.value + "\ntermType: " + termPOM73.value + "\njoinCondition: " + joinCondition73.value + "\nchild: " + child73.value + "\nparent: " + parents73.value + "\n\n[TM3_POM8]\npredicate: " + predicate83.value + "\nobjectType: " + selectedObjectType83.value + "\nobject: " + objmap83.value + "\ndataType: " + data83.value + "\ntermType: " + termPOM83.value + "\njoinCondition: " + joinCondition83.value + "\nchild: " + child83.value + "\nparent: " + parents83.value + "\n\n[TM3_POM9]\npredicate: " + predicate93.value + "\nobjectType: " + selectedObjectType93.value + "\nobject: " + objmap93.value + "\ndataType: " + data93.value + "\ntermType: " + termPOM93.value + "\njoinCondition: " + joinCondition93.value + "\nchild: " + child93.value + "\nparent: " + parents93.value + "\n\n[TM4]\nname: TriplesMap4\nsource: " + source4.value + "\nsourceFormat: " + referenceFormulation4.value + "\nsubjectType: " + resultSubj4.value + "\nsubjectMap: " + subjectMap4.value + "\ntermType: " + term4.value + "\nnumber_of_POM: " + pom4.value + 
+  "\n\n[TM4_POM1]\npredicate: " + predicate14.value + " \nobjectType: " + selectedObjectType14.value + "\nobject: " + objmap14.value + "\ndataType: " + data14.value + "\ntermType: " + termPOM14.value + "\njoinCondition: " + joinCondition14.value + "\nchild: " + child14.value + "\nparent: " + parents14.value + "\n\n[TM4_POM2]\npredicate: " + predicate24.value + "\nobjectType: " + selectedObjectType24.value + "\nobject: " + objmap24.value + "\ndataType: " + data24.value + "\ntermType: " + termPOM24.value + "\njoinCondition: " + joinCondition24.value + "\nchild: " + child24.value + "\nparent: " + parents24.value + "\n\n[TM4_POM3]\npredicate: " + predicate34.value + "\nobjectType: " + selectedObjectType34.value + "\nobject: " + objmap34.value + "\ndataType: " + data34.value + "\ntermType: " + termPOM34.value + "\njoinCondition: " + joinCondition34.value + "\nchild: " + child34.value + "\nparent: " + parents34.value + "\n\n[TM4_POM4]\npredicate: " + predicate44.value + "\nobjectType: " + selectedObjectType44.value + "\nobject: " + objmap44.value + "\ndataType: " + data44.value + "\ntermType: " + termPOM44.value + "\njoinCondition: " + joinCondition44.value + "\nchild: " + child44.value + "\nparent: " + parents44.value + "\n\n[TM4_POM5]\npredicate: " + predicate54.value + "\nobjectType: " + selectedObjectType54.value + "\nobject: " + objmap54.value + "\ndataType: " + data54.value + "\ntermType: " + termPOM54.value + "\njoinCondition: " + joinCondition54.value + "\nchild: " + child54.value + "\nparent: " + parents54.value + "\n\n[TM4_POM6]\npredicate: " + predicate64.value + "\nobjectType: " + selectedObjectType64.value + "\nobject: " + objmap64.value + "\ndataType: " + data64.value + "\ntermType: " + termPOM64.value + "\njoinCondition: " + joinCondition64.value + "\nchild: " + child64.value + "\nparent: " + parents64.value + "\n\n[TM4_POM7]\npredicate: " + predicate74.value + "\nobjectType: " + selectedObjectType74.value + "\nobject: " + objmap74.value + "\ndataType: " + data74.value + "\ntermType: " + termPOM74.value + "\njoinCondition: " + joinCondition74.value + "\nchild: " + child74.value + "\nparent: " + parents74.value + "\n\n[TM4_POM8]\npredicate: " + predicate84.value + "\nobjectType: " + selectedObjectType84.value + "\nobject: " + objmap84.value + "\ndataType: " + data84.value + "\ntermType: " + termPOM84.value + "\njoinCondition: " + joinCondition84.value + "\nchild: " + child84.value + "\nparent: " + parents84.value + "\n\n[TM4_POM9]\npredicate: " + predicate94.value + "\nobjectType: " + selectedObjectType94.value + "\nobject: " + objmap94.value + "\ndataType: " + data94.value + "\ntermType: " + termPOM94.value + "\njoinCondition: " + joinCondition94.value + "\nchild: " + child94.value + "\nparent: " + parents94.value + "\n\n[TM5]\nname: TriplesMap5\nsource: " + source5.value + "\nsourceFormat: " + referenceFormulation5.value + "\nsubjectType: " + resultSubj5.value + "\nsubjectMap: " + subjectMap5.value + "\ntermType: " + term5.value + "\nnumber_of_POM: " + pom5.value + "\n\n[TM5_POM1]\npredicate: " + predicate15.value + " \nobjectType: " + selectedObjectType15.value + "\nobject: " + objmap15.value + "\ndataType: " + data15.value + "\ntermType: " + termPOM15.value + "\njoinCondition: " + joinCondition15.value + "\nchild: " + child15.value + "\nparent: " + parents15.value + "\n\n[TM5_POM2]\npredicate: " + predicate25.value + "\nobjectType: " + selectedObjectType25.value + "\nobject: " + objmap25.value + "\ndataType: " + data25.value + "\ntermType: " + termPOM25.value + "\njoinCondition: " + joinCondition25.value + "\nchild: " + child25.value + "\nparent: " + parents25.value + "\n\n[TM5_POM3]\npredicate: " + predicate35.value + "\nobjectType: " + selectedObjectType35.value + "\nobject: " + objmap35.value + "\ndataType: " + data35.value + "\ntermType: " + termPOM35.value + "\njoinCondition: " + joinCondition35.value + "\nchild: " + child35.value + "\nparent: " + parents35.value + "\n\n[TM5_POM4]\npredicate: " + predicate45.value + "\nobjectType: " + selectedObjectType45.value + "\nobject: " + objmap45.value + "\ndataType: " + data45.value + "\ntermType: " + termPOM45.value + "\njoinCondition: " + joinCondition45.value + "\nchild: " + child45.value + "\nparent: " + parents45.value + "\n\n[TM5_POM5]\npredicate: " + predicate55.value + "\nobjectType: " + selectedObjectType55.value + "\nobject: " + objmap55.value + "\ndataType: " + data55.value + "\ntermType: " + termPOM55.value + "\njoinCondition: " + joinCondition55.value + "\nchild: " + child55.value + "\nparent: " + parents55.value + "\n\n[TM5_POM6]\npredicate: " + predicate65.value + "\nobjectType: " + selectedObjectType65.value + "\nobject: " + objmap65.value + "\ndataType: " + data65.value + "\ntermType: " + termPOM65.value + "\njoinCondition: " + joinCondition65.value + "\nchild: " + child65.value + "\nparent: " + parents65.value + "\n\n[TM5_POM7]\npredicate: " + predicate75.value + "\nobjectType: " + selectedObjectType75.value + "\nobject: " + objmap75.value + "\ndataType: " + data75.value + "\ntermType: " + termPOM75.value + "\njoinCondition: " + joinCondition75.value + "\nchild: " + child75.value + "\nparent: " + parents75.value + "\n\n[TM5_POM8]\npredicate: " + predicate85.value + "\nobjectType: " + selectedObjectType85.value + "\nobject: " + objmap85.value + "\ndataType: " + data85.value + "\ntermType: " + termPOM85.value + "\njoinCondition: " + joinCondition85.value + "\nchild: " + child85.value + "\nparent: " + parents85.value + "\n\n[TM5_POM9]\npredicate: " + predicate95.value + "\nobjectType: " + selectedObjectType95.value + "\nobject: " + objmap95.value + "\ndataType: " + data95.value + "\ntermType: " + termPOM95.value + "\njoinCondition: " + joinCondition95.value + "\nchild: " + child95.value + "\nparent: " + parents95.value + 
+  "\n\n[TM6]\nname: TriplesMap6\nsource: " + source6.value + "\nsourceFormat: " + referenceFormulation6.value + "\nsubjectType: " + resultSubj6.value + "\nsubjectMap: " + subjectMap6.value + "\ntermType: " + term6.value + "\nnumber_of_POM: " + pom6.value + "\n\n[TM6_POM1]\npredicate: " + predicate16.value + " \nobjectType: " + selectedObjectType16.value + "\nobject: " + objmap16.value + "\ndataType: " + data16.value + "\ntermType: " + termPOM16.value + "\njoinCondition: " + joinCondition16.value + "\nchild: " + child16.value + "\nparent: " + parents16.value + "\n\n[TM6_POM2]\npredicate: " + predicate26.value + "\nobjectType: " + selectedObjectType26.value + "\nobject: " + objmap26.value + "\ndataType: " + data26.value + "\ntermType: " + termPOM26.value + "\njoinCondition: " + joinCondition26.value + "\nchild: " + child26.value + "\nparent: " + parents26.value + "\n\n[TM6_POM3]\npredicate: " + predicate36.value + "\nobjectType: " + selectedObjectType36.value + "\nobject: " + objmap36.value + "\ndataType: " + data36.value + "\ntermType: " + termPOM36.value + "\njoinCondition: " + joinCondition36.value + "\nchild: " + child36.value + "\nparent: " + parents36.value + "\n\n[TM6_POM4]\npredicate: " + predicate46.value + "\nobjectType: " + selectedObjectType46.value + "\nobject: " + objmap46.value + "\ndataType: " + data46.value + "\ntermType: " + termPOM46.value + "\njoinCondition: " + joinCondition46.value + "\nchild: " + child46.value + "\nparent: " + parents46.value + "\n\n[TM6_POM5]\npredicate: " + predicate56.value + "\nobjectType: " + selectedObjectType56.value + "\nobject: " + objmap56.value + "\ndataType: " + data56.value + "\ntermType: " + termPOM56.value + "\njoinCondition: " + joinCondition56.value + "\nchild: " + child56.value + "\nparent: " + parents56.value + "\n\n[TM6_POM6]\npredicate: " + predicate66.value + "\nobjectType: " + selectedObjectType66.value + "\nobject: " + objmap66.value + "\ndataType: " + data66.value + "\ntermType: " + termPOM66.value + "\njoinCondition: " + joinCondition66.value + "\nchild: " + child66.value + "\nparent: " + parents66.value + "\n\n[TM6_POM7]\npredicate: " + predicate76.value + "\nobjectType: " + selectedObjectType76.value + "\nobject: " + objmap76.value + "\ndataType: " + data76.value + "\ntermType: " + termPOM76.value + "\njoinCondition: " + joinCondition76.value + "\nchild: " + child76.value + "\nparent: " + parents76.value + "\n\n[TM6_POM8]\npredicate: " + predicate86.value + "\nobjectType: " + selectedObjectType86.value + "\nobject: " + objmap86.value + "\ndataType: " + data86.value + "\ntermType: " + termPOM86.value + "\njoinCondition: " + joinCondition86.value + "\nchild: " + child86.value + "\nparent: " + parents86.value + "\n\n[TM6_POM9]\npredicate: " + predicate96.value + "\nobjectType: " + selectedObjectType96.value + "\nobject: " + objmap96.value + "\ndataType: " + data96.value + "\ntermType: " + termPOM96.value + "\njoinCondition: " + joinCondition96.value + "\nchild: " + child96.value + "\nparent: " + parents96.value + "\n\n[TM7]\nname: TriplesMap7\nsource: " + source7.value + "\nsourceFormat: " + referenceFormulation7.value + "\nsubjectType: " + resultSubj7.value + "\nsubjectMap: " + subjectMap7.value + "\ntermType: " + term7.value + "\nnumber_of_POM: " + pom7.value + "\n\n[TM7_POM1]\npredicate: " + predicate17.value + " \nobjectType: " + selectedObjectType17.value + "\nobject: " + objmap17.value + "\ndataType: " + data17.value + "\ntermType: " + termPOM17.value + "\njoinCondition: " + joinCondition17.value + "\nchild: " + child17.value + "\nparent: " + parents17.value + "\n\n[TM7_POM2]\npredicate: " + predicate27.value + "\nobjectType: " + selectedObjectType27.value + "\nobject: " + objmap27.value + "\ndataType: " + data27.value + "\ntermType: " + termPOM27.value + "\njoinCondition: " + joinCondition27.value + "\nchild: " + child27.value + "\nparent: " + parents27.value + "\n\n[TM7_POM3]\npredicate: " + predicate37.value + "\nobjectType: " + selectedObjectType37.value + "\nobject: " + objmap37.value + "\ndataType: " + data37.value + "\ntermType: " + termPOM37.value + "\njoinCondition: " + joinCondition37.value + "\nchild: " + child37.value + "\nparent: " + parents37.value + "\n\n[TM7_POM4]\npredicate: " + predicate47.value + "\nobjectType: " + selectedObjectType47.value + "\nobject: " + objmap47.value + "\ndataType: " + data47.value + "\ntermType: " + termPOM47.value + "\njoinCondition: " + joinCondition47.value + "\nchild: " + child47.value + "\nparent: " + parents47.value + "\n\n[TM7_POM5]\npredicate: " + predicate57.value + "\nobjectType: " + selectedObjectType57.value + "\nobject: " + objmap57.value + "\ndataType: " + data57.value + "\ntermType: " + termPOM57.value + "\njoinCondition: " + joinCondition57.value + "\nchild: " + child57.value + "\nparent: " + parents57.value + "\n\n[TM7_POM6]\npredicate: " + predicate67.value + "\nobjectType: " + selectedObjectType67.value + "\nobject: " + objmap67.value + "\ndataType: " + data67.value + "\ntermType: " + termPOM67.value + "\njoinCondition: " + joinCondition67.value + "\nchild: " + child67.value + "\nparent: " + parents67.value + "\n\n[TM7_POM7]\npredicate: " + predicate77.value + "\nobjectType: " + selectedObjectType77.value + "\nobject: " + objmap77.value + "\ndataType: " + data77.value + "\ntermType: " + termPOM77.value + "\njoinCondition: " + joinCondition77.value + "\nchild: " + child77.value + "\nparent: " + parents77.value + "\n\n[TM7_POM8]\npredicate: " + predicate87.value + "\nobjectType: " + selectedObjectType87.value + "\nobject: " + objmap87.value + "\ndataType: " + data87.value + "\ntermType: " + termPOM87.value + "\njoinCondition: " + joinCondition87.value + "\nchild: " + child87.value + "\nparent: " + parents87.value + "\n\n[TM7_POM9]\npredicate: " + predicate97.value + "\nobjectType: " + selectedObjectType97.value + "\nobject: " + objmap97.value + "\ndataType: " + data97.value + "\ntermType: " + termPOM97.value + "\njoinCondition: " + joinCondition97.value + "\nchild: " + child97.value + "\nparent: " + parents97.value +
+   "\n\n[TM8]\nname: TriplesMap8\nsource: " + source8.value + "\nsourceFormat: " + referenceFormulation8.value + "\nsubjectType: " + resultSubj8.value + "\nsubjectMap: " + subjectMap8.value + "\ntermType: " + term8.value + "\nnumber_of_POM: " + pom8.value + "\n\n[TM8_POM1]\npredicate: " + predicate18.value + " \nobjectType: " + selectedObjectType18.value + "\nobject: " + objmap18.value + "\ndataType: " + data18.value + "\ntermType: " + termPOM18.value + "\njoinCondition: " + joinCondition18.value + "\nchild: " + child18.value + "\nparent: " + parents18.value + "\n\n[TM8_POM2]\npredicate: " + predicate28.value + "\nobjectType: " + selectedObjectType28.value + "\nobject: " + objmap28.value + "\ndataType: " + data28.value + "\ntermType: " + termPOM28.value + "\njoinCondition: " + joinCondition28.value + "\nchild: " + child28.value + "\nparent: " + parents28.value + "\n\n[TM8_POM3]\npredicate: " + predicate38.value + "\nobjectType: " + selectedObjectType38.value + "\nobject: " + objmap38.value + "\ndataType: " + data38.value + "\ntermType: " + termPOM38.value + "\njoinCondition: " + joinCondition38.value + "\nchild: " + child38.value + "\nparent: " + parents38.value + "\n\n[TM8_POM4]\npredicate: " + predicate48.value + "\nobjectType: " + selectedObjectType48.value + "\nobject: " + objmap48.value + "\ndataType: " + data48.value + "\ntermType: " + termPOM48.value + "\njoinCondition: " + joinCondition48.value + "\nchild: " + child48.value + "\nparent: " + parents48.value + "\n\n[TM8_POM5]\npredicate: " + predicate58.value + "\nobjectType: " + selectedObjectType58.value + "\nobject: " + objmap58.value + "\ndataType: " + data58.value + "\ntermType: " + termPOM58.value + "\njoinCondition: " + joinCondition58.value + "\nchild: " + child58.value + "\nparent: " + parents58.value + "\n\n[TM8_POM6]\npredicate: " + predicate68.value + "\nobjectType: " + selectedObjectType68.value + "\nobject: " + objmap68.value + "\ndataType: " + data68.value + "\ntermType: " + termPOM68.value + "\njoinCondition: " + joinCondition68.value + "\nchild: " + child68.value + "\nparent: " + parents68.value + "\n\n[TM8_POM7]\npredicate: " + predicate78.value + "\nobjectType: " + selectedObjectType78.value + "\nobject: " + objmap78.value + "\ndataType: " + data78.value + "\ntermType: " + termPOM78.value + "\njoinCondition: " + joinCondition78.value + "\nchild: " + child78.value + "\nparent: " + parents78.value + "\n\n[TM8_POM8]\npredicate: " + predicate88.value + "\nobjectType: " + selectedObjectType88.value + "\nobject: " + objmap88.value + "\ndataType: " + data88.value + "\ntermType: " + termPOM88.value + "\njoinCondition: " + joinCondition88.value + "\nchild: " + child88.value + "\nparent: " + parents88.value + "\n\n[TM8_POM9]\npredicate: " + predicate98.value + "\nobjectType: " + selectedObjectType98.value + "\nobject: " + objmap98.value + "\ndataType: " + data98.value + "\ntermType: " + termPOM98.value + "\njoinCondition: " + joinCondition98.value + "\nchild: " + child98.value + "\nparent: " + parents98.value + "\n\n[TM9]\nname: TriplesMap9\nsource: " + source9.value + "\nsourceFormat: " + referenceFormulation9.value + "\nsubjectType: " + resultSubj9.value + "\nsubjectMap: " + subjectMap9.value + "\ntermType: " + term9.value + "\nnumber_of_POM: " + pom9.value + "\n\n[TM9_POM1]\npredicate: " + predicate19.value + " \nobjectType: " + selectedObjectType19.value + "\nobject: " + objmap19.value + "\ndataType: " + data19.value + "\ntermType: " + termPOM19.value + "\njoinCondition: " + joinCondition19.value + "\nchild: " + child19.value + "\nparent: " + parents19.value + "\n\n[TM9_POM2]\npredicate: " + predicate29.value + "\nobjectType: " + selectedObjectType29.value + "\nobject: " + objmap29.value + "\ndataType: " + data29.value + "\ntermType: " + termPOM29.value + "\njoinCondition: " + joinCondition29.value + "\nchild: " + child29.value + "\nparent: " + parents29.value + "\n\n[TM9_POM3]\npredicate: " + predicate39.value + "\nobjectType: " + selectedObjectType39.value + "\nobject: " + objmap39.value + "\ndataType: " + data39.value + "\ntermType: " + termPOM39.value + "\njoinCondition: " + joinCondition39.value + "\nchild: " + child39.value + "\nparent: " + parents39.value + "\n\n[TM9_POM4]\npredicate: " + predicate49.value + "\nobjectType: " + selectedObjectType49.value + "\nobject: " + objmap49.value + "\ndataType: " + data49.value + "\ntermType: " + termPOM49.value + "\njoinCondition: " + joinCondition49.value + "\nchild: " + child49.value + "\nparent: " + parents49.value + "\n\n[TM9_POM5]\npredicate: " + predicate59.value + "\nobjectType: " + selectedObjectType59.value + "\nobject: " + objmap59.value + "\ndataType: " + data59.value + "\ntermType: " + termPOM59.value + "\njoinCondition: " + joinCondition59.value + "\nchild: " + child59.value + "\nparent: " + parents59.value + "\n\n[TM9_POM6]\npredicate: " + predicate69.value + "\nobjectType: " + selectedObjectType69.value + "\nobject: " + objmap69.value + "\ndataType: " + data69.value + "\ntermType: " + termPOM69.value + "\njoinCondition: " + joinCondition69.value + "\nchild: " + child69.value + "\nparent: " + parents69.value + "\n\n[TM9_POM7]\npredicate: " + predicate79.value + "\nobjectType: " + selectedObjectType79.value + "\nobject: " + objmap79.value + "\ndataType: " + data79.value + "\ntermType: " + termPOM79.value + "\njoinCondition: " + joinCondition79.value + "\nchild: " + child79.value + "\nparent: " + parents79.value + "\n\n[TM9_POM8]\npredicate: " + predicate89.value + "\nobjectType: " + selectedObjectType89.value + "\nobject: " + objmap89.value + "\ndataType: " + data89.value + "\ntermType: " + termPOM89.value + "\njoinCondition: " + joinCondition89.value + "\nchild: " + child89.value + "\nparent: " + parents89.value + "\n\n[TM9_POM9]\npredicate: " + predicate99.value + "\nobjectType: " + selectedObjectType99.value + "\nobject: " + objmap99.value + "\ndataType: " + data99.value + "\ntermType: " + termPOM99.value + "\njoinCondition: " + joinCondition99.value + "\nchild: " + child99.value + "\nparent: " + parents99.value +
+   "\n\n[F1]\nfunctionMapName: " + funMapN.value + "\nsource: " + funsource.value + "\nsourceFormat: " + funsourceformat.value+ "\nfunctionName: " + funN.value+ "\nnumberOfParameters: " + nop.value + "\n\n[F1P1]\nparameter: " + parameter.value + "\nparameterType: " + parameters.value + "\nvalue: " + value.value+ "\n\n[F1P2]\nparameter: " + parameter2.value + "\nparameterType: " + parameters2.value + "\nvalue: " + value2.value+ "\n\n[F1P3]\nparameter: " + parameter3.value + "\nparameterType: " + parameters3.value + "\nvalue: " + value3.value+ "\n\n[F1P4]\nparameter: " + parameter4.value + "\nparameterType: " + parameters4.value + "\nvalue: " + value4.value+ "\n\n[F1P5]\nparameter: " + parameter5.value + "\nparameterType: " + parameters5.value + "\nvalue: " + value5.value+ "\n\n[F1P6]\nparameter: " + parameter6.value + "\nparameterType: " + parameters6.value + "\nvalue: " + value6.value+ "\n\n[F1P7]\nparameter: " + parameter7.value + "\nparameterType: " + parameters7.value + "\nvalue: " + value7.value+ "\n\n[F1P8]\nparameter: " + parameter8.value + "\nparameterType: " + parameters8.value + "\nvalue: " + value8.value+ "\n\n[F1P9]\nparameter: " + parameter9.value + "\nparameterType: " + parameters9.value + "\nvalue: " + value9.value +
+   "\n\n[F2]\nfunctionMapName: " + funMapN2.value + "\nsource: " + funsource2.value + "\nsourceFormat: " + funsourceformat2.value+ "\nfunctionName: " + funN2.value+ "\nnumberOfParameters: " + nop2.value + "\n\n[F2P1]\nparameter: " + parameter12.value + "\nparameterType: " + parameters12.value + "\nvalue: " + value12.value+ "\n\n[F2P2]\nparameter: " + parameter22.value + "\nparameterType: " + parameters22.value + "\nvalue: " + value22.value+ "\n\n[F2P3]\nparameter: " + parameter32.value + "\nparameterType: " + parameters32.value + "\nvalue: " + value32.value+ "\n\n[F2P4]\nparameter: " + parameter42.value + "\nparameterType: " + parameters42.value + "\nvalue: " + value42.value+ "\n\n[F2P5]\nparameter: " + parameter52.value + "\nparameterType: " + parameters52.value + "\nvalue: " + value52.value+ "\n\n[F2P6]\nparameter: " + parameter62.value + "\nparameterType: " + parameters62.value + "\nvalue: " + value62.value+ "\n\n[F2P7]\nparameter: " + parameter72.value + "\nparameterType: " + parameters72.value + "\nvalue: " + value72.value+ "\n\n[F2P8]\nparameter: " + parameter82.value + "\nparameterType: " + parameters82.value + "\nvalue: " + value82.value+ "\n\n[F2P9]\nparameter: " + parameter92.value + "\nparameterType: " + parameters92.value + "\nvalue: " + value92.value +
+   "\n\n[F3]\nfunctionMapName: " + funMapN3.value + "\nsource: " + funsource3.value + "\nsourceFormat: " + funsourceformat3.value+ "\nfunctionName: " + funN3.value+ "\nnumberOfParameters: " + nop3.value + "\n\n[F3P1]\nparameter: " + parameter13.value + "\nparameterType: " + parameters13.value + "\nvalue: " + value13.value+ "\n\n[F3P2]\nparameter: " + parameter23.value + "\nparameterType: " + parameters23.value + "\nvalue: " + value23.value+ "\n\n[F3P3]\nparameter: " + parameter33.value + "\nparameterType: " + parameters33.value + "\nvalue: " + value33.value+ "\n\n[F3P4]\nparameter: " + parameter43.value + "\nparameterType: " + parameters43.value + "\nvalue: " + value43.value+ "\n\n[F3P5]\nparameter: " + parameter53.value + "\nparameterType: " + parameters53.value + "\nvalue: " + value53.value+ "\n\n[F3P6]\nparameter: " + parameter63.value + "\nparameterType: " + parameters63.value + "\nvalue: " + value63.value+ "\n\n[F3P7]\nparameter: " + parameter73.value + "\nparameterType: " + parameters73.value + "\nvalue: " + value73.value+ "\n\n[F3P8]\nparameter: " + parameter83.value + "\nparameterType: " + parameters83.value + "\nvalue: " + value83.value+ "\n\n[F3P9]\nparameter: " + parameter93.value + "\nparameterType: " + parameters93.value + "\nvalue: " + value93.value +
+   "\n\n[F4]\nfunctionMapName: " + funMapN4.value + "\nsource: " + funsource4.value + "\nsourceFormat: " + funsourceformat4.value+ "\nfunctionName: " + funN4.value+ "\nnumberOfParameters: " + nop4.value + "\n\n[F4P1]\nparameter: " + parameter14.value + "\nparameterType: " + parameters14.value + "\nvalue: " + value14.value+ "\n\n[F4P2]\nparameter: " + parameter24.value + "\nparameterType: " + parameters24.value + "\nvalue: " + value24.value+ "\n\n[F4P3]\nparameter: " + parameter34.value + "\nparameterType: " + parameters34.value + "\nvalue: " + value34.value+ "\n\n[F4P4]\nparameter: " + parameter44.value + "\nparameterType: " + parameters44.value + "\nvalue: " + value44.value+ "\n\n[F4P5]\nparameter: " + parameter54.value + "\nparameterType: " + parameters54.value + "\nvalue: " + value54.value+ "\n\n[F4P6]\nparameter: " + parameter64.value + "\nparameterType: " + parameters64.value + "\nvalue: " + value64.value+ "\n\n[F4P7]\nparameter: " + parameter74.value + "\nparameterType: " + parameters74.value + "\nvalue: " + value74.value+ "\n\n[F4P8]\nparameter: " + parameter84.value + "\nparameterType: " + parameters84.value + "\nvalue: " + value84.value+ "\n\n[F4P9]\nparameter: " + parameter94.value + "\nparameterType: " + parameters94.value + "\nvalue: " + value94.value +
+   "\n\n[F5]\nfunctionMapName: " + funMapN5.value + "\nsource: " + funsource5.value + "\nsourceFormat: " + funsourceformat5.value+ "\nfunctionName: " + funN5.value+ "\nnumberOfParameters: " + nop5.value + "\n\n[F5P1]\nparameter: " + parameter15.value + "\nparameterType: " + parameters15.value + "\nvalue: " + value15.value+ "\n\n[F5P2]\nparameter: " + parameter25.value + "\nparameterType: " + parameters25.value + "\nvalue: " + value25.value+ "\n\n[F5P3]\nparameter: " + parameter35.value + "\nparameterType: " + parameters35.value + "\nvalue: " + value35.value+ "\n\n[F5P4]\nparameter: " + parameter45.value + "\nparameterType: " + parameters45.value + "\nvalue: " + value45.value+ "\n\n[F5P5]\nparameter: " + parameter55.value + "\nparameterType: " + parameters55.value + "\nvalue: " + value55.value+ "\n\n[F5P6]\nparameter: " + parameter65.value + "\nparameterType: " + parameters65.value + "\nvalue: " + value65.value+ "\n\n[F5P7]\nparameter: " + parameter75.value + "\nparameterType: " + parameters75.value + "\nvalue: " + value75.value+ "\n\n[F5P8]\nparameter: " + parameter85.value + "\nparameterType: " + parameters85.value + "\nvalue: " + value85.value+ "\n\n[F5P9]\nparameter: " + parameter95.value + "\nparameterType: " + parameters95.value + "\nvalue: " + value95.value +
+   "\n\n[F6]\nfunctionMapName: " + funMapN6.value + "\nsource: " + funsource6.value + "\nsourceFormat: " + funsourceformat6.value+ "\nfunctionName: " + funN6.value+ "\nnumberOfParameters: " + nop6.value + "\n\n[F6P1]\nparameter: " + parameter16.value + "\nparameterType: " + parameters16.value + "\nvalue: " + value16.value+ "\n\n[F6P2]\nparameter: " + parameter26.value + "\nparameterType: " + parameters26.value + "\nvalue: " + value26.value+ "\n\n[F6P3]\nparameter: " + parameter36.value + "\nparameterType: " + parameters36.value + "\nvalue: " + value36.value+ "\n\n[F6P4]\nparameter: " + parameter46.value + "\nparameterType: " + parameters46.value + "\nvalue: " + value46.value+ "\n\n[F6P5]\nparameter: " + parameter56.value + "\nparameterType: " + parameters56.value + "\nvalue: " + value56.value+ "\n\n[F6P6]\nparameter: " + parameter66.value + "\nparameterType: " + parameters66.value + "\nvalue: " + value66.value+ "\n\n[F6P7]\nparameter: " + parameter76.value + "\nparameterType: " + parameters76.value + "\nvalue: " + value76.value+ "\n\n[F6P8]\nparameter: " + parameter86.value + "\nparameterType: " + parameters86.value + "\nvalue: " + value86.value+ "\n\n[F6P9]\nparameter: " + parameter96.value + "\nparameterType: " + parameters96.value + "\nvalue: " + value96.value +
+   "\n\n[F7]\nfunctionMapName: " + funMapN7.value + "\nsource: " + funsource7.value + "\nsourceFormat: " + funsourceformat7.value+ "\nfunctionName: " + funN7.value+ "\nnumberOfParameters: " + nop7.value + "\n\n[F7P1]\nparameter: " + parameter17.value + "\nparameterType: " + parameters17.value + "\nvalue: " + value17.value+ "\n\n[F7P2]\nparameter: " + parameter27.value + "\nparameterType: " + parameters27.value + "\nvalue: " + value27.value+ "\n\n[F7P3]\nparameter: " + parameter37.value + "\nparameterType: " + parameters37.value + "\nvalue: " + value37.value+ "\n\n[F7P4]\nparameter: " + parameter47.value + "\nparameterType: " + parameters47.value + "\nvalue: " + value47.value+ "\n\n[F7P5]\nparameter: " + parameter57.value + "\nparameterType: " + parameters57.value + "\nvalue: " + value57.value+ "\n\n[F7P6]\nparameter: " + parameter67.value + "\nparameterType: " + parameters67.value + "\nvalue: " + value67.value+ "\n\n[F7P7]\nparameter: " + parameter77.value + "\nparameterType: " + parameters77.value + "\nvalue: " + value77.value+ "\n\n[F7P8]\nparameter: " + parameter87.value + "\nparameterType: " + parameters87.value + "\nvalue: " + value87.value+ "\n\n[F7P9]\nparameter: " + parameter97.value + "\nparameterType: " + parameters97.value + "\nvalue: " + value97.value +
+   "\n\n[F8]\nfunctionMapName: " + funMapN8.value + "\nsource: " + funsource8.value + "\nsourceFormat: " + funsourceformat8.value+ "\nfunctionName: " + funN8.value+ "\nnumberOfParameters: " + nop8.value + "\n\n[F8P1]\nparameter: " + parameter18.value + "\nparameterType: " + parameters18.value + "\nvalue: " + value18.value+ "\n\n[F8P2]\nparameter: " + parameter28.value + "\nparameterType: " + parameters28.value + "\nvalue: " + value28.value+ "\n\n[F8P3]\nparameter: " + parameter38.value + "\nparameterType: " + parameters38.value + "\nvalue: " + value38.value+ "\n\n[F8P4]\nparameter: " + parameter48.value + "\nparameterType: " + parameters48.value + "\nvalue: " + value48.value+ "\n\n[F8P5]\nparameter: " + parameter58.value + "\nparameterType: " + parameters58.value + "\nvalue: " + value58.value+ "\n\n[F8P6]\nparameter: " + parameter68.value + "\nparameterType: " + parameters68.value + "\nvalue: " + value68.value+ "\n\n[F8P7]\nparameter: " + parameter78.value + "\nparameterType: " + parameters78.value + "\nvalue: " + value78.value+ "\n\n[F8P8]\nparameter: " + parameter88.value + "\nparameterType: " + parameters88.value + "\nvalue: " + value88.value+ "\n\n[F8P9]\nparameter: " + parameter98.value + "\nparameterType: " + parameters98.value + "\nvalue: " + value98.value +
+   "\n\n[F9]\nfunctionMapName: " + funMapN9.value + "\nsource: " + funsource9.value + "\nsourceFormat: " + funsourceformat9.value+ "\nfunctionName: " + funN9.value+ "\nnumberOfParameters: " + nop9.value + "\n\n[F9P1]\nparameter: " + parameter19.value + "\nparameterType: " + parameters19.value + "\nvalue: " + value19.value+ "\n\n[F9P2]\nparameter: " + parameter29.value + "\nparameterType: " + parameters29.value + "\nvalue: " + value29.value+ "\n\n[F9P3]\nparameter: " + parameter39.value + "\nparameterType: " + parameters39.value + "\nvalue: " + value39.value+ "\n\n[F9P4]\nparameter: " + parameter49.value + "\nparameterType: " + parameters49.value + "\nvalue: " + value49.value+ "\n\n[F9P5]\nparameter: " + parameter59.value + "\nparameterType: " + parameters59.value + "\nvalue: " + value59.value+ "\n\n[F9P6]\nparameter: " + parameter69.value + "\nparameterType: " + parameters69.value + "\nvalue: " + value69.value+ "\n\n[F9P7]\nparameter: " + parameter79.value + "\nparameterType: " + parameters79.value + "\nvalue: " + value79.value+ "\n\n[F9P8]\nparameter: " + parameter89.value + "\nparameterType: " + parameters89.value + "\nvalue: " + value89.value+ "\n\n[F9P9]\nparameter: " + parameter99.value + "\nparameterType: " + parameters99.value + "\nvalue: " + value99.value,
+   
+  
+
     async: false,
   };
   $.ajax(settings).done(function (response) {
