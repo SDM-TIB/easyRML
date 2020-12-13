@@ -41,7 +41,7 @@ def api_mappings():
 
 
     return Response(json.dumps({}),  mimetype="application/json")
-#######################################################
+    
 
 if __name__ == "__main__":
-    app.run(port=5161, host="0.0.0.0")
+    app.run(port=5502, host="0.0.0.0")
