@@ -1,0 +1,12 @@
+
+Updates to be performed based on 27.01.2021 MTG:
+
+1. easyRMl will read the ontology provided by user (for now as as endpoint to be considered) and based on that to suggest classes and properties to the user (queries against the endpoint of ontology) while creating the triplesMaps.
+
+2. easyRML will read the header of the data sources that are provided by users (let's consider as .csv file) and apply it in order to suggest the files names to the users while creating reference to the logical source attributes. 
+
+2. easyRML will provide a section for users to semantically define the functions in advance before defining the functionMaps.
+
+3. easyRML will interpret and translate semantic definition of functions in order to suggest the functions names and parameters to the user while creating functionMaps.
+
+4. easyRMl will provide an icon in order to run RML-Verifier after finishing mapping files, in order to verify the application of the ontology
