@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>easyRML</title>
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
@@ -19,11 +20,11 @@
         <header>
             <div class="logo"></div>
             <div class="first-logo">
-                <img src="../static/images/SDM-RDFizer1transp2.png" alt="logo1" style="width:300%">
+                <img src="../static/images/SDM-easyRML.png" alt="logo1" style="width:300%">
             </div>
-            <div class="second-logo">
+            <!-- <div class="second-logo">
                 <img src="../static/images/SDM-RDFizer1transp1.png" alt="logo2" style="width:20%">
-            </div>
+            </div> -->
             <h3>
                 RML Mapping Rule Generator
             </h3>
@@ -32,14 +33,23 @@
     </div>
 
     <div class="content">
+        <br>
 
-        <!-- Type mapping_file_name -->
-        <div id="file_name">
-            <label id="selectnamefile">mapping_file_name : </label>
-            <input type="text" id="filename" size="20"><br />
+
+        <br>
+        <!-- Type Ontology Endpoint -->
+        <div id="ontology_name">
+            <label id="selectnameontology">ontology-endpoint : </label>
+            <input type="text" id="ontoname" size="40"><br />
             <!--  <button id="getFileName" type="button" onclick="GetFileName()">Get File Name</button> -->
         </div>
         <br>
+        <!-- Type mapping_file_name -->
+        <!-- <div id="file_name">
+            <label id="selectnamefile">mapping_file_name : </label>
+            <input type="text" id="filename" size="20"><br />
+        </div>
+        <br> -->
         <!-- Type the output folder -->
         
         <div id="output_folder" title="Tip: Please start with output/">
@@ -9431,7 +9441,7 @@
 			<br>
             <br>
 			  <p id="demo"></p>
-            <a download="myfile" id="downloadlink" style="display: none">Download</a>
+            <a download=download id="downloadlink" style="display: none">Download</a>
             <script>
               (
                 function () {
@@ -9458,19 +9468,52 @@
                      }, false); 
                       })();
             </script>
-            <br><br>
-        
+            <br>
+        <button type="button" id="verfbutton" onclick="verifyMR()">Verify Mapping Rule</button>
+            <br>
+            <br>
+              <p id="demoVerf"></p>
+            <a href="../output/sample.txt" download="sample.txt" id="downloadlinkVerf" style="display: none">Download</a>
+              <br>
+            <button type="button" id="visuabutton" onclick="visualizeMR()">Visualize Mapping Rule</button>
+            <br>
+            <br>
+              <p id="demoVis"></p>
+            <a href="../output/sample.png" download="sample.png" id="downloadlinkVis" style="display: none">Download</a>
 
-        
+ <script>
+              (
+                function () {
+                    var pngFile = null,
+                         makepngFile = function (png) {
+                             var image = new Blob([png], { type: 'png' });
 
+                            if (pngFile !== null) {
+                               window.URL.revokeObjectURL(pngFile);
+                           }
 
+                           pngFile = window.URL.createObjectURL(image);
+
+                           return pngFile;
+                       };
+
+                    var createVis = document.getElementById('visuabutton');
+                     createVis.addEventListener('click', function () {
+                       
+                         var link = document.getElementById('downloadlinkVis'); 
+                         link.href = makepngFile();
+                         
+
+                     }, false); 
+                      })();
+            </script>
 
 <!-- div for end of class="content" -->
     </div>
     <!-- Footer -->
     <div class="footer">
         <p>
-        <h5>Copyright © 2020 TIB-SDM. All rights reserved.</h5>
+        <h5>Copyright © 2021 TIB-SDM. All rights reserved.</h5>
 
         <a href="https://github.com/SDM-TIB/RMLMappingRuleGenerator">More Information</a>
         </p>
