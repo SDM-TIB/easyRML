@@ -13,21 +13,19 @@ import json
 def readOntology(endpoint):
 
     sparql = SPARQLWrapper(endpoint)
-    sparql.setQuery("""SELECT ?class 
+    ## retrieve classes from the ontology
+    sparql.setQuery("""SELECT distinct ?class 
         WHERE { 
         ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> 
         <http://www.w3.org/2002/07/owl#Class>. }""")
     sparql.setReturnFormat(JSON)
-    predicates = sparql.query().convert()
-    return predicates
+    classes = sparql.query().convert()  
+    return classes
 
 def handler():
-    user_input = input("Enter the path of your file: ")
-    print (user_input)
-    config = ConfigParser(interpolation=ExtendedInterpolation())
-    config.read(user_input)
-    predicates = readOntology(config['main']['ontology_endpoint'])
-    print (json.dumps(predicates,indent=2))
+    user_input = input("Enter the ontology endpoint: ")
+    classes = readOntology(user_input)
+    print (json.dumps(classes,indent=2))
 
 if __name__ == "__main__":
         handler()
