@@ -23,10 +23,12 @@ def readOntology(endpoint):
     classes = sparql.query().convert()  
     return classes
 
-def readTurtle(filename):
+def readTurtle():
 
-    ontoGraph = rdflib.graph()
-    ontology = ontoGraph.parse(filename, format="ttl")
+    file = "/mnt/e/GitHub/CLARIFYUnifiedSchema/clarify_v2.ttl"
+    ontologyGraph = rdflib.graph()
+    ontologyGraph.load(file, format='ttl')
+    print (ontology)
     query = """SELECT distinct ?class 
         WHERE { 
         ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> 
@@ -36,9 +38,9 @@ def readTurtle(filename):
         print (stmt)
 
 def handler():
-    user_input = input("Enter the ontology endpoint: ")
+    #user_input = input("Enter the ontology endpoint: ")
     #classes = readOntology(user_input)
-    classes = readTurtle(filename)
+    readTurtle()
     #print (json.dumps(classes,indent=2))
 
 if __name__ == "__main__":
