@@ -15,8 +15,6 @@ from rdflib import Graph
 def readOntoEndpoint(endpoint):
 
     sparql = SPARQLWrapper(endpoint)
-      
-    ## retrieve properties from the ontology
     sparql.setQuery("""SELECT distinct ?protperty 
         WHERE {{ 
         ?protperty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> 
@@ -32,7 +30,6 @@ def readOntoEndpoint(endpoint):
 def readOntoTurtle(filename):
     file = filename
     ontologyGraph = Graph()
-    #ontologyGraph = rdflib.graph()
     ontologyGraph.parse(file, format='ttl')
     query = """SELECT distinct ?protperty 
         WHERE {{ 

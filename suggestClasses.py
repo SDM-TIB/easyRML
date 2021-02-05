@@ -15,7 +15,6 @@ from rdflib import Graph
 #### ontology as an endpoint
 def readOntoEndpoint(endpoint):
     sparql = SPARQLWrapper(endpoint)
-    ## retrieve classes from the ontology
     sparql.setQuery("""SELECT distinct ?class 
         WHERE { 
         ?class <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> 
@@ -28,7 +27,6 @@ def readOntoEndpoint(endpoint):
 def readOntoTurtle(filename):
     file = filename
     ontologyGraph = Graph()
-    #ontologyGraph = rdflib.graph()
     ontologyGraph.parse(file, format='ttl')
     query = """SELECT distinct ?class 
         WHERE { 
