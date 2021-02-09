@@ -11,6 +11,16 @@ responseConfig = {}
 def index():
     return render_template('index.html')
 
+@app.route('/api/readOnto', methods=['POST'])
+def api_readOnto():
+
+    print('request')     
+
+@app.route('/api/verifying', methods=['POST'])
+def api_verifying():
+
+	print('request') 
+    
 @app.route('/api/mappings', methods=['POST'])
 def api_mappings():
     try:
