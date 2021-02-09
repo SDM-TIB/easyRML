@@ -35,8 +35,141 @@
     <div class="content">
         <br>
 
+	     <form method="post" enctype="multipart/form-data">
+    <legend>Upload your Ontology (.ttl)</legend>
+      <input type="file" id="ontology" name="files[]" multiple />
+      <br>
+    </form>
+     <br>
+            <button type="button" id="ontobutton" onclick="ExtractClasses ()">Extract Classes</button>
+<p> *Info: The List of Classes can be seen in Download directory as .csv format </p>
+            <br>
+<br>
+<script>
 
-        <br>
+
+function handleFileSelect(evt) { 
+        
+      var file = evt.target.files[0]; 
+        
+        // instantiate a FileReader object to read/save the file that was uploaded
+        var reader = new FileReader();
+          // when the load event is fired (the file has finished uploading) this function is called
+        reader.onload = function(event) {
+        
+          var stringTTL = event.target.result;
+          console.log(stringTTL);
+
+             onReadFinishOnto(stringTTL);
+
+        }
+
+        // read the file and save as an array. Once the read is finished loadend is triggered
+        reader.readAsBinaryString(file);
+        
+      }
+      document.getElementById('ontology').addEventListener('change', handleFileSelect, false);
+
+ </script>
+
+<!-- *********************************************************** -->
+        <form method="post" enctype="multipart/form-data">
+    <legend>Upload your Class File</legend>
+      <input type="file" id="class" name="files[]" multiple />
+    
+      <br>
+    </form>
+     
+      <!-- Select Class -->
+            <div id="classSugg">
+                 <label id="classLIst">List of Classes : <select id="classLists">
+                    <option value="selectClass" selected="selected">-- Select a class --
+                    </option>
+    
+                </select>
+                  </label>
+            </div>
+            <br>
+
+<script>
+
+function handleFileSelect(evt) { 
+        var file = evt.target.files[0]; 
+        
+        // instantiate a FileReader object to read/save the file that was uploaded
+        var reader = new FileReader();
+          // when the load event is fired (the file has finished uploading) this function is called
+        reader.onload = function(event) {
+          // the result attribute contains an ArrayBuffer representing the file's data. 
+          var arrayBuffer = event.target.result.split(/\r\n|\n/);
+          
+           // for (var i = 1; i <= arrayBuffer.length; i++) {
+           //   myArray += arrayBuffer[i];
+           //   myArray = myArray.split(',');
+         
+           // }
+             onReadFinishClass(arrayBuffer);
+
+        }
+
+        // read the file and save as an array. Once the read is finished loadend is triggered
+        reader.readAsBinaryString(file);
+        
+      }
+      document.getElementById('class').addEventListener('change', handleFileSelect, false);
+
+ </script>
+
+<!-- *********************************************************** -->
+<form method="post" enctype="multipart/form-data">
+    <legend>Upload your DataSource</legend>
+      <input type="file" id="csv" name="files[]" multiple />
+     <!--  <input type="submit" value="Upload File" name="submit" onclick="uploadDealcsv()" /> -->
+      <br>
+    </form>
+     
+      <!-- Select FileName -->
+            <div id="field-subjectTypes">
+                <!-- <p id="mapfilename" >mapping_file_name :</p> -->
+                 <label id="mapfilename">mapping_file_name : <select id="filenames">
+                    <option value="selectFileName" selected="selected">-- Select File Name --
+                    </option>
+                    <!-- <option id="out" value="value1"></option> -->
+                </select>
+                  </label>
+            </div>
+            <br>
+
+<script>
+
+var myArray = [];
+
+
+function handleFileSelect(evt) { 
+        var file = evt.target.files[0]; 
+        
+        // instantiate a FileReader object to read/save the file that was uploaded
+        var reader = new FileReader();
+          // when the load event is fired (the file has finished uploading) this function is called
+        reader.onload = function(event) {
+          // the result attribute contains an ArrayBuffer representing the file's data. 
+          var arrayBuffer = event.target.result.split(/\r\n|\n/);
+          myArray = arrayBuffer[0].split(',');
+          onReadFinish(myArray);
+          //document.getElementById("out").innerHTML = myArray[0];
+
+        }
+
+        // read the file and save as an array. Once the read is finished loadend is triggered
+        reader.readAsBinaryString(file);
+        
+      }
+      document.getElementById('csv').addEventListener('change', handleFileSelect, false);
+
+ </script>    
+	    
+	    
+ <br>
         <!-- Type Ontology Endpoint -->
         <div id="ontology_name">
             <label id="selectnameontology">ontology-endpoint : </label>
@@ -44,12 +177,7 @@
             <!--  <button id="getFileName" type="button" onclick="GetFileName()">Get File Name</button> -->
         </div>
         <br>
-        <!-- Type mapping_file_name -->
-         <div id="file_name">
-            <label id="selectnamefile">mapping_file_name : </label>
-            <input type="text" id="filename" size="20"><br />
-        </div>
-        <br> 
+       
         <!-- Type the output folder -->
         
         <div id="output_folder" title="Tip: Please start with output/">
