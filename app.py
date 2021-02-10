@@ -73,4 +73,4 @@ def api_mappings():
     
 
 if __name__ == "__main__":
-    app.run(port=5502, host="0.0.0.0")
+    app.run(port=5522, host="0.0.0.0")
