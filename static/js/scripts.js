@@ -4176,6 +4176,27 @@ function countNumberNOP7() {
 
 
 function onReadFinishOnto(result){
+	filenames = result;
+   console.log(filenames);
+   var settings = {
+    url: "/api/readOnto",
+    type: "POST",
+
+    contenType: 'application/json; charset=utf-8',
+    data: JSON.stringify({"text" : value}),
+
+    async: false,
+  };
+  $.ajax(settings).done(function (response) {
+    if (response == true) {
+     
+    } else {
+    
+    }
+    console.log(response);
+  
+    responseConfig = response;
+  });
 }
 
 function onReadFinishClass(result){
