@@ -4,7 +4,7 @@ import json
 import MappingGenerator
 import suggestClasses
 from configparser import ConfigParser, ExtendedInterpolation
-###from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = '/Users/sam/Documents/GitHub/easyRML/output'
 app = Flask(__name__)
@@ -20,13 +20,12 @@ def index():
 @app.route('/api/readOnto', methods=['GET','POST'])
 
 def api_readOnto():
-
     if request.method == 'POST':
         file = request.files['file']
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         #return redirect(url_for('uploaded_file', filename=filename))
         class_list = suggestClasses(file)
-        print (class_list)
+        #print (class_list)
         class_json = json.dumps(class_list)
 
     return Response(class_json,  mimetype="application/json") 
