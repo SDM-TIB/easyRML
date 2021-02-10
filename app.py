@@ -29,7 +29,8 @@ def api_readOnto():
         #print (class_list)
         #class_json = json.dumps(class_list)
 
-    #return Response(class_json,  mimetype="application/json") 
+    #return Response(class_json,  mimetype="application/json")
+    print("connect to readOnto")
     return render_template('index.html')
 
 @app.route('/api/verifying', methods=['POST'])
