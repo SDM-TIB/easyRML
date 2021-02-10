@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response, send_file, render_template, send_from_directory
+from flask import Flask, render_template, request, Response, send_file, send_from_directory, redirect, url_for
 from flask.json import jsonify
 import json
 import MappingGenerator
@@ -24,7 +24,7 @@ def api_readOnto():
         file = request.files['file']
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         #return redirect(url_for('uploaded_file', filename=filename))
-        class_list = readOntoTurtle(file)
+        class_list = suggestClasses.readOntoTurtle(file)
         #print (class_list)
         class_json = json.dumps(class_list)
 
