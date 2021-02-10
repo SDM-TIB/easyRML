@@ -6,7 +6,7 @@ import suggestClasses
 from configparser import ConfigParser, ExtendedInterpolation
 ###from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = './output'
+UPLOAD_FOLDER = '/Users/sam/Documents/GitHub/easyRML/output'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
@@ -30,8 +30,7 @@ def api_readOnto():
         class_json = json.dumps(class_list)
 
     return Response(class_json,  mimetype="application/json") 
-
-    #print('request')     
+    
 
 @app.route('/api/verifying', methods=['POST'])
 def api_verifying():
