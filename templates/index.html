@@ -35,28 +35,49 @@
     <div class="content">
         <br>
 
-	     <form method="post" enctype="multipart/form-data">
+	     <form id="upload_file" method="post" enctype="multipart/form-data">
     <legend>Upload your Ontology (.ttl)</legend>
-      <input type="file" id="ontology" name="files[]" multiple />
+      <input type="file" id="ontology" name="file" multiple />
+      <button id="upload_file_btn" type="button">Upload</button>
       <br>
     </form>
      <br>
+     <script type="text/javascript">
+      $(function() {
+          $('#upload_file_btn').click(function() {
+              var form_data = new FormData($('#upload_file')[0]);
+              $.ajax({
+                  type: 'POST',
+                  url: '/api/readOnto',
+                  data: form_data,
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: function(data) {
+                      console.log('Success!');
+                  },
+              });
+          });
+      });
+     </script>
+
 <!--             <button type="button" id="ontobutton" onclick="ExtractClasses ()">Extract Classes</button>
 <p> *Info: The List of Classes can be seen in Download directory as .csv format </p>
             <br> -->
 <br>
+
 <script>
 
 var ready = false;
-function handleFileSelect(evt) { 
-        
-      var file = evt.target.files[0]; 
-        
+function handleFileSelect(evt) {
+
+      var file = evt.target.files[0];
+
         // instantiate a FileReader object to read/save the file that was uploaded
         var reader = new FileReader();
           // when the load event is fired (the file has finished uploading) this function is called
         reader.onload = function(event) {
-        
+
           var stringTTL = event.target.result;
           ready = true;
 
@@ -66,26 +87,27 @@ function handleFileSelect(evt) {
 
         // read the file and save as an array. Once the read is finished loadend is triggered
         reader.readAsBinaryString(file);
-        
+
       }
       document.getElementById('ontology').addEventListener('change', handleFileSelect, false);
 
  </script>
 
+
 <!-- *********************************************************** -->
         <form method="post" enctype="multipart/form-data">
     <legend>Upload your Class File</legend>
       <input type="file" id="class" name="files[]" multiple />
-    
+
       <br>
     </form>
-     
+
       <!-- Select Class -->
             <div id="classSugg">
                  <label id="classLIst">List of Classes : <select id="classLists">
                     <option value="selectClass" selected="selected">-- Select a class --
                     </option>
-    
+
                 </select>
                   </label>
             </div>
@@ -93,20 +115,20 @@ function handleFileSelect(evt) {
 
 <script>
 
-function handleFileSelect(evt) { 
-        var file = evt.target.files[0]; 
-        
+function handleFileSelect(evt) {
+        var file = evt.target.files[0];
+
         // instantiate a FileReader object to read/save the file that was uploaded
         var reader = new FileReader();
           // when the load event is fired (the file has finished uploading) this function is called
         reader.onload = function(event) {
-          // the result attribute contains an ArrayBuffer representing the file's data. 
+          // the result attribute contains an ArrayBuffer representing the file's data.
           var arrayBuffer = event.target.result.split(/\r\n|\n/);
-          
+
            // for (var i = 1; i <= arrayBuffer.length; i++) {
            //   myArray += arrayBuffer[i];
            //   myArray = myArray.split(',');
-         
+
            // }
              onReadFinishClass(arrayBuffer);
 
@@ -114,7 +136,7 @@ function handleFileSelect(evt) {
 
         // read the file and save as an array. Once the read is finished loadend is triggered
         reader.readAsBinaryString(file);
-        
+
       }
       document.getElementById('class').addEventListener('change', handleFileSelect, false);
 
@@ -127,7 +149,7 @@ function handleFileSelect(evt) {
      <!--  <input type="submit" value="Upload File" name="submit" onclick="uploadDealcsv()" /> -->
       <br>
     </form>
-     
+
       <!-- Select FileName -->
             <div id="field-subjectTypes">
                 <!-- <p id="mapfilename" >mapping_file_name :</p> -->
@@ -145,14 +167,14 @@ function handleFileSelect(evt) {
 var myArray = [];
 
 
-function handleFileSelect(evt) { 
-        var file = evt.target.files[0]; 
-        
+function handleFileSelect(evt) {
+        var file = evt.target.files[0];
+
         // instantiate a FileReader object to read/save the file that was uploaded
         var reader = new FileReader();
           // when the load event is fired (the file has finished uploading) this function is called
         reader.onload = function(event) {
-          // the result attribute contains an ArrayBuffer representing the file's data. 
+          // the result attribute contains an ArrayBuffer representing the file's data.
           var arrayBuffer = event.target.result.split(/\r\n|\n/);
           myArray = arrayBuffer[0].split(',');
           onReadFinish(myArray);
@@ -162,13 +184,13 @@ function handleFileSelect(evt) {
 
         // read the file and save as an array. Once the read is finished loadend is triggered
         reader.readAsBinaryString(file);
-        
+
       }
       document.getElementById('csv').addEventListener('change', handleFileSelect, false);
 
- </script>    
-	    
-	    
+ </script>
+
+
  <br>
         <!-- Type Ontology Endpoint -->
         <div id="ontology_name">
@@ -177,11 +199,11 @@ function handleFileSelect(evt) {
             <!--  <button id="getFileName" type="button" onclick="GetFileName()">Get File Name</button> -->
         </div>
         <br>
-       
+
         <!-- Type the output folder -->
-        
+
         <div id="output_folder" title="Tip: Please start with output/">
-          
+
             <label id="outputFol">output_folder: </label>
             <input type="text" id="output" placeholder="e.g. output/" size="40" required><br />
             <!--  <button id="getOutput" type="button" onclick="GetOutput()">Get Output Folder</button> -->
@@ -210,7 +232,7 @@ function handleFileSelect(evt) {
         <br>
         <!-- Type label of prefix -->
         <div id="labelPre">
-           
+
             <div id="pref01" style="display: none">
                 <label id="selectlabel1">prefix1 : </label>
                 <input type="text" id="labpre1" size="3">
@@ -279,14 +301,14 @@ function handleFileSelect(evt) {
             </div>
         </div>
         <br>
-       
+
         <br>
         <!-- Select the number of triplesmap -->
         <div id="tmNumber">
             <label id="selectTM">How many TriplesMap do you consider?</label>
             <input type="text" value="" id="tm" maxlength="1" size="1" onclick="countNumberTM()"><br />
-            
-            
+
+
         </div>
         <br>
 
@@ -294,8 +316,8 @@ function handleFileSelect(evt) {
         <div id="funNumber">
             <label id="selectFun">How many FunctionsMap do you consider?</label>
             <input type="text" value="" id="fun" maxlength="1" size="1" onclick="countNumberFun()"><br />
-            
-            
+
+
         </div>
         <br>
         <!-- ======================<<<<<<<<<<<<<<<<<<<<=====[TM1]====>>>>>>>>>>>>>>>>>>>>===================================== -->
@@ -306,7 +328,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap1</p>
 
             <br>
-           
+
 			 <div id="myDataSource">
                 <label id="DataSource">source: </label>
                 <input type="text" id="source" placeholder="e.g. biomarkers.csv"
@@ -345,7 +367,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-            
+
 			 <div id="termType">
                 <label id="termTypes">termType: </label>
                 <input type="text" id="term"
@@ -392,24 +414,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType"></p>
             </div>
             <br>
-           
+
 			<div id="field-object">
                 <label id="selectObject">object: </label>
-                <input type="text" id="objmap" 
+                <input type="text" id="objmap"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM">
                 <label id="dataTypePOMs">dataType: </label>
                 <input type="text" id="data"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM">
                 <label id="termTypePOMs">termType: </label>
                 <input type="text" id="termPOM"
@@ -418,15 +440,15 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
-		
+
+
 			<div id="joinConditions">
                 <label id="selectjoinCondition">joinCondition: </label>
                 <input type="text" id="joinCondition" onclick="GetSelectedjoinCondition()"
                     size="6" placeholder="yes/no"><br />
 
             </div>
-			
+
             <br>
 
             <!-- Write child and parent -->
@@ -444,7 +466,7 @@ function handleFileSelect(evt) {
 <br>
 
 <br>
- 
+
         <div id="POM2-1" style="display: none">
             <p>===============================================================</p>
             <p>[TM1_POM2]</p>
@@ -471,24 +493,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2"></p>
             </div>
             <br>
-            
+
 			<div id="field-object2">
                 <label id="selectObject2">object: </label>
-                <input type="text" id="objmap2" 
+                <input type="text" id="objmap2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM2">
                 <label id="dataTypePOMs2">dataType: </label>
                 <input type="text" id="data2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2">
                 <label id="termTypePOMs2">termType: </label>
                 <input type="text" id="termPOM2"
@@ -497,7 +519,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions2">
                 <label id="selectjoinCondition2">joinCondition: </label>
                 <input type="text" id="joinCondition2" onclick="GetSelectedjoinCondition2()"
@@ -520,7 +542,7 @@ function handleFileSelect(evt) {
         </div>
 <br>
 
- 
+
 <br>
         <div id="POM3-1" style="display: none">
             <p>===============================================================</p>
@@ -549,26 +571,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
 			<div id="field-object3">
                 <label id="selectObject3">object: </label>
-                <input type="text" id="objmap3" 
+                <input type="text" id="objmap3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
 			<div id="dataTypePOM3">
                 <label id="dataTypePOMs3">dataType: </label>
                 <input type="text" id="data3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3">
                 <label id="termTypePOMs3">termType: </label>
                 <input type="text" id="termPOM3"
@@ -577,7 +599,7 @@ function handleFileSelect(evt) {
             </div>
 			 <br>
             <!-- Select joinCondition -->
-            
+
 			<div id="joinConditions3">
                 <label id="selectjoinCondition3">joinCondition: </label>
                 <input type="text" id="joinCondition3" onclick="GetSelectedjoinCondition3()"
@@ -631,26 +653,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4">
                 <label id="selectObject4">object: </label>
-                <input type="text" id="objmap4" 
+                <input type="text" id="objmap4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
             <div id="dataTypePOM4">
                 <label id="dataTypePOMs4">dataType: </label>
                 <input type="text" id="data4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4">
                 <label id="termTypePOMs4">termType: </label>
                 <input type="text" id="termPOM4"
@@ -659,7 +681,7 @@ function handleFileSelect(evt) {
             </div>
              <br>
             <!-- Select joinCondition -->
-            
+
             <div id="joinConditions4">
                 <label id="selectjoinCondition4">joinCondition: </label>
                 <input type="text" id="joinCondition4" onclick="GetSelectedjoinCondition4()"
@@ -712,26 +734,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5">
                 <label id="selectObject5">object: </label>
-                <input type="text" id="objmap5" 
+                <input type="text" id="objmap5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
             <div id="dataTypePOM5">
                 <label id="dataTypePOMs5">dataType: </label>
                 <input type="text" id="data5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5">
                 <label id="termTypePOMs5">termType: </label>
                 <input type="text" id="termPOM5"
@@ -740,7 +762,7 @@ function handleFileSelect(evt) {
             </div>
              <br>
             <!-- Select joinCondition -->
-            
+
             <div id="joinConditions5">
                 <label id="selectjoinCondition5">joinCondition: </label>
                 <input type="text" id="joinCondition5" onclick="GetSelectedjoinCondition5()"
@@ -793,26 +815,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6">
                 <label id="selectObject6">object: </label>
-                <input type="text" id="objmap6" 
+                <input type="text" id="objmap6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
             <div id="dataTypePOM6">
                 <label id="dataTypePOMs6">dataType: </label>
                 <input type="text" id="data6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6">
                 <label id="termTypePOMs6">termType: </label>
                 <input type="text" id="termPOM6"
@@ -821,7 +843,7 @@ function handleFileSelect(evt) {
             </div>
              <br>
             <!-- Select joinCondition -->
-            
+
             <div id="joinConditions6">
                 <label id="selectjoinCondition6">joinCondition: </label>
                 <input type="text" id="joinCondition6" onclick="GetSelectedjoinCondition6()"
@@ -873,26 +895,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7">
                 <label id="selectObject7">object: </label>
-                <input type="text" id="objmap7" 
+                <input type="text" id="objmap7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
             <div id="dataTypePOM7">
                 <label id="dataTypePOMs7">dataType: </label>
                 <input type="text" id="data7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7">
                 <label id="termTypePOMs7">termType: </label>
                 <input type="text" id="termPOM7"
@@ -901,7 +923,7 @@ function handleFileSelect(evt) {
             </div>
              <br>
             <!-- Select joinCondition -->
-            
+
             <div id="joinConditions7">
                 <label id="selectjoinCondition7">joinCondition: </label>
                 <input type="text" id="joinCondition7" onclick="GetSelectedjoinCondition7()"
@@ -952,26 +974,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8">
                 <label id="selectObject8">object: </label>
-                <input type="text" id="objmap8" 
+                <input type="text" id="objmap8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
             <div id="dataTypePOM8">
                 <label id="dataTypePOMs8">dataType: </label>
                 <input type="text" id="data8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8">
                 <label id="termTypePOMs8">termType: </label>
                 <input type="text" id="termPOM8"
@@ -980,7 +1002,7 @@ function handleFileSelect(evt) {
             </div>
              <br>
             <!-- Select joinCondition -->
-            
+
             <div id="joinConditions8">
                 <label id="selectjoinCondition8">joinCondition: </label>
                 <input type="text" id="joinCondition8" onclick="GetSelectedjoinCondition8()"
@@ -1032,26 +1054,26 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9">
                 <label id="selectObject9">object: </label>
-                <input type="text" id="objmap9" 
+                <input type="text" id="objmap9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <br>
             <div id="dataTypePOM9">
                 <label id="dataTypePOMs9">dataType: </label>
                 <input type="text" id="data9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9">
                 <label id="termTypePOMs9">termType: </label>
                 <input type="text" id="termPOM9"
@@ -1060,7 +1082,7 @@ function handleFileSelect(evt) {
             </div>
              <br>
             <!-- Select joinCondition -->
-            
+
             <div id="joinConditions9">
                 <label id="selectjoinCondition9">joinCondition: </label>
                 <input type="text" id="joinCondition9" onclick="GetSelectedjoinCondition9()"
@@ -1081,7 +1103,7 @@ function handleFileSelect(evt) {
                 <p id="resultParent9"></p>
             </div>
         </div>
-        
+
 </div>
         <!-- ======================<<<<<<<<<<<<<<<<<<<<=====[TM2]====>>>>>>>>>>>>>>>>>>>>===================================== -->
         <div id="TM2" style="display: none">
@@ -1090,7 +1112,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap2</p>
 
             <br>
-            
+
 			 <div id="myDataSource2">
                 <label id="DataSource2">source: </label>
                 <input type="text" id="source2" placeholder="e.g. biomarkers.csv"
@@ -1128,7 +1150,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-           
+
 			 <div id="termType2">
                 <label id="termTypes2">termType: </label>
                 <input type="text" id="term2"
@@ -1147,7 +1169,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM2"></p>
             </div>
         </div>
-     
+
         <br>
         <!-- ================================[POM(k)] over TM2====================================== -->
         <div id="mapColor2" style="display: none">
@@ -1177,24 +1199,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-2"></p>
             </div>
             <br>
-            
+
 			<div id="field-object1-2">
                 <label id="selectObject1-2">object: </label>
-                <input type="text" id="objmap1-2" 
+                <input type="text" id="objmap1-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM1-2">
                 <label id="dataTypePOMs1-2">dataType: </label>
                 <input type="text" id="data1-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-2">
                 <label id="termTypePOMs1-2">termType: </label>
                 <input type="text" id="termPOM1-2"
@@ -1203,7 +1225,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions1-2">
                 <label id="selectjoinCondition1-2">joinCondition: </label>
                 <input type="text" id="joinCondition1-2" onclick="GetSelectedjoinCondition12()"
@@ -1251,24 +1273,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-2"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-2">
                 <label id="selectObject2-2">object: </label>
-                <input type="text" id="objmap2-2" 
+                <input type="text" id="objmap2-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM2-2">
                 <label id="dataTypePOMs2-2">dataType: </label>
                 <input type="text" id="data2-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-2">
                 <label id="termTypePOMs2-2">termType: </label>
                 <input type="text" id="termPOM2-2"
@@ -1277,7 +1299,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions2-2">
                 <label id="selectjoinCondition2-2">joinCondition: </label>
                 <input type="text" id="joinCondition2-2" onclick="GetSelectedjoinCondition22()"
@@ -1326,25 +1348,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
 			<div id="field-object3-2">
                 <label id="selectObject3-2">object: </label>
-                <input type="text" id="objmap3-2" 
+                <input type="text" id="objmap3-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
 			<div id="dataTypePOM3-2">
                 <label id="dataTypePOMs3-2">dataType: </label>
                 <input type="text" id="data3-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-2">
                 <label id="termTypePOMs3-2">termType: </label>
                 <input type="text" id="termPOM3-2"
@@ -1354,7 +1376,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
 			<div id="joinConditions3-2">
                 <label id="selectjoinCondition3-2">joinCondition: </label>
                 <input type="text" id="joinCondition3-2" onclick="GetSelectedjoinCondition32()"
@@ -1403,25 +1425,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-2">
                 <label id="selectObject4-2">object: </label>
-                <input type="text" id="objmap4-2" 
+                <input type="text" id="objmap4-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-2">
                 <label id="dataTypePOMs4-2">dataType: </label>
                 <input type="text" id="data4-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-2">
                 <label id="termTypePOMs4-2">termType: </label>
                 <input type="text" id="termPOM4-2"
@@ -1431,7 +1453,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-2">
                 <label id="selectjoinCondition4-2">joinCondition: </label>
                 <input type="text" id="joinCondition4-2" onclick="GetSelectedjoinCondition42()"
@@ -1480,25 +1502,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-2">
                 <label id="selectObject5-2">object: </label>
-                <input type="text" id="objmap5-2" 
+                <input type="text" id="objmap5-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-2">
                 <label id="dataTypePOMs5-2">dataType: </label>
                 <input type="text" id="data5-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-2">
                 <label id="termTypePOMs5-2">termType: </label>
                 <input type="text" id="termPOM5-2"
@@ -1508,7 +1530,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-2">
                 <label id="selectjoinCondition5-2">joinCondition: </label>
                 <input type="text" id="joinCondition5-2" onclick="GetSelectedjoinCondition52()"
@@ -1557,25 +1579,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-2">
                 <label id="selectObject6-2">object: </label>
-                <input type="text" id="objmap6-2" 
+                <input type="text" id="objmap6-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-2">
                 <label id="dataTypePOMs6-2">dataType: </label>
                 <input type="text" id="data6-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-2">
                 <label id="termTypePOMs6-2">termType: </label>
                 <input type="text" id="termPOM6-2"
@@ -1585,7 +1607,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-2">
                 <label id="selectjoinCondition6-2">joinCondition: </label>
                 <input type="text" id="joinCondition6-2" onclick="GetSelectedjoinCondition62()"
@@ -1634,25 +1656,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-2">
                 <label id="selectObject7-2">object: </label>
-                <input type="text" id="objmap7-2" 
+                <input type="text" id="objmap7-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-2">
                 <label id="dataTypePOMs7-2">dataType: </label>
                 <input type="text" id="data7-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-2">
                 <label id="termTypePOMs7-2">termType: </label>
                 <input type="text" id="termPOM7-2"
@@ -1662,7 +1684,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-2">
                 <label id="selectjoinCondition7-2">joinCondition: </label>
                 <input type="text" id="joinCondition7-2" onclick="GetSelectedjoinCondition72()"
@@ -1711,25 +1733,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-2">
                 <label id="selectObject8-2">object: </label>
-                <input type="text" id="objmap8-2" 
+                <input type="text" id="objmap8-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-2">
                 <label id="dataTypePOMs8-2">dataType: </label>
                 <input type="text" id="data8-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-2">
                 <label id="termTypePOMs8-2">termType: </label>
                 <input type="text" id="termPOM8-2"
@@ -1739,7 +1761,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-2">
                 <label id="selectjoinCondition8-2">joinCondition: </label>
                 <input type="text" id="joinCondition8-2" onclick="GetSelectedjoinCondition82()"
@@ -1788,25 +1810,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-2">
                 <label id="selectObject9-2">object: </label>
-                <input type="text" id="objmap9-2" 
+                <input type="text" id="objmap9-2"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-2">
                 <label id="dataTypePOMs9-2">dataType: </label>
                 <input type="text" id="data9-2"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-2">
                 <label id="termTypePOMs9-2">termType: </label>
                 <input type="text" id="termPOM9-2"
@@ -1816,7 +1838,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-2">
                 <label id="selectjoinCondition9-2">joinCondition: </label>
                 <input type="text" id="joinCondition9-2" onclick="GetSelectedjoinCondition92()"
@@ -1845,7 +1867,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap3</p>
 
             <br>
-           
+
 			 <div id="myDataSource3">
                 <label id="DataSource3">source: </label>
                 <input type="text" id="source3" placeholder="e.g. biomarkers.csv"
@@ -1883,7 +1905,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-          
+
 			 <div id="termType3">
                 <label id="termTypes3">termType: </label>
                 <input type="text" id="term3"
@@ -1902,7 +1924,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM3"></p>
             </div>
         </div>
-      
+
         <br>
         <!-- ================================[POM(k)] over TM3====================================== -->
         <div id="mapColor3" style="display: none">
@@ -1932,24 +1954,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-3"></p>
             </div>
             <br>
-           
+
 			<div id="field-object1-3">
                 <label id="selectObject1-3">object: </label>
-                <input type="text" id="objmap1-3" 
+                <input type="text" id="objmap1-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM1-3">
                 <label id="dataTypePOMs1-3">dataType: </label>
                 <input type="text" id="data1-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-3">
                 <label id="termTypePOMs1-3">termType: </label>
                 <input type="text" id="termPOM1-3"
@@ -1958,7 +1980,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions1-3">
                 <label id="selectjoinCondition1-3">joinCondition: </label>
                 <input type="text" id="joinCondition1-3" onclick="GetSelectedjoinCondition13()"
@@ -2006,24 +2028,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-3"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-3">
                 <label id="selectObject2-3">object: </label>
-                <input type="text" id="objmap2-3" 
+                <input type="text" id="objmap2-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM2-3">
                 <label id="dataTypePOMs2-3">dataType: </label>
                 <input type="text" id="data2-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-3">
                 <label id="termTypePOMs2-3">termType: </label>
                 <input type="text" id="termPOM2-3"
@@ -2032,7 +2054,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions2-3">
                 <label id="selectjoinCondition2-3">joinCondition: </label>
                 <input type="text" id="joinCondition2-3" onclick="GetSelectedjoinCondition23()"
@@ -2081,25 +2103,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
 			<div id="field-object3-3">
                 <label id="selectObject3-3">object: </label>
-                <input type="text" id="objmap3-3" 
+                <input type="text" id="objmap3-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
 				<div id="dataTypePOM3-3">
                 <label id="dataTypePOMs3-3">dataType: </label>
                 <input type="text" id="data3-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-3">
                 <label id="termTypePOMs3-3">termType: </label>
                 <input type="text" id="termPOM3-3"
@@ -2157,25 +2179,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-3">
                 <label id="selectObject4-3">object: </label>
-                <input type="text" id="objmap4-3" 
+                <input type="text" id="objmap4-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-3">
                 <label id="dataTypePOMs4-3">dataType: </label>
                 <input type="text" id="data4-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-3">
                 <label id="termTypePOMs4-3">termType: </label>
                 <input type="text" id="termPOM4-3"
@@ -2185,7 +2207,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-3">
                 <label id="selectjoinCondition4-3">joinCondition: </label>
                 <input type="text" id="joinCondition4-3" onclick="GetSelectedjoinCondition42()"
@@ -2234,25 +2256,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-3">
                 <label id="selectObject5-3">object: </label>
-                <input type="text" id="objmap5-3" 
+                <input type="text" id="objmap5-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-3">
                 <label id="dataTypePOMs5-3">dataType: </label>
                 <input type="text" id="data5-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-3">
                 <label id="termTypePOMs5-3">termType: </label>
                 <input type="text" id="termPOM5-3"
@@ -2262,7 +2284,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-3">
                 <label id="selectjoinCondition5-3">joinCondition: </label>
                 <input type="text" id="joinCondition5-3" onclick="GetSelectedjoinCondition53()"
@@ -2311,25 +2333,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-3">
                 <label id="selectObject6-3">object: </label>
-                <input type="text" id="objmap6-3" 
+                <input type="text" id="objmap6-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-3">
                 <label id="dataTypePOMs6-3">dataType: </label>
                 <input type="text" id="data6-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-3">
                 <label id="termTypePOMs6-3">termType: </label>
                 <input type="text" id="termPOM6-3"
@@ -2339,7 +2361,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-3">
                 <label id="selectjoinCondition6-3">joinCondition: </label>
                 <input type="text" id="joinCondition6-3" onclick="GetSelectedjoinCondition63()"
@@ -2388,25 +2410,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-3">
                 <label id="selectObject7-3">object: </label>
-                <input type="text" id="objmap7-3" 
+                <input type="text" id="objmap7-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-3">
                 <label id="dataTypePOMs7-3">dataType: </label>
                 <input type="text" id="data7-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-3">
                 <label id="termTypePOMs7-3">termType: </label>
                 <input type="text" id="termPOM7-3"
@@ -2416,7 +2438,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-3">
                 <label id="selectjoinCondition7-3">joinCondition: </label>
                 <input type="text" id="joinCondition7-3" onclick="GetSelectedjoinCondition73()"
@@ -2465,25 +2487,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-3">
                 <label id="selectObject8-3">object: </label>
-                <input type="text" id="objmap8-3" 
+                <input type="text" id="objmap8-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-3">
                 <label id="dataTypePOMs8-3">dataType: </label>
                 <input type="text" id="data8-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-3">
                 <label id="termTypePOMs8-3">termType: </label>
                 <input type="text" id="termPOM8-3"
@@ -2493,7 +2515,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-3">
                 <label id="selectjoinCondition8-3">joinCondition: </label>
                 <input type="text" id="joinCondition8-3" onclick="GetSelectedjoinCondition83()"
@@ -2542,25 +2564,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-3">
                 <label id="selectObject9-3">object: </label>
-                <input type="text" id="objmap9-3" 
+                <input type="text" id="objmap9-3"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-3">
                 <label id="dataTypePOMs9-3">dataType: </label>
                 <input type="text" id="data9-3"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-3">
                 <label id="termTypePOMs9-3">termType: </label>
                 <input type="text" id="termPOM9-3"
@@ -2570,7 +2592,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-3">
                 <label id="selectjoinCondition9-3">joinCondition: </label>
                 <input type="text" id="joinCondition9-3" onclick="GetSelectedjoinCondition93()"
@@ -2599,7 +2621,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap4</p>
 
             <br>
-           
+
 			 <div id="myDataSource4">
                 <label id="DataSource4">source: </label>
                 <input type="text" id="source4" placeholder="e.g. biomarkers.csv"
@@ -2637,7 +2659,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-            
+
 			 <div id="termType4">
                 <label id="termTypes4">termType: </label>
                 <input type="text" id="term4"
@@ -2656,7 +2678,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM4"></p>
             </div>
         </div>
-      
+
         <br>
         <!-- ================================[POM(k)] over TM4====================================== -->
         <div id="mapColor4" style="display: none">
@@ -2686,24 +2708,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-4"></p>
             </div>
             <br>
-           
+
 			<div id="field-object1-4">
                 <label id="selectObject1-4">object: </label>
-                <input type="text" id="objmap1-4" 
+                <input type="text" id="objmap1-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM1-4">
                 <label id="dataTypePOMs1-4">dataType: </label>
                 <input type="text" id="data1-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-4">
                 <label id="termTypePOMs1-4">termType: </label>
                 <input type="text" id="termPOM1-4"
@@ -2712,7 +2734,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions1-4">
                 <label id="selectjoinCondition1-4">joinCondition: </label>
                 <input type="text" id="joinCondition1-4" onclick="GetSelectedjoinCondition14()"
@@ -2760,24 +2782,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-4"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-4">
                 <label id="selectObject2-4">object: </label>
-                <input type="text" id="objmap2-4" 
+                <input type="text" id="objmap2-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM2-4">
                 <label id="dataTypePOMs2-4">dataType: </label>
                 <input type="text" id="data2-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-4">
                 <label id="termTypePOMs2-4">termType: </label>
                 <input type="text" id="termPOM2-4"
@@ -2786,7 +2808,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions2-4">
                 <label id="selectjoinCondition2-4">joinCondition: </label>
                 <input type="text" id="joinCondition2-4" onclick="GetSelectedjoinCondition24()"
@@ -2835,25 +2857,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-          
+
 			<div id="field-object3-4">
                 <label id="selectObject3-4">object: </label>
-                <input type="text" id="objmap3-4" 
+                <input type="text" id="objmap3-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
 			<div id="dataTypePOM3-4">
                 <label id="dataTypePOMs3-4">dataType: </label>
                 <input type="text" id="data3-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-4">
                 <label id="termTypePOMs3-4">termType: </label>
                 <input type="text" id="termPOM3-4"
@@ -2863,7 +2885,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
 			<div id="joinConditions3-4">
                 <label id="selectjoinCondition3-4">joinCondition: </label>
                 <input type="text" id="joinCondition3-4" onclick="GetSelectedjoinCondition34()"
@@ -2912,25 +2934,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-4">
                 <label id="selectObject4-4">object: </label>
-                <input type="text" id="objmap4-4" 
+                <input type="text" id="objmap4-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-4">
                 <label id="dataTypePOMs4-4">dataType: </label>
                 <input type="text" id="data4-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-4">
                 <label id="termTypePOMs4-4">termType: </label>
                 <input type="text" id="termPOM4-4"
@@ -2940,7 +2962,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-4">
                 <label id="selectjoinCondition4-4">joinCondition: </label>
                 <input type="text" id="joinCondition4-4" onclick="GetSelectedjoinCondition44()"
@@ -2989,25 +3011,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-4">
                 <label id="selectObject5-4">object: </label>
-                <input type="text" id="objmap5-4" 
+                <input type="text" id="objmap5-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-4">
                 <label id="dataTypePOMs5-4">dataType: </label>
                 <input type="text" id="data5-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-4">
                 <label id="termTypePOMs5-4">termType: </label>
                 <input type="text" id="termPOM5-4"
@@ -3017,7 +3039,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-4">
                 <label id="selectjoinCondition5-4">joinCondition: </label>
                 <input type="text" id="joinCondition5-4" onclick="GetSelectedjoinCondition54()"
@@ -3066,25 +3088,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-4">
                 <label id="selectObject6-4">object: </label>
-                <input type="text" id="objmap6-4" 
+                <input type="text" id="objmap6-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-4">
                 <label id="dataTypePOMs6-4">dataType: </label>
                 <input type="text" id="data6-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-4">
                 <label id="termTypePOMs6-4">termType: </label>
                 <input type="text" id="termPOM6-4"
@@ -3094,7 +3116,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-4">
                 <label id="selectjoinCondition6-4">joinCondition: </label>
                 <input type="text" id="joinCondition6-4" onclick="GetSelectedjoinCondition64()"
@@ -3143,25 +3165,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-4">
                 <label id="selectObject7-4">object: </label>
-                <input type="text" id="objmap7-4" 
+                <input type="text" id="objmap7-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-4">
                 <label id="dataTypePOMs7-4">dataType: </label>
                 <input type="text" id="data7-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-4">
                 <label id="termTypePOMs7-4">termType: </label>
                 <input type="text" id="termPOM7-4"
@@ -3171,7 +3193,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-4">
                 <label id="selectjoinCondition7-4">joinCondition: </label>
                 <input type="text" id="joinCondition7-4" onclick="GetSelectedjoinCondition74()"
@@ -3220,25 +3242,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-4">
                 <label id="selectObject8-4">object: </label>
-                <input type="text" id="objmap8-4" 
+                <input type="text" id="objmap8-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-4">
                 <label id="dataTypePOMs8-4">dataType: </label>
                 <input type="text" id="data8-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-4">
                 <label id="termTypePOMs8-4">termType: </label>
                 <input type="text" id="termPOM8-4"
@@ -3248,7 +3270,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-4">
                 <label id="selectjoinCondition8-4">joinCondition: </label>
                 <input type="text" id="joinCondition8-4" onclick="GetSelectedjoinCondition84()"
@@ -3297,25 +3319,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-4">
                 <label id="selectObject9-4">object: </label>
-                <input type="text" id="objmap9-4" 
+                <input type="text" id="objmap9-4"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-4">
                 <label id="dataTypePOMs9-4">dataType: </label>
                 <input type="text" id="data9-4"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-4">
                 <label id="termTypePOMs9-4">termType: </label>
                 <input type="text" id="termPOM9-4"
@@ -3325,7 +3347,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-4">
                 <label id="selectjoinCondition9-4">joinCondition: </label>
                 <input type="text" id="joinCondition9-4" onclick="GetSelectedjoinCondition92()"
@@ -3354,7 +3376,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap5</p>
 
             <br>
-            
+
 			 <div id="myDataSource5">
                 <label id="DataSource5">source: </label>
                 <input type="text" id="source5" placeholder="e.g. biomarkers.csv"
@@ -3392,7 +3414,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-            
+
 			 <div id="termType5">
                 <label id="termTypes5">termType: </label>
                 <input type="text" id="term5"
@@ -3411,7 +3433,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM5"></p>
             </div>
         </div>
-       
+
         <br>
         <!-- ================================[POM(k)] over TM5====================================== -->
         <div id="mapColor5" style="display: none">
@@ -3441,24 +3463,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-5"></p>
             </div>
             <br>
-            
+
 			<div id="field-object1-5">
                 <label id="selectObject1-5">object: </label>
-                <input type="text" id="objmap1-5" 
+                <input type="text" id="objmap1-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM1-5">
                 <label id="dataTypePOMs1-5">dataType: </label>
                 <input type="text" id="data1-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-5">
                 <label id="termTypePOMs1-5">termType: </label>
                 <input type="text" id="termPOM1-5"
@@ -3467,7 +3489,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-            
+
 			<div id="joinConditions1-5">
                 <label id="selectjoinCondition1-5">joinCondition: </label>
                 <input type="text" id="joinCondition1-5" onclick="GetSelectedjoinCondition15()"
@@ -3515,24 +3537,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-5"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-5">
                 <label id="selectObject2-5">object: </label>
-                <input type="text" id="objmap2-5" 
+                <input type="text" id="objmap2-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM2-5">
                 <label id="dataTypePOMs2-5">dataType: </label>
                 <input type="text" id="data2-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-5">
                 <label id="termTypePOMs2-5">termType: </label>
                 <input type="text" id="termPOM2-5"
@@ -3541,7 +3563,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions2-5">
                 <label id="selectjoinCondition2-5">joinCondition: </label>
                 <input type="text" id="joinCondition2-5" onclick="GetSelectedjoinCondition25()"
@@ -3590,25 +3612,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
 			<div id="field-object3-5">
                 <label id="selectObject3-5">object: </label>
-                <input type="text" id="objmap3-5" 
+                <input type="text" id="objmap3-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
 			<div id="dataTypePOM3-5">
                 <label id="dataTypePOMs3-5">dataType: </label>
                 <input type="text" id="data3-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-5">
                 <label id="termTypePOMs3-5">termType: </label>
                 <input type="text" id="termPOM3-5"
@@ -3618,7 +3640,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-            
+
 			<div id="joinConditions3-5">
                 <label id="selectjoinCondition3-5">joinCondition: </label>
                 <input type="text" id="joinCondition3-5" onclick="GetSelectedjoinCondition35()"
@@ -3667,25 +3689,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-5">
                 <label id="selectObject4-5">object: </label>
-                <input type="text" id="objmap4-5" 
+                <input type="text" id="objmap4-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-5">
                 <label id="dataTypePOMs4-5">dataType: </label>
                 <input type="text" id="data4-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-5">
                 <label id="termTypePOMs4-5">termType: </label>
                 <input type="text" id="termPOM4-5"
@@ -3695,7 +3717,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-5">
                 <label id="selectjoinCondition4-5">joinCondition: </label>
                 <input type="text" id="joinCondition4-5" onclick="GetSelectedjoinCondition45()"
@@ -3744,25 +3766,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-5">
                 <label id="selectObject5-5">object: </label>
-                <input type="text" id="objmap5-5" 
+                <input type="text" id="objmap5-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-5">
                 <label id="dataTypePOMs5-5">dataType: </label>
                 <input type="text" id="data5-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-5">
                 <label id="termTypePOMs5-5">termType: </label>
                 <input type="text" id="termPOM5-5"
@@ -3772,7 +3794,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-5">
                 <label id="selectjoinCondition5-5">joinCondition: </label>
                 <input type="text" id="joinCondition5-5" onclick="GetSelectedjoinCondition55()"
@@ -3821,25 +3843,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-5">
                 <label id="selectObject6-5">object: </label>
-                <input type="text" id="objmap6-5" 
+                <input type="text" id="objmap6-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-5">
                 <label id="dataTypePOMs6-5">dataType: </label>
                 <input type="text" id="data6-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-5">
                 <label id="termTypePOMs6-5">termType: </label>
                 <input type="text" id="termPOM6-5"
@@ -3849,7 +3871,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-5">
                 <label id="selectjoinCondition6-5">joinCondition: </label>
                 <input type="text" id="joinCondition6-5" onclick="GetSelectedjoinCondition65()"
@@ -3898,25 +3920,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-5">
                 <label id="selectObject7-5">object: </label>
-                <input type="text" id="objmap7-5" 
+                <input type="text" id="objmap7-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-5">
                 <label id="dataTypePOMs7-5">dataType: </label>
                 <input type="text" id="data7-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-5">
                 <label id="termTypePOMs7-5">termType: </label>
                 <input type="text" id="termPOM7-5"
@@ -3926,7 +3948,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-5">
                 <label id="selectjoinCondition7-5">joinCondition: </label>
                 <input type="text" id="joinCondition7-5" onclick="GetSelectedjoinCondition75()"
@@ -3975,25 +3997,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-5">
                 <label id="selectObject8-5">object: </label>
-                <input type="text" id="objmap8-5" 
+                <input type="text" id="objmap8-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-5">
                 <label id="dataTypePOMs8-5">dataType: </label>
                 <input type="text" id="data8-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-5">
                 <label id="termTypePOMs8-5">termType: </label>
                 <input type="text" id="termPOM8-5"
@@ -4003,7 +4025,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-5">
                 <label id="selectjoinCondition8-5">joinCondition: </label>
                 <input type="text" id="joinCondition8-5" onclick="GetSelectedjoinCondition85()"
@@ -4052,25 +4074,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-5">
                 <label id="selectObject9-5">object: </label>
-                <input type="text" id="objmap9-5" 
+                <input type="text" id="objmap9-5"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-5">
                 <label id="dataTypePOMs9-5">dataType: </label>
                 <input type="text" id="data9-5"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-5">
                 <label id="termTypePOMs9-5">termType: </label>
                 <input type="text" id="termPOM9-5"
@@ -4080,7 +4102,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-5">
                 <label id="selectjoinCondition9-5">joinCondition: </label>
                 <input type="text" id="joinCondition9-5" onclick="GetSelectedjoinCondition95()"
@@ -4109,7 +4131,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap6</p>
 
             <br>
-            
+
 			 <div id="myDataSource6">
                 <label id="DataSource6">source: </label>
                 <input type="text" id="source6" placeholder="e.g. biomarkers.csv"
@@ -4147,7 +4169,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-           
+
 			 <div id="termType6">
                 <label id="termTypes6">termType: </label>
                 <input type="text" id="term6"
@@ -4166,7 +4188,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM6"></p>
             </div>
         </div>
-       
+
         <br>
         <!-- ================================[POM(k)] over TM6====================================== -->
         <div id="mapColor6" style="display: none">
@@ -4196,24 +4218,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-6"></p>
             </div>
             <br>
-            
+
 			<div id="field-object1-6">
                 <label id="selectObject1-6">object: </label>
-                <input type="text" id="objmap1-6" 
+                <input type="text" id="objmap1-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM1-6">
                 <label id="dataTypePOMs1-6">dataType: </label>
                 <input type="text" id="data1-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-6">
                 <label id="termTypePOMs1-6">termType: </label>
                 <input type="text" id="termPOM1-6"
@@ -4222,7 +4244,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions1-6">
                 <label id="selectjoinCondition1-6">joinCondition: </label>
                 <input type="text" id="joinCondition1-6" onclick="GetSelectedjoinCondition16()"
@@ -4270,24 +4292,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-6"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-6">
                 <label id="selectObject2-6">object: </label>
-                <input type="text" id="objmap2-6" 
+                <input type="text" id="objmap2-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM2-6">
                 <label id="dataTypePOMs2-6">dataType: </label>
                 <input type="text" id="data2-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-6">
                 <label id="termTypePOMs2-6">termType: </label>
                 <input type="text" id="termPOM2-6"
@@ -4344,25 +4366,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
 			<div id="field-object3-6">
                 <label id="selectObject3-6">object: </label>
-                <input type="text" id="objmap3-6" 
+                <input type="text" id="objmap3-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
 			<div id="dataTypePOM3-6">
                 <label id="dataTypePOMs3-6">dataType: </label>
                 <input type="text" id="data3-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-6">
                 <label id="termTypePOMs3-6">termType: </label>
                 <input type="text" id="termPOM3-6"
@@ -4372,7 +4394,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-            
+
 			<div id="joinConditions3-6">
                 <label id="selectjoinCondition3-6">joinCondition: </label>
                 <input type="text" id="joinCondition3-6" onclick="GetSelectedjoinCondition36()"
@@ -4422,25 +4444,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-6">
                 <label id="selectObject4-6">object: </label>
-                <input type="text" id="objmap4-6" 
+                <input type="text" id="objmap4-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-6">
                 <label id="dataTypePOMs4-6">dataType: </label>
                 <input type="text" id="data4-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-6">
                 <label id="termTypePOMs4-6">termType: </label>
                 <input type="text" id="termPOM4-6"
@@ -4450,7 +4472,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-6">
                 <label id="selectjoinCondition4-6">joinCondition: </label>
                 <input type="text" id="joinCondition4-6" onclick="GetSelectedjoinCondition46()"
@@ -4499,25 +4521,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-6">
                 <label id="selectObject5-6">object: </label>
-                <input type="text" id="objmap5-6" 
+                <input type="text" id="objmap5-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-6">
                 <label id="dataTypePOMs5-6">dataType: </label>
                 <input type="text" id="data5-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-6">
                 <label id="termTypePOMs5-6">termType: </label>
                 <input type="text" id="termPOM5-6"
@@ -4527,7 +4549,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-6">
                 <label id="selectjoinCondition5-6">joinCondition: </label>
                 <input type="text" id="joinCondition5-6" onclick="GetSelectedjoinCondition56()"
@@ -4576,25 +4598,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-6">
                 <label id="selectObject6-6">object: </label>
-                <input type="text" id="objmap6-6" 
+                <input type="text" id="objmap6-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-6">
                 <label id="dataTypePOMs6-6">dataType: </label>
                 <input type="text" id="data6-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-6">
                 <label id="termTypePOMs6-6">termType: </label>
                 <input type="text" id="termPOM6-6"
@@ -4604,7 +4626,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-6">
                 <label id="selectjoinCondition6-6">joinCondition: </label>
                 <input type="text" id="joinCondition6-6" onclick="GetSelectedjoinCondition66()"
@@ -4653,25 +4675,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-6">
                 <label id="selectObject7-6">object: </label>
-                <input type="text" id="objmap7-6" 
+                <input type="text" id="objmap7-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-6">
                 <label id="dataTypePOMs7-6">dataType: </label>
                 <input type="text" id="data7-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-6">
                 <label id="termTypePOMs7-6">termType: </label>
                 <input type="text" id="termPOM7-6"
@@ -4681,7 +4703,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-6">
                 <label id="selectjoinCondition7-6">joinCondition: </label>
                 <input type="text" id="joinCondition7-6" onclick="GetSelectedjoinCondition76()"
@@ -4730,25 +4752,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-6">
                 <label id="selectObject8-6">object: </label>
-                <input type="text" id="objmap8-6" 
+                <input type="text" id="objmap8-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-6">
                 <label id="dataTypePOMs8-6">dataType: </label>
                 <input type="text" id="data8-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-6">
                 <label id="termTypePOMs8-6">termType: </label>
                 <input type="text" id="termPOM8-6"
@@ -4758,7 +4780,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-6">
                 <label id="selectjoinCondition8-6">joinCondition: </label>
                 <input type="text" id="joinCondition8-6" onclick="GetSelectedjoinCondition86()"
@@ -4807,25 +4829,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-6">
                 <label id="selectObject9-6">object: </label>
-                <input type="text" id="objmap9-6" 
+                <input type="text" id="objmap9-6"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-6">
                 <label id="dataTypePOMs9-6">dataType: </label>
                 <input type="text" id="data9-6"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-6">
                 <label id="termTypePOMs9-6">termType: </label>
                 <input type="text" id="termPOM9-6"
@@ -4835,7 +4857,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-6">
                 <label id="selectjoinCondition9-6">joinCondition: </label>
                 <input type="text" id="joinCondition9-6" onclick="GetSelectedjoinCondition96()"
@@ -4864,7 +4886,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap7</p>
 
             <br>
-            
+
 			 <div id="myDataSource7">
                 <label id="DataSource7">source: </label>
                 <input type="text" id="source7" placeholder="e.g. biomarkers.csv"
@@ -4902,7 +4924,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-           
+
 			 <div id="termType7">
                 <label id="termTypes7">termType: </label>
                 <input type="text" id="term7"
@@ -4921,7 +4943,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM7"></p>
             </div>
         </div>
-        
+
         <br>
         <!-- ================================[POM(k)] over TM7====================================== -->
         <div id="mapColor7" style="display: none">
@@ -4951,24 +4973,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-7"></p>
             </div>
             <br>
-            
+
 			<div id="field-object1-7">
                 <label id="selectObject1-7">object: </label>
-                <input type="text" id="objmap1-7" 
+                <input type="text" id="objmap1-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM1-7">
                 <label id="dataTypePOMs1-7">dataType: </label>
                 <input type="text" id="data1-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-7">
                 <label id="termTypePOMs1-7">termType: </label>
                 <input type="text" id="termPOM1-7"
@@ -4977,7 +4999,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions1-7">
                 <label id="selectjoinCondition1-7">joinCondition: </label>
                 <input type="text" id="joinCondition1-7" onclick="GetSelectedjoinCondition17()"
@@ -5025,24 +5047,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-7"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-7">
                 <label id="selectObject2-7">object: </label>
-                <input type="text" id="objmap2-7" 
+                <input type="text" id="objmap2-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM2-7">
                 <label id="dataTypePOMs2-7">dataType: </label>
                 <input type="text" id="data2-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-7">
                 <label id="termTypePOMs2-7">termType: </label>
                 <input type="text" id="termPOM2-7"
@@ -5051,7 +5073,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions2-7">
                 <label id="selectjoinCondition2-7">joinCondition: </label>
                 <input type="text" id="joinCondition2-7" onclick="GetSelectedjoinCondition27()"
@@ -5100,25 +5122,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-          
+
 			<div id="field-object3-7">
                 <label id="selectObject3-7">object: </label>
-                <input type="text" id="objmap3-7" 
+                <input type="text" id="objmap3-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-          
+
 			<div id="dataTypePOM3-7">
                 <label id="dataTypePOMs3-7">dataType: </label>
                 <input type="text" id="data3-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-7">
                 <label id="termTypePOMs3-7">termType: </label>
                 <input type="text" id="termPOM3-7"
@@ -5176,25 +5198,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-7">
                 <label id="selectObject4-7">object: </label>
-                <input type="text" id="objmap4-7" 
+                <input type="text" id="objmap4-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-7">
                 <label id="dataTypePOMs4-7">dataType: </label>
                 <input type="text" id="data4-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-7">
                 <label id="termTypePOMs4-7">termType: </label>
                 <input type="text" id="termPOM4-7"
@@ -5204,7 +5226,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-7">
                 <label id="selectjoinCondition4-7">joinCondition: </label>
                 <input type="text" id="joinCondition4-7" onclick="GetSelectedjoinCondition47()"
@@ -5253,25 +5275,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-7">
                 <label id="selectObject5-7">object: </label>
-                <input type="text" id="objmap5-7" 
+                <input type="text" id="objmap5-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-7">
                 <label id="dataTypePOMs5-7">dataType: </label>
                 <input type="text" id="data5-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-7">
                 <label id="termTypePOMs5-7">termType: </label>
                 <input type="text" id="termPOM5-7"
@@ -5281,7 +5303,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-7">
                 <label id="selectjoinCondition5-7">joinCondition: </label>
                 <input type="text" id="joinCondition5-7" onclick="GetSelectedjoinCondition57()"
@@ -5330,25 +5352,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-7">
                 <label id="selectObject6-7">object: </label>
-                <input type="text" id="objmap6-7" 
+                <input type="text" id="objmap6-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-7">
                 <label id="dataTypePOMs6-7">dataType: </label>
                 <input type="text" id="data6-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-7">
                 <label id="termTypePOMs6-7">termType: </label>
                 <input type="text" id="termPOM6-7"
@@ -5358,7 +5380,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-7">
                 <label id="selectjoinCondition6-7">joinCondition: </label>
                 <input type="text" id="joinCondition6-7" onclick="GetSelectedjoinCondition67()"
@@ -5407,25 +5429,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-7">
                 <label id="selectObject7-7">object: </label>
-                <input type="text" id="objmap7-7" 
+                <input type="text" id="objmap7-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-7">
                 <label id="dataTypePOMs7-7">dataType: </label>
                 <input type="text" id="data7-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-7">
                 <label id="termTypePOMs7-7">termType: </label>
                 <input type="text" id="termPOM7-7"
@@ -5435,7 +5457,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-7">
                 <label id="selectjoinCondition7-7">joinCondition: </label>
                 <input type="text" id="joinCondition7-7" onclick="GetSelectedjoinCondition77()"
@@ -5484,25 +5506,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-7">
                 <label id="selectObject8-7">object: </label>
-                <input type="text" id="objmap8-7" 
+                <input type="text" id="objmap8-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-7">
                 <label id="dataTypePOMs8-7">dataType: </label>
                 <input type="text" id="data8-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-7">
                 <label id="termTypePOMs8-7">termType: </label>
                 <input type="text" id="termPOM8-7"
@@ -5512,7 +5534,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-7">
                 <label id="selectjoinCondition8-7">joinCondition: </label>
                 <input type="text" id="joinCondition8-7" onclick="GetSelectedjoinCondition87()"
@@ -5561,25 +5583,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-7">
                 <label id="selectObject9-7">object: </label>
-                <input type="text" id="objmap9-7" 
+                <input type="text" id="objmap9-7"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-7">
                 <label id="dataTypePOMs9-7">dataType: </label>
                 <input type="text" id="data9-7"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-7">
                 <label id="termTypePOMs9-7">termType: </label>
                 <input type="text" id="termPOM9-7"
@@ -5589,7 +5611,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-7">
                 <label id="selectjoinCondition9-7">joinCondition: </label>
                 <input type="text" id="joinCondition9-7" onclick="GetSelectedjoinCondition97()"
@@ -5618,7 +5640,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap8</p>
 
             <br>
-            
+
 			 <div id="myDataSource8">
                 <label id="DataSource8">source: </label>
                 <input type="text" id="source8" placeholder="e.g. biomarkers.csv"
@@ -5656,7 +5678,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-            
+
 			 <div id="termType8">
                 <label id="termTypes8">termType: </label>
                 <input type="text" id="term8"
@@ -5675,7 +5697,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM8"></p>
             </div>
         </div>
-       
+
         <br>
         <!-- ================================[POM(k)] over TM8====================================== -->
         <div id="mapColor8" style="display: none">
@@ -5705,24 +5727,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-8"></p>
             </div>
             <br>
-           
+
 			<div id="field-object1-8">
                 <label id="selectObject1-8">object: </label>
-                <input type="text" id="objmap1-8" 
+                <input type="text" id="objmap1-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM1-8">
                 <label id="dataTypePOMs1-8">dataType: </label>
                 <input type="text" id="data1-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-8">
                 <label id="termTypePOMs1-8">termType: </label>
                 <input type="text" id="termPOM1-8"
@@ -5731,7 +5753,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-          
+
 			<div id="joinConditions1-8">
                 <label id="selectjoinCondition1-8">joinCondition: </label>
                 <input type="text" id="joinCondition1-8" onclick="GetSelectedjoinCondition18()"
@@ -5779,24 +5801,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-8"></p>
             </div>
             <br>
-           
+
 			<div id="field-object2-8">
                 <label id="selectObject2-8">object: </label>
-                <input type="text" id="objmap2-8" 
+                <input type="text" id="objmap2-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM2-8">
                 <label id="dataTypePOMs2-8">dataType: </label>
                 <input type="text" id="data2-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-8">
                 <label id="termTypePOMs2-8">termType: </label>
                 <input type="text" id="termPOM2-8"
@@ -5805,7 +5827,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions2-8">
                 <label id="selectjoinCondition2-8">joinCondition: </label>
                 <input type="text" id="joinCondition2-8" onclick="GetSelectedjoinCondition28()"
@@ -5854,25 +5876,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
 			<div id="field-object3-8">
                 <label id="selectObject3-8">object: </label>
-                <input type="text" id="objmap3-8" 
+                <input type="text" id="objmap3-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-         
+
 			<div id="dataTypePOM3-8">
                 <label id="dataTypePOMs3-8">dataType: </label>
                 <input type="text" id="data3-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-8">
                 <label id="termTypePOMs3-8">termType: </label>
                 <input type="text" id="termPOM3-8"
@@ -5882,7 +5904,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-          
+
 			<div id="joinConditions3-8">
                 <label id="selectjoinCondition3-8">joinCondition: </label>
                 <input type="text" id="joinCondition3-8" onclick="GetSelectedjoinCondition38()"
@@ -5931,25 +5953,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-8">
                 <label id="selectObject4-8">object: </label>
-                <input type="text" id="objmap4-8" 
+                <input type="text" id="objmap4-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-8">
                 <label id="dataTypePOMs4-8">dataType: </label>
                 <input type="text" id="data4-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-8">
                 <label id="termTypePOMs4-8">termType: </label>
                 <input type="text" id="termPOM4-8"
@@ -5959,7 +5981,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-8">
                 <label id="selectjoinCondition4-8">joinCondition: </label>
                 <input type="text" id="joinCondition4-8" onclick="GetSelectedjoinCondition48()"
@@ -6008,25 +6030,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-8">
                 <label id="selectObject5-8">object: </label>
-                <input type="text" id="objmap5-8" 
+                <input type="text" id="objmap5-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-8">
                 <label id="dataTypePOMs5-8">dataType: </label>
                 <input type="text" id="data5-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-8">
                 <label id="termTypePOMs5-8">termType: </label>
                 <input type="text" id="termPOM5-8"
@@ -6036,7 +6058,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-8">
                 <label id="selectjoinCondition5-8">joinCondition: </label>
                 <input type="text" id="joinCondition5-8" onclick="GetSelectedjoinCondition58()"
@@ -6085,25 +6107,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-8">
                 <label id="selectObject6-8">object: </label>
-                <input type="text" id="objmap6-8" 
+                <input type="text" id="objmap6-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-8">
                 <label id="dataTypePOMs6-8">dataType: </label>
                 <input type="text" id="data6-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-8">
                 <label id="termTypePOMs6-8">termType: </label>
                 <input type="text" id="termPOM6-8"
@@ -6113,7 +6135,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-8">
                 <label id="selectjoinCondition6-8">joinCondition: </label>
                 <input type="text" id="joinCondition6-8" onclick="GetSelectedjoinCondition68()"
@@ -6162,25 +6184,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-8">
                 <label id="selectObject7-8">object: </label>
-                <input type="text" id="objmap7-8" 
+                <input type="text" id="objmap7-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-8">
                 <label id="dataTypePOMs7-8">dataType: </label>
                 <input type="text" id="data7-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-8">
                 <label id="termTypePOMs7-8">termType: </label>
                 <input type="text" id="termPOM7-8"
@@ -6190,7 +6212,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-8">
                 <label id="selectjoinCondition7-8">joinCondition: </label>
                 <input type="text" id="joinCondition7-8" onclick="GetSelectedjoinCondition78()"
@@ -6239,25 +6261,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-8">
                 <label id="selectObject8-8">object: </label>
-                <input type="text" id="objmap8-8" 
+                <input type="text" id="objmap8-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-8">
                 <label id="dataTypePOMs8-8">dataType: </label>
                 <input type="text" id="data8-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-8">
                 <label id="termTypePOMs8-8">termType: </label>
                 <input type="text" id="termPOM8-8"
@@ -6267,7 +6289,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-8">
                 <label id="selectjoinCondition8-8">joinCondition: </label>
                 <input type="text" id="joinCondition8-8" onclick="GetSelectedjoinCondition88()"
@@ -6316,25 +6338,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-8">
                 <label id="selectObject9-8">object: </label>
-                <input type="text" id="objmap9-8" 
+                <input type="text" id="objmap9-8"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-8">
                 <label id="dataTypePOMs9-8">dataType: </label>
                 <input type="text" id="data9-8"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-8">
                 <label id="termTypePOMs9-8">termType: </label>
                 <input type="text" id="termPOM9-8"
@@ -6344,7 +6366,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-8">
                 <label id="selectjoinCondition9-8">joinCondition: </label>
                 <input type="text" id="joinCondition9-8" onclick="GetSelectedjoinCondition98()"
@@ -6374,7 +6396,7 @@ function handleFileSelect(evt) {
             <p>name: TriplesMap9</p>
 
             <br>
-           
+
 			 <div id="myDataSource9">
                 <label id="DataSource9">source: </label>
                 <input type="text" id="source9" placeholder="e.g. biomarkers.csv"
@@ -6412,7 +6434,7 @@ function handleFileSelect(evt) {
             </div>
 
             <br>
-           
+
 			 <div id="termType9">
                 <label id="termTypes9">termType: </label>
                 <input type="text" id="term9"
@@ -6431,7 +6453,7 @@ function handleFileSelect(evt) {
                 <p id="namePOM9"></p>
             </div>
         </div>
-       
+
         <br>
         <!-- ================================[POM(k)] over TM9====================================== -->
         <div id="mapColor9" style="display: none">
@@ -6461,24 +6483,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType1-9"></p>
             </div>
             <br>
-           
+
 			<div id="field-object1-9">
                 <label id="selectObject1-9">object: </label>
-                <input type="text" id="objmap1-9" 
+                <input type="text" id="objmap1-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-           
+
 			<div id="dataTypePOM1-9">
                 <label id="dataTypePOMs1-9">dataType: </label>
                 <input type="text" id="data1-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM1-9">
                 <label id="termTypePOMs1-9">termType: </label>
                 <input type="text" id="termPOM1-9"
@@ -6487,7 +6509,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions1-9">
                 <label id="selectjoinCondition1-9">joinCondition: </label>
                 <input type="text" id="joinCondition1-9" onclick="GetSelectedjoinCondition19()"
@@ -6535,24 +6557,24 @@ function handleFileSelect(evt) {
                 <p id="resultObjType2-9"></p>
             </div>
             <br>
-            
+
 			<div id="field-object2-9">
                 <label id="selectObject2-9">object: </label>
-                <input type="text" id="objmap2-9" 
+                <input type="text" id="objmap2-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
-            
+
 			<div id="dataTypePOM2-9">
                 <label id="dataTypePOMs2-9">dataType: </label>
                 <input type="text" id="data2-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM2-9">
                 <label id="termTypePOMs2-9">termType: </label>
                 <input type="text" id="termPOM2-9"
@@ -6561,7 +6583,7 @@ function handleFileSelect(evt) {
             </div>
             <br>
 
-           
+
 			<div id="joinConditions2-9">
                 <label id="selectjoinCondition2-9">joinCondition: </label>
                 <input type="text" id="joinCondition2-9" onclick="GetSelectedjoinCondition29()"
@@ -6612,7 +6634,7 @@ function handleFileSelect(evt) {
             <!-- Write Object -->
             <div id="field-object3-9">
                 <label id="selectObject3-9">object: </label>
-                <input type="text" id="objmap3-9" 
+                <input type="text" id="objmap3-9"
                     size="40"><br />
                 </div>
             <br>
@@ -6622,10 +6644,10 @@ function handleFileSelect(evt) {
                 <label id="dataTypePOMs3-9">dataType: </label>
                 <input type="text" id="data3-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-			
+
 			<div id="termTypePOM3-9">
                 <label id="termTypePOMs3-9">termType: </label>
                 <input type="text" id="termPOM3-9"
@@ -6684,25 +6706,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object4-9">
                 <label id="selectObject4-9">object: </label>
-                <input type="text" id="objmap4-9" 
+                <input type="text" id="objmap4-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM4-9">
                 <label id="dataTypePOMs4-9">dataType: </label>
                 <input type="text" id="data4-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM4-9">
                 <label id="termTypePOMs4-9">termType: </label>
                 <input type="text" id="termPOM4-9"
@@ -6712,7 +6734,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions4-9">
                 <label id="selectjoinCondition4-9">joinCondition: </label>
                 <input type="text" id="joinCondition4-9" onclick="GetSelectedjoinCondition49()"
@@ -6761,25 +6783,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object5-9">
                 <label id="selectObject5-9">object: </label>
-                <input type="text" id="objmap5-9" 
+                <input type="text" id="objmap5-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM5-9">
                 <label id="dataTypePOMs5-9">dataType: </label>
                 <input type="text" id="data5-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM5-9">
                 <label id="termTypePOMs5-9">termType: </label>
                 <input type="text" id="termPOM5-9"
@@ -6789,7 +6811,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions5-9">
                 <label id="selectjoinCondition5-9">joinCondition: </label>
                 <input type="text" id="joinCondition5-9" onclick="GetSelectedjoinCondition59()"
@@ -6838,25 +6860,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object6-9">
                 <label id="selectObject6-9">object: </label>
-                <input type="text" id="objmap6-9" 
+                <input type="text" id="objmap6-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM6-9">
                 <label id="dataTypePOMs6-9">dataType: </label>
                 <input type="text" id="data6-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM6-9">
                 <label id="termTypePOMs6-9">termType: </label>
                 <input type="text" id="termPOM6-9"
@@ -6866,7 +6888,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions6-9">
                 <label id="selectjoinCondition6-9">joinCondition: </label>
                 <input type="text" id="joinCondition6-9" onclick="GetSelectedjoinCondition69()"
@@ -6915,25 +6937,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object7-9">
                 <label id="selectObject7-9">object: </label>
-                <input type="text" id="objmap7-9" 
+                <input type="text" id="objmap7-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM7-9">
                 <label id="dataTypePOMs7-9">dataType: </label>
                 <input type="text" id="data7-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM7-9">
                 <label id="termTypePOMs7-9">termType: </label>
                 <input type="text" id="termPOM7-9"
@@ -6943,7 +6965,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions7-9">
                 <label id="selectjoinCondition7-9">joinCondition: </label>
                 <input type="text" id="joinCondition7-9" onclick="GetSelectedjoinCondition79()"
@@ -6992,25 +7014,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object8-9">
                 <label id="selectObject8-9">object: </label>
-                <input type="text" id="objmap8-9" 
+                <input type="text" id="objmap8-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM8-9">
                 <label id="dataTypePOMs8-9">dataType: </label>
                 <input type="text" id="data8-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM8-9">
                 <label id="termTypePOMs8-9">termType: </label>
                 <input type="text" id="termPOM8-9"
@@ -7020,7 +7042,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions8-9">
                 <label id="selectjoinCondition8-9">joinCondition: </label>
                 <input type="text" id="joinCondition8-9" onclick="GetSelectedjoinCondition89()"
@@ -7069,25 +7091,25 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Write Object -->
-           
+
             <div id="field-object9-9">
                 <label id="selectObject9-9">object: </label>
-                <input type="text" id="objmap9-9" 
+                <input type="text" id="objmap9-9"
                     size="40"><br />
-       
+
 
             </div>
             <br>
             <!-- Select the term Type for POM -->
-           
+
             <div id="dataTypePOM9-9">
                 <label id="dataTypePOMs9-9">dataType: </label>
                 <input type="text" id="data9-9"
                     size="6" placeholder="yes/no"><br />
-                
+
             </div>
             <br>
-            
+
             <div id="termTypePOM9-9">
                 <label id="termTypePOMs9-9">termType: </label>
                 <input type="text" id="termPOM9-9"
@@ -7097,7 +7119,7 @@ function handleFileSelect(evt) {
             <br>
 
             <!-- Select joinCondition -->
-           
+
             <div id="joinConditions9-9">
                 <label id="selectjoinCondition9-9">joinCondition: </label>
                 <input type="text" id="joinCondition9-9" onclick="GetSelectedjoinCondition99()"
@@ -7152,7 +7174,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop" maxlength="1" size="1" onclick="countNumberNOP()"><br />
-            </div>           
+            </div>
  </div>
  <br>
 <!-- ================================[F1P(k)]====================================== -->
@@ -7164,7 +7186,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7180,7 +7202,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value" size="30"><br />
-            </div> 
+            </div>
  </div>
 <br>
 <div id="F1-1P2" style="display: none">
@@ -7190,7 +7212,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter2" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7206,7 +7228,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value2" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F1-1P3" style="display: none">
@@ -7216,7 +7238,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter3" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7232,7 +7254,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value3" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F1-1P4" style="display: none">
@@ -7242,7 +7264,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter4" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7258,7 +7280,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value4" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F1-1P5" style="display: none">
@@ -7268,7 +7290,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter5" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7284,7 +7306,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value5" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F1-1P6" style="display: none">
@@ -7294,7 +7316,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter6" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7310,7 +7332,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value6" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F1-1P7" style="display: none">
@@ -7320,7 +7342,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter7" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7336,7 +7358,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value7" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F1-1P8" style="display: none">
@@ -7346,7 +7368,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter8" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7362,7 +7384,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value8" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F1-1P9" style="display: none">
@@ -7372,7 +7394,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter9" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7388,7 +7410,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value9" size="30" ><br />
-            </div> 
+            </div>
  </div>
 
  <!-- div for end of propertyColor -->
@@ -7423,7 +7445,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop2" maxlength="1" size="1" onclick="countNumberNOP2()"><br />
-            </div>           
+            </div>
  </div>
 <br>
 <!-- ================================[F2P(k)]====================================== -->
@@ -7435,7 +7457,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter12" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7451,7 +7473,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value12" size="30"><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P2" style="display: none">
@@ -7461,7 +7483,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter22" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7477,7 +7499,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value22" size="30"><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P3" style="display: none">
@@ -7487,7 +7509,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter32" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7503,7 +7525,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value32" size="30"><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P4" style="display: none">
@@ -7513,7 +7535,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter42" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7529,7 +7551,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value42" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P5" style="display: none">
@@ -7539,7 +7561,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter52" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7555,7 +7577,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value52" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P6" style="display: none">
@@ -7565,7 +7587,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter62" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7581,7 +7603,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value62" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P7" style="display: none">
@@ -7591,7 +7613,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter72" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7607,7 +7629,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value72" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F2-1P8" style="display: none">
@@ -7617,7 +7639,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter82" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7633,7 +7655,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value82" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F2-1P9" style="display: none">
@@ -7643,7 +7665,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter92" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7659,7 +7681,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value92" size="30" ><br />
-            </div> 
+            </div>
  </div>
   <!-- div for end of propertyColor2 -->
  </div>
@@ -7693,7 +7715,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop3" maxlength="1" size="1" onclick="countNumberNOP3()"><br />
-            </div>           
+            </div>
  </div>
 <br>
 <!-- ================================[F3P(k)]====================================== -->
@@ -7705,7 +7727,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter13" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7721,7 +7743,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value13" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P2" style="display: none">
@@ -7731,7 +7753,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter23" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7747,7 +7769,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value23" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P3" style="display: none">
@@ -7757,7 +7779,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter33" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7773,7 +7795,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value33" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P4" style="display: none">
@@ -7783,7 +7805,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter43" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7799,7 +7821,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value43" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P5" style="display: none">
@@ -7809,7 +7831,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter53" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7825,7 +7847,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value53" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P6" style="display: none">
@@ -7835,7 +7857,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter63" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7851,7 +7873,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value63" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P7" style="display: none">
@@ -7861,7 +7883,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter73" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7877,7 +7899,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value73" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F3-1P8" style="display: none">
@@ -7887,7 +7909,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter83" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7903,7 +7925,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value83" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F3-1P9" style="display: none">
@@ -7913,7 +7935,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter93" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7929,7 +7951,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value93" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor3 -->
  </div>
@@ -7963,7 +7985,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop4" maxlength="1" size="1" onclick="countNumberNOP4()"><br />
-            </div>           
+            </div>
  </div>
 <br>
 <!-- ================================[F4P(k)]====================================== -->
@@ -7975,7 +7997,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter14" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -7991,7 +8013,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value14" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P2" style="display: none">
@@ -8001,7 +8023,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter24" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8017,7 +8039,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value24" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P3" style="display: none">
@@ -8027,7 +8049,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter34" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8043,7 +8065,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value34" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P4" style="display: none">
@@ -8053,7 +8075,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter44" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8069,7 +8091,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value44" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P5" style="display: none">
@@ -8079,7 +8101,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter54" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8095,7 +8117,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value54" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P6" style="display: none">
@@ -8105,7 +8127,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter64" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8121,7 +8143,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value64" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P7" style="display: none">
@@ -8131,7 +8153,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter74" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8147,7 +8169,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value74" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F4-1P8" style="display: none">
@@ -8157,7 +8179,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter84" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8173,7 +8195,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value84" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F4-1P9" style="display: none">
@@ -8183,7 +8205,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter94" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8199,7 +8221,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value94" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor4 -->
  </div>
@@ -8233,7 +8255,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop5" maxlength="1" size="1" onclick="countNumberNOP5()"><br />
-            </div>           
+            </div>
  </div>
  <br>
  <!-- ================================[F5P(k)]====================================== -->
@@ -8245,7 +8267,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter15" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8261,7 +8283,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value15" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P2" style="display: none">
@@ -8271,7 +8293,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter25" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8287,7 +8309,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value25" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P3" style="display: none">
@@ -8297,7 +8319,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter35" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8313,7 +8335,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value35" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P4" style="display: none">
@@ -8323,7 +8345,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter45" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8339,7 +8361,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value45" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P5" style="display: none">
@@ -8349,7 +8371,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter55" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8365,7 +8387,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value55" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P6" style="display: none">
@@ -8375,7 +8397,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter65" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8391,7 +8413,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value65" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P7" style="display: none">
@@ -8401,7 +8423,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter75" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8417,7 +8439,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value75" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F5-1P8" style="display: none">
@@ -8427,7 +8449,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter85" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8443,7 +8465,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value85" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F5-1P9" style="display: none">
@@ -8453,7 +8475,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter95" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8469,7 +8491,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value95" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor5 -->
  </div>
@@ -8503,7 +8525,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop6" maxlength="1" size="1" onclick="countNumberNOP6()"><br />
-            </div>           
+            </div>
  </div>
   <br>
  <!-- ================================[F5P(k)]====================================== -->
@@ -8515,7 +8537,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter16" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8531,7 +8553,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value16" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P2" style="display: none">
@@ -8541,7 +8563,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter26" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8557,7 +8579,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value26" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P3" style="display: none">
@@ -8567,7 +8589,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter36" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8583,7 +8605,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value36" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P4" style="display: none">
@@ -8593,7 +8615,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter46" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8609,7 +8631,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value46" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P5" style="display: none">
@@ -8619,7 +8641,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter56" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8635,7 +8657,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value56" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P6" style="display: none">
@@ -8645,7 +8667,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter66" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8661,7 +8683,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value66" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P7" style="display: none">
@@ -8671,7 +8693,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter76" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8687,7 +8709,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value76" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F6-1P8" style="display: none">
@@ -8697,7 +8719,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter86" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8713,7 +8735,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value86" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F6-1P9" style="display: none">
@@ -8723,7 +8745,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter96" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8739,7 +8761,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value96" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor6 -->
  </div>
@@ -8773,7 +8795,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop7" maxlength="1" size="1" onclick="countNumberNOP7()"><br />
-            </div>           
+            </div>
  </div>
   <br>
  <!-- ================================[F7P(k)]====================================== -->
@@ -8785,7 +8807,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter17" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8801,7 +8823,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value17" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P2" style="display: none">
@@ -8811,7 +8833,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter27" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8827,7 +8849,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value27" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P3" style="display: none">
@@ -8837,7 +8859,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter37" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8853,7 +8875,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value37" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P4" style="display: none">
@@ -8863,7 +8885,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter47" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8879,7 +8901,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value47" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P5" style="display: none">
@@ -8889,7 +8911,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter57" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8905,7 +8927,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value57" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P6" style="display: none">
@@ -8915,7 +8937,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter67" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8931,7 +8953,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value67" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P7" style="display: none">
@@ -8941,7 +8963,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter77" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8957,7 +8979,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value77" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F7-1P8" style="display: none">
@@ -8967,7 +8989,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter87" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -8983,7 +9005,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value87" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F7-1P9" style="display: none">
@@ -8993,7 +9015,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter97" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9009,7 +9031,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value97" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor7 -->
  </div>
@@ -9043,7 +9065,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop8" maxlength="1" size="1" onclick="countNumberNOP8()"><br />
-            </div>           
+            </div>
  </div>
   <br>
  <!-- ================================[F8P(k)]====================================== -->
@@ -9055,7 +9077,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter18" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9071,7 +9093,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value18" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P2" style="display: none">
@@ -9081,7 +9103,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter28" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9097,7 +9119,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value28" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P3" style="display: none">
@@ -9107,7 +9129,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter38" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9123,7 +9145,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value38" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P4" style="display: none">
@@ -9133,7 +9155,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter48" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9149,7 +9171,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value48" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P5" style="display: none">
@@ -9159,7 +9181,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter58" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9175,7 +9197,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value58" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P6" style="display: none">
@@ -9185,7 +9207,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter68" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9201,7 +9223,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value68" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P7" style="display: none">
@@ -9211,7 +9233,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter78" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9227,7 +9249,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value78" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F8-1P8" style="display: none">
@@ -9237,7 +9259,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter88" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9253,7 +9275,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value88" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F8-1P9" style="display: none">
@@ -9263,7 +9285,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter98" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9279,7 +9301,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value98" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor8 -->
  </div>
@@ -9313,7 +9335,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>Add number of parameters: </label>
                 <input type="text" id="nop9" maxlength="1" size="1" onclick="countNumberNOP9()"><br />
-            </div>           
+            </div>
  </div>
  <br>
  <!-- ================================[F9P(k)]====================================== -->
@@ -9325,7 +9347,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter19" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9341,7 +9363,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value19" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P2" style="display: none">
@@ -9351,7 +9373,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter29" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9367,7 +9389,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value29" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P3" style="display: none">
@@ -9377,7 +9399,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter39" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9393,7 +9415,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value39" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P4" style="display: none">
@@ -9403,7 +9425,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter49" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9419,7 +9441,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value49" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P5" style="display: none">
@@ -9429,7 +9451,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter59" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9445,7 +9467,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value59" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P6" style="display: none">
@@ -9455,7 +9477,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter69" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9471,7 +9493,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value69" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P7" style="display: none">
@@ -9481,7 +9503,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter79" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9497,7 +9519,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value79" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
 <div id="F9-1P8" style="display: none">
@@ -9507,7 +9529,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter89" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9523,7 +9545,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value89" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <br>
  <div id="F9-1P9" style="display: none">
@@ -9533,7 +9555,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>parameter: </label>
                 <input type="text" id="parameter99" size="30"><br />
-            </div>      
+            </div>
             <br>
             <!-- Select parameterType -->
             <div>
@@ -9549,7 +9571,7 @@ function handleFileSelect(evt) {
              <div>
                 <label>value: </label>
                 <input type="text" id="value99" size="30" ><br />
-            </div> 
+            </div>
  </div>
  <!-- div for end of propertyColor9 -->
  </div>
@@ -9561,7 +9583,7 @@ function handleFileSelect(evt) {
    <br>
 
 
-       
+
 <!-- ************************************************************************************************** -->
             <br>
             <button type="button" id="fixedbutton" onclick="GenerateMR()">Generate Mapping Rule</button>
@@ -9588,12 +9610,12 @@ function handleFileSelect(evt) {
 
                     var create = document.getElementById('fixedbutton');
                      create.addEventListener('click', function () {
-                       
-                         var link = document.getElementById('downloadlink'); 
-                         link.href = makeTextFile(getresponseConfig());
-                         
 
-                     }, false); 
+                         var link = document.getElementById('downloadlink');
+                         link.href = makeTextFile(getresponseConfig());
+
+
+                     }, false);
                       })();
             </script>
             <br>
@@ -9627,12 +9649,12 @@ function handleFileSelect(evt) {
 
                     var createVis = document.getElementById('visuabutton');
                      createVis.addEventListener('click', function () {
-                       
-                         var link = document.getElementById('downloadlinkVis'); 
-                         link.href = makepngFile();
-                         
 
-                     }, false); 
+                         var link = document.getElementById('downloadlinkVis');
+                         link.href = makepngFile();
+
+
+                     }, false);
                       })();
             </script>
 
@@ -9650,5 +9672,3 @@ function handleFileSelect(evt) {
 </body>
 
 </html>
-
-
