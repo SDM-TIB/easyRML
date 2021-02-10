@@ -20,10 +20,10 @@ def index():
 @app.route('/api/readOnto', methods=['GET','POST'])
 
 def api_readOnto():
-    if request.method == 'POST':
-        file = request.files['file']
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#     if request.method == 'POST':
+#         file = request.files['file']
+#         filename = secure_filename(file.filename)
+#         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         #return redirect(url_for('uploaded_file', filename=filename))
         #class_list = suggestClasses.readOntoTurtle(file)
         #print (class_list)
@@ -31,7 +31,7 @@ def api_readOnto():
 
     #return Response(class_json,  mimetype="application/json")
     print("connect to readOnto")
-    return render_template('index.html')
+#     return render_template('index.html')
 
 @app.route('/api/verifying', methods=['POST'])
 def api_verifying():
