@@ -24,7 +24,7 @@ def api_readOnto():
         file = request.files['file']
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
         #return redirect(url_for('uploaded_file', filename=filename))
-        class_list = suggestClasses(file)
+        class_list = readOntoTurtle(file)
         #print (class_list)
         class_json = json.dumps(class_list)
 
