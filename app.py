@@ -30,11 +30,11 @@ def api_readOnto():
         if uploaded_file.filename != '' and allowed_file(uploaded_file.filename):
             filename = secure_filename(uploaded_file.filename)          
             uploaded_file.save("./output/" + filename)
-            #class_list = suggestClasses.readOntoTurtle(uploaded_file)
-            #property_list = suggestProperties.readOntoTurtle(uploaded_file)            
-            #class_json = json.dumps(class_list)
-    return ''    
-    #return Response(class_json, mimetype="application/json")
+            class_list = suggestClasses.readOntoTurtle(uploaded_file)
+            property_list = suggestProperties.readOntoTurtle(uploaded_file)            
+            class_json = json.dumps(class_list)
+    #return ''    
+    return Response(class_json, mimetype="application/json")
 
 @app.route('/api/verifying', methods=['POST'])
 def api_verifying():
