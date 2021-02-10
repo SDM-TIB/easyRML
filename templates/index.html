@@ -41,13 +41,13 @@
       <br>
     </form>
      <br>
-            <button type="button" id="ontobutton" onclick="ExtractClasses ()">Extract Classes</button>
+<!--             <button type="button" id="ontobutton" onclick="ExtractClasses ()">Extract Classes</button>
 <p> *Info: The List of Classes can be seen in Download directory as .csv format </p>
-            <br>
+            <br> -->
 <br>
 <script>
 
-
+var ready = false;
 function handleFileSelect(evt) { 
         
       var file = evt.target.files[0]; 
@@ -58,7 +58,7 @@ function handleFileSelect(evt) {
         reader.onload = function(event) {
         
           var stringTTL = event.target.result;
-          console.log(stringTTL);
+          ready = true;
 
              onReadFinishOnto(stringTTL);
 
