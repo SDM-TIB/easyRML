@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
 
-##### checking if the format of the file uploaded by user is correct ########
+##### checking if the format of the file uploaded by the user is correct ########
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

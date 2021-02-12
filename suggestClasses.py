@@ -24,8 +24,7 @@ def readOntologyEndpoint(endpoint):
     return classes
 
 #### ontology as an turtle file
-def readOntologyTurtle(filename):
-    file = filename
+def readOntologyTurtle(file):
     ontologyGraph = Graph()
     ontologyGraph.parse(file, format='ttl')
     query = """SELECT distinct ?class 
