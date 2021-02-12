@@ -7,41 +7,52 @@ import suggestProperties
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
+############################################################################
+
 UPLOAD_FOLDER = './'
 ALLOWED_EXTENSIONS = {'ttl'}
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
 
+##### checking if the format of the file uploaded by user is correct ########
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
 
+######## uploading the ontology file #########
 @app.route('/api/readOnto', methods=['GET','POST'])
-
 def api_readOnto():
     if request.method == 'POST':
         uploaded_file = request.files['file']
         if uploaded_file.filename != '' and allowed_file(uploaded_file.filename):
             filename = secure_filename(uploaded_file.filename)          
             uploaded_file.save("./output/" + filename)
-            class_list = suggestClasses.readOntologyTurtle(uploaded_file)
-            print (class_list)
-            #property_list = suggestProperties.readOntologyTurtle(uploaded_file)            
-            class_json = json.dumps(class_list)
-    #return class_list    
+    return ''   
+
+
+######## suggest classes based on the uploaded ontology file #########
+@app.route('/api/suggestClass', methods=['GET'])
+def api_suggestClass():
+    class_list = suggestClasses.readOntologyTurtle("./output/" + filename)        
+    class_json = json.dumps(class_list)
+    #class_json = flask.jsonify(class_list)  
     return Response(class_json, mimetype="application/json")
 
+
+'''
 @app.route('/api/verifying', methods=['POST'])
 def api_verifying():
     print('request') 
-    
+'''    
 
+######## generate turtle mapping file ############
 
 @app.route('/api/mappings', methods=['POST'])
 def api_mappings():
