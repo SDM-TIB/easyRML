@@ -42,10 +42,16 @@
       <br>
     </form>
      <br>
-     <script type="text/javascript">
-      $(function() {
+    <script>
+  var ttlFile = "";
+
+function onReadFinishOnto(result){
+  $(function() {
           $('#upload_file_btn').click(function() {
               var form_data = new FormData($('#upload_file')[0]);
+              ttlFile = result;
+              // console.log(ttlFile);
+
               $.ajax({
                   type: 'POST',
                   url: '/api/readOnto',
@@ -54,20 +60,16 @@
                   cache: false,
                   processData: false,
                   success: function(data) {
-                      console.log('Success!');
+                      // console.log('Success!');
+                      // console.log("data: ", data);
                   },
               });
           });
       });
-     </script>
+  
+}
 
-<!--             <button type="button" id="ontobutton" onclick="ExtractClasses ()">Extract Classes</button>
-<p> *Info: The List of Classes can be seen in Download directory as .csv format </p>
-            <br> -->
-<br>
-
-<script>
-
+ 
 var ready = false;
 function handleFileSelect(evt) {
 
@@ -95,52 +97,13 @@ function handleFileSelect(evt) {
 
 
 <!-- *********************************************************** -->
-        <form method="post" enctype="multipart/form-data">
-    <legend>Upload your Class File</legend>
-      <input type="file" id="class" name="files[]" multiple />
 
-      <br>
-    </form>
+    <!-- Select Class -->
+      <button id="getClassList" type="button" onclick="GetClassList()">List of Classes</button>
+    <select id="arr"></select> 
+      
+    <br><br> 
 
-      <!-- Select Class -->
-            <div id="classSugg">
-                 <label id="classLIst">List of Classes : <select id="classLists">
-                    <option value="selectClass" selected="selected">-- Select a class --
-                    </option>
-
-                </select>
-                  </label>
-            </div>
-            <br>
-
-<script>
-
-function handleFileSelect(evt) {
-        var file = evt.target.files[0];
-
-        // instantiate a FileReader object to read/save the file that was uploaded
-        var reader = new FileReader();
-          // when the load event is fired (the file has finished uploading) this function is called
-        reader.onload = function(event) {
-          // the result attribute contains an ArrayBuffer representing the file's data.
-          var arrayBuffer = event.target.result.split(/\r\n|\n/);
-
-           // for (var i = 1; i <= arrayBuffer.length; i++) {
-           //   myArray += arrayBuffer[i];
-           //   myArray = myArray.split(',');
-
-           // }
-             onReadFinishClass(arrayBuffer);
-
-        }
-
-        // read the file and save as an array. Once the read is finished loadend is triggered
-        reader.readAsBinaryString(file);
-
-      }
-      document.getElementById('class').addEventListener('change', handleFileSelect, false);
-
- </script>
 
 <!-- *********************************************************** -->
 <form method="post" enctype="multipart/form-data">
