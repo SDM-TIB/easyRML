@@ -2,6 +2,7 @@
 var config = "";
 var responseConfig = "";
 var responseClasses = "";
+var responseProperties = "";
 var filename = "";
 var tripleColor = "";
 var mapColor = mapColor2 = mapColor3 = mapColor4 = mapColor5 = mapColor6 = mapColor7 = mapColor8 = mapColor9 = "";
@@ -4204,7 +4205,35 @@ function GetClassList() {
 
 }
  
+function GetPropertyList() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrPro");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseProperties = response;
+  });;
 
+}
+ 
 
 function onReadFileName(result){
 filenames = result;
