@@ -140,7 +140,7 @@ function handleFileSelect(evt) {
           // the result attribute contains an ArrayBuffer representing the file's data.
           var arrayBuffer = event.target.result.split(/\r\n|\n/);
           myArray = arrayBuffer[0].split(',');
-          onReadFinish(myArray);
+          onReadFileName(myArray);
           //document.getElementById("out").innerHTML = myArray[0];
 
         }
