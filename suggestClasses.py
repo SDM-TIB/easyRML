@@ -13,7 +13,7 @@ from rdflib import Graph
 #################################################################################
 
 #### ontology as an endpoint
-def readOntoEndpoint(endpoint):
+def readOntologyEndpoint(endpoint):
     sparql = SPARQLWrapper(endpoint)
     sparql.setQuery("""SELECT distinct ?class 
         WHERE { 
@@ -24,7 +24,7 @@ def readOntoEndpoint(endpoint):
     return classes
 
 #### ontology as an turtle file
-def readOntoTurtle(filename):
+def readOntologyTurtle(filename):
     file = filename
     ontologyGraph = Graph()
     ontologyGraph.parse(file, format='ttl')
@@ -44,11 +44,11 @@ def handler():
 
     #### ontology as an endpoint
     #user_input = input("Enter the ontology endpoint: ")
-    #classes = readOntology(user_input)
+    #classes = readOntologyEndpoint(user_input)
     #print (json.dumps(classes,indent=2))
 
     #### ontology as an turtle file
-    owlClassList = readOntoTurtle("/Users/sam/Documents/GitHub/CLARIFYUnifiedSchema/clarify_v2.ttl")
+    owlClassList = readOntologyTurtle("/Users/sam/Documents/GitHub/CLARIFYUnifiedSchema/clarify_v2.ttl")
     owlClassSeries = pd.Series(owlClassList, name="Classes")
     owlClassSeries.to_csv("/Users/sam/Documents/GitHub/easyRML/output/classSuggestionOutput.csv",sep=",")
 

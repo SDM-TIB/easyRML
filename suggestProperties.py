@@ -12,7 +12,7 @@ from rdflib import Graph
 
 #################################################################################
 
-def readOntoEndpoint(endpoint):
+def readOntologyEndpoint(endpoint):
 
     sparql = SPARQLWrapper(endpoint)
     sparql.setQuery("""SELECT distinct ?protperty 
@@ -27,7 +27,7 @@ def readOntoEndpoint(endpoint):
     return properties
 
 #### ontology as an turtle file
-def readOntoTurtle(filename):
+def readOntologyTurtle(filename):
     file = filename
     ontologyGraph = Graph()
     ontologyGraph.parse(file, format='ttl')
@@ -49,11 +49,11 @@ def handler():
 
     #### ontology as an endpoint
     #user_input = input("Enter the ontology endpoint: ")
-    #properties = readOntology(user_input)
+    #properties = readOntologyEndpoint(user_input)
     #print (json.dumps(properties,indent=2))
 
     #### ontology as an turtle file
-    owlPropertyList = readOntoTurtle("/Users/sam/Documents/GitHub/CLARIFYUnifiedSchema/clarify_v2.ttl")
+    owlPropertyList = readOntologyTurtle("/Users/sam/Documents/GitHub/CLARIFYUnifiedSchema/clarify_v2.ttl")
     owlPropertySeries = pd.Series(owlPropertyList, name="Properties")
     owlPropertySeries.to_csv("/Users/sam/Documents/GitHub/easyRML/output/propertySuggestionOutput.csv",sep=",")
 
