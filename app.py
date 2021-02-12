@@ -44,7 +44,7 @@ def api_readOnto():
 @app.route('/api/suggestClass', methods=['GET'])
 def api_suggestClass():
     class_list = suggestClasses.readOntologyTurtle(fileAddress)
-    print (class_list)        
+    #print (class_list)        
     class_json = json.dumps(class_list)
     return Response(class_json, mimetype="application/json")
 
