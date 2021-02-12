@@ -1,6 +1,7 @@
 
 var config = "";
 var responseConfig = "";
+var responseClasses = "";
 var filename = "";
 var tripleColor = "";
 var mapColor = mapColor2 = mapColor3 = mapColor4 = mapColor5 = mapColor6 = mapColor7 = mapColor8 = mapColor9 = "";
@@ -4174,45 +4175,38 @@ function countNumberNOP7() {
 // });
  }
 
-
-function onReadFinishOnto(result){
-	filenames = result;
-   console.log(filenames);
-   var settings = {
-    url: "/api/readOnto",
-    type: "POST",
-
-    contenType: 'application/json; charset=utf-8',
-    data: JSON.stringify({"text" : value}),
-
-    async: false,
-  };
-  $.ajax(settings).done(function (response) {
-    if (response == true) {
-     
-    } else {
-    
+function GetClassList() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
     }
-    console.log(response);
-  
-    responseConfig = response;
-  });
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arr");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
 }
-
-function onReadFinishClass(result){
-filenames = result;
-var select = document.getElementById("classLists");
-for(var i = 0; i < filenames.length; i++) {
-    var opt = filenames[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-}
-      }
+ 
 
 
-function onReadFinish(result){
+function onReadFileName(result){
 filenames = result;
 var select = document.getElementById("filenames");
 for(var i = 0; i < filenames.length; i++) {
