@@ -98,12 +98,6 @@ function handleFileSelect(evt) {
 
 <!-- *********************************************************** -->
 
-    <!-- Select Class -->
-      <button id="getClassList" type="button" onclick="GetClassList()">List of Classes</button>
-    <select id="arrClass"></select> 
-      
-    <br><br> 
-
 <!-- Select Property -->
       <button id="getPropertyList" type="button" onclick="GetPropertyList()">List of Properties</button>
     <select id="arrProperty"></select> 
@@ -311,12 +305,12 @@ function handleFileSelect(evt) {
 					  <!-- <button id="getReferenceFormulation" type="button" onclick="GetReferenceFormulation()">Get Reference Formulation</button> -->
             </div>
              <br>
-            <!-- Select subjectType -->
+           <!-- Select subjectType -->
             <div id="field-subjectType">
-                <select id="subjects">
+                <select id="subjects"  onchange="GetSelectedClass()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -325,10 +319,15 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap">
+            <div id="field-subjectMap" style="display: none">
+                 <!-- Select Class -->
+      <button id="getClassList" type="button" onclick="GetClassList()">List of Classes</button>
+    <select id="arrClass"></select> 
+      
+    <br>
                 <label id="selectTM">subjectMap: </label>
-                <input type="text" id="subjmap" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                 <!-- <button id="getSubjMap" type="button" onclick="GetSubjectMap()">Get Subject Map</button> -->
 
             </div>
