@@ -4191,7 +4191,7 @@ function GetClassList() {
      
     }
     // console.log(response);
-    var select = document.getElementById("arr");
+    var select = document.getElementById("arrClass");
             for (var i = 0; i < response.length; i++) { 
                 var optn = response[i]; 
                 var el = document.createElement("option"); 
@@ -4220,7 +4220,7 @@ function GetPropertyList() {
      
     }
     // console.log(response);
-    var select = document.getElementById("arrPro");
+    var select = document.getElementById("arrProperty");
             for (var i = 0; i < response.length; i++) { 
                 var optn = response[i]; 
                 var el = document.createElement("option"); 
@@ -4257,6 +4257,10 @@ function GenerateMR() {
   document.getElementById("demo").innerHTML = conc;
 
   var pref = document.getElementById('pref'),
+    arrClass = document.getElementById("arrClass"),
+    resultClass = arrClass.options[arrClass.selectedIndex],
+    arrProperty = document.getElementById("arrProperty"),
+    resultProperty = arrProperty.options[arrProperty.selectedIndex],
     filenames = document.getElementById("filenames"),
     resultFilename = filenames.options[filenames.selectedIndex],  
     tm = document.getElementById('tm'),
