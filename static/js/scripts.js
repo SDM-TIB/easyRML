@@ -579,6 +579,22 @@ function countNumberPOM() {
   }
 }
 
+/* Selecting Classes*/
+function GetSelectedClass() {
+  var subjects = document.getElementById("subjects"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
 
 /* Selecting joinCondition*/
 function GetSelectedjoinCondition() {
