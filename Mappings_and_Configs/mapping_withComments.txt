@@ -51,10 +51,9 @@ joinCondition: no
 name: TriplesMap2
 source: /mnt/e/RMLMappingRuleGenerator/data/biomarkers.csv
 sourceFormat: CSV
-subjectType: class
-subjectMap: http://project-iasis.eu/Annotation
-dataField: biomarker_CUI
-termType: no
+subjectType: reference to functionMap ## in this case of subjectType we don't need "dataField:"
+subjectMap: pFormat_concat3
+termType: rr:IRI 
 number_of_POM: 3
 
 [TM2_POM1]

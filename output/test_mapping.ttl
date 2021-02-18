@@ -13,17 +13,17 @@
 <TM1>
 	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/biomarkers.csv";
 						rml:sourceFormat ql:CSV ];
-	rr:subjectMap [
+	rr:subjectMap[
 		rr:template "http://project-iasis.eu/Biomarker/{biomarker}"
 	];
 	rr:predicateObjectMap [
-		rr:predicate http://www.w3.org/1999/02/22-rdf-syntax-ns#type;
+		rr:predicate rdf:type;
 		rr:objectMap [
 			rr:template "http://project-iasis.eu/vocab/Biomarker"
 			]
 	];
 	rr:predicateObjectMap [
-		rr:predicate http://project-iasis.eu/vocab/hasCUIAnnotation;
+		rr:predicate iasis:hasCUIAnnotation;
 		rr:objectMap [
 			rml:reference "biomarker"
 			]
@@ -36,8 +36,8 @@
 <TM2>
 	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/biomarkers.csv";
 						rml:sourceFormat ql:CSV ];
-	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Annotation/{biomarker_CUI}"
+	rr:subjectMap <pFormat_concat3>;
+		rr:termType rr:IRI;
 	];
 	rr:predicateObjectMap [
 		rr:predicate rdf:type;
@@ -52,7 +52,7 @@
 			]
 	];
 	rr:predicateObjectMap [
-		rr:predicate iasis:provenance;
+		rr:predicate :iasis:provenance;
 		rr:objectMap [
 			rr:template "http://project-iasis.eu/SourceName/UMLS"
 			]
@@ -61,7 +61,7 @@
 <TM3>
 	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/sampleSource1.csv";
 						rml:sourceFormat ql:CSV ];
-	rr:subjectMap [
+	rr:subjectMap[
 		rr:template "http://project-iasis.eu/BioType/{biotype}"
 	];
 	rr:predicateObjectMap [
@@ -84,7 +84,7 @@
 <TM4>
 	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/sampleSource2.csv";
 						rml:sourceFormat ql:CSV ];
-	rr:subjectMap [
+	rr:subjectMap[
 		rr:template "http://project-iasis.eu/Chromosome/{chr}"
 	];
 	rr:predicateObjectMap [

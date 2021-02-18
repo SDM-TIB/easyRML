@@ -16,10 +16,17 @@ def readConfig(config):
     "@PREFIX ql: <http://semweb.mmlab.be/ns/ql#> .","@PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .",
     "@PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .","@PREFIX rev: <http://purl.org/stuff/rev#> .",
     "@PREFIX schema: <http://schema.org/> .","@PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> ."]
+    
+    prefixDict = {"rr":"http://www.w3.org/ns/r2rml#", "rml":"http://semweb.mmlab.be/ns/rml#",
+    "ql":"http://semweb.mmlab.be/ns/ql#","rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+    "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#", "rev":"http://purl.org/stuff/rev#",
+    "schema":"http://schema.org/", "xsd":"http://www.w3.org/2001/XMLSchema#"}
+    
     p = config['main']['number_of_prefixes']
     for z in range(1,(int(p)+1)):
         pre = "pre" + str(z)
         prefix = "prefix"+ str(z)
+        prefixDict[str(config['prefixes'][pre])] = str(config['prefixes'][prefix])
         finalString = "@PREFIX "+ config['prefixes'][pre] + ": <" + config['prefixes'][prefix] + "> ."
         prefixList.append(finalString)
 
@@ -29,19 +36,32 @@ def readConfig(config):
 
     ##read source and subject
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
-        "rml:sourceFormat ql:" + config['TM'+str(t)]['sourceFormat'] + " ];\n\trr:subjectMap [\n\t\t" + "rr:template" + \
-        " \"" + config['TM'+str(t)]['subjectMap'] + "/{" + config['TM'+str(t)]['dataField'] + "}\""
-        if config['TM'+str(t)]['termType'] != "no":
-            TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t]"
-        else:
-            TM = TM + "\n\t]" 
+        "rml:sourceFormat ql:" + config['TM'+str(t)]['sourceFormat'] + " ];\n\trr:subjectMap"
+        if config['TM'+str(t)]['subjectType'] == "class":
+            TM = TM + "[\n\t\t" + "rr:template" + " \"" + config['TM'+str(t)]['subjectMap'] + "/{" + config['TM'+str(t)]['dataField'] + "}\""
+            if config['TM'+str(t)]['termType'] != "no":
+                TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t]"
+            else:
+                TM = TM + "\n\t]"
+        elif config['TM'+str(t)]['subjectType'] == "reference to functionMap":
+            TM = TM + " <" + config['TM'+str(t)]['subjectMap'] + ">" 
+            if config['TM'+str(t)]['termType'] != "no":
+                TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t]"
+            else:
+                TM = TM + "\n\t" 
 
     ##read predicate objects
         for i in range(1,int(config['TM'+str(t)]['number_of_POM'])+1):
-            TM = TM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate "
-            predicate_abrv = str(config[str("TM"+str(t)+"_POM"+str(i))]['predicate']).split("/")[-1]
-            print (predicate_abrv)
-            TM = TM + config[str("TM"+str(t)+"_POM"+str(i))]['predicate']
+            prefix_value = ""
+            prefix_abrv = ""
+            for value in prefixDict.values():
+                if value in str(config[str("TM"+str(t)+"_POM"+str(i))]['predicate']):
+                    prefix_value = value
+                for k, v in prefixDict.items():
+                    if prefix_value == v:
+                        prefix_abrv = k   
+                predicate_value = str(config[str("TM"+str(t)+"_POM"+str(i))]['predicate']).replace(prefix_value,"")
+            TM = TM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + prefix_abrv + ":" + predicate_value
             TM = TM + ";\n\t\t" + "rr:objectMap "
             objectType = config[str("TM"+str(t)+"_POM"+str(i))]['objectType']
             if  objectType == "class":
