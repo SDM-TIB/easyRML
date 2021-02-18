@@ -4340,7 +4340,231 @@ function GetClassList() {
   });;
 
 }
- 
+
+function GetClassList2() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass2");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList3() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass3");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList4() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass4");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList5() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass5");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList6() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass6");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList7() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass7");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList8() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass8");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
+function GetClassList9() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestClass', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select = document.getElementById("arrClass9");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select.appendChild(el); 
+                
+            } 
+    responseClasses = response;
+  });;
+
+}
 function GetPropertyList() {
     $.ajax({ 
     type: 'GET', 
