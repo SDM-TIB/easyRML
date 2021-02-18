@@ -1095,10 +1095,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType2">
-                <select id="subjects2">
+                <select id="subjects2" onchange="GetSelectedClass2()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -1107,10 +1107,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap2">
+            <div id="field-subjectMap2" style="display: none">
+		<button id="getClassList2" type="button" onclick="GetClassList2()">List of Classes</button>
+    <select id="arrClass2"></select> 
+      
+    <br>    
                 <label id="selectTM2">subjectMap: </label>
-                <input type="text" id="subjmap2" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap2" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                 <!-- <button id="getSubjMap2" type="button" onclick="GetSubjectMap2()">Get Subject Map</button> -->
                 <p id="resultSubjectMap2"></p>
             </div>
@@ -1850,10 +1854,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType3">
-                <select id="subjects3">
+                <select id="subjects3" onchange="GetSelectedClass3()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -1862,10 +1866,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap3">
+            <div id="field-subjectMap3" style="display: none">
+		<button id="getClassList3" type="button" onclick="GetClassList3()">List of Classes</button>
+    <select id="arrClass3"></select> 
+      
+    <br>    
                 <label id="selectTM3">subjectMap: </label>
-                <input type="text" id="subjmap3" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap3" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                 <!-- <button id="getSubjMap3" type="button" onclick="GetSubjectMap3()">Get Subject Map</button> -->
                 <p id="resultSubjectMap3"></p>
             </div>
@@ -2604,10 +2612,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType4">
-                <select id="subjects4">
+                <select id="subjects4" onchange="GetSelectedClass4()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -2616,10 +2624,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap4">
+            <div id="field-subjectMap4" style="display: none">
+		 <button id="getClassList4" type="button" onclick="GetClassList4()">List of Classes</button>
+    <select id="arrClass4"></select> 
+      
+    <br>    
                 <label id="selectTM4">subjectMap: </label>
-                <input type="text" id="subjmap4" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap4" placeholder="e.g. {biomarker}"
+                    size="20"><br />
               <!--   <button id="getSubjMap4" type="button" onclick="GetSubjectMap4()">Get Subject Map</button> -->
                 <p id="resultSubjectMap4"></p>
             </div>
@@ -3359,10 +3371,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType5">
-                <select id="subjects5">
+                <select id="subjects5" onchange="GetSelectedClass5()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -3371,10 +3383,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap5">
+            <div id="field-subjectMap5" style="display: none">
+		<button id="getClassList5" type="button" onclick="GetClassList5()">List of Classes</button>
+    <select id="arrClass5"></select> 
+      
+    <br>    
                 <label id="selectTM5">subjectMap: </label>
-                <input type="text" id="subjmap5" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap5" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                 <!-- <button id="getSubjMap5" type="button" onclick="GetSubjectMap5()">Get Subject Map</button> -->
                 <p id="resultSubjectMap5"></p>
             </div>
@@ -4114,10 +4130,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType6">
-                <select id="subjects6">
+                <select id="subjects6" onchange="GetSelectedClass6()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -4126,10 +4142,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap6">
+            <div id="field-subjectMap6" style="display: none">
+		<button id="getClassList6" type="button" onclick="GetClassList6()">List of Classes</button>
+    <select id="arrClass6"></select> 
+      
+    <br>    
                 <label id="selectTM6">subjectMap: </label>
-                <input type="text" id="subjmap6" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap6" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                <!--  <button id="getSubjMap6" type="button" onclick="GetSubjectMap6()">Get Subject Map</button> -->
                 <p id="resultSubjectMap6"></p>
             </div>
@@ -4869,10 +4889,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType7">
-                <select id="subjects7">
+                <select id="subjects7" onchange="GetSelectedClass7()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -4881,10 +4901,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap7">
+            <div id="field-subjectMap7" style="display: none">
+		<button id="getClassList7" type="button" onclick="GetClassList7()">List of Classes</button>
+    <select id="arrClass7"></select> 
+      
+    <br>    
                 <label id="selectTM7">subjectMap: </label>
-                <input type="text" id="subjmap7" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap7" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                <!--  <button id="getSubjMap7" type="button" onclick="GetSubjectMap7()">Get Subject Map</button> -->
                 <p id="resultSubjectMap7"></p>
             </div>
@@ -5623,10 +5647,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType8">
-                <select id="subjects8">
+                <select id="subjects8" onchange="GetSelectedClass8()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -5635,10 +5659,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap8">
+            <div id="field-subjectMap8" style="display: none">
+		 <button id="getClassList8" type="button" onclick="GetClassList8()">List of Classes</button>
+    <select id="arrClass8"></select> 
+      
+    <br>    
                 <label id="selectTM8">subjectMap: </label>
-                <input type="text" id="subjmap8" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap8" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                 <!-- <button id="getSubjMap8" type="button" onclick="GetSubjectMap8()">Get Subject Map</button> -->
                 <p id="resultSubjectMap8"></p>
             </div>
@@ -6379,10 +6407,10 @@ function handleFileSelect(evt) {
              <br>
             <!-- Select subjectType -->
             <div id="field-subjectType9">
-                <select id="subjects9">
+                <select id="subjects9" onchange="GetSelectedClass9()">
                     <option value="selectSubj" selected="selected">-- Select Subject Type --
                     </option>
-                    <option value="string">string</option>
+                    <option value="string">Class</option>
                     <option value="integer">integer</option>
                 </select>
 
@@ -6391,10 +6419,14 @@ function handleFileSelect(evt) {
             </div>
             <br>
             <!-- Type the subject map -->
-            <div id="field-subjectMap9">
+            <div id="field-subjectMap9" style="display: none">
+		 <button id="getClassList9" type="button" onclick="GetClassList9()">List of Classes</button>
+    <select id="arrClass9"></select> 
+      
+    <br>   
                 <label id="selectTM9">subjectMap: </label>
-                <input type="text" id="subjmap9" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}"
-                    size="40"><br />
+                <input type="text" id="subjmap9" placeholder="e.g. {biomarker}"
+                    size="20"><br />
                <!--  <button id="getSubjMap9" type="button" onclick="GetSubjectMap9()">Get Subject Map</button> -->
                 <p id="resultSubjectMap9"></p>
             </div>
