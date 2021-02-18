@@ -596,6 +596,126 @@ function GetSelectedClass() {
   } 
 }
 
+function GetSelectedClass2() {
+  var subjects = document.getElementById("subjects2"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap2");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass3() {
+  var subjects = document.getElementById("subjects3"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap3");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass4() {
+  var subjects = document.getElementById("subjects4"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap4");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass5() {
+  var subjects = document.getElementById("subjects5"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap5");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass6() {
+  var subjects = document.getElementById("subjects6"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap6");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass7() {
+  var subjects = document.getElementById("subjects7"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap7");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass8() {
+  var subjects = document.getElementById("subjects8"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap8");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
+function GetSelectedClass9() {
+  var subjects = document.getElementById("subjects9"),
+    resultSubj = subjects.options[subjects.selectedIndex].value,
+    fieldSubjectMap = document.getElementById("field-subjectMap9");
+
+  if (resultSubj == "string") {
+    
+    fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    
+  }
+  else if (resultSubj == "integer") {
+    
+    fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+  } 
+}
 /* Selecting joinCondition*/
 function GetSelectedjoinCondition() {
 
