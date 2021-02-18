@@ -36,7 +36,7 @@ def readConfig(config):
 
     ##read source and subject
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
-        "rml:sourceFormat ql:" + config['TM'+str(t)]['sourceFormat'] + " ];\n\trr:subjectMap"
+        "rml:sourceFormat ql:" + config['TM'+str(t)]['sourceFormat'] + " ];\n\trr:subjectMap "
         if config['TM'+str(t)]['subjectType'] == "class":
             TM = TM + "[\n\t\t" + "rr:template" + " \"" + config['TM'+str(t)]['subjectMap'] + "/{" + config['TM'+str(t)]['dataField'] + "}\""
             if config['TM'+str(t)]['termType'] != "no":
