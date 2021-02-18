@@ -30,27 +30,31 @@ def readConfig(config):
     ##read source and subject
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
         "rml:sourceFormat ql:" + config['TM'+str(t)]['sourceFormat'] + " ];\n\trr:subjectMap [\n\t\t" + "rr:template" + \
-        " \"" + config['TM'+str(t)]['subjectMap'] + "\""
+        " \"" + config['TM'+str(t)]['subjectMap'] + "/{" + config['TM'+str(t)]['dataField'] + "}\""
         if config['TM'+str(t)]['termType'] != "no":
             TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t]"
         else:
             TM = TM + "\n\t]" 
+
     ##read predicate objects
         for i in range(1,int(config['TM'+str(t)]['number_of_POM'])+1):
-            TM = TM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + config[str("TM"+str(t)+"_POM"+str(i))]['predicate']
+            TM = TM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate "
+            predicate_abrv = str(config[str("TM"+str(t)+"_POM"+str(i))]['predicate']).split("/")[-1]
+            print (predicate_abrv)
+            TM = TM + config[str("TM"+str(t)+"_POM"+str(i))]['predicate']
             TM = TM + ";\n\t\t" + "rr:objectMap "
             objectType = config[str("TM"+str(t)+"_POM"+str(i))]['objectType']
-            if  objectType == "string":
+            if  objectType == "class":
                 TM = TM + "[\n\t\t\trr:template"
-                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +"\"\n\t\t\t]\n\t]"
+                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] +"\"\n\t\t\t]\n\t]"
             elif objectType == "reference to data":
                 TM = TM + "[\n\t\t\trml:reference"
-                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +"\"\n\t\t\t]\n\t]"
+                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] +"\"\n\t\t\t]\n\t]"
             elif objectType == "reference to functionMap":
-                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] + ">;\n\t]"   
+                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] + ">;\n\t]"   
             elif objectType == "reference to triplesMap" : 
                 TM = TM + "[\n\t\t\trr:parentTriplesMap"
-                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['object'] +">;"
+                TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] +">;"
                 ## check joinCondition
                 if config[str("TM"+str(t)+"_POM"+str(i))]['joinCondition'] == "yes":
                     TM = TM + "\n\t\t\trr:joinCondition [\n\t\t\t\trr:child \"" \
@@ -86,9 +90,10 @@ def handler():
     user_input = input("Enter the path of your file: ")
     config = ConfigParser(interpolation=ExtendedInterpolation())
     config.read(user_input)
-    p = config['main']['number_of_prefixes']
+    #print (config['main']['number_of_prefixes'])
+    #p = config['main']['number_of_prefixes']
     prefixList,TM = readConfig(config)
-    mappingFileName = str(outputPath) + "/" + str(config['main']['mapping_file_name']) + ".ttl"
+    mappingFileName = str(config['main']['output_folder']) + "/" + str(config['main']['mapping_file_name']) + ".ttl"
     mappingFile = open(mappingFileName, "w")
     for p in prefixList:
         mappingFile.write(p+"\n")
