@@ -5,9 +5,12 @@
 
 ################# triplesMap #################
 
-1. source: 
-Here we need :
-	a. one "dropdown" to suggest the name of data sources => the value to be store as "source:" in the config file
+1. source:  
+Instead of uploading all files at once, for each triplesMap we ask the user to upload
+related dataset (or the header of the dataset). In this scenario we'll need :
+	a. one "inputField" to get the format of the data source
+	b. one "uploadFile" button to get the data file from the user -> send it to the backend
+	c. -> receive the suggested field names from backend and show the as "dropdown" whereever the suggestion of fields' names are required
 
 ################## subject #################
 
