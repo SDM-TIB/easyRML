@@ -1,0 +1,56 @@
+
+############## data sources to be uploaded ################
+
+# User can upload several data sources with different formats!! Let's start with csv...
+
+################# triplesMap #################
+
+1. source: 
+Here we need :
+	a. one "dropdown" to suggest the name of data sources => the value to be store as "source:" in the config file
+
+################## subject #################
+
+1. subjectType: reference to data as URI (previously as class)
+Here we need to get TWO values from the user : 
+	a. one "dropdown" to suggest the classes of the ontology => the value will be stored as "subjectMap:" in the config file
+	b. one "dropdown" to suggest the fields' names of the data source that is selected for the triplesMap by the user => the value will be stored as "dataField:" in the config file
+
+2. subjectType: reference to functionMap
+Here we need :
+	a. one "dropdown" to suggest the names of the functionMap ("functionMapName:" in config file) => the value will be stored as "subjectMap:" in the config file
+
+################# Predicate ##################
+predicate: 
+
+Here we need :
+	a. one "dropdown" to suggest the properties of the ontology => the value will be stored as "predicate:" in the config file
+
+################### Object  ###################
+
+1. objectType: class (example )
+Here we need to get ONE value from the user :
+	a. one "dropdown" to suggest the classes of the ontology => the value will be stored as "objectMap:" in the config file
+
+2. objectType: reference to data
+Here we need to get ONE value from the user : 
+	a. one "dropdown" to suggest the the fields' names of the data source that is selected for the triplesMap by the user =>  the value will be stored as "objectMap:" in config file
+
+3. objectType: reference to data as URI
+Here we need to get TWO values from the user : 
+	a. one "dropdown" to suggest the classes of the ontology => the value will be stored as "objectMap:" in the config file
+	b. one "dropdown" to suggest the fields' names of the data source that is selected for the triplesMap by the user => the value will be stored as "dataField:" in the config file
+
+4. objectType: reference to triplesMap
+Heere we need :
+	a. one "dropdown" to suggest the names of the triplesMap ("name:" in config file) => the value will be stored as "objectMap:" in the config file
+
+5. objectType: reference to functionMap
+Here we need :
+	a. one "dropdown" to suggest the names of the functionMap ("functionMapName:" in config file) => the value will be stored as "objectMap:" in the config file
+
+
+
+
+
+
