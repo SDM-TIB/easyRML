@@ -39,7 +39,7 @@ def readConfig(config):
         TM = TM + "\n<TM"+ str(t) + ">\n\trml:logicalSource [ rml:source \"" + config['TM'+str(t)]['source'] + "\";\n\t\t\t\t\t\t" + \
         "rml:sourceFormat ql:" + config['TM'+str(t)]['sourceFormat'] + " ];\n\trr:subjectMap "
         
-        if config['TM'+str(t)]['subjectType'] == "class":
+        if config['TM'+str(t)]['subjectType'] == "reference to data as URI":
             TM = TM + "[\n\t\t" + "rr:template" + " \"" + config['TM'+str(t)]['subjectMap'] + "/{" + config['TM'+str(t)]['dataField'] + "}\""
             if config['TM'+str(t)]['termType'] != "no":
                 TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t];"
@@ -77,6 +77,11 @@ def readConfig(config):
             elif objectType == "reference to data":
                 TM = TM + "[\n\t\t\trml:reference"
                 TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] +"\"\n\t\t\t]\n\t];"
+
+            elif objectType == "reference to data as URI":
+                TM = TM + "[\n\t\t\trml:reference"
+                TM = TM + " " + "\"" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] + "/{" + \
+                config[str("TM"+str(t)+"_POM"+str(i))]['dataField'] +"}\"\n\t\t\t]\n\t];"
             
             elif objectType == "reference to functionMap":
                 TM = TM + " <" + config[str("TM"+str(t)+"_POM"+str(i))]['objectMap'] + ">;\n\t];"   
