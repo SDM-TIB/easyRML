@@ -15,10 +15,14 @@ Here we need :
 Here we need to get TWO values from the user : 
 	a. one "dropdown" to suggest the classes of the ontology => the value will be stored as "subjectMap:" in the config file
 	b. one "dropdown" to suggest the fields' names of the data source that is selected for the triplesMap by the user => the value will be stored as "dataField:" in the config file
+(examle:@mapping_1.ini->[TM1])
+(examle:@mapping_2.ini->[TM1])
+(examle:@mapping_3.ini->[TM2])
 
 2. subjectType: reference to functionMap
 Here we need :
-	a. one "dropdown" to suggest the names of the functionMap ("functionMapName:" in config file) => the value will be stored as "subjectMap:" in the config file
+	a. one "inputField" to get the names of the functionMap ("functionMapName:" in config file) => the value will be stored as "subjectMap:" in the config file
+(examle:@mapping_3.ini->[TM1])
 
 ################# Predicate ##################
 predicate: 
@@ -31,25 +35,36 @@ Here we need :
 1. objectType: class (example )
 Here we need to get ONE value from the user :
 	a. one "dropdown" to suggest the classes of the ontology => the value will be stored as "objectMap:" in the config file
+(example:@mapping_1.ini->[TM1_POM1])
 
 2. objectType: reference to data
 Here we need to get ONE value from the user : 
 	a. one "dropdown" to suggest the the fields' names of the data source that is selected for the triplesMap by the user =>  the value will be stored as "objectMap:" in config file
+(example:@mapping_1.ini->[TM1_POM2])
 
 3. objectType: reference to data as URI
 Here we need to get TWO values from the user : 
 	a. one "dropdown" to suggest the classes of the ontology => the value will be stored as "objectMap:" in the config file
 	b. one "dropdown" to suggest the fields' names of the data source that is selected for the triplesMap by the user => the value will be stored as "dataField:" in the config file
+(examle:@mapping_1.ini->[TM1_POM3])
 
 4. objectType: reference to triplesMap
-Heere we need :
-	a. one "dropdown" to suggest the names of the triplesMap ("name:" in config file) => the value will be stored as "objectMap:" in the config file
+Here we need :
+	a. one "inputField" to get the names of the triplesMap ("name:" in config file) => the value will be stored as "objectMap:" in the config file
+(examle:@mapping_2.ini->[TM1_POM1])
 
 5. objectType: reference to functionMap
 Here we need :
-	a. one "dropdown" to suggest the names of the functionMap ("functionMapName:" in config file) => the value will be stored as "objectMap:" in the config file
+	a. one "inputField" to get the names of the functionMap ("functionMapName:" in config file) => the value will be stored as "objectMap:" in the config file
+(examle:@mapping_2.ini->[TM2_POM1])
 
+##################
 
+joinCondition: yes
+Here we need :
+	a. one "inputField" to get the child value from user => the value will be stored as "child:" in the config file
+	b. one "inputField" to get the parent value from user => the value will be stored as "parent:" in the config file
+(examle:@mapping_3.ini->[TM1_POM1])
 
 
 
