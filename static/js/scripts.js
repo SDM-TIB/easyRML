@@ -583,140 +583,167 @@ function countNumberPOM() {
 function GetSelectedClass() {
   var subjects = document.getElementById("subjects"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap");
+    fieldSubjectMap = document.getElementById("field-subjectMap"),
+   fieldSubjectMapFM = document.getElementById("field-subjectMapFM");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 
 function GetSelectedClass2() {
   var subjects = document.getElementById("subjects2"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap2");
+    fieldSubjectMap = document.getElementById("field-subjectMap2"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM2");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass3() {
   var subjects = document.getElementById("subjects3"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap3");
+    fieldSubjectMap = document.getElementById("field-subjectMap3"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM3");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass4() {
   var subjects = document.getElementById("subjects4"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap4");
+    fieldSubjectMap = document.getElementById("field-subjectMap4"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM4");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass5() {
   var subjects = document.getElementById("subjects5"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap5");
+    fieldSubjectMap = document.getElementById("field-subjectMap5"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM5");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass6() {
   var subjects = document.getElementById("subjects6"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap6");
+    fieldSubjectMap = document.getElementById("field-subjectMap6"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM6");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass7() {
   var subjects = document.getElementById("subjects7"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap7");
+    fieldSubjectMap = document.getElementById("field-subjectMap7"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM7");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass8() {
   var subjects = document.getElementById("subjects8"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap8");
+    fieldSubjectMap = document.getElementById("field-subjectMap8"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM8");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
 function GetSelectedClass9() {
   var subjects = document.getElementById("subjects9"),
     resultSubj = subjects.options[subjects.selectedIndex].value,
-    fieldSubjectMap = document.getElementById("field-subjectMap9");
+    fieldSubjectMap = document.getElementById("field-subjectMap9"),
+    fieldSubjectMapFM = document.getElementById("field-subjectMapFM9");
 
   if (resultSubj == "string") {
     
     fieldSubjectMap.style.display = resultSubj == "string" ? "block" : "none";
+    fieldSubjectMapFM.style.display = resultSubj == "string" ? "none" : "block";
     
   }
   else if (resultSubj == "integer") {
     
     fieldSubjectMap.style.display = resultSubj == "integer" ? "none" : "block";
+    fieldSubjectMapFM.style.display = resultSubj == "integer" ? "block" : "none";
   } 
 }
-/* Selecting joinCondition*/
+/* ******************************Selecting joinCondition*/
 function GetSelectedjoinCondition() {
 
   var joinCondition = document.getElementById("joinCondition").value;
@@ -4565,7 +4592,7 @@ function GetClassList9() {
   });;
 
 }
-function GetPropertyList() {
+function GetPropertyList11() {
     $.ajax({ 
     type: 'GET', 
     url: '/api/suggestProperties', 
@@ -4580,21 +4607,254 @@ function GetPropertyList() {
      
     }
     // console.log(response);
-    var select = document.getElementById("arrProperty");
+    var select11 = document.getElementById("arrProperty11");
             for (var i = 0; i < response.length; i++) { 
                 var optn = response[i]; 
                 var el = document.createElement("option"); 
                 el.textContent = optn; 
                 el.value = optn; 
-                select.appendChild(el); 
+                select11.appendChild(el); 
                 
             } 
+                          
     responseProperties = response;
   });;
 
 }
  
+function GetPropertyList12() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select12 = document.getElementById("arrProperty12");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select12.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
 
+}
+ function GetPropertyList13() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select13 = document.getElementById("arrProperty13");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select13.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ function GetPropertyList14() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select14 = document.getElementById("arrProperty14");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select14.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ function GetPropertyList15() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select15 = document.getElementById("arrProperty15");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select15.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ function GetPropertyList16() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select16 = document.getElementById("arrProperty16");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select16.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ function GetPropertyList17() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select17 = document.getElementById("arrProperty17");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select17.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ function GetPropertyList18() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select18 = document.getElementById("arrProperty18");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select18.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ function GetPropertyList19() {
+    $.ajax({ 
+    type: 'GET', 
+    url: '/api/suggestProperties', 
+    data: { get_param: 'value' }, 
+    dataType: 'json',
+    success: function (data) { 
+    }
+}).done(function (response) {
+    if (response == true) {
+      
+    } else {
+     
+    }
+    // console.log(response);
+    var select19 = document.getElementById("arrProperty19");
+            for (var i = 0; i < response.length; i++) { 
+                var optn = response[i]; 
+                var el = document.createElement("option"); 
+                el.textContent = optn; 
+                el.value = optn; 
+                select19.appendChild(el); 
+                
+            } 
+                          
+    responseProperties = response;
+  });;
+
+}
+ 
 function onReadFileName(result){
 filenames = result;
 var select = document.getElementById("filenames");
@@ -4617,10 +4877,7 @@ function GenerateMR() {
   document.getElementById("demo").innerHTML = conc;
 
   var pref = document.getElementById('pref'),
-    arrClass = document.getElementById("arrClass"),
-    resultClass = arrClass.options[arrClass.selectedIndex],
-    arrProperty = document.getElementById("arrProperty"),
-    resultProperty = arrProperty.options[arrProperty.selectedIndex],
+    
     filenames = document.getElementById("filenames"),
     resultFilename = filenames.options[filenames.selectedIndex],  
     tm = document.getElementById('tm'),
@@ -4649,16 +4906,17 @@ function GenerateMR() {
     labpre11 = document.getElementById('labpre11'),
     prefix11 = document.getElementById("prefix11"),
 	
+    TMname = document.getElementById("nameTM1"),
 	source = document.getElementById("source"),
 	referenceFormulation = document.getElementById("referenceFormulationField"),
 	subjects = document.getElementById("subjects"),
     resultSubj = subjects.options[subjects.selectedIndex],
-	subjectMap = document.getElementById("subjmap"),
-	
+	dataField = document.getElementById("dataField"),
+	subjectMap = document.getElementById("subjmapfm"),
 	term = document.getElementById("term"),
 	pom = document.getElementById("pom"),
 	
-	predicate = document.getElementById("predicate"),
+	
     objects = document.getElementById("objects"),
     selectedObjectType = objects.options[objects.selectedIndex],
 	objmap = document.getElementById("objmap"),
@@ -4667,7 +4925,6 @@ function GenerateMR() {
 	joinCondition = document.getElementById("joinCondition"),
 	child = document.getElementById("child"),
 	parents = document.getElementById("parent"),
-	predicate2 = document.getElementById("predicate2"),
     objects2 = document.getElementById("objects2"),
     selectedObjectType2 = objects2.options[objects2.selectedIndex],
 	objmap2 = document.getElementById("objmap2"),
@@ -4676,7 +4933,7 @@ function GenerateMR() {
 	joinCondition2 = document.getElementById("joinCondition2"),
 	child2 = document.getElementById("child2"),
 	parents2 = document.getElementById("parent2"),
-	predicate3 = document.getElementById("predicate3"),
+	
     objects3 = document.getElementById("objects3"),
     selectedObjectType3 = objects3.options[objects3.selectedIndex],
 	objmap3 = document.getElementById("objmap3"),
@@ -4685,7 +4942,7 @@ function GenerateMR() {
 	joinCondition3 = document.getElementById("joinCondition3"),
 	child3 = document.getElementById("child3"),
 	parents3 = document.getElementById("parent3"),
-  predicate4 = document.getElementById("predicate4"),
+ 
     objects4 = document.getElementById("objects4"),
     selectedObjectType4 = objects4.options[objects4.selectedIndex],
   objmap4 = document.getElementById("objmap4"),
@@ -4694,7 +4951,7 @@ function GenerateMR() {
   joinCondition4 = document.getElementById("joinCondition4"),
   child4 = document.getElementById("child4"),
   parents4 = document.getElementById("parent4"),
-  predicate5 = document.getElementById("predicate5"),
+  
     objects5 = document.getElementById("objects5"),
     selectedObjectType5 = objects5.options[objects5.selectedIndex],
   objmap5 = document.getElementById("objmap5"),
@@ -4703,7 +4960,7 @@ function GenerateMR() {
   joinCondition5 = document.getElementById("joinCondition5"),
   child5 = document.getElementById("child5"),
   parents5 = document.getElementById("parent5"),
-  predicate6 = document.getElementById("predicate6"),
+  
     objects6 = document.getElementById("objects6"),
     selectedObjectType6 = objects6.options[objects6.selectedIndex],
   objmap6 = document.getElementById("objmap6"),
@@ -4712,7 +4969,7 @@ function GenerateMR() {
   joinCondition6 = document.getElementById("joinCondition6"),
   child6 = document.getElementById("child6"),
   parents6 = document.getElementById("parent6"),
-  predicate7 = document.getElementById("predicate7"),
+  
     objects7 = document.getElementById("objects7"),
     selectedObjectType7 = objects7.options[objects7.selectedIndex],
   objmap7 = document.getElementById("objmap7"),
@@ -4721,7 +4978,7 @@ function GenerateMR() {
   joinCondition7 = document.getElementById("joinCondition7"),
   child7 = document.getElementById("child7"),
   parents7 = document.getElementById("parent7"),
-  predicate8 = document.getElementById("predicate8"),
+  
     objects8 = document.getElementById("objects8"),
     selectedObjectType8 = objects8.options[objects8.selectedIndex],
   objmap8 = document.getElementById("objmap8"),
@@ -4730,7 +4987,7 @@ function GenerateMR() {
   joinCondition8 = document.getElementById("joinCondition8"),
   child8 = document.getElementById("child8"),
   parents8 = document.getElementById("parent8"),
-  predicate9 = document.getElementById("predicate9"),
+  
     objects9 = document.getElementById("objects9"),
     selectedObjectType9 = objects9.options[objects9.selectedIndex],
   objmap9 = document.getElementById("objmap9"),
@@ -4740,11 +4997,13 @@ function GenerateMR() {
   child9 = document.getElementById("child9"),
   parents9 = document.getElementById("parent9"),
 	
+    TMname2 = document.getElementById("nameTM2"),
 	source2 = document.getElementById("source2"),
 	referenceFormulation2 = document.getElementById("referenceFormulationField2"),
 	subjects2 = document.getElementById("subjects2"),
     resultSubj2 = subjects2.options[subjects2.selectedIndex],
-	subjectMap2 = document.getElementById("subjmap2"),
+	dataField2 = document.getElementById("dataField2"),
+    subjectMap2 = document.getElementById("subjmapfm2"),
 
 	term2 = document.getElementById("term2"),
 	pom2 = document.getElementById("pom2"),
@@ -4831,11 +5090,13 @@ function GenerateMR() {
   child92 = document.getElementById("child9-2"),
   parents92 = document.getElementById("parent9-2"),
 	
+    TMname3 = document.getElementById("nameTM3"),
 	source3 = document.getElementById("source3"),
 	referenceFormulation3 = document.getElementById("referenceFormulationField3"),
 	subjects3 = document.getElementById("subjects3"),
     resultSubj3 = subjects3.options[subjects3.selectedIndex],
-	subjectMap3 = document.getElementById("subjmap3"),
+	dataField3 = document.getElementById("dataField3"),
+    subjectMap3 = document.getElementById("subjmapfm3"),
 	
 	term3 = document.getElementById("term3"),
 	pom3 = document.getElementById("pom3"),
@@ -4922,11 +5183,13 @@ function GenerateMR() {
   child93 = document.getElementById("child9-3"),
   parents93 = document.getElementById("parent9-3"),
 	
+    TMname4 = document.getElementById("nameTM4"),
 	source4 = document.getElementById("source4"),
 	referenceFormulation4 = document.getElementById("referenceFormulationField4"),
 	subjects4 = document.getElementById("subjects4"),
     resultSubj4 = subjects4.options[subjects4.selectedIndex],
-	subjectMap4 = document.getElementById("subjmap4"),
+	dataField4 = document.getElementById("dataField4"),
+    subjectMap4 = document.getElementById("subjmapfm4"),
 	
 	term4 = document.getElementById("term4"),
 	pom4 = document.getElementById("pom4"),  
@@ -5013,12 +5276,14 @@ function GenerateMR() {
   child94 = document.getElementById("child9-4"),
   parents94 = document.getElementById("parent9-4"),
 	
+    TMname5 = document.getElementById("nameTM5"),
 	source5 = document.getElementById("source5"),
 	referenceFormulation5 = document.getElementById("referenceFormulationField5"),
 	subjects5 = document.getElementById("subjects5"),
     resultSubj5 = subjects5.options[subjects5.selectedIndex],
-	subjectMap5 = document.getElementById("subjmap5"),
-	
+	dataField5 = document.getElementById("dataField5"),
+	subjectMap5 = document.getElementById("subjmapfm5"),
+
 	term5 = document.getElementById("term5"),
 	pom5 = document.getElementById("pom5"),
 	
@@ -5104,11 +5369,13 @@ function GenerateMR() {
   child95 = document.getElementById("child9-5"),
   parents95 = document.getElementById("parent9-5"),
 	
+    TMname6 = document.getElementById("nameTM6"),
 	source6 = document.getElementById("source6"),
 	referenceFormulation6 = document.getElementById("referenceFormulationField6"),
 	subjects6 = document.getElementById("subjects6"),
     resultSubj6 = subjects6.options[subjects6.selectedIndex],
-	subjectMap6 = document.getElementById("subjmap6"),
+	dataField6 = document.getElementById("dataField6"),
+    subjectMap6 = document.getElementById("subjmapfm6"),
 	
 	term6 = document.getElementById("term6"),
 	pom6 = document.getElementById("pom6"),
@@ -5195,11 +5462,13 @@ function GenerateMR() {
   child96 = document.getElementById("child9-6"),
   parents96 = document.getElementById("parent9-6"),
 	
+    TMname7 = document.getElementById("nameTM7"),
 	source7 = document.getElementById("source7"),
 	referenceFormulation7 = document.getElementById("referenceFormulationField7"),
 	subjects7 = document.getElementById("subjects7"),
     resultSubj7 = subjects7.options[subjects7.selectedIndex],
-	subjectMap7 = document.getElementById("subjmap7"),
+	dataField7 = document.getElementById("dataField7"),
+    subjectMap7 = document.getElementById("subjmapfm7"),
 	
 	term7 = document.getElementById("term7"),
 	pom7 = document.getElementById("pom7"),
@@ -5286,12 +5555,13 @@ function GenerateMR() {
   child97 = document.getElementById("child9-7"),
   parents97 = document.getElementById("parent9-7"),
 	
-	
+	TMname8 = document.getElementById("nameTM8"),
 	source8 = document.getElementById("source8"),
 	referenceFormulation8 = document.getElementById("referenceFormulationField8"),
 	subjects8 = document.getElementById("subjects8"),
     resultSubj8 = subjects8.options[subjects8.selectedIndex],
-	subjectMap8 = document.getElementById("subjmap8"),
+	dataField8 = document.getElementById("dataField8"),
+    subjectMap8 = document.getElementById("subjmapfm8"),
 	
 	term8 = document.getElementById("term8"),
 	pom8 = document.getElementById("pom8"),
@@ -5378,11 +5648,13 @@ function GenerateMR() {
   child98 = document.getElementById("child9-8"),
   parents98 = document.getElementById("parent9-8"),
 	
+    TMname9 = document.getElementById("nameTM9"),
 	source9 = document.getElementById("source9"),
 	referenceFormulation9 = document.getElementById("referenceFormulationField9"),
 	subjects9 = document.getElementById("subjects9"),
     resultSubj9 = subjects9.options[subjects9.selectedIndex],
-	subjectMap9 = document.getElementById("subjmap9"),
+	dataField9 = document.getElementById("dataField9"),
+    subjectMap9 = document.getElementById("subjmapfm9"),
 	
 	term9 = document.getElementById("term9"),
 	pom9 = document.getElementById("pom9"),
@@ -5764,19 +6036,53 @@ function GenerateMR() {
   value89 = document.getElementById("value89"),
   parameter99 = document.getElementById("parameter99"),
   parameters99 = document.getElementById("parameters99"),
-  value99 = document.getElementById("value99");
+  value99 = document.getElementById("value99"),
 
-   
+
+arrClass = document.getElementById("arrClass"),
+    resultClass = arrClass.options[arrClass.selectedIndex],
+
+arrProperty11 = document.getElementById("arrProperty11"),
+    resultProperty = arrProperty11.options[arrProperty11.selectedIndex],
+    // arrProperty12 = document.getElementById("arrProperty12"),
+    // resultProperty2 = arrProperty12.options[arrProperty12.selectedIndex],
+    // arrProperty13 = document.getElementById("arrProperty13"),
+    // resultProperty3 = arrProperty13.options[arrProperty13.selectedIndex],
+    // arrProperty14 = document.getElementById("arrProperty14"),
+    // resultProperty4 = arrProperty14.options[arrProperty14.selectedIndex],
+    // arrProperty15 = document.getElementById("arrProperty15"),
+    // resultProperty5 = arrProperty15.options[arrProperty15.selectedIndex],
+    // arrProperty16 = document.getElementById("arrProperty16"),
+    // resultProperty6 = arrProperty16.options[arrProperty16.selectedIndex],
+    // arrProperty17 = document.getElementById("arrProperty17"),
+    // resultProperty7 = arrProperty17.options[arrProperty17.selectedIndex],
+    // arrProperty18 = document.getElementById("arrProperty18"),
+    // resultProperty8 = arrProperty18.options[arrProperty18.selectedIndex],
+    // arrProperty19 = document.getElementById("arrProperty19"),
+    // resultProperty9 = arrProperty19.options[arrProperty19.selectedIndex];
+// resultProperty = document.getElementById("predicate"),
+    resultProperty2 = document.getElementById("predicate2"),
+    resultProperty3 = document.getElementById("predicate3"),
+    resultProperty4 = document.getElementById("predicate4"),
+    resultProperty5 = document.getElementById("predicate5"),
+    resultProperty6 = document.getElementById("predicate6"),
+    resultProperty7 = document.getElementById("predicate7"),
+    resultProperty8 = document.getElementById("predicate8"),
+    resultProperty9 = document.getElementById("predicate9");
+  
   var settings = {
     //"url": "http://localhost:5000/easyRML/api.php",
     url: "/api/mappings",
     type: "POST",
 
     contenType: "text/plain",
-    data: "[main]\nmapping_file_name : " + resultFilename.value + "\nnumber_of_prefixes: " + pref.value + "\nnumber_of_TMs : " + tm.value + "\nnumber_of_FMs :" + fun.value + "\noutput_folder: " + output.value + "\n\n[prefixes]\npre1 : " + labpre1.value + "\nprefix1 : " + prefix1.value + "\npre2 : " + labpre2.value + "\nprefix2 : " + prefix2.value + "\npre3 : " + labpre3.value + "\nprefix3 : " + prefix3.value + "\npre4 : " + labpre4.value + "\nprefix4 : " + prefix4.value + "\npre5 : " + labpre5.value + "\nprefix5 :  " + prefix5.value + "\npre6 : " + labpre6.value + "\nprefix6 : " + prefix6.value + "\npre7 : " + labpre7.value + "\nprefix7 : " + prefix7.value + "\npre8 : " + labpre8.value + "\nprefix8 : " + prefix8.value + "\npre9 : " + labpre9.value + "\nprefix9 : " + prefix9.value + "\npre10 : " + labpre10.value + "\nprefix10 : " + prefix10.value + "\npre11 : " + labpre11.value + "\nprefix11 : " + prefix11.value + "\n\n[TM1]\nname: TriplesMap1\nsource: " + source.value + "\nsourceFormat: " + referenceFormulation.value + "\nsubjectType: " + resultSubj.value + "\nsubjectMap: " + subjectMap.value + "\ntermType: " + term.value + "\nnumber_of_POM: " + pom.value + "\n\n[TM1_POM1]\npredicate: " + predicate.value + " \nobjectType: " + selectedObjectType.value + "\nobject: " + objmap.value + "\ndataType: " + data.value + "\ntermType: " + termPOM.value + "\njoinCondition: " + joinCondition.value + "\nchild: " + child.value + "\nparent: " + parents.value  + "\n\n[TM1_POM2]\npredicate: " + predicate2.value + "\nobjectType: " + selectedObjectType2.value + "\nobject: " + objmap2.value + "\ndataType: " + data2.value + "\ntermType: " + termPOM2.value + "\njoinCondition: " + joinCondition2.value + "\nchild: " + child2.value + "\nparent: " + parents2.value + "\n\n[TM1_POM3]\npredicate: " + predicate3.value + "\nobjectType: " + selectedObjectType3.value + "\nobject: " + objmap3.value + "\ndataType: " + data3.value + "\ntermType: " + termPOM3.value + "\njoinCondition: " + joinCondition3.value + "\nchild: " + child3.value + "\nparent: " + parents3.value + "\n\n[TM1_POM4]\npredicate: " + predicate4.value + "\nobjectType: " + selectedObjectType4.value + "\nobject: " + objmap4.value + "\ndataType: " + data4.value + "\ntermType: " + termPOM4.value + "\njoinCondition: " + joinCondition4.value + "\nchild: " + child4.value + "\nparent: " + parents4.value + "\n\n[TM1_POM5]\npredicate: " + predicate5.value + "\nobjectType: " + selectedObjectType5.value + "\nobject: " + objmap5.value + "\ndataType: " + data5.value + "\ntermType: " + termPOM5.value + "\njoinCondition: " + joinCondition5.value + "\nchild: " + child5.value + "\nparent: " + parents5.value +"\n\n[TM1_POM6]\npredicate: " + predicate6.value + "\nobjectType: " + selectedObjectType6.value + "\nobject: " + objmap6.value + "\ndataType: " + data6.value + "\ntermType: " + termPOM6.value + "\njoinCondition: " + joinCondition6.value + "\nchild: " + child6.value + "\nparent: " + parents6.value + "\n\n[TM1_POM7]\npredicate: " + predicate7.value + "\nobjectType: " + selectedObjectType7.value + "\nobject: " + objmap7.value + "\ndataType: " + data7.value + "\ntermType: " + termPOM7.value + "\njoinCondition: " + joinCondition7.value + "\nchild: " + child7.value + "\nparent: " + parents7.value + "\n\n[TM1_POM8]\npredicate: " + predicate8.value + "\nobjectType: " + selectedObjectType8.value + "\nobject: " + objmap8.value + "\ndataType: " + data8.value + "\ntermType: " + termPOM8.value + "\njoinCondition: " + joinCondition8.value + "\nchild: " + child8.value + "\nparent: " + parents8.value + "\n\n[TM1_POM9]\npredicate: " + predicate9.value + "\nobjectType: " + selectedObjectType9.value + "\nobject: " + objmap9.value + "\ndataType: " + data9.value + "\ntermType: " + termPOM9.value + "\njoinCondition: " + joinCondition9.value + "\nchild: " + child9.value + "\nparent: " + parents9.value + "\n\n[TM2]\nname: TriplesMap2\nsource: " + source2.value + "\nsourceFormat: " + referenceFormulation2.value + "\nsubjectType: " + resultSubj2.value + "\nsubjectMap: " + subjectMap2.value + "\ntermType: " + term2.value + "\nnumber_of_POM: " + pom2.value + "\n\n[TM2_POM1]\npredicate: " + predicate12.value + " \nobjectType: " + selectedObjectType12.value + "\nobject: " + objmap12.value + "\ndataType: " + data12.value + "\ntermType: " + termPOM12.value + "\njoinCondition: " + joinCondition12.value + "\nchild: " + child12.value + "\nparent: " + parents12.value + "\n\n[TM2_POM2]\npredicate: " + predicate22.value + "\nobjectType: " + selectedObjectType22.value + "\nobject: " + objmap22.value + "\ndataType: " + data22.value + "\ntermType: " + termPOM22.value + "\njoinCondition: " + joinCondition22.value + "\nchild: " + child22.value + "\nparent: " + parents22.value + "\n\n[TM2_POM3]\npredicate: " + predicate32.value + "\nobjectType: " + selectedObjectType32.value + "\nobject: " + objmap32.value + "\ndataType: " + data32.value + "\ntermType: " + termPOM32.value + "\njoinCondition: " + joinCondition32.value + "\nchild: " + child32.value + "\nparent: " + parents32.value + "\n\n[TM2_POM4]\npredicate: " + predicate42.value + "\nobjectType: " + selectedObjectType42.value + "\nobject: " + objmap42.value + "\ndataType: " + data42.value + "\ntermType: " + termPOM42.value + "\njoinCondition: " + joinCondition42.value + "\nchild: " + child42.value + "\nparent: " + parents42.value + "\n\n[TM2_POM5]\npredicate: " + predicate52.value + "\nobjectType: " + selectedObjectType52.value + "\nobject: " + objmap52.value + "\ndataType: " + data52.value + "\ntermType: " + termPOM52.value + "\njoinCondition: " + joinCondition52.value + "\nchild: " + child52.value + "\nparent: " + parents52.value + "\n\n[TM2_POM6]\npredicate: " + predicate62.value + "\nobjectType: " + selectedObjectType62.value + "\nobject: " + objmap62.value + "\ndataType: " + data62.value + "\ntermType: " + termPOM62.value + "\njoinCondition: " + joinCondition62.value + "\nchild: " + child62.value + "\nparent: " + parents62.value + "\n\n[TM2_POM7]\npredicate: " + predicate72.value + "\nobjectType: " + selectedObjectType72.value + "\nobject: " + objmap72.value + "\ndataType: " + data72.value + "\ntermType: " + termPOM72.value + "\njoinCondition: " + joinCondition72.value + "\nchild: " + child72.value + "\nparent: " + parents72.value + "\n\n[TM2_POM8]\npredicate: " + predicate82.value + "\nobjectType: " + selectedObjectType82.value + "\nobject: " + objmap82.value + "\ndataType: " + data82.value + "\ntermType: " + termPOM82.value + "\njoinCondition: " + joinCondition82.value + "\nchild: " + child82.value + "\nparent: " + parents82.value + "\n\n[TM2_POM9]\npredicate: " + predicate92.value + "\nobjectType: " + selectedObjectType92.value + "\nobject: " + objmap92.value + "\ndataType: " + data92.value + "\ntermType: " + termPOM92.value + "\njoinCondition: " + joinCondition92.value + "\nchild: " + child92.value + "\nparent: " + parents92.value +  "\n\n[TM3]\nname: TriplesMap3\nsource: " + source3.value + "\nsourceFormat: " + referenceFormulation3.value + "\nsubjectType: " + resultSubj3.value + "\nsubjectMap: " + subjectMap3.value + "\ntermType: " + term3.value + "\nnumber_of_POM: " + pom3.value + "\n\n[TM3_POM1]\npredicate: " + predicate13.value + " \nobjectType: " + selectedObjectType13.value + "\nobject: " + objmap13.value + "\ndataType: " + data13.value + "\ntermType: " + termPOM13.value + "\njoinCondition: " + joinCondition13.value + "\nchild: " + child13.value + "\nparent: " + parents13.value + "\n\n[TM3_POM2]\npredicate: " + predicate23.value + "\nobjectType: " + selectedObjectType23.value + "\nobject: " + objmap23.value + "\ndataType: " + data23.value + "\ntermType: " + termPOM23.value + "\njoinCondition: " + joinCondition23.value + "\nchild: " + child23.value + "\nparent: " + parents23.value + "\n\n[TM3_POM3]\npredicate: " + predicate33.value + "\nobjectType: " + selectedObjectType33.value + "\nobject: " + objmap33.value + "\ndataType: " + data33.value + "\ntermType: " + termPOM33.value + "\njoinCondition: " + joinCondition33.value + "\nchild: " + child33.value + "\nparent: " + parents33.value + "\n\n[TM3_POM4]\npredicate: " + predicate43.value + "\nobjectType: " + selectedObjectType43.value + "\nobject: " + objmap43.value + "\ndataType: " + data43.value + "\ntermType: " + termPOM43.value + "\njoinCondition: " + joinCondition43.value + "\nchild: " + child43.value + "\nparent: " + parents43.value + "\n\n[TM3_POM5]\npredicate: " + predicate53.value + "\nobjectType: " + selectedObjectType53.value + "\nobject: " + objmap53.value + "\ndataType: " + data53.value + "\ntermType: " + termPOM53.value + "\njoinCondition: " + joinCondition53.value + "\nchild: " + child53.value + "\nparent: " + parents53.value + "\n\n[TM3_POM6]\npredicate: " + predicate63.value + "\nobjectType: " + selectedObjectType63.value + "\nobject: " + objmap63.value + "\ndataType: " + data63.value + "\ntermType: " + termPOM63.value + "\njoinCondition: " + joinCondition63.value + "\nchild: " + child63.value + "\nparent: " + parents63.value + "\n\n[TM3_POM7]\npredicate: " + predicate73.value + "\nobjectType: " + selectedObjectType73.value + "\nobject: " + objmap73.value + "\ndataType: " + data73.value + "\ntermType: " + termPOM73.value + "\njoinCondition: " + joinCondition73.value + "\nchild: " + child73.value + "\nparent: " + parents73.value + "\n\n[TM3_POM8]\npredicate: " + predicate83.value + "\nobjectType: " + selectedObjectType83.value + "\nobject: " + objmap83.value + "\ndataType: " + data83.value + "\ntermType: " + termPOM83.value + "\njoinCondition: " + joinCondition83.value + "\nchild: " + child83.value + "\nparent: " + parents83.value + "\n\n[TM3_POM9]\npredicate: " + predicate93.value + "\nobjectType: " + selectedObjectType93.value + "\nobject: " + objmap93.value + "\ndataType: " + data93.value + "\ntermType: " + termPOM93.value + "\njoinCondition: " + joinCondition93.value + "\nchild: " + child93.value + "\nparent: " + parents93.value + "\n\n[TM4]\nname: TriplesMap4\nsource: " + source4.value + "\nsourceFormat: " + referenceFormulation4.value + "\nsubjectType: " + resultSubj4.value + "\nsubjectMap: " + subjectMap4.value + "\ntermType: " + term4.value + "\nnumber_of_POM: " + pom4.value + 
-  "\n\n[TM4_POM1]\npredicate: " + predicate14.value + " \nobjectType: " + selectedObjectType14.value + "\nobject: " + objmap14.value + "\ndataType: " + data14.value + "\ntermType: " + termPOM14.value + "\njoinCondition: " + joinCondition14.value + "\nchild: " + child14.value + "\nparent: " + parents14.value + "\n\n[TM4_POM2]\npredicate: " + predicate24.value + "\nobjectType: " + selectedObjectType24.value + "\nobject: " + objmap24.value + "\ndataType: " + data24.value + "\ntermType: " + termPOM24.value + "\njoinCondition: " + joinCondition24.value + "\nchild: " + child24.value + "\nparent: " + parents24.value + "\n\n[TM4_POM3]\npredicate: " + predicate34.value + "\nobjectType: " + selectedObjectType34.value + "\nobject: " + objmap34.value + "\ndataType: " + data34.value + "\ntermType: " + termPOM34.value + "\njoinCondition: " + joinCondition34.value + "\nchild: " + child34.value + "\nparent: " + parents34.value + "\n\n[TM4_POM4]\npredicate: " + predicate44.value + "\nobjectType: " + selectedObjectType44.value + "\nobject: " + objmap44.value + "\ndataType: " + data44.value + "\ntermType: " + termPOM44.value + "\njoinCondition: " + joinCondition44.value + "\nchild: " + child44.value + "\nparent: " + parents44.value + "\n\n[TM4_POM5]\npredicate: " + predicate54.value + "\nobjectType: " + selectedObjectType54.value + "\nobject: " + objmap54.value + "\ndataType: " + data54.value + "\ntermType: " + termPOM54.value + "\njoinCondition: " + joinCondition54.value + "\nchild: " + child54.value + "\nparent: " + parents54.value + "\n\n[TM4_POM6]\npredicate: " + predicate64.value + "\nobjectType: " + selectedObjectType64.value + "\nobject: " + objmap64.value + "\ndataType: " + data64.value + "\ntermType: " + termPOM64.value + "\njoinCondition: " + joinCondition64.value + "\nchild: " + child64.value + "\nparent: " + parents64.value + "\n\n[TM4_POM7]\npredicate: " + predicate74.value + "\nobjectType: " + selectedObjectType74.value + "\nobject: " + objmap74.value + "\ndataType: " + data74.value + "\ntermType: " + termPOM74.value + "\njoinCondition: " + joinCondition74.value + "\nchild: " + child74.value + "\nparent: " + parents74.value + "\n\n[TM4_POM8]\npredicate: " + predicate84.value + "\nobjectType: " + selectedObjectType84.value + "\nobject: " + objmap84.value + "\ndataType: " + data84.value + "\ntermType: " + termPOM84.value + "\njoinCondition: " + joinCondition84.value + "\nchild: " + child84.value + "\nparent: " + parents84.value + "\n\n[TM4_POM9]\npredicate: " + predicate94.value + "\nobjectType: " + selectedObjectType94.value + "\nobject: " + objmap94.value + "\ndataType: " + data94.value + "\ntermType: " + termPOM94.value + "\njoinCondition: " + joinCondition94.value + "\nchild: " + child94.value + "\nparent: " + parents94.value + "\n\n[TM5]\nname: TriplesMap5\nsource: " + source5.value + "\nsourceFormat: " + referenceFormulation5.value + "\nsubjectType: " + resultSubj5.value + "\nsubjectMap: " + subjectMap5.value + "\ntermType: " + term5.value + "\nnumber_of_POM: " + pom5.value + "\n\n[TM5_POM1]\npredicate: " + predicate15.value + " \nobjectType: " + selectedObjectType15.value + "\nobject: " + objmap15.value + "\ndataType: " + data15.value + "\ntermType: " + termPOM15.value + "\njoinCondition: " + joinCondition15.value + "\nchild: " + child15.value + "\nparent: " + parents15.value + "\n\n[TM5_POM2]\npredicate: " + predicate25.value + "\nobjectType: " + selectedObjectType25.value + "\nobject: " + objmap25.value + "\ndataType: " + data25.value + "\ntermType: " + termPOM25.value + "\njoinCondition: " + joinCondition25.value + "\nchild: " + child25.value + "\nparent: " + parents25.value + "\n\n[TM5_POM3]\npredicate: " + predicate35.value + "\nobjectType: " + selectedObjectType35.value + "\nobject: " + objmap35.value + "\ndataType: " + data35.value + "\ntermType: " + termPOM35.value + "\njoinCondition: " + joinCondition35.value + "\nchild: " + child35.value + "\nparent: " + parents35.value + "\n\n[TM5_POM4]\npredicate: " + predicate45.value + "\nobjectType: " + selectedObjectType45.value + "\nobject: " + objmap45.value + "\ndataType: " + data45.value + "\ntermType: " + termPOM45.value + "\njoinCondition: " + joinCondition45.value + "\nchild: " + child45.value + "\nparent: " + parents45.value + "\n\n[TM5_POM5]\npredicate: " + predicate55.value + "\nobjectType: " + selectedObjectType55.value + "\nobject: " + objmap55.value + "\ndataType: " + data55.value + "\ntermType: " + termPOM55.value + "\njoinCondition: " + joinCondition55.value + "\nchild: " + child55.value + "\nparent: " + parents55.value + "\n\n[TM5_POM6]\npredicate: " + predicate65.value + "\nobjectType: " + selectedObjectType65.value + "\nobject: " + objmap65.value + "\ndataType: " + data65.value + "\ntermType: " + termPOM65.value + "\njoinCondition: " + joinCondition65.value + "\nchild: " + child65.value + "\nparent: " + parents65.value + "\n\n[TM5_POM7]\npredicate: " + predicate75.value + "\nobjectType: " + selectedObjectType75.value + "\nobject: " + objmap75.value + "\ndataType: " + data75.value + "\ntermType: " + termPOM75.value + "\njoinCondition: " + joinCondition75.value + "\nchild: " + child75.value + "\nparent: " + parents75.value + "\n\n[TM5_POM8]\npredicate: " + predicate85.value + "\nobjectType: " + selectedObjectType85.value + "\nobject: " + objmap85.value + "\ndataType: " + data85.value + "\ntermType: " + termPOM85.value + "\njoinCondition: " + joinCondition85.value + "\nchild: " + child85.value + "\nparent: " + parents85.value + "\n\n[TM5_POM9]\npredicate: " + predicate95.value + "\nobjectType: " + selectedObjectType95.value + "\nobject: " + objmap95.value + "\ndataType: " + data95.value + "\ntermType: " + termPOM95.value + "\njoinCondition: " + joinCondition95.value + "\nchild: " + child95.value + "\nparent: " + parents95.value + 
-  "\n\n[TM6]\nname: TriplesMap6\nsource: " + source6.value + "\nsourceFormat: " + referenceFormulation6.value + "\nsubjectType: " + resultSubj6.value + "\nsubjectMap: " + subjectMap6.value + "\ntermType: " + term6.value + "\nnumber_of_POM: " + pom6.value + "\n\n[TM6_POM1]\npredicate: " + predicate16.value + " \nobjectType: " + selectedObjectType16.value + "\nobject: " + objmap16.value + "\ndataType: " + data16.value + "\ntermType: " + termPOM16.value + "\njoinCondition: " + joinCondition16.value + "\nchild: " + child16.value + "\nparent: " + parents16.value + "\n\n[TM6_POM2]\npredicate: " + predicate26.value + "\nobjectType: " + selectedObjectType26.value + "\nobject: " + objmap26.value + "\ndataType: " + data26.value + "\ntermType: " + termPOM26.value + "\njoinCondition: " + joinCondition26.value + "\nchild: " + child26.value + "\nparent: " + parents26.value + "\n\n[TM6_POM3]\npredicate: " + predicate36.value + "\nobjectType: " + selectedObjectType36.value + "\nobject: " + objmap36.value + "\ndataType: " + data36.value + "\ntermType: " + termPOM36.value + "\njoinCondition: " + joinCondition36.value + "\nchild: " + child36.value + "\nparent: " + parents36.value + "\n\n[TM6_POM4]\npredicate: " + predicate46.value + "\nobjectType: " + selectedObjectType46.value + "\nobject: " + objmap46.value + "\ndataType: " + data46.value + "\ntermType: " + termPOM46.value + "\njoinCondition: " + joinCondition46.value + "\nchild: " + child46.value + "\nparent: " + parents46.value + "\n\n[TM6_POM5]\npredicate: " + predicate56.value + "\nobjectType: " + selectedObjectType56.value + "\nobject: " + objmap56.value + "\ndataType: " + data56.value + "\ntermType: " + termPOM56.value + "\njoinCondition: " + joinCondition56.value + "\nchild: " + child56.value + "\nparent: " + parents56.value + "\n\n[TM6_POM6]\npredicate: " + predicate66.value + "\nobjectType: " + selectedObjectType66.value + "\nobject: " + objmap66.value + "\ndataType: " + data66.value + "\ntermType: " + termPOM66.value + "\njoinCondition: " + joinCondition66.value + "\nchild: " + child66.value + "\nparent: " + parents66.value + "\n\n[TM6_POM7]\npredicate: " + predicate76.value + "\nobjectType: " + selectedObjectType76.value + "\nobject: " + objmap76.value + "\ndataType: " + data76.value + "\ntermType: " + termPOM76.value + "\njoinCondition: " + joinCondition76.value + "\nchild: " + child76.value + "\nparent: " + parents76.value + "\n\n[TM6_POM8]\npredicate: " + predicate86.value + "\nobjectType: " + selectedObjectType86.value + "\nobject: " + objmap86.value + "\ndataType: " + data86.value + "\ntermType: " + termPOM86.value + "\njoinCondition: " + joinCondition86.value + "\nchild: " + child86.value + "\nparent: " + parents86.value + "\n\n[TM6_POM9]\npredicate: " + predicate96.value + "\nobjectType: " + selectedObjectType96.value + "\nobject: " + objmap96.value + "\ndataType: " + data96.value + "\ntermType: " + termPOM96.value + "\njoinCondition: " + joinCondition96.value + "\nchild: " + child96.value + "\nparent: " + parents96.value + "\n\n[TM7]\nname: TriplesMap7\nsource: " + source7.value + "\nsourceFormat: " + referenceFormulation7.value + "\nsubjectType: " + resultSubj7.value + "\nsubjectMap: " + subjectMap7.value + "\ntermType: " + term7.value + "\nnumber_of_POM: " + pom7.value + "\n\n[TM7_POM1]\npredicate: " + predicate17.value + " \nobjectType: " + selectedObjectType17.value + "\nobject: " + objmap17.value + "\ndataType: " + data17.value + "\ntermType: " + termPOM17.value + "\njoinCondition: " + joinCondition17.value + "\nchild: " + child17.value + "\nparent: " + parents17.value + "\n\n[TM7_POM2]\npredicate: " + predicate27.value + "\nobjectType: " + selectedObjectType27.value + "\nobject: " + objmap27.value + "\ndataType: " + data27.value + "\ntermType: " + termPOM27.value + "\njoinCondition: " + joinCondition27.value + "\nchild: " + child27.value + "\nparent: " + parents27.value + "\n\n[TM7_POM3]\npredicate: " + predicate37.value + "\nobjectType: " + selectedObjectType37.value + "\nobject: " + objmap37.value + "\ndataType: " + data37.value + "\ntermType: " + termPOM37.value + "\njoinCondition: " + joinCondition37.value + "\nchild: " + child37.value + "\nparent: " + parents37.value + "\n\n[TM7_POM4]\npredicate: " + predicate47.value + "\nobjectType: " + selectedObjectType47.value + "\nobject: " + objmap47.value + "\ndataType: " + data47.value + "\ntermType: " + termPOM47.value + "\njoinCondition: " + joinCondition47.value + "\nchild: " + child47.value + "\nparent: " + parents47.value + "\n\n[TM7_POM5]\npredicate: " + predicate57.value + "\nobjectType: " + selectedObjectType57.value + "\nobject: " + objmap57.value + "\ndataType: " + data57.value + "\ntermType: " + termPOM57.value + "\njoinCondition: " + joinCondition57.value + "\nchild: " + child57.value + "\nparent: " + parents57.value + "\n\n[TM7_POM6]\npredicate: " + predicate67.value + "\nobjectType: " + selectedObjectType67.value + "\nobject: " + objmap67.value + "\ndataType: " + data67.value + "\ntermType: " + termPOM67.value + "\njoinCondition: " + joinCondition67.value + "\nchild: " + child67.value + "\nparent: " + parents67.value + "\n\n[TM7_POM7]\npredicate: " + predicate77.value + "\nobjectType: " + selectedObjectType77.value + "\nobject: " + objmap77.value + "\ndataType: " + data77.value + "\ntermType: " + termPOM77.value + "\njoinCondition: " + joinCondition77.value + "\nchild: " + child77.value + "\nparent: " + parents77.value + "\n\n[TM7_POM8]\npredicate: " + predicate87.value + "\nobjectType: " + selectedObjectType87.value + "\nobject: " + objmap87.value + "\ndataType: " + data87.value + "\ntermType: " + termPOM87.value + "\njoinCondition: " + joinCondition87.value + "\nchild: " + child87.value + "\nparent: " + parents87.value + "\n\n[TM7_POM9]\npredicate: " + predicate97.value + "\nobjectType: " + selectedObjectType97.value + "\nobject: " + objmap97.value + "\ndataType: " + data97.value + "\ntermType: " + termPOM97.value + "\njoinCondition: " + joinCondition97.value + "\nchild: " + child97.value + "\nparent: " + parents97.value +
-   "\n\n[TM8]\nname: TriplesMap8\nsource: " + source8.value + "\nsourceFormat: " + referenceFormulation8.value + "\nsubjectType: " + resultSubj8.value + "\nsubjectMap: " + subjectMap8.value + "\ntermType: " + term8.value + "\nnumber_of_POM: " + pom8.value + "\n\n[TM8_POM1]\npredicate: " + predicate18.value + " \nobjectType: " + selectedObjectType18.value + "\nobject: " + objmap18.value + "\ndataType: " + data18.value + "\ntermType: " + termPOM18.value + "\njoinCondition: " + joinCondition18.value + "\nchild: " + child18.value + "\nparent: " + parents18.value + "\n\n[TM8_POM2]\npredicate: " + predicate28.value + "\nobjectType: " + selectedObjectType28.value + "\nobject: " + objmap28.value + "\ndataType: " + data28.value + "\ntermType: " + termPOM28.value + "\njoinCondition: " + joinCondition28.value + "\nchild: " + child28.value + "\nparent: " + parents28.value + "\n\n[TM8_POM3]\npredicate: " + predicate38.value + "\nobjectType: " + selectedObjectType38.value + "\nobject: " + objmap38.value + "\ndataType: " + data38.value + "\ntermType: " + termPOM38.value + "\njoinCondition: " + joinCondition38.value + "\nchild: " + child38.value + "\nparent: " + parents38.value + "\n\n[TM8_POM4]\npredicate: " + predicate48.value + "\nobjectType: " + selectedObjectType48.value + "\nobject: " + objmap48.value + "\ndataType: " + data48.value + "\ntermType: " + termPOM48.value + "\njoinCondition: " + joinCondition48.value + "\nchild: " + child48.value + "\nparent: " + parents48.value + "\n\n[TM8_POM5]\npredicate: " + predicate58.value + "\nobjectType: " + selectedObjectType58.value + "\nobject: " + objmap58.value + "\ndataType: " + data58.value + "\ntermType: " + termPOM58.value + "\njoinCondition: " + joinCondition58.value + "\nchild: " + child58.value + "\nparent: " + parents58.value + "\n\n[TM8_POM6]\npredicate: " + predicate68.value + "\nobjectType: " + selectedObjectType68.value + "\nobject: " + objmap68.value + "\ndataType: " + data68.value + "\ntermType: " + termPOM68.value + "\njoinCondition: " + joinCondition68.value + "\nchild: " + child68.value + "\nparent: " + parents68.value + "\n\n[TM8_POM7]\npredicate: " + predicate78.value + "\nobjectType: " + selectedObjectType78.value + "\nobject: " + objmap78.value + "\ndataType: " + data78.value + "\ntermType: " + termPOM78.value + "\njoinCondition: " + joinCondition78.value + "\nchild: " + child78.value + "\nparent: " + parents78.value + "\n\n[TM8_POM8]\npredicate: " + predicate88.value + "\nobjectType: " + selectedObjectType88.value + "\nobject: " + objmap88.value + "\ndataType: " + data88.value + "\ntermType: " + termPOM88.value + "\njoinCondition: " + joinCondition88.value + "\nchild: " + child88.value + "\nparent: " + parents88.value + "\n\n[TM8_POM9]\npredicate: " + predicate98.value + "\nobjectType: " + selectedObjectType98.value + "\nobject: " + objmap98.value + "\ndataType: " + data98.value + "\ntermType: " + termPOM98.value + "\njoinCondition: " + joinCondition98.value + "\nchild: " + child98.value + "\nparent: " + parents98.value + "\n\n[TM9]\nname: TriplesMap9\nsource: " + source9.value + "\nsourceFormat: " + referenceFormulation9.value + "\nsubjectType: " + resultSubj9.value + "\nsubjectMap: " + subjectMap9.value + "\ntermType: " + term9.value + "\nnumber_of_POM: " + pom9.value + "\n\n[TM9_POM1]\npredicate: " + predicate19.value + " \nobjectType: " + selectedObjectType19.value + "\nobject: " + objmap19.value + "\ndataType: " + data19.value + "\ntermType: " + termPOM19.value + "\njoinCondition: " + joinCondition19.value + "\nchild: " + child19.value + "\nparent: " + parents19.value + "\n\n[TM9_POM2]\npredicate: " + predicate29.value + "\nobjectType: " + selectedObjectType29.value + "\nobject: " + objmap29.value + "\ndataType: " + data29.value + "\ntermType: " + termPOM29.value + "\njoinCondition: " + joinCondition29.value + "\nchild: " + child29.value + "\nparent: " + parents29.value + "\n\n[TM9_POM3]\npredicate: " + predicate39.value + "\nobjectType: " + selectedObjectType39.value + "\nobject: " + objmap39.value + "\ndataType: " + data39.value + "\ntermType: " + termPOM39.value + "\njoinCondition: " + joinCondition39.value + "\nchild: " + child39.value + "\nparent: " + parents39.value + "\n\n[TM9_POM4]\npredicate: " + predicate49.value + "\nobjectType: " + selectedObjectType49.value + "\nobject: " + objmap49.value + "\ndataType: " + data49.value + "\ntermType: " + termPOM49.value + "\njoinCondition: " + joinCondition49.value + "\nchild: " + child49.value + "\nparent: " + parents49.value + "\n\n[TM9_POM5]\npredicate: " + predicate59.value + "\nobjectType: " + selectedObjectType59.value + "\nobject: " + objmap59.value + "\ndataType: " + data59.value + "\ntermType: " + termPOM59.value + "\njoinCondition: " + joinCondition59.value + "\nchild: " + child59.value + "\nparent: " + parents59.value + "\n\n[TM9_POM6]\npredicate: " + predicate69.value + "\nobjectType: " + selectedObjectType69.value + "\nobject: " + objmap69.value + "\ndataType: " + data69.value + "\ntermType: " + termPOM69.value + "\njoinCondition: " + joinCondition69.value + "\nchild: " + child69.value + "\nparent: " + parents69.value + "\n\n[TM9_POM7]\npredicate: " + predicate79.value + "\nobjectType: " + selectedObjectType79.value + "\nobject: " + objmap79.value + "\ndataType: " + data79.value + "\ntermType: " + termPOM79.value + "\njoinCondition: " + joinCondition79.value + "\nchild: " + child79.value + "\nparent: " + parents79.value + "\n\n[TM9_POM8]\npredicate: " + predicate89.value + "\nobjectType: " + selectedObjectType89.value + "\nobject: " + objmap89.value + "\ndataType: " + data89.value + "\ntermType: " + termPOM89.value + "\njoinCondition: " + joinCondition89.value + "\nchild: " + child89.value + "\nparent: " + parents89.value + "\n\n[TM9_POM9]\npredicate: " + predicate99.value + "\nobjectType: " + selectedObjectType99.value + "\nobject: " + objmap99.value + "\ndataType: " + data99.value + "\ntermType: " + termPOM99.value + "\njoinCondition: " + joinCondition99.value + "\nchild: " + child99.value + "\nparent: " + parents99.value +
+    data: "[main]\nmapping_file_name : " + resultFilename.value + "\nnumber_of_prefixes: " + pref.value + "\nnumber_of_TMs : " + tm.value + "\nnumber_of_FMs :" + fun.value + "\noutput_folder: " + output.value + "\n\n[prefixes]\npre1 : " + labpre1.value + "\nprefix1 : " + prefix1.value + "\npre2 : " + labpre2.value + "\nprefix2 : " + prefix2.value + "\npre3 : " + labpre3.value + "\nprefix3 : " + prefix3.value + "\npre4 : " + labpre4.value + "\nprefix4 : " + prefix4.value + "\npre5 : " + labpre5.value + "\nprefix5 :  " + prefix5.value + "\npre6 : " + labpre6.value + "\nprefix6 : " + prefix6.value + "\npre7 : " + labpre7.value + "\nprefix7 : " + prefix7.value + "\npre8 : " + labpre8.value + "\nprefix8 : " + prefix8.value + "\npre9 : " + labpre9.value + "\nprefix9 : " + prefix9.value + "\npre10 : " + labpre10.value + "\nprefix10 : " + prefix10.value + "\npre11 : " + labpre11.value + "\nprefix11 : " + prefix11.value + 
+    "\n\n[TM1]\nname: " + TMname.value + "\nsource: " + source.value + "\nsourceFormat: " + referenceFormulation.value + "\nsubjectType: " + resultSubj.value +"\nsubjectMap: " + resultClass.value + "\ndataField:" + dataField.value + "\nsubjectMap: " + subjectMap.value + "\ntermType: " + term.value + "\nnumber_of_POM: " + pom.value + "\n\n[TM1_POM1]\npredicate: " + resultProperty.value + 
+    " \nobjectType: " + selectedObjectType.value + "\nobject: " + objmap.value + "\ndataType: " + data.value + "\ntermType: " + termPOM.value + "\njoinCondition: " + joinCondition.value + "\nchild: " + child.value + "\nparent: " + parents.value  + "\n\n[TM1_POM2]\npredicate: " + resultProperty2.value + "\nobjectType: " + selectedObjectType2.value + "\nobject: " + objmap2.value + "\ndataType: " + data2.value + "\ntermType: " + termPOM2.value + "\njoinCondition: " + joinCondition2.value + "\nchild: " + child2.value + "\nparent: " + parents2.value + "\n\n[TM1_POM3]\npredicate: " + resultProperty3.value + "\nobjectType: " + selectedObjectType3.value + "\nobject: " + objmap3.value + "\ndataType: " + data3.value + "\ntermType: " + termPOM3.value + "\njoinCondition: " + joinCondition3.value + "\nchild: " + child3.value + "\nparent: " + parents3.value + "\n\n[TM1_POM4]\npredicate: " + resultProperty4.value + "\nobjectType: " + selectedObjectType4.value + "\nobject: " + objmap4.value + "\ndataType: " + data4.value + "\ntermType: " + termPOM4.value + "\njoinCondition: " + joinCondition4.value + "\nchild: " + child4.value + "\nparent: " + parents4.value + "\n\n[TM1_POM5]\npredicate: " + resultProperty5.value + "\nobjectType: " + selectedObjectType5.value + "\nobject: " + objmap5.value + "\ndataType: " + data5.value + "\ntermType: " + termPOM5.value + "\njoinCondition: " + joinCondition5.value + "\nchild: " + child5.value + "\nparent: " + parents5.value +"\n\n[TM1_POM6]\npredicate: " + resultProperty6.value + "\nobjectType: " + selectedObjectType6.value + "\nobject: " + objmap6.value + "\ndataType: " + data6.value + "\ntermType: " + termPOM6.value + "\njoinCondition: " + joinCondition6.value + "\nchild: " + child6.value + "\nparent: " + parents6.value + "\n\n[TM1_POM7]\npredicate: " + resultProperty7.value + "\nobjectType: " + selectedObjectType7.value + "\nobject: " + objmap7.value + "\ndataType: " + data7.value + "\ntermType: " + termPOM7.value + "\njoinCondition: " + joinCondition7.value + "\nchild: " + child7.value + "\nparent: " + parents7.value + "\n\n[TM1_POM8]\npredicate: " + resultProperty8.value + "\nobjectType: " + selectedObjectType8.value + "\nobject: " + objmap8.value + "\ndataType: " + data8.value + "\ntermType: " + termPOM8.value + "\njoinCondition: " + joinCondition8.value + "\nchild: " + child8.value + "\nparent: " + parents8.value + "\n\n[TM1_POM9]\npredicate: " + resultProperty9.value + "\nobjectType: " + selectedObjectType9.value + "\nobject: " + objmap9.value + "\ndataType: " + data9.value + "\ntermType: " + termPOM9.value + "\njoinCondition: " + joinCondition9.value + "\nchild: " + child9.value + "\nparent: " + parents9.value + 
+    "\n\n[TM2]\nname: " + TMname2.value + "\nsource: " + source2.value + "\nsourceFormat: " + referenceFormulation2.value + "\nsubjectType: " + resultSubj2.value + "\ndataField:" + dataField2.value+ "\nsubjectMap: " + subjectMap2.value + "\ntermType: " + term2.value + "\nnumber_of_POM: " + pom2.value + "\n\n[TM2_POM1]\npredicate: " + predicate12.value + " \nobjectType: " + selectedObjectType12.value + "\nobject: " + objmap12.value + "\ndataType: " + data12.value + "\ntermType: " + termPOM12.value + "\njoinCondition: " + joinCondition12.value + "\nchild: " + child12.value + "\nparent: " + parents12.value + "\n\n[TM2_POM2]\npredicate: " + predicate22.value + "\nobjectType: " + selectedObjectType22.value + "\nobject: " + objmap22.value + "\ndataType: " + data22.value + "\ntermType: " + termPOM22.value + "\njoinCondition: " + joinCondition22.value + "\nchild: " + child22.value + "\nparent: " + parents22.value + "\n\n[TM2_POM3]\npredicate: " + predicate32.value + "\nobjectType: " + selectedObjectType32.value + "\nobject: " + objmap32.value + "\ndataType: " + data32.value + "\ntermType: " + termPOM32.value + "\njoinCondition: " + joinCondition32.value + "\nchild: " + child32.value + "\nparent: " + parents32.value + "\n\n[TM2_POM4]\npredicate: " + predicate42.value + "\nobjectType: " + selectedObjectType42.value + "\nobject: " + objmap42.value + "\ndataType: " + data42.value + "\ntermType: " + termPOM42.value + "\njoinCondition: " + joinCondition42.value + "\nchild: " + child42.value + "\nparent: " + parents42.value + "\n\n[TM2_POM5]\npredicate: " + predicate52.value + "\nobjectType: " + selectedObjectType52.value + "\nobject: " + objmap52.value + "\ndataType: " + data52.value + "\ntermType: " + termPOM52.value + "\njoinCondition: " + joinCondition52.value + "\nchild: " + child52.value + "\nparent: " + parents52.value + "\n\n[TM2_POM6]\npredicate: " + predicate62.value + "\nobjectType: " + selectedObjectType62.value + "\nobject: " + objmap62.value + "\ndataType: " + data62.value + "\ntermType: " + termPOM62.value + "\njoinCondition: " + joinCondition62.value + "\nchild: " + child62.value + "\nparent: " + parents62.value + "\n\n[TM2_POM7]\npredicate: " + predicate72.value + "\nobjectType: " + selectedObjectType72.value + "\nobject: " + objmap72.value + "\ndataType: " + data72.value + "\ntermType: " + termPOM72.value + "\njoinCondition: " + joinCondition72.value + "\nchild: " + child72.value + "\nparent: " + parents72.value + "\n\n[TM2_POM8]\npredicate: " + predicate82.value + "\nobjectType: " + selectedObjectType82.value + "\nobject: " + objmap82.value + "\ndataType: " + data82.value + "\ntermType: " + termPOM82.value + "\njoinCondition: " + joinCondition82.value + "\nchild: " + child82.value + "\nparent: " + parents82.value + "\n\n[TM2_POM9]\npredicate: " + predicate92.value + "\nobjectType: " + selectedObjectType92.value + "\nobject: " + objmap92.value + "\ndataType: " + data92.value + "\ntermType: " + termPOM92.value + "\njoinCondition: " + joinCondition92.value + "\nchild: " + child92.value + "\nparent: " + parents92.value +  "\n\n[TM3]\nname: " + TMname3.value + "\nsource: " + source3.value + "\nsourceFormat: " + referenceFormulation3.value + "\nsubjectType: " + resultSubj3.value + "\ndataField:" + dataField3.value+ "\nsubjectMap: " + subjectMap3.value + "\ntermType: " + term3.value + "\nnumber_of_POM: " + pom3.value + "\n\n[TM3_POM1]\npredicate: " + predicate13.value + " \nobjectType: " + selectedObjectType13.value + "\nobject: " + objmap13.value + "\ndataType: " + data13.value + "\ntermType: " + termPOM13.value + "\njoinCondition: " + joinCondition13.value + "\nchild: " + child13.value + "\nparent: " + parents13.value + "\n\n[TM3_POM2]\npredicate: " + predicate23.value + "\nobjectType: " + selectedObjectType23.value + "\nobject: " + objmap23.value + "\ndataType: " + data23.value + "\ntermType: " + termPOM23.value + "\njoinCondition: " + joinCondition23.value + "\nchild: " + child23.value + "\nparent: " + parents23.value + "\n\n[TM3_POM3]\npredicate: " + predicate33.value + "\nobjectType: " + selectedObjectType33.value + "\nobject: " + objmap33.value + "\ndataType: " + data33.value + "\ntermType: " + termPOM33.value + "\njoinCondition: " + joinCondition33.value + "\nchild: " + child33.value + "\nparent: " + parents33.value + "\n\n[TM3_POM4]\npredicate: " + predicate43.value + "\nobjectType: " + selectedObjectType43.value + "\nobject: " + objmap43.value + "\ndataType: " + data43.value + "\ntermType: " + termPOM43.value + "\njoinCondition: " + joinCondition43.value + "\nchild: " + child43.value + "\nparent: " + parents43.value + "\n\n[TM3_POM5]\npredicate: " + predicate53.value + "\nobjectType: " + selectedObjectType53.value + "\nobject: " + objmap53.value + "\ndataType: " + data53.value + "\ntermType: " + termPOM53.value + "\njoinCondition: " + joinCondition53.value + "\nchild: " + child53.value + "\nparent: " + parents53.value + "\n\n[TM3_POM6]\npredicate: " + predicate63.value + "\nobjectType: " + selectedObjectType63.value + "\nobject: " + objmap63.value + "\ndataType: " + data63.value + "\ntermType: " + termPOM63.value + "\njoinCondition: " + joinCondition63.value + "\nchild: " + child63.value + "\nparent: " + parents63.value + "\n\n[TM3_POM7]\npredicate: " + predicate73.value + "\nobjectType: " + selectedObjectType73.value + "\nobject: " + objmap73.value + "\ndataType: " + data73.value + "\ntermType: " + termPOM73.value + "\njoinCondition: " + joinCondition73.value + "\nchild: " + child73.value + "\nparent: " + parents73.value + "\n\n[TM3_POM8]\npredicate: " + predicate83.value + "\nobjectType: " + selectedObjectType83.value + "\nobject: " + objmap83.value + "\ndataType: " + data83.value + "\ntermType: " + termPOM83.value + "\njoinCondition: " + joinCondition83.value + "\nchild: " + child83.value + "\nparent: " + parents83.value + "\n\n[TM3_POM9]\npredicate: " + predicate93.value + "\nobjectType: " + selectedObjectType93.value + "\nobject: " + objmap93.value + "\ndataType: " + data93.value + "\ntermType: " + termPOM93.value + "\njoinCondition: " + joinCondition93.value + "\nchild: " + child93.value + "\nparent: " + parents93.value + "\n\n[TM4]\nname: " + TMname4.value + "\nsource: " + source4.value + "\nsourceFormat: " + referenceFormulation4.value + "\nsubjectType: " + resultSubj4.value + "\ndataField:" + dataField4.value+ "\nsubjectMap: " + subjectMap4.value + "\ntermType: " + term4.value + "\nnumber_of_POM: " + pom4.value + 
+  "\n\n[TM4_POM1]\npredicate: " + predicate14.value + " \nobjectType: " + selectedObjectType14.value + "\nobject: " + objmap14.value + "\ndataType: " + data14.value + "\ntermType: " + termPOM14.value + "\njoinCondition: " + joinCondition14.value + "\nchild: " + child14.value + "\nparent: " + parents14.value + "\n\n[TM4_POM2]\npredicate: " + predicate24.value + "\nobjectType: " + selectedObjectType24.value + "\nobject: " + objmap24.value + "\ndataType: " + data24.value + "\ntermType: " + termPOM24.value + "\njoinCondition: " + joinCondition24.value + "\nchild: " + child24.value + "\nparent: " + parents24.value + "\n\n[TM4_POM3]\npredicate: " + predicate34.value + "\nobjectType: " + selectedObjectType34.value + "\nobject: " + objmap34.value + "\ndataType: " + data34.value + "\ntermType: " + termPOM34.value + "\njoinCondition: " + joinCondition34.value + "\nchild: " + child34.value + "\nparent: " + parents34.value + "\n\n[TM4_POM4]\npredicate: " + predicate44.value + "\nobjectType: " + selectedObjectType44.value + "\nobject: " + objmap44.value + "\ndataType: " + data44.value + "\ntermType: " + termPOM44.value + "\njoinCondition: " + joinCondition44.value + "\nchild: " + child44.value + "\nparent: " + parents44.value + "\n\n[TM4_POM5]\npredicate: " + predicate54.value + "\nobjectType: " + selectedObjectType54.value + "\nobject: " + objmap54.value + "\ndataType: " + data54.value + "\ntermType: " + termPOM54.value + "\njoinCondition: " + joinCondition54.value + "\nchild: " + child54.value + "\nparent: " + parents54.value + "\n\n[TM4_POM6]\npredicate: " + predicate64.value + "\nobjectType: " + selectedObjectType64.value + "\nobject: " + objmap64.value + "\ndataType: " + data64.value + "\ntermType: " + termPOM64.value + "\njoinCondition: " + joinCondition64.value + "\nchild: " + child64.value + "\nparent: " + parents64.value + "\n\n[TM4_POM7]\npredicate: " + predicate74.value + "\nobjectType: " + selectedObjectType74.value + "\nobject: " + objmap74.value + "\ndataType: " + data74.value + "\ntermType: " + termPOM74.value + "\njoinCondition: " + joinCondition74.value + "\nchild: " + child74.value + "\nparent: " + parents74.value + "\n\n[TM4_POM8]\npredicate: " + predicate84.value + "\nobjectType: " + selectedObjectType84.value + "\nobject: " + objmap84.value + "\ndataType: " + data84.value + "\ntermType: " + termPOM84.value + "\njoinCondition: " + joinCondition84.value + "\nchild: " + child84.value + "\nparent: " + parents84.value + "\n\n[TM4_POM9]\npredicate: " + predicate94.value + "\nobjectType: " + selectedObjectType94.value + "\nobject: " + objmap94.value + "\ndataType: " + data94.value + "\ntermType: " + termPOM94.value + "\njoinCondition: " + joinCondition94.value + "\nchild: " + child94.value + "\nparent: " + parents94.value + "\n\n[TM5]\nname: " + TMname5.value + "\nsource: " + source5.value + "\nsourceFormat: " + referenceFormulation5.value + "\nsubjectType: " + resultSubj5.value + "\ndataField:" + dataField5.value+ "\nsubjectMap: " + subjectMap5.value + "\ntermType: " + term5.value + "\nnumber_of_POM: " + pom5.value + "\n\n[TM5_POM1]\npredicate: " + predicate15.value + " \nobjectType: " + selectedObjectType15.value + "\nobject: " + objmap15.value + "\ndataType: " + data15.value + "\ntermType: " + termPOM15.value + "\njoinCondition: " + joinCondition15.value + "\nchild: " + child15.value + "\nparent: " + parents15.value + "\n\n[TM5_POM2]\npredicate: " + predicate25.value + "\nobjectType: " + selectedObjectType25.value + "\nobject: " + objmap25.value + "\ndataType: " + data25.value + "\ntermType: " + termPOM25.value + "\njoinCondition: " + joinCondition25.value + "\nchild: " + child25.value + "\nparent: " + parents25.value + "\n\n[TM5_POM3]\npredicate: " + predicate35.value + "\nobjectType: " + selectedObjectType35.value + "\nobject: " + objmap35.value + "\ndataType: " + data35.value + "\ntermType: " + termPOM35.value + "\njoinCondition: " + joinCondition35.value + "\nchild: " + child35.value + "\nparent: " + parents35.value + "\n\n[TM5_POM4]\npredicate: " + predicate45.value + "\nobjectType: " + selectedObjectType45.value + "\nobject: " + objmap45.value + "\ndataType: " + data45.value + "\ntermType: " + termPOM45.value + "\njoinCondition: " + joinCondition45.value + "\nchild: " + child45.value + "\nparent: " + parents45.value + "\n\n[TM5_POM5]\npredicate: " + predicate55.value + "\nobjectType: " + selectedObjectType55.value + "\nobject: " + objmap55.value + "\ndataType: " + data55.value + "\ntermType: " + termPOM55.value + "\njoinCondition: " + joinCondition55.value + "\nchild: " + child55.value + "\nparent: " + parents55.value + "\n\n[TM5_POM6]\npredicate: " + predicate65.value + "\nobjectType: " + selectedObjectType65.value + "\nobject: " + objmap65.value + "\ndataType: " + data65.value + "\ntermType: " + termPOM65.value + "\njoinCondition: " + joinCondition65.value + "\nchild: " + child65.value + "\nparent: " + parents65.value + "\n\n[TM5_POM7]\npredicate: " + predicate75.value + "\nobjectType: " + selectedObjectType75.value + "\nobject: " + objmap75.value + "\ndataType: " + data75.value + "\ntermType: " + termPOM75.value + "\njoinCondition: " + joinCondition75.value + "\nchild: " + child75.value + "\nparent: " + parents75.value + "\n\n[TM5_POM8]\npredicate: " + predicate85.value + "\nobjectType: " + selectedObjectType85.value + "\nobject: " + objmap85.value + "\ndataType: " + data85.value + "\ntermType: " + termPOM85.value + "\njoinCondition: " + joinCondition85.value + "\nchild: " + child85.value + "\nparent: " + parents85.value + "\n\n[TM5_POM9]\npredicate: " + predicate95.value + "\nobjectType: " + selectedObjectType95.value + "\nobject: " + objmap95.value + "\ndataType: " + data95.value + "\ntermType: " + termPOM95.value + "\njoinCondition: " + joinCondition95.value + "\nchild: " + child95.value + "\nparent: " + parents95.value + 
+  "\n\n[TM6]\nname: " + TMname6.value + "\nsource: " + source6.value + "\nsourceFormat: " + referenceFormulation6.value + "\nsubjectType: " + resultSubj6.value + "\ndataField:" + dataField6.value + "\nsubjectMap: " + subjectMap6.value + "\ntermType: " + term6.value + "\nnumber_of_POM: " + pom6.value + "\n\n[TM6_POM1]\npredicate: " + predicate16.value + " \nobjectType: " + selectedObjectType16.value + "\nobject: " + objmap16.value + "\ndataType: " + data16.value + "\ntermType: " + termPOM16.value + "\njoinCondition: " + joinCondition16.value + "\nchild: " + child16.value + "\nparent: " + parents16.value + "\n\n[TM6_POM2]\npredicate: " + predicate26.value + "\nobjectType: " + selectedObjectType26.value + "\nobject: " + objmap26.value + "\ndataType: " + data26.value + "\ntermType: " + termPOM26.value + "\njoinCondition: " + joinCondition26.value + "\nchild: " + child26.value + "\nparent: " + parents26.value + "\n\n[TM6_POM3]\npredicate: " + predicate36.value + "\nobjectType: " + selectedObjectType36.value + "\nobject: " + objmap36.value + "\ndataType: " + data36.value + "\ntermType: " + termPOM36.value + "\njoinCondition: " + joinCondition36.value + "\nchild: " + child36.value + "\nparent: " + parents36.value + "\n\n[TM6_POM4]\npredicate: " + predicate46.value + "\nobjectType: " + selectedObjectType46.value + "\nobject: " + objmap46.value + "\ndataType: " + data46.value + "\ntermType: " + termPOM46.value + "\njoinCondition: " + joinCondition46.value + "\nchild: " + child46.value + "\nparent: " + parents46.value + "\n\n[TM6_POM5]\npredicate: " + predicate56.value + "\nobjectType: " + selectedObjectType56.value + "\nobject: " + objmap56.value + "\ndataType: " + data56.value + "\ntermType: " + termPOM56.value + "\njoinCondition: " + joinCondition56.value + "\nchild: " + child56.value + "\nparent: " + parents56.value + "\n\n[TM6_POM6]\npredicate: " + predicate66.value + "\nobjectType: " + selectedObjectType66.value + "\nobject: " + objmap66.value + "\ndataType: " + data66.value + "\ntermType: " + termPOM66.value + "\njoinCondition: " + joinCondition66.value + "\nchild: " + child66.value + "\nparent: " + parents66.value + "\n\n[TM6_POM7]\npredicate: " + predicate76.value + "\nobjectType: " + selectedObjectType76.value + "\nobject: " + objmap76.value + "\ndataType: " + data76.value + "\ntermType: " + termPOM76.value + "\njoinCondition: " + joinCondition76.value + "\nchild: " + child76.value + "\nparent: " + parents76.value + "\n\n[TM6_POM8]\npredicate: " + predicate86.value + "\nobjectType: " + selectedObjectType86.value + "\nobject: " + objmap86.value + "\ndataType: " + data86.value + "\ntermType: " + termPOM86.value + "\njoinCondition: " + joinCondition86.value + "\nchild: " + child86.value + "\nparent: " + parents86.value + "\n\n[TM6_POM9]\npredicate: " + predicate96.value + "\nobjectType: " + selectedObjectType96.value + "\nobject: " + objmap96.value + "\ndataType: " + data96.value + "\ntermType: " + termPOM96.value + "\njoinCondition: " + joinCondition96.value + "\nchild: " + child96.value + "\nparent: " + parents96.value + "\n\n[TM7]\nname: " + TMname7.value + "\nsource: " + source7.value + "\nsourceFormat: " + referenceFormulation7.value + "\nsubjectType: " + resultSubj7.value + "\ndataField:" + dataField7.value+ "\nsubjectMap: " + subjectMap7.value + "\ntermType: " + term7.value + "\nnumber_of_POM: " + pom7.value + "\n\n[TM7_POM1]\npredicate: " + predicate17.value + " \nobjectType: " + selectedObjectType17.value + "\nobject: " + objmap17.value + "\ndataType: " + data17.value + "\ntermType: " + termPOM17.value + "\njoinCondition: " + joinCondition17.value + "\nchild: " + child17.value + "\nparent: " + parents17.value + "\n\n[TM7_POM2]\npredicate: " + predicate27.value + "\nobjectType: " + selectedObjectType27.value + "\nobject: " + objmap27.value + "\ndataType: " + data27.value + "\ntermType: " + termPOM27.value + "\njoinCondition: " + joinCondition27.value + "\nchild: " + child27.value + "\nparent: " + parents27.value + "\n\n[TM7_POM3]\npredicate: " + predicate37.value + "\nobjectType: " + selectedObjectType37.value + "\nobject: " + objmap37.value + "\ndataType: " + data37.value + "\ntermType: " + termPOM37.value + "\njoinCondition: " + joinCondition37.value + "\nchild: " + child37.value + "\nparent: " + parents37.value + "\n\n[TM7_POM4]\npredicate: " + predicate47.value + "\nobjectType: " + selectedObjectType47.value + "\nobject: " + objmap47.value + "\ndataType: " + data47.value + "\ntermType: " + termPOM47.value + "\njoinCondition: " + joinCondition47.value + "\nchild: " + child47.value + "\nparent: " + parents47.value + "\n\n[TM7_POM5]\npredicate: " + predicate57.value + "\nobjectType: " + selectedObjectType57.value + "\nobject: " + objmap57.value + "\ndataType: " + data57.value + "\ntermType: " + termPOM57.value + "\njoinCondition: " + joinCondition57.value + "\nchild: " + child57.value + "\nparent: " + parents57.value + "\n\n[TM7_POM6]\npredicate: " + predicate67.value + "\nobjectType: " + selectedObjectType67.value + "\nobject: " + objmap67.value + "\ndataType: " + data67.value + "\ntermType: " + termPOM67.value + "\njoinCondition: " + joinCondition67.value + "\nchild: " + child67.value + "\nparent: " + parents67.value + "\n\n[TM7_POM7]\npredicate: " + predicate77.value + "\nobjectType: " + selectedObjectType77.value + "\nobject: " + objmap77.value + "\ndataType: " + data77.value + "\ntermType: " + termPOM77.value + "\njoinCondition: " + joinCondition77.value + "\nchild: " + child77.value + "\nparent: " + parents77.value + "\n\n[TM7_POM8]\npredicate: " + predicate87.value + "\nobjectType: " + selectedObjectType87.value + "\nobject: " + objmap87.value + "\ndataType: " + data87.value + "\ntermType: " + termPOM87.value + "\njoinCondition: " + joinCondition87.value + "\nchild: " + child87.value + "\nparent: " + parents87.value + "\n\n[TM7_POM9]\npredicate: " + predicate97.value + "\nobjectType: " + selectedObjectType97.value + "\nobject: " + objmap97.value + "\ndataType: " + data97.value + "\ntermType: " + termPOM97.value + "\njoinCondition: " + joinCondition97.value + "\nchild: " + child97.value + "\nparent: " + parents97.value +
+   "\n\n[TM8]\nname: " + TMname8.value + "\nsource: " + source8.value + "\nsourceFormat: " + referenceFormulation8.value + "\nsubjectType: " + resultSubj8.value + "\ndataField:" + dataField8.value+ "\nsubjectMap: " + subjectMap8.value + "\ntermType: " + term8.value + "\nnumber_of_POM: " + pom8.value + "\n\n[TM8_POM1]\npredicate: " + predicate18.value + " \nobjectType: " + selectedObjectType18.value + "\nobject: " + objmap18.value + "\ndataType: " + data18.value + "\ntermType: " + termPOM18.value + "\njoinCondition: " + joinCondition18.value + "\nchild: " + child18.value + "\nparent: " + parents18.value + "\n\n[TM8_POM2]\npredicate: " + predicate28.value + "\nobjectType: " + selectedObjectType28.value + "\nobject: " + objmap28.value + "\ndataType: " + data28.value + "\ntermType: " + termPOM28.value + "\njoinCondition: " + joinCondition28.value + "\nchild: " + child28.value + "\nparent: " + parents28.value + "\n\n[TM8_POM3]\npredicate: " + predicate38.value + "\nobjectType: " + selectedObjectType38.value + "\nobject: " + objmap38.value + "\ndataType: " + data38.value + "\ntermType: " + termPOM38.value + "\njoinCondition: " + joinCondition38.value + "\nchild: " + child38.value + "\nparent: " + parents38.value + "\n\n[TM8_POM4]\npredicate: " + predicate48.value + "\nobjectType: " + selectedObjectType48.value + "\nobject: " + objmap48.value + "\ndataType: " + data48.value + "\ntermType: " + termPOM48.value + "\njoinCondition: " + joinCondition48.value + "\nchild: " + child48.value + "\nparent: " + parents48.value + "\n\n[TM8_POM5]\npredicate: " + predicate58.value + "\nobjectType: " + selectedObjectType58.value + "\nobject: " + objmap58.value + "\ndataType: " + data58.value + "\ntermType: " + termPOM58.value + "\njoinCondition: " + joinCondition58.value + "\nchild: " + child58.value + "\nparent: " + parents58.value + "\n\n[TM8_POM6]\npredicate: " + predicate68.value + "\nobjectType: " + selectedObjectType68.value + "\nobject: " + objmap68.value + "\ndataType: " + data68.value + "\ntermType: " + termPOM68.value + "\njoinCondition: " + joinCondition68.value + "\nchild: " + child68.value + "\nparent: " + parents68.value + "\n\n[TM8_POM7]\npredicate: " + predicate78.value + "\nobjectType: " + selectedObjectType78.value + "\nobject: " + objmap78.value + "\ndataType: " + data78.value + "\ntermType: " + termPOM78.value + "\njoinCondition: " + joinCondition78.value + "\nchild: " + child78.value + "\nparent: " + parents78.value + "\n\n[TM8_POM8]\npredicate: " + predicate88.value + "\nobjectType: " + selectedObjectType88.value + "\nobject: " + objmap88.value + "\ndataType: " + data88.value + "\ntermType: " + termPOM88.value + "\njoinCondition: " + joinCondition88.value + "\nchild: " + child88.value + "\nparent: " + parents88.value + "\n\n[TM8_POM9]\npredicate: " + predicate98.value + "\nobjectType: " + selectedObjectType98.value + "\nobject: " + objmap98.value + "\ndataType: " + data98.value + "\ntermType: " + termPOM98.value + "\njoinCondition: " + joinCondition98.value + "\nchild: " + child98.value + "\nparent: " + parents98.value + "\n\n[TM9]\nname: " + TMname9.value + "\nsource: " + source9.value + "\nsourceFormat: " + referenceFormulation9.value + "\nsubjectType: " + resultSubj9.value + "\ndataField:" + dataField9.value+ "\nsubjectMap: " + subjectMap9.value + "\ntermType: " + term9.value + "\nnumber_of_POM: " + pom9.value + "\n\n[TM9_POM1]\npredicate: " + predicate19.value + " \nobjectType: " + selectedObjectType19.value + "\nobject: " + objmap19.value + "\ndataType: " + data19.value + "\ntermType: " + termPOM19.value + "\njoinCondition: " + joinCondition19.value + "\nchild: " + child19.value + "\nparent: " + parents19.value + "\n\n[TM9_POM2]\npredicate: " + predicate29.value + "\nobjectType: " + selectedObjectType29.value + "\nobject: " + objmap29.value + "\ndataType: " + data29.value + "\ntermType: " + termPOM29.value + "\njoinCondition: " + joinCondition29.value + "\nchild: " + child29.value + "\nparent: " + parents29.value + "\n\n[TM9_POM3]\npredicate: " + predicate39.value + "\nobjectType: " + selectedObjectType39.value + "\nobject: " + objmap39.value + "\ndataType: " + data39.value + "\ntermType: " + termPOM39.value + "\njoinCondition: " + joinCondition39.value + "\nchild: " + child39.value + "\nparent: " + parents39.value + "\n\n[TM9_POM4]\npredicate: " + predicate49.value + "\nobjectType: " + selectedObjectType49.value + "\nobject: " + objmap49.value + "\ndataType: " + data49.value + "\ntermType: " + termPOM49.value + "\njoinCondition: " + joinCondition49.value + "\nchild: " + child49.value + "\nparent: " + parents49.value + "\n\n[TM9_POM5]\npredicate: " + predicate59.value + "\nobjectType: " + selectedObjectType59.value + "\nobject: " + objmap59.value + "\ndataType: " + data59.value + "\ntermType: " + termPOM59.value + "\njoinCondition: " + joinCondition59.value + "\nchild: " + child59.value + "\nparent: " + parents59.value + "\n\n[TM9_POM6]\npredicate: " + predicate69.value + "\nobjectType: " + selectedObjectType69.value + "\nobject: " + objmap69.value + "\ndataType: " + data69.value + "\ntermType: " + termPOM69.value + "\njoinCondition: " + joinCondition69.value + "\nchild: " + child69.value + "\nparent: " + parents69.value + "\n\n[TM9_POM7]\npredicate: " + predicate79.value + "\nobjectType: " + selectedObjectType79.value + "\nobject: " + objmap79.value + "\ndataType: " + data79.value + "\ntermType: " + termPOM79.value + "\njoinCondition: " + joinCondition79.value + "\nchild: " + child79.value + "\nparent: " + parents79.value + "\n\n[TM9_POM8]\npredicate: " + predicate89.value + "\nobjectType: " + selectedObjectType89.value + "\nobject: " + objmap89.value + "\ndataType: " + data89.value + "\ntermType: " + termPOM89.value + "\njoinCondition: " + joinCondition89.value + "\nchild: " + child89.value + "\nparent: " + parents89.value + "\n\n[TM9_POM9]\npredicate: " + predicate99.value + "\nobjectType: " + selectedObjectType99.value + "\nobject: " + objmap99.value + "\ndataType: " + data99.value + "\ntermType: " + termPOM99.value + "\njoinCondition: " + joinCondition99.value + "\nchild: " + child99.value + "\nparent: " + parents99.value +
    "\n\n[F1]\nfunctionMapName: " + funMapN.value + "\nsource: " + funsource.value + "\nsourceFormat: " + funsourceformat.value+ "\nfunctionName: " + funN.value+ "\nnumberOfParameters: " + nop.value + "\n\n[F1P1]\nparameter: " + parameter.value + "\nparameterType: " + parameters.value + "\nvalue: " + value.value+ "\n\n[F1P2]\nparameter: " + parameter2.value + "\nparameterType: " + parameters2.value + "\nvalue: " + value2.value+ "\n\n[F1P3]\nparameter: " + parameter3.value + "\nparameterType: " + parameters3.value + "\nvalue: " + value3.value+ "\n\n[F1P4]\nparameter: " + parameter4.value + "\nparameterType: " + parameters4.value + "\nvalue: " + value4.value+ "\n\n[F1P5]\nparameter: " + parameter5.value + "\nparameterType: " + parameters5.value + "\nvalue: " + value5.value+ "\n\n[F1P6]\nparameter: " + parameter6.value + "\nparameterType: " + parameters6.value + "\nvalue: " + value6.value+ "\n\n[F1P7]\nparameter: " + parameter7.value + "\nparameterType: " + parameters7.value + "\nvalue: " + value7.value+ "\n\n[F1P8]\nparameter: " + parameter8.value + "\nparameterType: " + parameters8.value + "\nvalue: " + value8.value+ "\n\n[F1P9]\nparameter: " + parameter9.value + "\nparameterType: " + parameters9.value + "\nvalue: " + value9.value +
    "\n\n[F2]\nfunctionMapName: " + funMapN2.value + "\nsource: " + funsource2.value + "\nsourceFormat: " + funsourceformat2.value+ "\nfunctionName: " + funN2.value+ "\nnumberOfParameters: " + nop2.value + "\n\n[F2P1]\nparameter: " + parameter12.value + "\nparameterType: " + parameters12.value + "\nvalue: " + value12.value+ "\n\n[F2P2]\nparameter: " + parameter22.value + "\nparameterType: " + parameters22.value + "\nvalue: " + value22.value+ "\n\n[F2P3]\nparameter: " + parameter32.value + "\nparameterType: " + parameters32.value + "\nvalue: " + value32.value+ "\n\n[F2P4]\nparameter: " + parameter42.value + "\nparameterType: " + parameters42.value + "\nvalue: " + value42.value+ "\n\n[F2P5]\nparameter: " + parameter52.value + "\nparameterType: " + parameters52.value + "\nvalue: " + value52.value+ "\n\n[F2P6]\nparameter: " + parameter62.value + "\nparameterType: " + parameters62.value + "\nvalue: " + value62.value+ "\n\n[F2P7]\nparameter: " + parameter72.value + "\nparameterType: " + parameters72.value + "\nvalue: " + value72.value+ "\n\n[F2P8]\nparameter: " + parameter82.value + "\nparameterType: " + parameters82.value + "\nvalue: " + value82.value+ "\n\n[F2P9]\nparameter: " + parameter92.value + "\nparameterType: " + parameters92.value + "\nvalue: " + value92.value +
    "\n\n[F3]\nfunctionMapName: " + funMapN3.value + "\nsource: " + funsource3.value + "\nsourceFormat: " + funsourceformat3.value+ "\nfunctionName: " + funN3.value+ "\nnumberOfParameters: " + nop3.value + "\n\n[F3P1]\nparameter: " + parameter13.value + "\nparameterType: " + parameters13.value + "\nvalue: " + value13.value+ "\n\n[F3P2]\nparameter: " + parameter23.value + "\nparameterType: " + parameters23.value + "\nvalue: " + value23.value+ "\n\n[F3P3]\nparameter: " + parameter33.value + "\nparameterType: " + parameters33.value + "\nvalue: " + value33.value+ "\n\n[F3P4]\nparameter: " + parameter43.value + "\nparameterType: " + parameters43.value + "\nvalue: " + value43.value+ "\n\n[F3P5]\nparameter: " + parameter53.value + "\nparameterType: " + parameters53.value + "\nvalue: " + value53.value+ "\n\n[F3P6]\nparameter: " + parameter63.value + "\nparameterType: " + parameters63.value + "\nvalue: " + value63.value+ "\n\n[F3P7]\nparameter: " + parameter73.value + "\nparameterType: " + parameters73.value + "\nvalue: " + value73.value+ "\n\n[F3P8]\nparameter: " + parameter83.value + "\nparameterType: " + parameters83.value + "\nvalue: " + value83.value+ "\n\n[F3P9]\nparameter: " + parameter93.value + "\nparameterType: " + parameters93.value + "\nvalue: " + value93.value +
@@ -5815,46 +6121,46 @@ function nameOutput() {
 }
 
 
-/* Verifying Mapping Rule*/
-function verifyMR() {
-    var downloadlink = document.getElementById('downloadlinkVerf');
-    downloadlink.style.display = "block";
+// /* Verifying Mapping Rule*/
+// function verifyMR() {
+//     var downloadlink = document.getElementById('downloadlinkVerf');
+//     downloadlink.style.display = "block";
   
-  var verfLink = "You can verify the RML.";
-  document.getElementById("demoVerf").innerHTML = verfLink;
+//   var verfLink = "You can verify the RML.";
+//   document.getElementById("demoVerf").innerHTML = verfLink;
 
-var settings = {
-    url: "/api/verifying",
-    type: "POST",
+// var settings = {
+//     url: "/api/verifying",
+//     type: "POST",
 
-    contenType: "text/plain",
-    data: "[main]",
+//     contenType: "text/plain",
+//     data: "[main]",
    
   
 
-    async: false,
-  };
-  $.ajax(settings).done(function (response) {
-    if (response == true) {
+//     async: false,
+//   };
+//   $.ajax(settings).done(function (response) {
+//     if (response == true) {
       
-    } else {
+//     } else {
      
-    }
-    console.log(response);
-    responseConfig = response;
-  });
+//     }
+//     console.log(response);
+//     responseConfig = response;
+//   });
 
 
 
-}
+// }
 
 
-/* Visualizing Mapping Rule*/
-function visualizeMR() {
-    var downloadlink = document.getElementById('downloadlinkVis');
-    downloadlink.style.display = "block";
+// /* Visualizing Mapping Rule*/
+// function visualizeMR() {
+//     var downloadlink = document.getElementById('downloadlinkVis');
+//     downloadlink.style.display = "block";
   
-  var visLink = "You can download the visualization of RML.";
-  document.getElementById("demoVis").innerHTML = visLink;
-}
+//   var visLink = "You can download the visualization of RML.";
+//   document.getElementById("demoVis").innerHTML = visLink;
+// }
 
