@@ -51,7 +51,7 @@ def readConfig(config):
             if config['TM'+str(t)]['termType'] != "no":
                 TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t"
             else:
-                TM = TM + "\n\t" 
+                TM = TM + ";\n\t" 
 
     ##read predicate objects
         for i in range(1,int(config['TM'+str(t)]['number_of_POM'])+1):

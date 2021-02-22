@@ -12,26 +12,61 @@
 @prefix iasis: <http://project-iasis.eu/vocab/> .
 
 <TM1>
-	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/biomarkers.csv";
+	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/sampleSource1.csv";
+						rml:sourceFormat ql:CSV ];
+	rr:subjectMap  <FunctionMap1>;
+	
+	rr:predicateObjectMap [
+		rr:predicate iasis:isRelatedTo;
+		rr:objectMap [
+			rr:parentTriplesMap <TriplesMap2>;
+			rr:joinCondition [
+				rr:child "enst";
+				rr:parent "Transcript";
+			];
+		]
+	];.
+
+<TM2>
+	rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/sampleSource2.csv";
 						rml:sourceFormat ql:CSV ];
 	rr:subjectMap [
-		rr:template "http://project-iasis.eu/Biomarker/{biomarker}"
+		rr:template "http://project-iasis.eu/Chromosome/{chr}"
 	];
 	rr:predicateObjectMap [
 		rr:predicate rdf:type;
 		rr:objectMap [
-			rr:template "http://project-iasis.eu/vocab/Biomarker"
-			]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:hasCUIAnnotation;
-		rr:objectMap [
-			rml:reference "biomarker"
-			]
-	];
-	rr:predicateObjectMap [
-		rr:predicate iasis:biomarkerLabel;
-		rr:objectMap [
-			rml:reference "http://project-iasis.eu/Biomarker/}label}"
+			rr:template "http://project-iasis.eu/vocab/Chromosome"
 			]
 	];.
+
+<FunctionMap1>
+	fnml:functionValue [
+		rml:logicalSource [ rml:source "/mnt/e/RMLMappingRuleGenerator/data/biomarkers.csv";
+		rml:referenceFormulation ql:CSV
+		];
+		rr:predicateObjectMap [
+			rr:predicate fno:executes ;
+			rr:objectMap [
+				rr:constant iasis:replaceRegex
+			]
+		];
+		rr:predicateObjectMap [
+			rr:predicate iasis:regex;
+			rr:objectMap [
+				rr:constant "_.*"
+			]
+		];
+		rr:predicateObjectMap [
+			rr:predicate iasis:replvalue;
+			rr:objectMap [
+				rr:constant ""
+			]
+		];
+		rr:predicateObjectMap [
+			rr:predicate iasis:column;
+			rr:objectMap [
+				rml:reference "Gene name"
+			]
+		];
+	].
