@@ -1,7 +1,6 @@
 '''
 @auther: samiscoding@github
 '''
-from configparser import ConfigParser, ExtendedInterpolation
 import pandas as pd
 import sys
 import os

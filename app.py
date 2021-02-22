@@ -10,7 +10,8 @@ from werkzeug.utils import secure_filename
 ############################################################################
 
 UPLOAD_FOLDER = './'
-ALLOWED_EXTENSIONS = {'ttl'}
+ontology_allowed_extensions = {'ttl'}
+dataSource_allowed_extensions = {'csv','json'}
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
@@ -21,30 +22,33 @@ def index():
     return render_template('index.html')
 
 
-##### checking if the format of the file uploaded by the user is correct ########
-def allowed_file(filename):
+#### checking if the format of the ontology file uploaded by the user is correct ####
+def ontology_allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1].lower() in ontology_allowed_extensions
+
+### checking if the format of the data source file uploaded by the user is correct ###
+def dataSource_allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in dataSource_allowed_extensions
 
 
 ######## uploading the ontology file #########
-@app.route('/api/readOnto', methods=['GET','POST'])
+@app.route('/api/readOnto', methods=['POST'])
 def api_readOnto():
-    if request.method == 'POST':
-        uploaded_file = request.files['file']
-        if uploaded_file.filename != '' and allowed_file(uploaded_file.filename):
-            filename = secure_filename(uploaded_file.filename)         
-            uploaded_file.save('./output/' + filename)
-        global fileAddress
-        fileAddress = "./output/" + filename
-        #api_suggestClass()
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
+        filename = secure_filename(uploaded_file.filename)         
+        uploaded_file.save('./output/' + filename)
+    global ontologyFileAddress
+    ontologyFileAddress = "./output/" + filename
     return ''   
 
 
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/api/suggestClass', methods=['GET'])
 def api_suggestClass():
-    class_list = suggestClasses.readOntologyTurtle(fileAddress)
+    class_list = suggestClasses.readOntologyTurtle(ontologyFileAddress)
     #print (class_list)        
     class_json = json.dumps(class_list)
     return Response(class_json, mimetype="application/json")
@@ -53,17 +57,30 @@ def api_suggestClass():
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/api/suggestProperties', methods=['GET'])
 def api_suggestProperties():
-    property_list = suggestProperties.readOntologyTurtle(fileAddress)
+    property_list = suggestProperties.readOntologyTurtle(ontologyFileAddress)
     #print (property_list)        
     property_json = json.dumps(property_list)
     return Response(property_json, mimetype="application/json")
 
 
-'''
-@app.route('/api/verifying', methods=['POST'])
-def api_verifying():
-    print('request') 
-'''    
+################ uploading the data source file ##################
+@app.route('/api/readDataSource', methods=['POST'])
+def api_readDataSource():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
+        filename = secure_filename(uploaded_file.filename)         
+        uploaded_file.save('./output/' + filename) 
+    global dataFileAddress
+    dataFileAddress = "./output/" + filename
+    return '' 
+
+
+######## suggest data fields based on the uploaded data source file #########
+@app.route('/api/suggestDataField', methods=['GET'])
+def api_suggestDataField():
+    dataFields_json = suggestDataField.readDataSource(dataFileAddress)       
+    return Response(dataFields_json, mimetype="application/json")
+
 
 ######## generate turtle mapping file ############
 
