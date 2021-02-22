@@ -20,19 +20,19 @@ def readDataSource(file):
         dataFields_json = json.dumps(dataFields) 
     elif fileName.rsplit('.', 1)[1].lower() == 'json':
         with open(file, "r") as dataFile:
-            data_json = json.load(dataFile,indent=2)
-        for key in data_json.keys():
-            print(key)
+            data_json = json.load(dataFile)
+        for dataFields in data_json.keys():
+            dataFields_json = json.dumps(dataFields)
     else:
         dataFields_json = {}
 
-    #return dataFields_json
+    return dataFields_json
 
 
 
 def handler():
 
-    readDataSource("/Users/sam/Documents/GitHub/easyRML/fileExamples/json_dataSource.json")
+    dataFields_json = readDataSource("/Users/sam/Documents/GitHub/easyRML/fileExamples/json_dataSource.json")
 
 if __name__ == "__main__":
         handler()
