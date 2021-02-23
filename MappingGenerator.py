@@ -47,7 +47,7 @@ def readConfig(config):
                 TM = TM + "\n\t];"
         
         elif config['TM'+str(t)]['subjectType'] == "reference to functionMap":
-            TM = TM + " <" + config['TM'+str(t)]['subjectMap'] + ">" 
+            TM = TM + " <" + str(config['TM'+str(t)]['subjectMap']) + ">" 
             if config['TM'+str(t)]['termType'] != "no":
                 TM = TM + ";\n\t\trr:termType " + config['TM'+str(t)]['termType'] + ";\n\t"
             else:
