@@ -83,7 +83,7 @@ background-color: #99D19C;
     position: absolute;
 }
 
-/* Style for index2.html */
+
 h4 {
     margin: 5px;
     color: green;
@@ -92,114 +92,36 @@ h4 {
 }
 
 
-#tripleColor {
+.loopTMColors {
     border-radius: 25px;
     background: #ADE1E5;
     padding: 20px;
-} 
+}  
+.loopPomColors {
+    border-radius: 25px;
+    background: #CBF3D2;
+    padding: 20px;
+}  
 
-#mapColor {
+.loopJoinColors {
     border-radius: 25px;
-    background: #CBF3D2;
+    background: #e6ffea;
     padding: 20px;
-} 
-#mapColor2 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor3 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor4 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor5 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor6 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor7 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor8 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#mapColor9 {
-    border-radius: 25px;
-    background: #CBF3D2;
-    padding: 20px;
-} 
-#functionColor {
+}  
+
+.loopfunctionColors {
     border-radius: 25px;
     background: #CBC0D3;
     padding: 20px;
 }  
+.looppropertyColors {
+    border-radius: 25px;
+    background: #E2CFEA;
+    padding: 20px;
+}
+   
 
-
-#propertyColor {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-}  
-
-#propertyColor2 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-#propertyColor3 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-#propertyColor4 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-#propertyColor5 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-
-#propertyColor6 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-#propertyColor7 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-#propertyColor8 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-#propertyColor9 {
-    border-radius: 25px;
-    background: #E2CFEA;
-    padding: 20px;
-} 
-
-
- .footer {
+.footer {
     position: fixed;
     left: 0;
     bottom: 0;
