@@ -1,0 +1,14 @@
+.navbar{
+    margin: 20px;
+}
+
+.header-title{
+    margin: 20px;
+    margin-left: 50px;
+    color: #00ffff;
+}
+
+.header-text{
+    margin-right: 30px;
+    color: #000000;
+}
