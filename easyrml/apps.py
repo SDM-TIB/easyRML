@@ -34,8 +34,8 @@ def dataSource_allowed_file(filename):
 
 
 ######## uploading the ontology file #########
-@app.route('/api/readOnto', methods=['POST'])
-def api_readOnto():
+@app.route('/api/readOntology', methods=['POST'])
+def api_readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
