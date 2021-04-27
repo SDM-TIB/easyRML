@@ -10,8 +10,15 @@
     <!--Manual CSS-->
     <link rel="stylesheet" href="../static/css/style.css">
 
+    <!--Manual JavaScript-->
+    <script src="../static/js/scripts.js"></script>
+
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
   </head>
   <body>
+
+    <!--navigation bar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light border border-4 border-secondary">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html"><h1 class="header-title">easyRML</h1></a>
@@ -30,6 +37,91 @@
         </div>
       </div>
     </nav>
+
+    <!--form-->
+    <form>
+      <div class="container-fluid firat">
+        <div class="row">
+          <fieldset class="col-6 border border-secondary border-4 first-input bg-light">
+            <legend class="w-auto">File Management</legend>
+            <div class="row first-row">
+              <div class="col-7">
+                <input type="text" class="form-control border border-secondary border-2" placeholder="Insert output mapping file name">
+              </div>
+              <div class="col-5">
+                <input type="text" class="form-control border border-secondary border-2" placeholder="Insert output path">
+              </div>
+            </div>
+
+
+            <div class="row second-row">
+              <div class="col-10">
+                <div class="input-group mb-3 border border-secondary border-2">
+                  <select class="form-select" id="inputGroupSelect02">
+                    <option selected>Select all prefix from the available suggestion</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                
+              </div>
+              <div class="col-2">  
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-1">  
+              </div>
+              <div class="col-5"> 
+                <input type="text" class="form-control border border-secondary border-2" placeholder="Write your own prefix">
+              </div>
+              <div class="col-5"> 
+                <button class="btn border border-secondary border-2 add-more-button">+ add more prefix</button> 
+              </div>
+              <div class="col-1">  
+              </div>
+
+            </div>
+
+          </fieldset>
+
+
+
+          
+          <div class="col-6">
+            <div class="row file-upper"></div>
+            <div class="row">
+              <div class="col-10 d-flex justify-content-center">
+                <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
+                  <legend class="w-auto">Ontology</legend>
+                  <input class="row file-upload-input" type='file' onchange="readURL(this);"/>
+                
+                  <div class="col-4">
+                    <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                  </div>
+                  <div class="col-8">
+                    <h4 class="pt-1"> Upload the Ontology</h4>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                </div>
+              </div>
+            
+            </div>
+            <div class="row file-down"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
 
     
     <!--javascript for bootstrap-->

@@ -1,3 +1,8 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .navbar{
     margin: 20px;
 }
@@ -11,4 +16,59 @@
 .header-text{
     margin-right: 30px;
     color: #000000;
+}
+.first-input{
+    padding: 20px;
+}
+.add-more-button{
+    background-color: #c8cdcf;
+    box-shadow: 3px 3px 2px 1px #807878;
+}
+.firat{
+    margin: 20px;
+}
+
+.first-row{
+    margin-bottom: 20px;
+}
+
+.second-row{
+    margin-bottom: 30px;
+}
+
+.file-upper,.file-down{
+    height: 50px;
+}
+.file-upload-input {
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+.image-upload-wrap {
+    margin-top: 20px;
+    position: relative;
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+}
+.image-upload{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+}
+.pt-1{
+    padding-top: 20px !important;
+}
+legend{
+    float: none;
+    padding: inherit;
 }
