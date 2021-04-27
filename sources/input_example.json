@@ -1,0 +1,18 @@
+{
+	"output": [
+		{
+			"path": "/Users/sam/Documents/GitHub/easyRML/output",
+			"name": "test_mapping"
+		}
+	],
+	"suggested_prefix": [
+		{
+			"index": "value"
+		}
+	],
+	"prefix": [
+		{
+			"index": "value"
+		}
+	]
+}

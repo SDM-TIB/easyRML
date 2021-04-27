@@ -55,6 +55,7 @@ def api_readOntology():
     ontologyFileAddress = "../output/" + filename
     return ''   
 
+'''
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/api/suggestClass', methods=['GET'])
 def api_suggestClass():
@@ -94,7 +95,7 @@ def api_suggestDataField():
 
 ######## generate turtle mapping file ############
 
-    
+'''    
 
 if __name__ == "__main__":
     app.run(port=5522, host="0.0.0.0")
