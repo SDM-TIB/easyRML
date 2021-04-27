@@ -1,9 +1,13 @@
+'''
+@auther: samiscoding@github
+'''
 from flask import Flask, flash, render_template, request, Response, send_file, send_from_directory, redirect, url_for
 from flask.json import jsonify
 import json
-import MappingGenerator
+#import MappingGenerator
 import suggestClasses
 import suggestProperties
+import suggestPrefixes
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
@@ -32,6 +36,13 @@ def dataSource_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in dataSource_allowed_extensions
 
+######## provide prefixes for suggestion to the user #########
+@app.route('/api/suggestPrefix', methods=['GET'])
+def api_suggestPrefix():
+    prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes")     
+    prefix_json = json.dumps(prefix_list)
+    return Response(prefix_json, mimetype="application/json")
+
 
 ######## uploading the ontology file #########
 @app.route('/api/readOntology', methods=['POST'])
@@ -39,11 +50,10 @@ def api_readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
-        uploaded_file.save('./output/' + filename)
+        uploaded_file.save('../output/' + filename)
     global ontologyFileAddress
-    ontologyFileAddress = "./output/" + filename
+    ontologyFileAddress = "../output/" + filename
     return ''   
-
 
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/api/suggestClass', methods=['GET'])
