@@ -40,8 +40,9 @@ def dataSource_allowed_file(filename):
 @app.route('/api/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
     prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes")     
-    prefix_json = json.dumps(prefix_list)
-    return Response(prefix_json, mimetype="application/json")
+    #prefix_json = json.dumps(prefix_list)
+    #return Response(prefix_json, mimetype="application/json")
+    return render_template('index.html', data = prefix_list)
 
 
 ######## uploading the ontology file #########
