@@ -15,7 +15,7 @@ def readPrefix(filePath):
 	return (list(file_df["prefix"]))
 
 def handler():
-    prefixURL = readURLs("/mnt/e/GitHub/easyRML/sources/defaultPrefixes.csv")
+    prefixURL = readURLs("../sources/defaultPrefixes.csv")
 
 
 if __name__ == "__main__":
