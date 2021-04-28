@@ -10,7 +10,7 @@ def readURLs(filePath):
 	file_df = pd.read_csv(filePath, low_memory=False)
 	return (list(file_df["URL"]))
 
-def readURLs(filePath):
+def readPrefix(filePath):
 	file_df = pd.read_csv(filePath, low_memory=False)
 	return (list(file_df["prefix"]))
 
