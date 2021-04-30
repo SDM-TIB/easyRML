@@ -57,11 +57,14 @@
             <div class="row second-row">
               <div class="col-10">
                 <div class="input-group mb-3 border border-secondary border-2">
-                  <select class="form-select" id="inputGroupSelect02">
+                  <select class="form-select" id="inputGroupSelect02" name="data" method="GET" action = "/api/suggestPrefix">
                     <option selected>Select all prefix from the available suggestion</option>
-                    <option value="1">One</option>
+                    {% for row in data %}
+                    <option value="{{ row }}">{{ row }}</option>
+                    {% endfor %}
+                    <!-- <option value="1">One</option>
                     <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="3">Three</option> -->
                   </select>
                 </div>
                 
@@ -96,7 +99,7 @@
               <div class="col-10 d-flex justify-content-center">
                 <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
                   <legend class="w-auto">Ontology</legend>
-                  <input class="row file-upload-input" type='file' onchange="readURL(this);"/>
+                  <input class="row file-upload-input" type='file' accept=".ttl" action="/api/readOntology" method="POST" name = "file"/>
                 
                   <div class="col-4">
                     <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
