@@ -99,13 +99,18 @@
               <div class="col-10 d-flex justify-content-center">
                 <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
                   <legend class="w-auto">Ontology</legend>
-                  <input class="row file-upload-input" type='file' accept=".ttl" action="/api/readOntology" method="POST" name = "file"/>
-                
-                  <div class="col-4">
-                    <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
-                  </div>
-                  <div class="col-8">
-                    <h4 class="pt-1"> Upload the Ontology</h4>
+                  
+                  <div class="row">
+                    
+                    <input class="file-upload-input" type='file' accept=".ttl" action="/api/readOntology" method="POST" name = "file" id="uploadttlfile" hidden/>
+                    <div class="col-3">
+                      <label for="uploadttlfile">
+                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                      </label>
+                    </div>
+                    <div class="col-9">
+                      <h4 class="pt-1"> &lt; Upload the Ontology</h4>
+                    </div>
                   </div>
                 </fieldset>
               </div>
