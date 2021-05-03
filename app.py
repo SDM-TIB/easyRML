@@ -35,14 +35,14 @@ def ontology_allowed_file(filename):
 def dataSource_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in dataSource_allowed_extensions
-'''
+
 ######## provide prefixes for suggestion to the user #########
 @app.route('/api/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
     prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes")     
     prefix_json = json.dumps(prefix_list)
     return Response(prefix_json, mimetype="application/json")
-'''
+
 ######## uploading the ontology file #########
 @app.route('/api/readOntology', methods=['POST'])
 def api_readOntology():
@@ -97,5 +97,5 @@ def api_suggestDataField():
   
 
 if __name__ == "__main__":
-    app.run(port=5523, host="0.0.0.0")
+    app.run(port=5524, host="0.0.0.0")
 
