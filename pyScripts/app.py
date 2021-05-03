@@ -16,7 +16,7 @@ from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = './'
 ontology_allowed_extensions = {'ttl'}
 dataSource_allowed_extensions = {'csv','json'}
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
 
