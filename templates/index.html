@@ -57,7 +57,7 @@
             <div class="row second-row">
               <div class="col-10">
                 <div class="input-group mb-3 border border-secondary border-2">
-                  <select class="form-select" id="inputGroupSelect02" name="data" method="GET" action = "/api/suggestPrefix">
+                  <select class="form-select" id="inputGroupSelect02" name="data" method="GET" action = "/suggestPrefix">
                     <option selected>Select all prefix from the available suggestion</option>
                     {% for row in data %}
                     <option value="{{ row }}">{{ row }}</option>
@@ -102,7 +102,7 @@
                   
                   <div class="row">
                     
-                    <input class="file-upload-input" type='file' accept=".ttl" action="/api/readOntology" method="POST" name = "file" id="uploadttlfile" hidden/>
+                    <input class="file-upload-input" type='file' accept=".ttl" action="/readOntology" method="POST" name = "file" id="uploadttlfile" hidden/>
                     <div class="col-3">
                       <label for="uploadttlfile">
                         <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">

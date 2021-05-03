@@ -35,16 +35,18 @@ def ontology_allowed_file(filename):
 def dataSource_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in dataSource_allowed_extensions
-
+'''
 ######## provide prefixes for suggestion to the user #########
-@app.route('/api/suggestPrefix', methods=['GET'])
+@app.route('/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
-    prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes")     
-    prefix_json = json.dumps(prefix_list)
-    return Response(prefix_json, mimetype="application/json")
-
+    prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv")     
+    data = json.dumps(prefix_list)
+    return flask.make_response(data,300)
+    #return Response(prefix_json, mimetype="application/json")
+    #return render_template('../templates/index.html', data=data)
+'''
 ######## uploading the ontology file #########
-@app.route('/api/readOntology', methods=['POST'])
+@app.route('/readOntology', methods=['POST'])
 def api_readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
@@ -56,7 +58,7 @@ def api_readOntology():
 
 
 ######## suggest classes based on the uploaded ontology file #########
-@app.route('/api/suggestClass', methods=['GET'])
+@app.route('/suggestClass', methods=['GET'])
 def api_suggestClass():
     class_list = suggestClasses.readOntologyTurtle(ontologyFileAddress)
     #print (class_list)        
@@ -65,7 +67,7 @@ def api_suggestClass():
 
 
 ######## suggest classes based on the uploaded ontology file #########
-@app.route('/api/suggestProperties', methods=['GET'])
+@app.route('/suggestProperties', methods=['GET'])
 def api_suggestProperties():
     property_list = suggestProperties.readOntologyTurtle(ontologyFileAddress)
     #print (property_list)        
@@ -74,7 +76,7 @@ def api_suggestProperties():
 
 
 ################ uploading the data source file ##################
-@app.route('/api/readDataSource', methods=['POST'])
+@app.route('/readDataSource', methods=['POST'])
 def api_readDataSource():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
@@ -86,7 +88,7 @@ def api_readDataSource():
 
 
 ######## suggest data fields based on the uploaded data source file #########
-@app.route('/api/suggestDataField', methods=['GET'])
+@app.route('/suggestDataField', methods=['GET'])
 def api_suggestDataField():
     dataFields_json = suggestDataField.readDataSource(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
@@ -97,5 +99,5 @@ def api_suggestDataField():
   
 
 if __name__ == "__main__":
-    app.run(port=5524, host="0.0.0.0")
+    app.run(port=5525, host="0.0.0.0")
 
