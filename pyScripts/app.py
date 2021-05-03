@@ -40,8 +40,9 @@ def dataSource_allowed_file(filename):
 @app.route('/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
     prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv")     
-    data = json.dumps(prefix_list)
-    return flask.make_response(data,300)
+    prefix_json = json.dumps(prefix_list)
+    response = flask.make_response(prefix_json,300)
+    return response
     #return Response(prefix_json, mimetype="application/json")
     #return render_template('../templates/index.html', data=data)
 '''
@@ -99,5 +100,5 @@ def api_suggestDataField():
   
 
 if __name__ == "__main__":
-    app.run(port=5525, host="0.0.0.0")
+    app.run(port=5520, host="0.0.0.0")
 
