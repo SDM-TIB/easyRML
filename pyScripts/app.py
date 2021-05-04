@@ -45,7 +45,7 @@ def api_suggestPrefix():
     return response
     #return Response(prefix_json, mimetype="application/json")
     #return render_template('../templates/index.html', data=data)
-'''
+
 ######## uploading the ontology file #########
 @app.route('/readOntology', methods=['POST'])
 def api_readOntology():
@@ -57,7 +57,7 @@ def api_readOntology():
     ontologyFileAddress = "../output/" + filename
     return ''   
 
-
+'''
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/suggestClass', methods=['GET'])
 def api_suggestClass():
@@ -100,5 +100,5 @@ def api_suggestDataField():
   
 
 if __name__ == "__main__":
-    app.run(port=5520, host="0.0.0.0")
+    app.run(port=5522, host="0.0.0.0")
 
