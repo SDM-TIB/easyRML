@@ -42,10 +42,9 @@ def api_suggestPrefix():
     directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     prefix_list = suggestPrefixes.readURLs(str(directory)+"/sources/defaultPrefixes.csv")     
     prefix_json = json.dumps(prefix_list)
-    response = flask.make_response(prefix_json,300)
-    return response
-    #return Response(prefix_json, mimetype="application/json")
-    #return render_template('../templates/index.html', data=data)
+    #response = flask.make_response(prefix_json,300)
+    #return response
+    return Response(prefix_json, mimetype="application/json")
 
 ######## uploading the ontology file #########
 @app.route('/readOntology', methods=['POST'])
