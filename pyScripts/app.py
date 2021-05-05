@@ -39,7 +39,8 @@ def dataSource_allowed_file(filename):
 ######## provide prefixes for suggestion to the user #########
 @app.route('/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
-    prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv")     
+    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    prefix_list = suggestPrefixes.readURLs(str(directory)+"/sources/defaultPrefixes.csv")     
     prefix_json = json.dumps(prefix_list)
     response = flask.make_response(prefix_json,300)
     return response
