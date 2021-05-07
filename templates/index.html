@@ -53,6 +53,25 @@
           });
         }
       });
+
+      var form_data = new FormData();
+      form_data.append('file', $('#uploadttlfile').prop('files')[0]);
+      $(function() {
+
+      e.preventDefault(); 
+      $.ajax({ 
+        type:'POST', 
+        url:'/readOntology',
+        data:form_data,
+        contentType: false,
+        processData: false, 
+        success:function() 
+        { 
+        alert('saved'); 
+        } 
+    }) 
+    }); 
+      
       
       </script>
 
@@ -93,7 +112,8 @@
     </nav>
 
     <!--form-->
-    <form>
+    <!-- <form> -->
+    <div>
       <div class="container-fluid firat">
         <div class="row">
           <fieldset class="col-6 border border-secondary border-4 first-input bg-light">
@@ -155,8 +175,9 @@
                   <legend class="w-auto">Ontology</legend>
                   
                   <div class="row">
-                    
-                    <input class="file-upload-input" type='file' accept=".ttl" action="/readOntology" method="POST" name = "file" id="uploadttlfile" hidden/>
+                    <form action="/readOntology" method="POST" enctype= "multipart/form-data" id="formttl">
+                      <input class="file-upload-input" type='file' accept=".ttl" name = "file" id="uploadttlfile" onchange="this.form.submit()" hidden/>
+                    </form>
                     <div class="col-3">
                       <label for="uploadttlfile">
                         <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
@@ -182,8 +203,8 @@
 
         </div>
       </div>
-
-    </form>
+    </div>
+    <!-- </form> -->
 
 
    
