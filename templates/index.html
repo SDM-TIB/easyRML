@@ -17,44 +17,13 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- <script>
-      function fileDropdown(){
-
-        $.getJSON("../sources/input_example.json", function(result) {
-
-          var options = "";
-
-          $.each(result.Files, function(file) {
-          $('#inputGroupSelect02').append($('<option value="' + this.fileID + '">' + this.fileName + '</option>'));
-
-        //   $.each(result.Files, function(key, val){
-        //     options += '<option value="' + val.fileID + '">' + val.fileName + '</option>';
-        //   });
-        //   var select = $('<select/>');
-        //   select.append(options);
-        //   $(document.body).append(select);
-
-        // });
-      }
-    </script> -->
+	
+	<!--read json data using flask and ajax-->
+    <script src="../static/js/readJson.js"></script>
 
 
     <script>
       
-    
-    $.ajax({
-    url:'/suggestPrefix',
-    type:'GET',
-    contentType: "application/json",
-    dataType: 'json',
-      success: function( json ) {
-        $.each(json, function(file) {
-            $('#inputGroupSelect02').append($('<option value="' + this + '">' + this + '</option>'));
-          });
-        }
-      });
-
       var form_data = new FormData();
       form_data.append('file', $('#uploadttlfile').prop('files')[0]);
       $(function() {
@@ -76,18 +45,7 @@
       
       </script>
 
-     <!-- <script>
-      
-    //   let dropdown = $('#inputGroupSelect02');
-    //   const teamskill = '../sources/input_example.json';
 
-    //   $.getJSON(teamskill, function(data) {
-    //     $.each(data, function(key, entry)){
-    //       dropdown.append($('<option></option>').attr('value', entry.name).text(entry.team));
-    //     }
-    //   })
-
-    // </script> -->
 
   </head>
   <body>
