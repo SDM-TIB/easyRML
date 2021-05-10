@@ -25,12 +25,12 @@ responseConfig = {}
 def index():
     return render_template('index.html')
 
-'''
+
 #### checking if the format of the ontology file uploaded by the user is correct ####
 def ontology_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ontology_allowed_extensions
-
+'''
 ### checking if the format of the data source file uploaded by the user is correct ###
 def dataSource_allowed_file(filename):
     return '.' in filename and \
@@ -39,8 +39,8 @@ def dataSource_allowed_file(filename):
 ######## provide prefixes for suggestion to the user #########
 @app.route('/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
-    directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    prefix_list = suggestPrefixes.readURLs(str(directory)+"/sources/defaultPrefixes.csv")     
+    # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    prefix_list = suggestPrefixes.readPrefix("./sources/defaultPrefixes.csv") 
     prefix_json = json.dumps(prefix_list)
     #response = flask.make_response(prefix_json,300)
     #return response

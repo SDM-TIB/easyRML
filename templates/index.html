@@ -44,12 +44,13 @@
       
     
     $.ajax({
-    url:'../sources/input_example.json',
+    url:'/suggestPrefix',
     type:'GET',
+    contentType: "application/json",
     dataType: 'json',
       success: function( json ) {
-        $.each(json.defaultPrefixes, function(file) {
-            $('#inputGroupSelect02').append($('<option value="' + this.prefix + '">' + this.prefix + '</option>'));
+        $.each(json, function(file) {
+            $('#inputGroupSelect02').append($('<option value="' + this + '">' + this + '</option>'));
           });
         }
       });
