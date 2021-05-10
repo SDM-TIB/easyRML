@@ -52,9 +52,9 @@ def api_readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
-        uploaded_file.save('../sources/' + filename)
+        uploaded_file.save('./sources/' + filename)
     global ontologyFileAddress
-    ontologyFileAddress = "../sources/" + filename
+    ontologyFileAddress = "./sources/" + filename
     return ''   
 
 '''
