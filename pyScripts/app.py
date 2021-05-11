@@ -40,7 +40,7 @@ def dataSource_allowed_file(filename):
 @app.route('/suggestPrefix', methods=['GET'])
 def api_suggestPrefix():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    prefix_list = suggestPrefixes.readPrefix("./sources/defaultPrefixes.csv") 
+    prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv") 
     prefix_json = json.dumps(prefix_list)
     #response = flask.make_response(prefix_json,300)
     #return response
@@ -52,9 +52,9 @@ def api_readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
-        uploaded_file.save('./sources/' + filename)
+        uploaded_file.save('../sources/' + filename)
     global ontologyFileAddress
-    ontologyFileAddress = "./sources/" + filename
+    ontologyFileAddress = "../sources/" + filename
     return ''   
 
 '''
@@ -100,5 +100,5 @@ def api_suggestDataField():
   
 
 if __name__ == "__main__":
-    app.run(port=5522, host="0.0.0.0")
+    app.run(port=5520, host="0.0.0.0")
 
