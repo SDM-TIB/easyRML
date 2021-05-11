@@ -38,7 +38,7 @@ def dataSource_allowed_file(filename):
 '''
 ######## provide prefixes for suggestion to the user #########
 @app.route('/suggestPrefix', methods=['GET'])
-def api_suggestPrefix():
+def suggestPrefix():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv") 
     prefix_json = json.dumps(prefix_list)
@@ -48,7 +48,7 @@ def api_suggestPrefix():
 
 ######## uploading the ontology file #########
 @app.route('/readOntology', methods=['POST'])
-def api_readOntology():
+def readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
@@ -57,10 +57,22 @@ def api_readOntology():
     ontologyFileAddress = "../sources/" + filename
     return ''   
 
+
+################ uploading the data source file ##################
+@app.route('/readDataSource', methods=['POST'])
+def readDataSource():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
+        filename = secure_filename(uploaded_file.filename)         
+        uploaded_file.save('../output/' + filename) 
+    global dataFileAddress
+    dataFileAddress = "./output/" + filename
+    return '' 
+
 '''
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/suggestClass', methods=['GET'])
-def api_suggestClass():
+def suggestClass():
     class_list = suggestClasses.readOntologyTurtle(ontologyFileAddress)
     #print (class_list)        
     class_json = json.dumps(class_list)
@@ -69,28 +81,15 @@ def api_suggestClass():
 
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/suggestProperties', methods=['GET'])
-def api_suggestProperties():
+def suggestProperties():
     property_list = suggestProperties.readOntologyTurtle(ontologyFileAddress)
     #print (property_list)        
     property_json = json.dumps(property_list)
     return Response(property_json, mimetype="application/json")
 
-
-################ uploading the data source file ##################
-@app.route('/readDataSource', methods=['POST'])
-def api_readDataSource():
-    uploaded_file = request.files['file']
-    if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
-        filename = secure_filename(uploaded_file.filename)         
-        uploaded_file.save('./output/' + filename) 
-    global dataFileAddress
-    dataFileAddress = "./output/" + filename
-    return '' 
-
-
 ######## suggest data fields based on the uploaded data source file #########
 @app.route('/suggestDataField', methods=['GET'])
-def api_suggestDataField():
+def suggestDataField():
     dataFields_json = suggestDataField.readDataSource(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
 
