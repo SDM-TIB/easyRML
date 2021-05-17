@@ -14,3 +14,20 @@ function readURL(input) {
 
     }
 }
+
+
+//add input value to dropdown list
+
+function addoption() {
+    var url = $("#manualUrl").val();
+    
+    alert(url);
+
+    $("#inputGroupSelect02 selected").val(url);
+
+    $('#inputGroupSelect02 : selected').append($('<option selected>' + url + '</option>'));
+    // $("#inputGroupSelect02").val(url).trigger("chosen:updated");
+    $("#manualUrl").val("");
+    $("#manualPrefix").val("");
+
+}
