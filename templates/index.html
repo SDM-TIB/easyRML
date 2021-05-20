@@ -25,8 +25,11 @@
 	<!--read json data using flask and ajax-->
     <script src="../static/js/readJson.js"></script>
 
+    <!--disable button when input is empty-->
+    <script src="../static/js/disablebutton.js"></script>
 
-    <script>
+
+    <!-- <script>
       
       var form_data = new FormData();
       form_data.append('file', $('#uploadttlfile').prop('files')[0]);
@@ -46,7 +49,7 @@
     }) 
     }); 
       
-    </script>
+    </script> -->
 
   <script type="text/javascript">
     $(function() {
@@ -105,7 +108,12 @@
               <div class="col-10">
                 <div class="input-group mb-3 ">
                   <select class="form-select chosen-select border border-2 border-secondary" multiple id="inputGroupSelect02" data-placeholder="select prefix from the available suggestion">
-                     <!-- <option selected>all prefix from the available suggestion</option> -->
+                     <option selected>all prefix from the available suggestion</option>
+                     <option >all prefix from the available suggestion</option>
+                     <option >all prefix from the available suggestion</option>
+                     <option >all prefix from the available suggestion</option>
+                     <option >all prefix from the available suggestion</option>
+                     <option >all prefix from the available suggestion</option>
                      
                      
                      
@@ -136,7 +144,7 @@
               </div>
 
               <div class="col-4"> 
-                <button class="btn border border-secondary border-2 add-more-button" onclick="addoption()" type="button">+ add more prefix</button> 
+                <button class="btn border border-secondary border-2 add-more-button" id="addprefixbutton" onclick="addoption()" type="button" disabled>+ add more prefix</button> 
               </div>
               
 
