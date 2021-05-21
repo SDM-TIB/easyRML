@@ -178,3 +178,11 @@ legend{
     margin: 20px;
     margin-top: 0px !important;
 }
+
+.mt-3{
+    margin-top: 40px !important;
+}
+
+.default{
+    display: none;
+}
