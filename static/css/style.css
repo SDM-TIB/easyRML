@@ -169,7 +169,7 @@ legend{
     align-items: center;
 }
 
-.add-another-predicate{
+.add-another-triplesmap{
     background-color: #c8cdcf;
     box-shadow: 3px 3px 2px 1px #807878;
 }
@@ -185,4 +185,9 @@ legend{
 
 .default{
     display: none;
+}
+
+.add-another-predicate{
+    background-color: #c8cdcf;
+    box-shadow: 3px 3px 2px 1px #807878;
 }
