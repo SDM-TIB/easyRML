@@ -15,7 +15,7 @@ from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = './'
 ontology_allowed_extensions = {'ttl'}
-dataSource_allowed_extensions = {'csv','json'}
+dataSource_allowed_extensions = {'csv'}
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
@@ -30,12 +30,12 @@ def index():
 def ontology_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ontology_allowed_extensions
-'''
+
 ### checking if the format of the data source file uploaded by the user is correct ###
 def dataSource_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in dataSource_allowed_extensions
-'''
+
 ######## provide prefixes for suggestion to the user #########
 @app.route('/suggestPrefix', methods=['GET'])
 def suggestPrefix():
@@ -64,12 +64,11 @@ def readDataSource():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
-        uploaded_file.save('../output/' + filename) 
+        uploaded_file.save('../sources/' + filename) 
     global dataFileAddress
-    dataFileAddress = "./output/" + filename
+    dataFileAddress = "../sources/" + filename
     return '' 
 
-'''
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/suggestClass', methods=['GET'])
 def suggestClass():
@@ -95,7 +94,7 @@ def suggestDataField():
 
 
 ######## generate turtle mapping file ############
-'''
+
   
 
 if __name__ == "__main__":
