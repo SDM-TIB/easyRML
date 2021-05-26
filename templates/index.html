@@ -229,7 +229,7 @@
       <div class="container-fluid ">
         <div class="row secondbox">
           <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
-            <legend class="w-auto">Triplesmap</legend>
+            <legend class="w-auto">TriplesMap</legend>
             <div class="col-12">
 
               <!--first line-->
@@ -374,10 +374,10 @@
                     <!--#############################################select property option end#####################################################-->
 
                     <!--select object type option-->
-                    <div class="row ">
+                    <div class="row mt-3">
                       <div class="col-3">
                         <div class="input-group mb-3 ">
-                          <select class="form-select border border-2 border-secondary" id="selectobjecttype" data-placeholder="select the Object type">
+                          <select class="form-select border border-2 border-secondary" id="selectobjecttype" data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
                             <option selected>--select the Object type--</option>
                             <option value="1">Class</option>
                             <option value="2">Reference to data</option>
@@ -391,7 +391,96 @@
                     </div>
                     <!--#############################################select object type option end#####################################################-->
 
+                    <!--select class from suggestion option-->
+                    <div class="row mt-3 default" id="selectclasssuggestionbox">
+                      <div class="col-7">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selectclasssuggestion" data-placeholder="select the class from the suggestion (based on the Ontology)">
+                            <option selected>--select the class from the suggestion (based on the Ontology)--</option>
+                            <option value="1">Reference to data as URI</option>
+                            <option value="2">Reference to a FunctionMap</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-5"></div>
+                    </div>
+                    <!--#############################################select class from suggestion option end#####################################################-->
 
+                    <!--select data field from suggestion option-->
+                    <div class="row mt-3 default" id="selectdatafieldsuggestionbox">
+                      <div class="col-5">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selectdatafieldsuggestion" data-placeholder="select the data field from the suggestion">
+                            <option selected>--select the data field from the suggestion--</option>
+                            <option value="1">Reference to data as URI</option>
+                            <option value="2">Reference to a FunctionMap</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-7"></div>
+                    </div>
+                    <!--#############################################select data field from suggestion option end#####################################################-->
+
+                    <!--select predicate reference to data as uri option box-->
+                    <div class="row mt-3 default" id="predicatedatauribox">
+                      <div class="col-9">
+                        <div class="row">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="predicateselectdatafield" data-placeholder="select data field from the suggestion">
+                                <option selected>--select data field from the suggestion--</option>
+                                <option value="1">Reference to data as URI</option>
+                                <option value="2">Reference to a FunctionMap</option>
+                             </select>  
+                            </div>
+                          </div>
+                          <div class="col-5"></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-9">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="predicateselectclass" data-placeholder="select the corresponding class from the suggestion (based on Ontology)">
+                                <option selected>--select the corresponding class from the suggestion (based on Ontology)--</option>
+                                <option value="1">Reference to data as URI</option>
+                                <option value="2">Reference to a FunctionMap</option>
+                             </select>  
+                            </div>
+                          </div>
+                          <div class="col-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
+                    
+                    <!--select triplemaps from declred one option-->
+                    <div class="row mt-3 default" id="predicateselecttriplesmapbox">
+                      <div class="col-10">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="predicateselecttriplesmap" data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                            <option selected>--select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)--</option>
+                            <option value="1">Reference to data as URI</option>
+                            <option value="2">Reference to a FunctionMap</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-2"></div>
+                    </div>
+                    <!--#############################################select triplemaps from declred one option end#####################################################-->
+
+                    <!--select functionmap from declred one option-->
+                    <div class="row mt-3 default" id="predicateselectfunctionmapbox">
+                      <div class="col-10">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="predicateselectfunctionmap" data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
+                            <option selected>--select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)--</option>
+                            <option value="1">Reference to data as URI</option>
+                            <option value="2">Reference to a FunctionMap</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-2"></div>
+                    </div>
+                    <!--#############################################select functionmap from declred one option end#####################################################-->
 
                   </div>
                 </fieldset>
