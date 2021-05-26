@@ -4,9 +4,9 @@
 from flask import Flask, flash, render_template, request, Response, send_file, send_from_directory, redirect, url_for
 from flask.json import jsonify
 import json
-#import MappingGenerator
-#import suggestClasses
-#import suggestProperties
+import MappingGenerator
+import suggestClasses
+import suggestProperties
 import suggestPrefixes
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
