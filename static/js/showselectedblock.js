@@ -21,3 +21,57 @@ function showSelectBlock(nameSelect)
         document.getElementById("functionmapbox").style.display = 'none';
     }
 };
+
+function showSelectPredicateBlock(predicateNameSelect){
+    if(predicateNameSelect){
+        if(predicateNameSelect.value == 1){
+            document.getElementById("selectclasssuggestionbox").style.display = 'block';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+            document.getElementById("predicatedatauribox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+        }
+        else if(predicateNameSelect.value == 2){
+            document.getElementById("selectclasssuggestionbox").style.display = 'none';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'block';
+            document.getElementById("predicatedatauribox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+        }
+        else if(predicateNameSelect.value == 3){
+            document.getElementById("selectclasssuggestionbox").style.display = 'none';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+            document.getElementById("predicatedatauribox").style.display = 'block';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+        }
+        else if(predicateNameSelect.value == 4){
+            document.getElementById("selectclasssuggestionbox").style.display = 'none';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+            document.getElementById("predicatedatauribox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'block';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+        }
+        else if(predicateNameSelect.value == 5){
+            document.getElementById("selectclasssuggestionbox").style.display = 'none';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+            document.getElementById("predicatedatauribox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'block';
+        }
+        else{
+            document.getElementById("selectclasssuggestionbox").style.display = 'none';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+            document.getElementById("predicatedatauribox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+        }
+    }
+    else{
+        document.getElementById("selectclasssuggestionbox").style.display = 'none';
+        document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+        document.getElementById("predicatedatauribox").style.display = 'none';
+        document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+        document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+    }
+};
