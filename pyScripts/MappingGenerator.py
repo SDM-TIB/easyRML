@@ -42,6 +42,7 @@ def generator():
 	mappingFile = open(mappingFile, "w")
 	mappingFile.write(prefixes)
 	mappingFile.close()
+	return (mappingFile)
 
 
 if __name__ == "__main__":
