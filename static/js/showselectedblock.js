@@ -22,6 +22,9 @@ function showSelectBlock(nameSelect)
     }
 };
 
+
+
+
 function showSelectPredicateBlock(predicateNameSelect){
     if(predicateNameSelect){
         if(predicateNameSelect.value == 1){
