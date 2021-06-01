@@ -10,7 +10,7 @@ import csv
 #################################################################################
 
 #### ontology as an turtle file
-def readDataSource(file):
+def extractFields(file):
 
     fileName = file.split('/')[-1]
     if fileName.rsplit('.', 1)[1].lower() == 'csv':
@@ -25,7 +25,6 @@ def readDataSource(file):
             dataFields_json = json.dumps(dataFields)
     else:
         dataFields_json = {}
-
     return dataFields_json
 
 

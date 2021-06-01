@@ -87,7 +87,7 @@ def suggestProperties():
 ######## suggest data fields based on the uploaded data source file #########
 @app.route('/suggestDataField', methods=['GET'])
 def suggestDataField():
-    dataFields_json = suggestDataField.readDataSource(dataFileAddress)       
+    dataFields_json = suggestDataField.extractFields(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
 
 ################ store the user input / generate the mapping file ##################
