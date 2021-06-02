@@ -22,7 +22,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
-	<!--read json data using flask and ajax-->
+	  <!--read json data using flask and ajax-->
     <script src="../static/js/readJson.js"></script>
 
     <!--disable button when input is empty-->
@@ -35,38 +35,18 @@
     <!--multiple selection for dropdown list-->
     <script src="../static/js/multipleselection.js"></script>
 
+    <!--upload ontology file-->
+    <script src="../static/js/uploadOntology.js"></script>
 
-    <!-- <script>
-      
-      var form_data = new FormData();
-      form_data.append('file', $('#uploadttlfile').prop('files')[0]);
+    <script type="text/javascript">
       $(function() {
-
-      e.preventDefault(); 
-      $.ajax({ 
-        type:'POST', 
-        url:'/readOntology',
-        data:form_data,
-        contentType: false,
-        processData: false, 
-        success:function() 
-        { 
-        alert('saved'); 
-        } 
-    }) 
-    }); 
-      
-    </script> -->
-
-  <script type="text/javascript">
-    $(function() {
-      $(".chosen-select").chosen({
+       $(".chosen-select").chosen({
         no_results_text: "Oops, nothing found!"
+        });
       });
-    });
 
     $("#inputGroupSelect02").trigger("chosen:updated");
-  </script>
+    </script>
 
 
 
@@ -179,8 +159,8 @@
                   <legend class="w-auto">Ontology</legend>
                   
                   <div class="row">
-                    <form action="/readOntology" method="POST" enctype= "multipart/form-data" id="formttl">
-                      <input class="file-upload-input" type='file' accept=".ttl" name = "file" id="uploadttlfile" onchange="this.form.submit()" hidden/>
+                    <form method="POST" enctype= "multipart/form-data" id="formttl">
+                      <input class="file-upload-input" type='file' accept=".ttl" name = "file" id="uploadttlfile" hidden/>
                     </form>
                     <div class="col-3">
                       <label for="uploadttlfile">
