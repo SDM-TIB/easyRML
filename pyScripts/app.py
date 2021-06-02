@@ -8,6 +8,7 @@ import MappingGenerator
 import suggestClasses
 import suggestProperties
 import suggestPrefixes
+import suggestDataField
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
