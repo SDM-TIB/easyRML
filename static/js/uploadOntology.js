@@ -13,6 +13,17 @@ $(document).on("change", "#uploadttlfile", function () {
     async: false,
     success: function (data) {
       alert(data);
+      $.ajax({
+        url:'/suggestClass',
+        type:'GET',
+        contentType: "application/json",
+        dataType: 'json',
+          success: function( json ) {
+            $.each(json, function(file) {
+                $('#selectclass').append($('<option value="' + this + '">' + this + '</option>'));
+              });
+            }
+          });
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.log(jqXHR);
