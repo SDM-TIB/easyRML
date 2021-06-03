@@ -8,7 +8,7 @@ import MappingGenerator
 import suggestClasses
 import suggestProperties
 import suggestPrefixes
-import suggestDataField
+import suggestDataFields
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
@@ -72,23 +72,23 @@ def readDataSource():
     return '' 
 
 ######## suggest classes based on the uploaded ontology file #########
-@app.route('/suggestClass', methods=['GET'])
-def suggestClass():
+@app.route('/receiveClasses', methods=['GET'])
+def receiveClasses():
     class_list = suggestClasses.readOntologyTurtle(ontologyFileAddress)       
     class_json = json.dumps(class_list)
     return Response(class_json, mimetype="application/json")
 
 ######## suggest classes based on the uploaded ontology file #########
-@app.route('/suggestProperties', methods=['GET'])
-def suggestProperties():
+@app.route('/receiveProperties', methods=['GET'])
+def receiveProperties():
     property_list = suggestProperties.readOntologyTurtle(ontologyFileAddress)       
     property_json = json.dumps(property_list)
     return Response(property_json, mimetype="application/json")
 
 ######## suggest data fields based on the uploaded data source file #########
-@app.route('/suggestDataField', methods=['GET'])
-def suggestDataField():
-    dataFields_json = suggestDataField.extractFields(dataFileAddress)       
+@app.route('/receiveDataFields', methods=['GET'])
+def receiveDataFields():
+    dataFields_json = suggestDataFields.extractFields(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
 
 ################ store the user input / generate the mapping file ##################
