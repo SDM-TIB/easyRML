@@ -8,7 +8,7 @@ import MappingGenerator
 import suggestClasses
 import suggestProperties
 import suggestPrefixes
-import suggestDataFields
+import suggestDataField
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
@@ -88,7 +88,7 @@ def receiveProperties():
 ######## suggest data fields based on the uploaded data source file #########
 @app.route('/receiveDataFields', methods=['GET'])
 def receiveDataFields():
-    dataFields_json = suggestDataFields.extractFields(dataFileAddress)       
+    dataFields_json = suggestDataField.extractFields(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
 
 ################ store the user input / generate the mapping file ##################

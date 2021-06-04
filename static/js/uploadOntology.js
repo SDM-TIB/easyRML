@@ -14,7 +14,7 @@ $(document).on("change", "#uploadttlfile", function () {
     success: function (data) {
       alert(data);
       $.ajax({
-        url:'/suggestClass',
+        url:'/receiveClasses',
         type:'GET',
         contentType: "application/json",
         dataType: 'json',

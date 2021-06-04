@@ -13,6 +13,17 @@ $(document).on("change", "#uploadsourcefile", function () {
       async: false,
       success: function (data1) {
         alert(data1);
+        $.ajax({
+          url:'/receiveProperties',
+          type:'GET',
+          contentType: "application/json",
+          dataType: 'json',
+            success: function( json ) {
+              $.each(json, function(file) {
+                  $('#selectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
+                });
+              }
+            });
       },
       error: function (jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);
