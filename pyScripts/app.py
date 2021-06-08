@@ -9,6 +9,7 @@ import suggestClasses
 import suggestProperties
 import suggestPrefixes
 import suggestDataField
+import suggestTriplesNames
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
@@ -42,8 +43,8 @@ def userInput_allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in userInput_allowed_extensions
 
 ######## provide prefixes for suggestion to the user #########
-@app.route('/suggestPrefix', methods=['GET'])
-def suggestPrefix():
+@app.route('/receivePrefix', methods=['GET'])
+def receivePrefix():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv") 
     prefix_json = json.dumps(prefix_list)
@@ -91,6 +92,29 @@ def receiveDataFields():
     dataFields_json = suggestDataField.extractFields(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
 
+################ Upload TriplesMaps Names ##################
+@app.route('/readTriplesNames', methods=['POST'])
+def readTriplesNames():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '' and userInput_allowed_file(uploaded_file.filename):
+        filename = secure_filename(uploaded_file.filename)         
+        uploaded_file.save('../sources/TriplesMapsNames.json') 
+    return ''
+
+################ suggest TriplesMaps Names ##################
+@app.route('/receiveTriplesNames', methods=['GET'])
+def receiveTriplesNames():
+    property_list = suggestTriplesNames.extractTriplesMapsNames("../sources/TriplesMapsNames.json")       
+    property_json = json.dumps(property_list)       
+    return Response(TriplesNames_json, mimetype="application/json")
+
+################ suggest FunctionMaps Names ##################
+@app.route('/receiveFunctionMapNames', methods=['GET'])
+def receiveFunctionMapNames():
+    property_list = suggestTriplesNames.extractFunctionMapsNames("../sources/TriplesMapsNames.json")       
+    property_json = json.dumps(property_list)       
+    return Response(TriplesNames_json, mimetype="application/json")
+
 ################ store the user input / generate the mapping file ##################
 @app.route('/generateMapping', methods=['POST','GET'])
 def generateMapping():
@@ -105,7 +129,9 @@ def generateMapping():
     elif request.method == "GET":
         mappingFile = MappingGenerator.generator() 
         return Response(mappingFile, mimetype="application/json")
- 
+
+
+
 ############################################
 
 if __name__ == "__main__":
