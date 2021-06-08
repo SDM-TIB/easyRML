@@ -1,98 +1,97 @@
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.navbar{
-    margin: 20px;
+.navbar {
+  margin: 20px;
 }
 
-.header-title{
-    margin: 20px;
-    margin-left: 50px;
-    color: #00ffff;
+.header-title {
+  margin: 20px;
+  margin-left: 50px;
+  color: #00ffff;
 }
 
-.header-text{
-    margin-right: 30px;
-    color: #000000;
+.header-text {
+  margin-right: 30px;
+  color: #000000;
 }
-.first-input{
-    padding: 20px;
+.first-input {
+  padding: 20px;
 }
-.add-more-button{
-    background-color: #c8cdcf;
-    box-shadow: 3px 3px 2px 1px #807878;
+.add-more-button {
+  background-color: #c8cdcf;
+  box-shadow: 3px 3px 2px 1px #807878;
 }
-.firat{
-    margin: 20px;
-}
-
-.first-row{
-    margin-bottom: 20px;
+.firat {
+  margin: 20px;
 }
 
-.second-row{
-    margin-bottom: 30px;
+.first-row {
+  margin-bottom: 20px;
 }
 
-.file-upper,.file-down{
-    height: 50px;
+.second-row {
+  margin-bottom: 30px;
+}
+
+.file-upper,
+.file-down {
+  height: 50px;
 }
 .file-upload-input {
-    outline: none;
-    opacity: 0;
+  outline: none;
+  opacity: 0;
 }
 .image-upload-wrap {
-    margin-top: 20px;
-    position: relative;
+  margin-top: 20px;
+  position: relative;
 }
 
 .file-upload-content {
-    display: none;
-    text-align: center;
+  display: none;
+  text-align: center;
 }
 
 .file-upload-image {
-    max-height: 200px;
-    max-width: 200px;
-    margin: auto;
-    padding: 20px;
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
 }
-.image-upload{
-    height: 80px;
-    width: 80px;
-    margin-bottom: 20px;
-    cursor: pointer;
+.image-upload {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
-.pt-1{
-    padding-top: 20px !important;
+.pt-1 {
+  padding-top: 20px !important;
 }
-legend{
-    float: none;
-    padding: inherit;
+legend {
+  float: none;
+  padding: inherit;
 }
 
 #checkboxes {
-    display: none;
-    border: 1px #dadada solid;
+  display: none;
+  border: 1px #dadada solid;
 }
 
 #checkboxes label {
-    display: block;
+  display: block;
 }
 
-#checkboxes label:hover{
-    background-color: #1e90ff;
+#checkboxes label:hover {
+  background-color: #1e90ff;
 }
-
-
-
 
 .chosen-container-multi .chosen-drop .result-selected {
-    display: list-item;
-    color: #ccc;
-    cursor: default;
+  display: list-item;
+  color: #ccc;
+  cursor: default;
 }
 
 .chosen-container .chosen-drop {
@@ -109,85 +108,99 @@ legend{
 }
 
 .chosen-container-multi .chosen-choices {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0 5px;
-    width: 100%;
-    height: 40px !important;
-    height: auto !important;
-    border-radius: 5px;
-    border: 2px solid rgb(100, 98, 98);
-    background-color: #fff;
-    cursor: text;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 5px;
+  width: 100%;
+  height: 40px !important;
+  height: auto !important;
+  border-radius: 5px;
+  border: 2px solid rgb(100, 98, 98);
+  background-color: #fff;
+  cursor: text;
 }
 .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-    margin: auto;
-    display: inline;
-    margin-top: 1px !important;
-    padding: 1px;
-    padding-top: 2px !important;
-    height: 35px;
-    outline: 0;
-    border: 0 !important;
-    background: transparent !important;
-    box-shadow: none;
-    color: #999;
-    font-size: 15px;
-    font-family: sans-serif;
-    line-height: normal;
-    border-radius: 0;
-} 
+  margin: auto;
+  display: inline;
+  margin-top: 1px !important;
+  padding: 1px;
+  padding-top: 2px !important;
+  height: 35px;
+  outline: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  color: #999;
+  font-size: 15px;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+}
 
 .chosen-container-multi .chosen-choices li.search-choice {
-    font-size: 15px;
-    display: inline;
-    position: relative;
-    margin: 3px 5px 3px 0;
-    padding: 3px 20px 3px 5px;
-    border: 1px solid #aaa;
-    max-width: 100%;
-    border-radius: 3px;
-    background-color: #eeeeee;
-    background-size: 100% 19px;
-    background-repeat: repeat-x;
-    background-clip: padding-box;
-    box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
-    color: #333;
-    line-height: 13px;
-    cursor: default;
+  font-size: 15px;
+  display: inline;
+  position: relative;
+  margin: 3px 5px 3px 0;
+  padding: 3px 20px 3px 5px;
+  border: 1px solid #aaa;
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  background-size: 100% 19px;
+  background-repeat: repeat-x;
+  background-clip: padding-box;
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333;
+  line-height: 13px;
+  cursor: default;
 }
-
 
 .chosen-container .chosen-results {
-    font-size: larger;
+  font-size: larger;
 }
 .chosen-container-multi .chosen-choices li.search-choice span {
-    word-wrap: break-word;
-    font-size: larger;
-    justify-content: center;
-    align-items: center;
+  word-wrap: break-word;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
 }
 
-.add-another-triplesmap{
-    background-color: #c8cdcf;
-    box-shadow: 3px 3px 2px 1px #807878;
+.add-another-triplesmap {
+  background-color: #c8cdcf;
+  box-shadow: 3px 3px 2px 1px #807878;
 }
 
-.secondbox{
-    margin: 20px;
-    margin-top: 0px !important;
+.secondbox {
+  margin: 20px;
+  margin-top: 0px !important;
 }
 
-.mt-3{
-    margin-top: 40px !important;
+.mt-3 {
+  margin-top: 40px !important;
 }
 
-.default{
-    display: none;
+.default {
+  display: none;
 }
 
-.add-another-predicate{
-    background-color: #c8cdcf;
-    box-shadow: 3px 3px 2px 1px #807878;
+.add-another-predicate {
+  background-color: #c8cdcf;
+  box-shadow: 3px 3px 2px 1px #807878;
+}
+
+.thirdbox {
+  margin: 20px;
+  margin-top: 0px !important;
+}
+
+.add-another-functionmap {
+  background-color: #c8cdcf;
+  box-shadow: 3px 3px 2px 1px #807878;
+}
+
+.add-another-prarameter {
+  background-color: #c8cdcf;
+  box-shadow: 3px 3px 2px 1px #807878;
 }

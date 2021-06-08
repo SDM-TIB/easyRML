@@ -478,6 +478,127 @@
       <!--##########################################Triplemap end#################################################-->
 
 
+      <!--add function map button-->
+      <div class="container-fluid mt-3">
+        <div class="row">
+          <div class="col-8">
+          </div>
+          <div class="col-3">
+            <button class="btn border border-secondary border-2 add-another-functionmap" id="addanotherfunction" type="button"> + add FunctionMap</button>
+          </div>
+          <div class="col-1"></div>
+
+        </div>
+      </div>
+      <!--###########################  add another functionmap button end#############################################-->
+
+      <!--Function map-->
+      <div class="container-fluid">
+        <div class="row thirdbox">
+          <div class="col-10">
+            <div class="row">
+              <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
+                <legend class="w-auto">FunctionMap</legend>
+                <div class="col-12">
+
+                  <div class="row">
+
+                    <div class="col-6">
+                      
+                      <div class="row mb-3">
+                        <div class="col-7">
+                          <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the FunctionMap">
+                        </div>
+                        <div class="col-5"></div>
+                      </div>
+
+                      <div class="row mb-1">
+                        <div class="col-6">
+                          <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function">
+                        </div>
+                        <div class="col-6"></div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-6">
+                          <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the function">
+                        </div>
+                        <div class="col-6"></div>
+                      </div>
+
+                    </div>
+
+                    <!--upload source header file block-->
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-1"></div>
+                        <form method="POST" enctype= "multipart/form-data" id="formsourceheader">
+                          <input class="file-upload-input" type='file' accept=".csv" name = "file" id="uploadsourceheaderfile" hidden/>
+                        </form>
+                        <div class="col-2">
+                          <label for="uploadsourceheaderfile">
+                            <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                          </label>
+                        </div>
+                        <div class="col-8">
+                          <h4 class="pt-1"> &lt; Upload source header file</h4>
+                        </div>
+                        <div class="col-1"></div>
+                      </div>
+                    </div>
+                    <!--######################upload source header file block end##########################-->
+
+                  </div>
+
+                  <!--add another parameter button-->
+                  <div class="row">
+                    <div class="col-7"></div>
+                    <div class="col-3">
+                      <button class="btn border border-secondary border-2 add-another-prarameter" id="addanotherparameter" type="button"> + add another parameter</button>
+                    </div>
+                    <div class="col-2"></div>
+                  </div>
+                  <!--#############################add another parameter button end############################-->
+
+                  <!--Parameter block-->
+                  <div class="row">
+                    <div class="col-10">
+                      <div class="row">
+                        <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
+                          <legend class="w-auto">Parameter</legend>
+                          <div class="col-12">
+
+                            <div class="row mb-3">
+                              <div class="col-3">
+                                <input type="text" class="form-control border border-secondary border-2" placeholder="Parameter name">
+                              </div>
+                              <div class="col-9"></div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-5">
+                                <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function parameters">
+                              </div>
+                              <div class="col-7"></div>
+                            </div>
+
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="col-2"></div>
+                  </div>
+                  <!--##########################################parameter block end#################################################-->
+
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+      <!--##########################################FunctionMap end#################################################-->
+
 
 
     </div>
