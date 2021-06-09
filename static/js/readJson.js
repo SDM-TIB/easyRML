@@ -1,5 +1,5 @@
 $.ajax({
-    url:'/suggestPrefix',
+    url:'/receivePrefix',
     type:'GET',
     contentType: "application/json",
     dataType: 'json',

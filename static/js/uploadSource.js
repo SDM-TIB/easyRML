@@ -14,13 +14,15 @@ $(document).on("change", "#uploadsourcefile", function () {
       success: function (data1) {
         alert(data1);
         $.ajax({
-          url:'/receiveProperties',
+          url:'/receiveDataFields',
           type:'GET',
           contentType: "application/json",
           dataType: 'json',
             success: function( json ) {
               $.each(json, function(file) {
                   $('#selectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
+                  $('#selectdatafieldsuggestion').append($('<option value="' + this + '">' + this + '</option>'));
+                  $('#predicateselectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
                 });
               }
             });

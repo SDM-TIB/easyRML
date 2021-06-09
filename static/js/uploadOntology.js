@@ -21,6 +21,8 @@ $(document).on("change", "#uploadttlfile", function () {
           success: function( json ) {
             $.each(json, function(file) {
                 $('#selectclass').append($('<option value="' + this + '">' + this + '</option>'));
+                $('#selectclasssuggestion').append($('<option value="' + this + '">' + this + '</option>'));
+                $('#predicateselectclass').append($('<option value="' + this + '">' + this + '</option>'));
               });
             }
           });
