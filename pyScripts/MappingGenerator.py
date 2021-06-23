@@ -9,40 +9,48 @@ import json
 import SPARQLWrapper
 
 #################################################################################
-global prefixDict
-prefixDict = {"http://www.w3.org/ns/r2rml#":"rr", "http://semweb.mmlab.be/ns/rml#":"rml",
-"http://www.w3.org/2000/01/rdf-schema#":"rdfs", "http://www.w3.org/1999/02/22-rdf-syntax-ns#":"rdf",
-"http://semweb.mmlab.be/ns/ql#":"ql", "http://schema.org/":"schema", "http://www.w3.org/2001/XMLSchema#":"xsd",
-"http://semweb.mmlab.be/ns/fnml#":"fnml", "https://w3id.org/function/ontology#":"fno"}
 
-def fileManagement(file):
+class Mappings():
 
-	## output configuration
-	mappingFile = str(file["mapping"]["FileManagement"]["output"]["outputPath"]) + "/" +\
-						str(file["mapping"]["FileManagement"]["output"]["outputName"]) + ".ttl"
-	##read prefix
-	prefixes = ""
-	for entry in file["mapping"]["FileManagement"]["prefix"]["defaultPrefixes"]:
-		prefix = str(prefixDict.get(str(entry["URL"]))) 
-		prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
-		prefixes = prefixes + prefixString + "\n"
-	for entry in file["mapping"]["FileManagement"]["prefix"]["newPrefixes"]:
-		prefix = str(entry["prefix"])
-		prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
-		prefixes = prefixes + prefixString + "\n"
-	return (mappingFile,prefixes)
+	def __init__(self):
+		self.prefixDict = dict()
+		self.ui_file = ""
+
+	def defaultPrefixes(self,file):
+		prefix_df = pd.read_csv("../sources/defaultPrefixes.csv")
+		for i in range(0,len(prefix_df)):
+			self.prefixDict.update({prefix_df["URL"][i]:prefix_df["prefix"][i]})
+
+	def usersPrefixes(self):
+		prefixes = ""
+		for entry in self.ui_file["mapping"]["FileManagement"]["prefix"]["defaultPrefixes"]:
+			prefix = str(prefixDict.get(str(entry["URL"]))) 
+			prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
+			prefixes = prefixes + prefixString + "\n"
+		for entry in self.ui_file["mapping"]["FileManagement"]["prefix"]["newPrefixes"]:
+			prefix = str(entry["prefix"])
+			prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
+			prefixes = prefixes + prefixString + "\n"
+		return (mappingFile,prefixes)
 
 
-#def triplesMap(file):
 
-def generator():
-	with open ("../sources/mapping_example.json") as file:
-		userInput = json.load(file)
-		mappingFile,prefixes = fileManagement(userInput)
-	mappingFile = open(mappingFile, "w")
-	mappingFile.write(prefixes)
-	mappingFile.close()
-	return (mappingFile)
+	def fileManagement(file):
+
+		## output configuration
+		mappingFile = str(self.ui_file["mapping"]["FileManagement"]["output"]["outputPath"]) + "/" +\
+							str(self.ui_file["mapping"]["FileManagement"]["output"]["outputName"]) + ".ttl"
+		##read prefix
+
+
+	def generator():
+		with open ("../sources/mapping_example.json") as self.ui_file:
+			userInput = json.load(self.ui_file)
+			mappingFile,prefixes = fileManagement(userInput)
+		mappingFile = open(mappingFile, "w")
+		mappingFile.write(prefixes)
+		mappingFile.close()
+		return (mappingFile)
 
 
 if __name__ == "__main__":
