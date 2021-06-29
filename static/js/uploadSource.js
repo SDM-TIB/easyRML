@@ -13,6 +13,17 @@ $(document).on("change", "#uploadsourcefile", function () {
       async: false,
       success: function (data1) {
         alert(data1);
+
+        $('#selectdatafield').empty();
+        $('#selectdatafield').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
+
+        $('#selectdatafieldsuggestion').empty();
+        $('#selectdatafieldsuggestion').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
+        
+        $('#predicateselectdatafield').empty();
+        $('#predicateselectdatafield').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
+
+
         $.ajax({
           url:'/receiveDataFields',
           type:'GET',

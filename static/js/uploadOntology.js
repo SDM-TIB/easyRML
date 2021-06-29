@@ -13,6 +13,16 @@ $(document).on("change", "#uploadttlfile", function () {
     async: false,
     success: function (data) {
       alert(data);
+
+      $('#selectclass').empty();
+      $('#selectclass').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+
+      $('#selectclasssuggestion').empty();
+      $('#selectclasssuggestion').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+        
+      $('#predicateselectclass').empty();
+      $('#predicateselectclass').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+
       $.ajax({
         url:'/receiveClasses',
         type:'GET',
