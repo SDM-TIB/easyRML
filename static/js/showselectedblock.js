@@ -32,6 +32,7 @@ function showSelectPredicateBlock(predicateNameSelect){
             document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
             document.getElementById("predicatedatauribox").style.display = 'none';
             document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
             document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
         }
         else if(predicateNameSelect.value == 2){
@@ -39,6 +40,7 @@ function showSelectPredicateBlock(predicateNameSelect){
             document.getElementById("selectdatafieldsuggestionbox").style.display = 'block';
             document.getElementById("predicatedatauribox").style.display = 'none';
             document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
             document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
         }
         else if(predicateNameSelect.value == 3){
@@ -46,6 +48,7 @@ function showSelectPredicateBlock(predicateNameSelect){
             document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
             document.getElementById("predicatedatauribox").style.display = 'block';
             document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
             document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
         }
         else if(predicateNameSelect.value == 4){
@@ -53,6 +56,7 @@ function showSelectPredicateBlock(predicateNameSelect){
             document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
             document.getElementById("predicatedatauribox").style.display = 'none';
             document.getElementById("predicateselecttriplesmapbox").style.display = 'block';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
             document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
         }
         else if(predicateNameSelect.value == 5){
@@ -60,6 +64,15 @@ function showSelectPredicateBlock(predicateNameSelect){
             document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
             document.getElementById("predicatedatauribox").style.display = 'none';
             document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'block';
+            document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
+        }
+        else if(predicateNameSelect.value == 6){
+            document.getElementById("selectclasssuggestionbox").style.display = 'none';
+            document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
+            document.getElementById("predicatedatauribox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
             document.getElementById("predicateselectfunctionmapbox").style.display = 'block';
         }
         else{
@@ -67,6 +80,7 @@ function showSelectPredicateBlock(predicateNameSelect){
             document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
             document.getElementById("predicatedatauribox").style.display = 'none';
             document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+            document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
             document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
         }
     }
@@ -75,6 +89,7 @@ function showSelectPredicateBlock(predicateNameSelect){
         document.getElementById("selectdatafieldsuggestionbox").style.display = 'none';
         document.getElementById("predicatedatauribox").style.display = 'none';
         document.getElementById("predicateselecttriplesmapbox").style.display = 'none';
+        document.getElementById("predicateselecttriplesmapboxdifferent").style.display = 'none';
         document.getElementById("predicateselectfunctionmapbox").style.display = 'none';
     }
 };
