@@ -120,12 +120,9 @@
           $.ajax({
             type: "POST",
             url: "/readUserInput",
-            data: finaljson,
-            contentType: false,
-            cache: false,
-            processData: false,
+            data: JSON.stringify(finala),
             dataType: "json",
-            async: false,
+            contentType: "application/json; charset=utf-8",
             success: function (data) {
               alert(data);
             },
