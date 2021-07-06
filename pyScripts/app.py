@@ -118,10 +118,11 @@ def receiveFunctionMapNames():
 ################ receive user's input and store in a file ##################
 @app.route('/readUserInput', methods=['POST'])
 def readUserInput():
-    userInputData = request.get_json()  
-    userInputFile = jsonify(userInputData)
-    print (userInputFile)     
-    userInputFile.save('../sources/userInput.json') 
+    if request.is_json:
+        userInputData = request.get_json() 
+        print (userInputData)
+    else:
+        print ("NOT JSON")
     return ''
 
 ################ store the user input / generate the mapping file ##################
@@ -139,10 +140,8 @@ def generateMapping():
         mappingFile = MappingGenerator.generator() 
         return Response(mappingFile, mimetype="application/json")
 
-
-
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5522, host="0.0.0.0")
+    app.run(port=5532, host="0.0.0.0")
 
