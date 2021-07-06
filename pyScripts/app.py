@@ -115,6 +115,15 @@ def receiveFunctionMapNames():
     property_json = json.dumps(property_list)       
     return Response(TriplesNames_json, mimetype="application/json")
 
+################ receive user's input and store in a file ##################
+@app.route('/readUserInput', methods=['POST'])
+def readUserInput():
+    userInputData = request.get_json()  
+    userInputFile = jsonify(userInputData)
+    print (userInputFile)     
+    userInputFile.save('../sources/userInput.json') 
+    return ''
+
 ################ store the user input / generate the mapping file ##################
 @app.route('/generateMapping', methods=['POST','GET'])
 def generateMapping():
