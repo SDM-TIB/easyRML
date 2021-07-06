@@ -46,8 +46,125 @@
 
     <!--append option in functionmap dropdown-->
     <script src="../static/js/add_functionmap_option.js"></script>
+	
+	
+	
 
     <script type="text/javascript">
+      $(document).ready(function(){
+
+
+
+
+        var jsonObj = {"newPrefixs":[]};
+        
+
+        $("#addprefixbutton").on('click',function(){
+
+
+          var manualPrefix = $("#manualUrl").val();
+          var manualUrl = $("#manualUrl").val();
+
+          
+
+          jsonObj.newPrefixs.push({
+            prefix: manualPrefix,
+            url: manualUrl
+          });
+
+          var jsonString = JSON.stringify(jsonObj);
+
+          // console.log(jsonString);
+
+
+
+
+
+          var jsonOb = {"defaultPrefixes":[]};
+
+          $('#inputGroupSelect02 option:selected').each(function(){
+            // console.log(this);
+            if(!this.getAttribute("isnewprefix")){
+            jsonOb.defaultPrefixes.push({
+              prefix: this.text
+            });}
+          });
+
+
+          var jsonstr = JSON.stringify(jsonOb);
+
+          // console.log(jsonstr)
+
+
+
+          var final = []
+
+          final.push(jsonOb);
+          final.push(jsonObj);
+          // console.log(final);
+
+          var finaljson = JSON.stringify(final);
+          console.log(finaljson);
+
+
+          let dataURI= 'data:application/json;charset=utf-8,' + encodeURIComponent(finaljson);
+
+          let exportfilename = '/templates/input.json';
+         
+
+          // let linkelement = document.createElement('a');
+          // linkelement.setAttribute('href', dataURI);
+          // linkelement.setAttribute('download', exportfilename);
+          // linkelement.click();
+
+          $.ajax({
+            type: "POST",
+            url: "/readUserInput",
+            data: finaljson,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+              alert(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(jqXHR);
+              console.log(textStatus);
+              console.log(errorThrown);
+            },
+
+          });
+          
+        
+          
+        });
+      });
+    // $(document).ready(function(){
+    //   $("#addprefixbutton").on('click',function(){
+    //     var jsonObj = {"manualprefix":[]};
+
+        
+    //       var manualPrefix = $("#manualUrl").val();
+    //       var manualUrl = $("#manualUrl").val();
+
+    //       var item = {}
+    //       item['manualPrefix'] = manualPrefix;
+    //       item['manualUrl'] = manualUrl;
+
+    //       localStorage.setItem('object', JSON.stringify(item))
+          
+        
+    //     var jsonString = localStorage.getItem('object');
+    //     console.log(JSON.parse(jsonString));
+
+    //   });
+    // });
+
+
+
+
 
       $(function() {
        $(".chosen-select").chosen({
