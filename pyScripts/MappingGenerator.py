@@ -18,7 +18,6 @@ TM = ""
 def generateOutput(outputInfo):
 	output_file_path = outputInfo["output"]["output_file_path"]
 	output_file_name = outputInfo["output"]["output_file_name"]
-	### writing ###
 	ouputFile = str(output_file_path) + str(output_file_name)
 	return ouputFile
 
@@ -44,7 +43,6 @@ def receiveSource(source):
 
 def generateTriplesMap(data):
 	TM_name = data["triplesMap"]["name"]
-	### writing ###
 	TM = "< " + TM_name + " >\n"
 	TM = TM + "\trml:logicalSource [ rml:source\"" + sourceName + \
 				"\";\n\t\t\t\t\trml:referenceFormulation ql:CSV ];\n"
@@ -52,13 +50,15 @@ def generateTriplesMap(data):
 
 def generateSubjectMap(data):
 	subjectType = data["subjectMap"]["subjectType"]
-	if subjectType = "Ref_to_data_as_uri":
-		subject = data["subjectMap"]["subject"]
+	subject = data["subjectMap"]["subject"]
+	termType = data["subjectMap"]["termType"]
+	if subjectType == "class":
+		SM = "\trr:subjectMap [\n\t\trr:constant \"" + subject + \
+		"\";\n\t\trr:termType " + termType + ";\n\t];"
+	elif subjectType == "Ref_to_data_as_uri":
 		subjectClass = data["subjectMap"]["subjectClass"]
-		termType = data["subjectMap"]["termType"]
-	### writing ###
-	SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
-	"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t];"
+		SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
+		"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t];"	
 	return SM
 
 def generatePOM(data):
@@ -71,7 +71,7 @@ def generatePOM(data):
 		url = predicateURL.rplit("/")[0]
 		value = predicateURL.rplit("/")[1]
 	for p,u in prefixDict:
-		if u = url:
+		if u == url:
 			predicate_prefix = p
 	if p != "":
 		predicate = p + value
@@ -79,12 +79,36 @@ def generatePOM(data):
 		predicate = predicateURL
 	### Object ###
 	objectType = data["predicateObjectMap"]["objectType"]
+	objectValue = data["predicateObjectMap"]["object"]
+	termType = data["predicateObjectMap"]["termType"]
 
+	if objectType == "class":rr:constant, rr:column, rr:template
+		objectMap = "rr:constant \"" + objectValue + "\";" + \
+		"\n\t\trr:termType " + termType + ";\n\t];"
 
+	elif objectType == "Ref_to_data":
+		objectMap = "rml:reference \"" + objectValue + "\";" + \
+		"\n\t\trr:termType " + termType + ";\n\t];"
 
-	### writing ###
+	elif objectType == "Ref_to_data_as_uri":
+		objectClass = data["predicateObjectMap"]["objectClass"]
+		objectMap = "rr:template \"" + objectClass + "/{" + objectValue + \
+		"}\";" + "\n\t\trr:termType " + termType + ";\n\t];"
+
+	elif objectType == "Ref_to_TM_same_source":
+		objectMap = "rr:parentTriplesMap <" + objectValue + ">;" + \
+		"\n\t\trr:termType " + termType + ";\n\t];"
+
+	elif objectType == "Ref_to_TM_different_source":
+		childValue = data["predicateObjectMap"]["child"]
+		parentValue = data["predicateObjectMap"]["parent"]
+		joinValue = "rr:joinCondition [\n\t\t\trr:child \"" + childValue + \
+		"\";\n\t\t\trr:parent \"" + parentValue + "\";];"
+		objectMap = "rr:parentTriplesMap <" + objectValue + ">;" +\
+		"\n\t\t" + "rr:termType " + termType + ";\n\t\t\t"+ joinValue + " ];"
+
 	POM = "\trr:predicateObjectMap [\n\t\trr:predicate" + predicate + \
-	";\n\t\trr:objectMap [\n\t\t\t" ...
+	";\n\t\trr:objectMap [\n\t\t\t" + objectMap + "\n]"
 
 def generator(userInputData):
 	#ouputFile = generateOutput(userInputData[0])
