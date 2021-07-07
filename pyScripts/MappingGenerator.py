@@ -14,18 +14,32 @@ prefixDict = dict()
 
 
 def readingData(userInputData):
-#	defaultPrefixData = userInputData[0]
-#	defaultList = defaultPrefixData["defaultPrefixes"]
-#	for i in range (1,len(defaultList)):
-#		prefixDict.update({defaultList[i]["prefix"]:defaultList[i]["URL"]})
+	##### Prefixes ####
+	defaultPrefixData = userInputData[0]
+	defaultList = defaultPrefixData["defaultPrefixes"]
+	for i in range (1,len(defaultList)):
+		prefixDict.update({defaultList[i]["prefix"]:defaultList[i]["URL"]})
 	usersPrefixData = userInputData[1]
 	userList = usersPrefixData["newPrefixs"]
 	for i in range (0,len(userList)):
 		prefixDict.update({userList[i]["prefix"]:userList[i]["url"]})
+	##### TriplesMap ####
 
-##################### to continue with writing
-	for item in prefixDict.items():
-		print (item)
+
+
+
+	writeData()
+
+
+
+def writeData():
+	##### Prefixes ####
+	prefixes = ""
+	for prefix in prefixDict.keys():
+		prefixString = "@prefix "+ prefix + ": <" + str(prefixDict[prefix]) + "> ."
+		prefixes = prefixes + prefixString + "\n"
+	print (prefixes)
+	##### TriplesMap ####
 
 def usersPrefixes():
 	prefixes = ""
