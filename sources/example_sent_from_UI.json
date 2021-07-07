@@ -2,7 +2,11 @@
     {"output":[{"output_file_path":"","output_file_name":""}]},
     {"defaultPrefixes":[]},
     {"newPrefixs":[{"prefix":"oiew","url":"http://bla"}]},
-    {"triplesMap":[{"name":"","subjectType":"Ref_to_data_as_uri","termType":""}]},
-    {"predicateObjectMap":[{"predicate":"","objectType":"class","object":""}]}
-
+    {"triplesMap":[{"name":""}]},
+    {"subjectMap":[{"subjectType":"Ref_to_data_as_uri","subject":"","subjectClass":"","termType":""}]},
+    {"predicateObjectMap":[{"predicate":"","objectType":"class","object":"","termType":""}]},
+    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_data","object":"","termType":""}]},
+    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_data_as_uri","object":"","objectClass":"","termType":""}]},
+    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_TM_same_source","object":"","termType":""}]},
+    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_TM_same_source","object":"","termType":""}]}
 ]

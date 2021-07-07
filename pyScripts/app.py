@@ -70,7 +70,8 @@ def readDataSource():
         uploaded_file.save('../sources/' + filename) 
     global dataFileAddress
     dataFileAddress = "../sources/" + filename
-    return '' 
+    MappingGenerator.receiveSource(dataFileAddress)
+    return ""
 
 ######## suggest classes based on the uploaded ontology file #########
 @app.route('/receiveClasses', methods=['GET'])
@@ -143,5 +144,5 @@ def generateMapping():
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5506, host="0.0.0.0")
+    app.run(port=5507, host="0.0.0.0")
 
