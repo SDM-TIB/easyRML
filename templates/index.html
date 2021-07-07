@@ -50,7 +50,7 @@
 	
 	
 
-    <script type="text/javascript">
+     <script type="text/javascript">
       $(document).ready(function(){
 
 
@@ -84,9 +84,11 @@
 
           $('#inputGroupSelect02 option:selected').each(function(){
             // console.log(this);
+            console.log(this.val);
             if(!this.getAttribute("isnewprefix")){
             jsonOb.defaultPrefixes.push({
-              prefix: this.text
+              prefix: this.text,
+              url: this.value
             });}
           });
 
