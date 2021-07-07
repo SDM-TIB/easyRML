@@ -9,7 +9,8 @@ $(document).on("click", "#addprefixbutton", function (e) {
    
 
     $("#inputGroupSelect02").append($('<option>', {
-        text: url
+        text: url,
+        isnewprefix: true
      }).prop('selected', true));
     $("#inputGroupSelect02").trigger("chosen:updated");
 
