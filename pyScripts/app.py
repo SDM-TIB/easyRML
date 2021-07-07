@@ -120,7 +120,7 @@ def receiveFunctionMapNames():
 def readUserInput():
     if request.is_json:
         userInputData = request.get_json() 
-        print (userInputData)
+        MappingGenerator.readingData(userInputData)
     else:
         print ("NOT JSON")
     return ''
@@ -143,5 +143,5 @@ def generateMapping():
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5510, host="0.0.0.0")
+    app.run(port=5506, host="0.0.0.0")
 

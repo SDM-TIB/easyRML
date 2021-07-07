@@ -9,48 +9,54 @@ import json
 import SPARQLWrapper
 
 #################################################################################
-
-class Mappings():
-
-	def __init__(self):
-		self.prefixDict = dict()
-		self.ui_file = ""
-
-	def defaultPrefixes(self,file):
-		prefix_df = pd.read_csv("../sources/defaultPrefixes.csv")
-		for i in range(0,len(prefix_df)):
-			self.prefixDict.update({prefix_df["URL"][i]:prefix_df["prefix"][i]})
-
-	def usersPrefixes(self):
-		prefixes = ""
-		for entry in self.ui_file["mapping"]["FileManagement"]["prefix"]["defaultPrefixes"]:
-			prefix = str(prefixDict.get(str(entry["URL"]))) 
-			prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
-			prefixes = prefixes + prefixString + "\n"
-		for entry in self.ui_file["mapping"]["FileManagement"]["prefix"]["newPrefixes"]:
-			prefix = str(entry["prefix"])
-			prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
-			prefixes = prefixes + prefixString + "\n"
-		return (mappingFile,prefixes)
+global prefixDict
+prefixDict = dict()
 
 
+def readingData(userInputData):
+#	defaultPrefixData = userInputData[0]
+#	defaultList = defaultPrefixData["defaultPrefixes"]
+#	for i in range (1,len(defaultList)):
+#		prefixDict.update({defaultList[i]["prefix"]:defaultList[i]["URL"]})
+	usersPrefixData = userInputData[1]
+	userList = usersPrefixData["newPrefixs"]
+	for i in range (0,len(userList)):
+		prefixDict.update({userList[i]["prefix"]:userList[i]["url"]})
 
-	def fileManagement(file):
+##################### to continue with writing
+	for item in prefixDict.items():
+		print (item)
 
-		## output configuration
-		mappingFile = str(self.ui_file["mapping"]["FileManagement"]["output"]["outputPath"]) + "/" +\
-							str(self.ui_file["mapping"]["FileManagement"]["output"]["outputName"]) + ".ttl"
-		##read prefix
+def usersPrefixes():
+	prefixes = ""
+	for entry in prefixDict.items():
+		print (entry)
+	for entry in ui_file["mapping"]["FileManagement"]["prefix"]["defaultPrefixes"]:
+		prefix = str(prefixDict.get(str(entry["URL"]))) 
+		prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
+		prefixes = prefixes + prefixString + "\n"
+	for entry in ui_file["mapping"]["FileManagement"]["prefix"]["newPrefixes"]:
+		prefix = str(entry["prefix"])
+		prefixString = "@prefix "+ prefix + ": <" + str(entry["URL"]) + "> ."
+		prefixes = prefixes + prefixString + "\n"
+	return (mappingFile,prefixes)
+
+def fileManagement(file):
+
+	## output configuration
+	mappingFile = str(ui_file["mapping"]["FileManagement"]["output"]["outputPath"]) + "/" +\
+						str(ui_file["mapping"]["FileManagement"]["output"]["outputName"]) + ".ttl"
+	##read prefix
 
 
-	def generator():
-		with open ("../sources/mapping_example.json") as self.ui_file:
-			userInput = json.load(self.ui_file)
-			mappingFile,prefixes = fileManagement(userInput)
-		mappingFile = open(mappingFile, "w")
-		mappingFile.write(prefixes)
-		mappingFile.close()
-		return (mappingFile)
+def generator():
+	with open ("../sources/mapping_example.json") as self.ui_file:
+		userInput = json.load(ui_file)
+		mappingFile,prefixes = fileManagement(userInput)
+	mappingFile = open(mappingFile, "w")
+	mappingFile.write(prefixes)
+	mappingFile.close()
+	return (mappingFile)
 
 
 if __name__ == "__main__":
