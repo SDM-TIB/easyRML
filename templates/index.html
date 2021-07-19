@@ -347,6 +347,7 @@
                       <div class="input-group mb-3 ">
                         <select class="form-select border border-2 border-secondary" id="selectsubject" data-placeholder="select the subject type" onchange="showSelectBlock(this);">
                           <option selected>--select the subject type--</option>
+                          <option value="0">Class</option>
                           <option value="1">Reference to data as URI</option>
                           <option value="2">Reference to a FunctionMap</option>
                        </select>  
@@ -381,8 +382,20 @@
               </div>
               <!--#############################first line end#############################################-->
 
-
               <!--row box for first option-->
+              <div class="row mt-3 default" id="classbox">
+                <div class="col-9">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary" id="selectfirstclass" data-placeholder="select the corresponding class from the suggestion (based on Ontology)">
+                          <option selected>--select the corresponding class from the suggestion (based on Ontology)--</option>
+                       </select>  
+                      </div>
+                </div>
+                <div class="col-5"></div>
+              </div>
+              <!--##################################row box for first option end###########################################################-->
+
+              <!--row box for second option-->
               <div class="row mt-3 default" id="datauribox">
                 <div class="col-9">
                   <div class="row">
@@ -407,9 +420,9 @@
                   </div>
                 </div>
               </div>
-              <!--####################################row box for first option end########################################################-->
+              <!--####################################row box for second option end########################################################-->
 
-              <!--row box for second option-->
+              <!--row box for third option-->
               <div class="row mt-3 default" id="functionmapbox">
                 <div class="col-9">
                       <div class="input-group mb-3 ">
@@ -422,7 +435,7 @@
                 </div>
                 <div class="col-5"></div>
               </div>
-              <!--##################################row box for second option end###########################################################-->
+              <!--##################################row box for third option end###########################################################-->
 
               <!--Term type-->
               <div class="row mt-3">
