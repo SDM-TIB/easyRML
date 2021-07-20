@@ -82,7 +82,7 @@ def generatePOM(data):
 	objectValue = data["predicateObjectMap"]["object"]
 	termType = data["predicateObjectMap"]["termType"]
 
-	if objectType == "class":rr:constant, rr:column, rr:template
+	if objectType == "class":
 		objectMap = "rr:constant \"" + objectValue + "\";" + \
 		"\n\t\trr:termType " + termType + ";\n\t];"
 
