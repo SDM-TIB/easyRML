@@ -23,6 +23,8 @@ $(document).on("change", "#uploadsourcefile", function () {
         $('#predicateselectdatafield').empty();
         $('#predicateselectdatafield').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
 
+        $('#joinconditionchild').empty();
+        $('#joinconditionchild').append($('<option>' , { text: "--joinCondition child--" }).prop('selected',true));
 
         $.ajax({
           url:'/receiveDataFields',
@@ -34,6 +36,7 @@ $(document).on("change", "#uploadsourcefile", function () {
                   $('#selectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
                   $('#selectdatafieldsuggestion').append($('<option value="' + this + '">' + this + '</option>'));
                   $('#predicateselectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
+                  $('#joinconditionchild').append($('<option value="' + this + '">' + this + '</option>'));
                 });
               }
             });
