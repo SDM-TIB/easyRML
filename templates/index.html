@@ -56,25 +56,39 @@
 
 
 
-        var jsonObj = {"newPrefixs":[]};
         
 
-        $("#addprefixbutton").on('click',function(){
+        $("#sendjson").on('click',function(){
 
 
-          var manualPrefix = $("#manualPrefix").val();
-          var manualUrl = $("#manualUrl").val();
+          var jsonFile = {"output":[]};
+          var output_file_path =  $("#outputfilepath").val();
+          var output_file_name =  $("#outputfilename").val();
+
+          jsonFile.output.push({
+            output_file_path: output_file_path,
+            output_file_name: output_file_name
+          });
 
           
 
-          jsonObj.newPrefixs.push({
-            prefix: manualPrefix,
-            url: manualUrl
+          
+          // console.log(jsonString);
+
+
+          var jsonObj = {"newPrefixs":[]};
+
+          $('#inputGroupSelect02 option:selected').each(function(){
+            console.log(this);
+            console.log(this.value);
+            if(this.getAttribute("isnewprefix")){
+            jsonObj.newPrefixs.push({
+              prefix: this.value,
+              url: this.text
+            });}
           });
 
-          var jsonString = JSON.stringify(jsonObj);
-
-          // console.log(jsonString);
+          // var jsonString = JSON.stringify(jsonObj);
 
 
 
@@ -83,8 +97,8 @@
           var jsonOb = {"defaultPrefixes":[]};
 
           $('#inputGroupSelect02 option:selected').each(function(){
-            // console.log(this);
-            console.log(this.val);
+            console.log(this);
+            console.log(this.value);
             if(!this.getAttribute("isnewprefix")){
             jsonOb.defaultPrefixes.push({
               prefix: this.value,
@@ -93,16 +107,140 @@
           });
 
 
-          var jsonstr = JSON.stringify(jsonOb);
+          // var jsonstr = JSON.stringify(jsonOb);
 
           // console.log(jsonstr)
+
+
+          var jsonTripleMap = {"triplesMap":[]};
+          var triplemapname =  $("#triplemapname").val();
+          
+
+          jsonTripleMap.triplesMap.push({
+            name: triplemapname
+          });
+
+
+
+          var jsonSubjectMap={"subjectMap":[]};
+
+          var valueofSubjectMap = $("#selectsubject option:selected").val();
+
+          if(valueofSubjectMap == 0){
+            var subjectType="class";
+            var subject = $("#selectfirstclass option:selected").text();
+            var termtype = $("#selecttermtype option:selected").text();
+
+            jsonSubjectMap.subjectMap.push({
+              subjectType:subjectType,
+              subject:subject,
+              termType:termtype
+            });
+          }
+          else if(valueofSubjectMap == 1){
+            var subjectType="Ref_to_data_as_uri"; 
+            var subject = $("#selectdatafield option:selected").text();
+            var subjectClass =  $("#selectclass option:selected").text();
+            var termtype = $("#selecttermtype option:selected").text();
+
+            jsonSubjectMap.subjectMap.push({
+              subjectType:subjectType,
+              subject:subject,
+              subjectClass:subjectClass,
+              termType:termtype
+            });
+          }
+
+
+
+          var jsonPredicateObjectMap = {"predicateObjectMap":[]};
+
+          var valueofPredicateObjectMap = $("#selectobjecttype option:selected").val();
+
+          if(valueofPredicateObjectMap == 1){
+            var predicate = $("#selectproperty option:selected").text();
+            var objectType = "class";
+            var object = $("#selectclasssuggestion option:selected").text();
+            var termType = $("#selecttermtypepredicateobjectmap option:selected").text();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+              predicate:predicate,
+              objectType:objectType,
+              object:object,
+              termType:termType
+            });
+          }
+          else if(valueofPredicateObjectMap == 2){
+            var predicate = $("#selectproperty option:selected").text();
+            var objectType = "Ref_to_data";
+            var object = $("#selectdatafieldsuggestion option:selected").text();
+            var termType = $("#selecttermtypepredicateobjectmap option:selected").text();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+              predicate:predicate,
+              objectType:objectType,
+              object:object,
+              termType:termType
+            });
+          }
+          else if(valueofPredicateObjectMap == 3){
+            var predicate = $("#selectproperty option:selected").text();
+            var objectType = "Ref_to_data_as_uri";
+            var object = $("#predicateselectdatafield option:selected").text();
+            var objectClass = $("#predicateselectclass option:selected").text();
+            var termType = $("#selecttermtypepredicateobjectmap option:selected").text();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+              predicate:predicate,
+              objectType:objectType,
+              object:object,
+              objectClass:objectClass,
+              termType:termType
+            });
+          }
+          else if(valueofPredicateObjectMap == 4){
+            var predicate = $("#selectproperty option:selected").text();
+            var objectType = "Ref_to_TM_same_source";
+            var object = $("#predicateselecttriplesmap option:selected").text();
+            var termType = $("#selecttermtypepredicateobjectmap option:selected").text();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+              predicate:predicate,
+              objectType:objectType,
+              object:object,
+              termType:termType
+            });
+          }
+          else if(valueofPredicateObjectMap == 5){
+            var predicate = $("#selectproperty option:selected").text();
+            var objectType = "Ref_to_TM_different_source";
+            var object = $("#predicateselecttriplesmapdifferentdata option:selected").text();
+            var child = $("#joinconditionchild option:selected").text();
+            var parent = $("#joinconditionparent").val();
+            var termType = $("#selecttermtypepredicateobjectmap option:selected").text();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+              predicate:predicate,
+              objectType:objectType,
+              object:object,
+              child:child,
+              parent:parent,
+              termType:termType
+            });
+          }
+
+
 
 
 
           var final = []
 
+          final.push(jsonFile);
           final.push(jsonOb);
           final.push(jsonObj);
+          final.push(jsonTripleMap);
+          final.push(jsonSubjectMap);
+          final.push(jsonPredicateObjectMap);
           // console.log(final);
 
           var finaljson = JSON.stringify(final);
@@ -217,10 +355,10 @@
             <legend class="w-auto">File Management</legend>
             <div class="row first-row">
               <div class="col-7">
-                <input type="text" class="form-control border border-secondary border-2" placeholder="Insert output mapping file name">
+                <input type="text" class="form-control border border-secondary border-2" id="outputfilename" placeholder="Insert output mapping file name">
               </div>
               <div class="col-5">
-                <input type="text" class="form-control border border-secondary border-2" placeholder="Insert output path">
+                <input type="text" class="form-control border border-secondary border-2" id="outputfilepath" placeholder="Insert output path">
               </div>
             </div>
 
@@ -767,7 +905,19 @@
       </div> -->
       <!--##########################################FunctionMap end#################################################-->
     
+      <!--add another triplesmap button-->
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col-11">
 
+          </div>
+          <div class="col-1">
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjson" type="button"> Send Json</button>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
     <!-- </form> -->
