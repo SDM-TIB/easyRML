@@ -116,12 +116,22 @@ def receiveFunctionMapNames():
     property_json = json.dumps(property_list)       
     return Response(TriplesNames_json, mimetype="application/json")
 
-################ receive user's input and store in a file ##################
-@app.route('/readUserInput', methods=['POST'])
-def readUserInput():
+################ receive user's input (preliminary) and store in a file ##################
+@app.route('/readUserInput_preliminary', methods=['POST'])
+def readUserInput_preliminary():
     if request.is_json:
         userInputData = request.get_json() 
-        MappingGenerator.generator(userInputData)
+        MappingGenerator.generator_preliminary(userInputData)
+    else:
+        print ("NOT JSON")
+    return ''
+
+################ receive user's input (triplesMap) and store in a file ##################
+@app.route('/readUserInput_triplesMap', methods=['POST'])
+def readUserInput_triplesMap():
+    if request.is_json:
+        userInputData = request.get_json() 
+        MappingGenerator.generator_tripleMap(userInputData)
     else:
         print ("NOT JSON")
     return ''
@@ -144,5 +154,5 @@ def generateMapping():
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5502, host="0.0.0.0")
+    app.run(port=5506, host="0.0.0.0")
 

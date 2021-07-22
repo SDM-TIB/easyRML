@@ -76,13 +76,13 @@
           // console.log(jsonString);
 
 
-          var jsonObj = {"newPrefixs":[]};
+          var jsonObj = {"newPrefixes":[]};
 
           $('#inputGroupSelect02 option:selected').each(function(){
             console.log(this);
             console.log(this.value);
             if(this.getAttribute("isnewprefix")){
-            jsonObj.newPrefixs.push({
+            jsonObj.newPrefixes.push({
               prefix: this.value,
               url: this.text
             });}
@@ -259,7 +259,7 @@
 
           $.ajax({
             type: "POST",
-            url: "/readUserInput",
+            url: "/readUserInput_preliminary",
             data: JSON.stringify(final),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
