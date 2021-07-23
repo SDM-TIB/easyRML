@@ -112,6 +112,64 @@
           // console.log(jsonstr)
 
 
+          var final = []
+
+          final.push(jsonFile);
+          final.push(jsonOb);
+          final.push(jsonObj);
+          // console.log(final);
+
+          var finaljson = JSON.stringify(final);
+          console.log(finaljson);
+
+
+          // let dataURI= 'data:application/json;charset=utf-8,' + encodeURIComponent(finaljson);
+
+          // let exportfilename = '/templates/input.json';
+         
+
+          // let linkelement = document.createElement('a');
+          // linkelement.setAttribute('href', dataURI);
+          // linkelement.setAttribute('download', exportfilename);
+          // linkelement.click();
+
+          $.ajax({
+            type: "POST",
+            url: "/readUserInput_preliminary",
+            data: JSON.stringify(final),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+              alert(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log(jqXHR);
+              console.log(textStatus);
+              console.log(errorThrown);
+            },
+
+          });
+          
+        
+          
+        });
+      });
+
+
+
+      $(document).ready(function(){
+
+
+
+
+        
+
+        $("#sendjsonMap").on('click',function(){
+
+
+          
+
+
           var jsonTripleMap = {"triplesMap":[]};
           var triplemapname =  $("#triplemapname").val();
           
@@ -235,9 +293,6 @@
 
           var final = []
 
-          final.push(jsonFile);
-          final.push(jsonOb);
-          final.push(jsonObj);
           final.push(jsonTripleMap);
           final.push(jsonSubjectMap);
           final.push(jsonPredicateObjectMap);
@@ -247,9 +302,9 @@
           console.log(finaljson);
 
 
-          let dataURI= 'data:application/json;charset=utf-8,' + encodeURIComponent(finaljson);
+          // let dataURI= 'data:application/json;charset=utf-8,' + encodeURIComponent(finaljson);
 
-          let exportfilename = '/templates/input.json';
+          // let exportfilename = '/templates/input.json';
          
 
           // let linkelement = document.createElement('a');
@@ -259,7 +314,7 @@
 
           $.ajax({
             type: "POST",
-            url: "/readUserInput_preliminary",
+            url: "/readUserInput_triplesMap",
             data: JSON.stringify(final),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -278,28 +333,6 @@
           
         });
       });
-    // $(document).ready(function(){
-    //   $("#addprefixbutton").on('click',function(){
-    //     var jsonObj = {"manualprefix":[]};
-
-        
-    //       var manualPrefix = $("#manualUrl").val();
-    //       var manualUrl = $("#manualUrl").val();
-
-    //       var item = {}
-    //       item['manualPrefix'] = manualPrefix;
-    //       item['manualUrl'] = manualUrl;
-
-    //       localStorage.setItem('object', JSON.stringify(item))
-          
-        
-    //     var jsonString = localStorage.getItem('object');
-    //     console.log(JSON.parse(jsonString));
-
-    //   });
-    // });
-
-
 
 
 
@@ -443,6 +476,21 @@
 
       </div>
       <!--#############################file management & Ontology#############################################-->
+
+      <div class="container-fluid ">
+        <div class="row mb-3">
+          <div class="col-11">
+
+          </div>
+          <div class="col-1">
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjson" type="button"> send Json</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
 
       <!--add another triplesmap button-->
       <div class="container-fluid">
@@ -912,7 +960,7 @@
 
           </div>
           <div class="col-1">
-            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjson" type="button"> Send Json</button>
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjsonMap" type="button"> Send Json</button>
           </div>
 
         </div>
