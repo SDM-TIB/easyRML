@@ -15,16 +15,16 @@ $(document).on("change", "#uploadsourcefile", function () {
         alert(data1);
 
         $('#selectdatafield').empty();
-        $('#selectdatafield').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
+        $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field from the suggestion--" }).prop('selected',true));
 
         $('#selectdatafieldsuggestion').empty();
-        $('#selectdatafieldsuggestion').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
+        $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field from the suggestion--" }).prop('selected',true));
         
         $('#predicateselectdatafield').empty();
-        $('#predicateselectdatafield').append($('<option>' , { text: "--select the data field from the suggestion--" }).prop('selected',true));
+        $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field from the suggestion--" }).prop('selected',true));
 
         $('#joinconditionchild').empty();
-        $('#joinconditionchild').append($('<option>' , { text: "--joinCondition child--" }).prop('selected',true));
+        $('#joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop('selected',true));
 
         $.ajax({
           url:'/receiveDataFields',

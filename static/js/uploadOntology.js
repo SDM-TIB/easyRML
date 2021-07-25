@@ -15,19 +15,19 @@ $(document).on("change", "#uploadttlfile", function () {
       alert(data);
 
       $('#selectfirstclass').empty();
-      $('#selectfirstclass').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+      $('#selectfirstclass').append($('<option>' , {value: "default", text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
 
       $('#selectclass').empty();
-      $('#selectclass').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+      $('#selectclass').append($('<option>' , {value: "default", text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
 
       $('#selectclasssuggestion').empty();
-      $('#selectclasssuggestion').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+      $('#selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
         
       $('#predicateselectclass').empty();
-      $('#predicateselectclass').append($('<option>' , { text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
+      $('#predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class from the suggestion (based on the Ontology)--" }).prop('selected',true));
 
       $('#selectproperty').empty();
-      $('#selectproperty').append($('<option>' , { text: "--select the property from the suggestion (based on the Ontology)--" }).prop('selected',true));
+      $('#selectproperty').append($('<option>' , {value: "default", text: "--select the property from the suggestion (based on the Ontology)--" }).prop('selected',true));
 
       $.ajax({
         url:'/receiveClasses',
