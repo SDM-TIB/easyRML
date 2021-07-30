@@ -10,10 +10,10 @@ import SPARQLWrapper
 #################################################################################
 global prefixDict
 prefixDict = dict()
-global sourceName
 sourceName = ""
-global TM
-TM = ""
+mapping = ""
+output = ""
+
 
 def generateOutput(outputInfo):
 	output_file_path = outputInfo["output"][0]["output_file_path"]
@@ -42,9 +42,11 @@ def receiveSource(source):
 	sourceName = source
 
 def generateTriplesMap(data):
+	global sourceName
+	print (sourceName)
 	TM_name = data["triplesMap"][0]["name"]
 	TM = "< " + TM_name + " >\n"
-	TM = TM + "\trml:logicalSource [ rml:source\"" + sourceName + \
+	TM = TM + "\trml:logicalSource [ rml:source \"" + sourceName + \
 				"\";\n\t\t\t\t\trml:referenceFormulation ql:CSV ];\n"
 	return TM
 
@@ -56,7 +58,7 @@ def generateSubjectMap(data):
 		SM = "\trr:subjectMap [\n\t\trr:constant \"" + subject + \
 		"\";\n\t\trr:termType " + termType + ";\n\t];"
 	elif subjectType == "Ref_to_data_as_uri":
-		subjectClass = data["subjectMap"]["subjectClass"]
+		subjectClass = data["subjectMap"][0]["subjectClass"]
 		SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
 		"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t];"	
 	return SM
@@ -65,25 +67,29 @@ def generatePOM(data):
 	### Predicate ###	
 	global pomDict
 	pomList = data["predicateObjectMap"]
-	for i in range (0,len(pomList)):
+	POM = ""
+	for j in range (0,len(pomList)):
 		predicateURL = str(data["predicateObjectMap"][j]["predicate"])
 		if "#" in predicateURL:
-			url = predicateURL.split("#")[0]
-			value = predicateURL.split("#")[1]
+			predicate_url = predicateURL.split("#")[0]
+			predicate_value = predicateURL.split("#")[1]
 		else:
-			url = predicateURL.rplit("/")[0]
-			value = predicateURL.rplit("/")[1]
+			predicate_url = predicateURL.rsplit("/",1)[0]
+			predicate_value = predicateURL.rsplit("/",1)[1]
+		print (predicate_url+"__"+predicate_value)
+		predicate_prefix = ""
 		for p,u in prefixDict:
-			if u == url:
+			if u == predicate_url:
 				predicate_prefix = p
-		if p != "":
-			predicate = p + value
+		if predicate_prefix != "":
+			predicate = predicate_prefix + ":" + predicate_value
 		else:
 			predicate = predicateURL
+		print (predicate)
 		### Object ###
-		objectType = data["predicateObjectMap"]["objectType"]
-		objectValue = data["predicateObjectMap"]["object"]
-		termType = data["predicateObjectMap"]["termType"]
+		objectType = data["predicateObjectMap"][j]["objectType"]
+		objectValue = data["predicateObjectMap"][j]["object"]
+		termType = data["predicateObjectMap"][j]["termType"]
 
 		if objectType == "class":
 			objectMap = "rr:constant \"" + objectValue + "\";" + \
@@ -94,7 +100,7 @@ def generatePOM(data):
 			"\n\t\trr:termType " + termType + ";\n\t];"
 
 		elif objectType == "Ref_to_data_as_uri":
-			objectClass = data["predicateObjectMap"]["objectClass"]
+			objectClass = data["predicateObjectMap"][j]["objectClass"]
 			objectMap = "rr:template \"" + objectClass + "/{" + objectValue + \
 			"}\";" + "\n\t\trr:termType " + termType + ";\n\t];"
 
@@ -103,8 +109,8 @@ def generatePOM(data):
 			"\n\t\trr:termType " + termType + ";\n\t];"
 
 		elif objectType == "Ref_to_TM_different_source":
-			childValue = data["predicateObjectMap"]["child"]
-			parentValue = data["predicateObjectMap"]["parent"]
+			childValue = data["predicateObjectMap"][j]["child"]
+			parentValue = data["predicateObjectMap"][j]["parent"]
 			joinValue = "rr:joinCondition [\n\t\t\trr:child \"" + childValue + \
 			"\";\n\t\t\trr:parent \"" + parentValue + "\";];"
 			objectMap = "rr:parentTriplesMap <" + objectValue + ">;" +\
@@ -114,19 +120,32 @@ def generatePOM(data):
 		";\n\t\trr:objectMap [\n\t\t\t" + objectMap + "\n]"
 
 def generator_preliminary(userInputData):
+	global output
 	output = generateOutput(userInputData[0])
 	prefixes = generatePrefix(userInputData[1],userInputData[2])
-	#print (prefixes + TM + SM + POM)
+	global mapping
+	mapping = prefixes
+	return ""
 
 def generator_tripleMap(userInputData):
-	TM = generateTriplesMap(userInputData[3])
-	SM = generateSubjectMap(userInputData[4])
-	POM = generatePOM(userInputData[5])
+	TM = generateTriplesMap(userInputData[0])
+	SM = generateSubjectMap(userInputData[1])
+	POM = generatePOM(userInputData[2])
+	global mapping
+	mapping = mapping + str(TM) + str(SM) + str(POM)
+	print (mapping)
 	#mappingFile = open(ouputFile, "w")
 	#mappingFile.write(prefixes)
 
 	#mappingFile.close()
 	return ""
+
+def mappingFileGenerator():
+#	mappingFile = open(output, "w")
+#	mappingFile.write(prefixes)
+
+	#mappingFile.close()
+	return 
 
 
 if __name__ == "__main__":

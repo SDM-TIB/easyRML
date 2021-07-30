@@ -5,11 +5,7 @@ from flask import Flask, flash, render_template, request, Response, send_file, s
 from flask.json import jsonify
 import json
 import MappingGenerator
-import suggestClasses
-import suggestProperties
-import suggestPrefixes
-import suggestDataField
-import suggestTriplesNames
+import dataExtractor
 from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
@@ -42,11 +38,11 @@ def userInput_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in userInput_allowed_extensions
 
-######## provide prefixes for suggestion to the user #########
+############ extract and provide prefixes to the user #########
 @app.route('/receivePrefix', methods=['GET'])
 def receivePrefix():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    prefix_list = suggestPrefixes.readURLs("../sources/defaultPrefixes.csv") 
+    prefix_list = dataExtractor.readURLs("../sources/defaultPrefixes.csv") 
     prefix_json = json.dumps(prefix_list)
     return Response(prefix_json, mimetype="application/json")
 
@@ -73,24 +69,24 @@ def readDataSource():
     MappingGenerator.receiveSource(dataFileAddress)
     return ""
 
-######## suggest classes based on the uploaded ontology file #########
+######## extract and provide classes based on the uploaded ontology file #########
 @app.route('/receiveClasses', methods=['GET'])
 def receiveClasses():
-    class_list = suggestClasses.readOntologyTurtle(ontologyFileAddress)       
+    class_list = dataExtractor.readClassesFromOntologyTurtle(ontologyFileAddress)       
     class_json = json.dumps(class_list)
     return Response(class_json, mimetype="application/json")
 
-######## suggest classes based on the uploaded ontology file #########
+######## extract and provide classes based on the uploaded ontology file #########
 @app.route('/receiveProperties', methods=['GET'])
 def receiveProperties():
-    property_list = suggestProperties.readOntologyTurtle(ontologyFileAddress)       
+    property_list = dataExtractor.readPropertiesFromOntologyTurtle(ontologyFileAddress)       
     property_json = json.dumps(property_list)
     return Response(property_json, mimetype="application/json")
 
-######## suggest data fields based on the uploaded data source file #########
+######## extract and provide data fields based on the uploaded data source file #########
 @app.route('/receiveDataFields', methods=['GET'])
 def receiveDataFields():
-    dataFields_json = suggestDataField.extractFields(dataFileAddress)       
+    dataFields_json = dataExtractor.extractFields(dataFileAddress)       
     return Response(dataFields_json, mimetype="application/json")
 
 ################ Upload TriplesMaps Names ##################
@@ -102,17 +98,17 @@ def readTriplesNames():
         uploaded_file.save('../sources/TriplesMapsNames.json') 
     return ''
 
-################ suggest TriplesMaps Names ##################
+################ extract and provide TriplesMaps Names ##################
 @app.route('/receiveTriplesNames', methods=['GET'])
 def receiveTriplesNames():
-    property_list = suggestTriplesNames.extractTriplesMapsNames("../sources/TriplesMapsNames.json")       
+    property_list = dataExtractor.extractTriplesMapsNames("../sources/TriplesMapsNames.json")       
     property_json = json.dumps(property_list)       
     return Response(TriplesNames_json, mimetype="application/json")
 
-################ suggest FunctionMaps Names ##################
+################ extract and provide FunctionMaps Names ##################
 @app.route('/receiveFunctionMapNames', methods=['GET'])
 def receiveFunctionMapNames():
-    property_list = suggestTriplesNames.extractFunctionMapsNames("../sources/TriplesMapsNames.json")       
+    property_list = dataExtractor.extractFunctionMapsNames("../sources/TriplesMapsNames.json")       
     property_json = json.dumps(property_list)       
     return Response(TriplesNames_json, mimetype="application/json")
 
@@ -154,5 +150,5 @@ def generateMapping():
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5506, host="0.0.0.0")
+    app.run(port=5500, host="0.0.0.0")
 
