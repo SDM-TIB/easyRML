@@ -53,6 +53,9 @@ def readOntology():
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
         uploaded_file.save('../sources/' + filename)
+#        flash('Successfully Uploaded!')
+#    else:
+#        error = 'Invalid File Format'   
     global ontologyFileAddress
     ontologyFileAddress = "../sources/" + filename
     return ''   
@@ -63,10 +66,13 @@ def readDataSource():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
-        uploaded_file.save('../sources/' + filename) 
+        uploaded_file.save('../sources/' + filename)
+#        flash('Successfully Uploaded!')
+#    else:
+#        error = 'Invalid File Format'
     global dataFileAddress
     dataFileAddress = "../sources/" + filename
-    MappingGenerator.receiveSource(dataFileAddress)
+    #MappingGenerator.receiveSource(dataFileAddress)
     return ""
 
 ######## extract and provide classes based on the uploaded ontology file #########
@@ -131,7 +137,7 @@ def readUserInput_triplesMap():
     else:
         print ("NOT JSON")
     return ''
-
+'''
 ################ store the user input / generate the mapping file ##################
 @app.route('/generateMapping', methods=['POST','GET'])
 def generateMapping():
@@ -146,7 +152,7 @@ def generateMapping():
     elif request.method == "GET":
         mappingFile = MappingGenerator.generator() 
         return Response(mappingFile, mimetype="application/json")
-
+'''
 ############################################
 
 if __name__ == "__main__":
