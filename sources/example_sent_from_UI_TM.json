@@ -1,6 +1,5 @@
 [
-    {"triplesMap":[{"name":""}]},
-    {"logicalSource":[{"path_and_name":""}]},  
+    {"triplesMap":[{"name":"","logicalSource_path":""}]},
     {"subjectMap":[{"subjectType":"class","subject":"","termType":""}]},
     {"subjectMap":[{"subjectType":"Ref_to_data_as_uri","subject":"","subjectClass":"","termType":""}]},
     {"predicateObjectMap":[{"predicate":"","objectType":"class","object":"","termType":""}]},
