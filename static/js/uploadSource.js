@@ -15,13 +15,13 @@ $(document).on("change", "#uploadsourcefile", function () {
         alert(data1);
 
         $('#selectdatafield').empty();
-        $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field from the suggestion--" }).prop('selected',true));
+        $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
 
         $('#selectdatafieldsuggestion').empty();
-        $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field from the suggestion--" }).prop('selected',true));
+        $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
         
         $('#predicateselectdatafield').empty();
-        $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field from the suggestion--" }).prop('selected',true));
+        $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
 
         $('#joinconditionchild').empty();
         $('#joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop('selected',true));
