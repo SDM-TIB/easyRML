@@ -47,21 +47,16 @@
     <!--append option in functionmap dropdown-->
     <script src="../static/js/add_functionmap_option.js"></script>
 
+    <!--send json data from first block-->
     <script src="../static/js/sendbasicjson.js"></script>
 
+    <!--send json data from triplesmap block-->
     <script src="../static/js/sendadvancejson.js"></script>
 	
 	
 	
 
     <script type="text/javascript">
-      
-
-
-
-      
-
-
 
       $(function() {
        $(".chosen-select").chosen({
@@ -69,7 +64,9 @@
         });
       });
 
-    $("#inputGroupSelect02").trigger("chosen:updated");
+      $("#inputGroupSelect02").trigger("chosen:updated");
+
+
     </script>
 
 
@@ -289,6 +286,13 @@
                       <h4 class="pt-1"> &lt; Upload source here</h4>
                     </div>
                     <div class="col-1"></div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" class="form-control border border-secondary border-2" id="datasourcepath" placeholder="Add the path to data source to be added to the mapping">
+                    </div>
+                    <div class="col-3"></div>
                   </div>
                 </div>
                 <!--#############################upload source file end#############################-->
@@ -629,7 +633,7 @@
                     </div> -->
                     <!--######################upload source header file block end##########################-->
 
-                  </div>
+                  <!-- </div> -->
 
                   <!--add another parameter button-->
                   <!-- <div class="row">
@@ -687,7 +691,7 @@
 
           </div>
           <div class="col-1">
-            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjsonMap" type="button"> Send Json</button>
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjsonMap" type="button"> Create Mapping File</button>
           </div>
 
         </div>

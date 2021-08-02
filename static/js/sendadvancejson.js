@@ -5,9 +5,11 @@ $(document).ready(function () {
   $("#addanothertriples").on("click", function () {
     var jsonTripleMap = { triplesMap: [] };
     var triplemapname = $("#triplemapname").val();
+    var datasourcepath = $("#datasourcepath").val();
 
     jsonTripleMap.triplesMap.push({
       name: triplemapname,
+      logicalSource_path: datasourcepath,
     });
 
     var jsonSubjectMap = { subjectMap: [] };
@@ -132,6 +134,7 @@ $(document).ready(function () {
     console.log(finaljson);
 
     $("#triplemapname").val("");
+    $("#datasourcepath").val("");
     $("#selectsubject").val("default").change();
     $("#selectfirstclass").val("default").change();
     $("#selectdatafield").val("default").change();
@@ -261,9 +264,11 @@ $(document).ready(function () {
   $("#sendjsonMap").on("click", function () {
     var jsonTripleMap = { triplesMap: [] };
     var triplemapname = $("#triplemapname").val();
+    var datasourcepath = $("#datasourcepath").val();
 
     jsonTripleMap.triplesMap.push({
       name: triplemapname,
+      logicalSource_path:datasourcepath,
     });
 
     var jsonSubjectMap = { subjectMap: [] };
