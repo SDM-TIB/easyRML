@@ -11,11 +11,12 @@ import SPARQLWrapper
 prefixDict = dict()
 mapping = ""
 output = ""
+Tnames_list = []
 
 
 def generateOutput(outputInfo):
 	#output_file_path = outputInfo["output"][0]["output_file_path"]
-	output_file_path = "/Users/sam/Documents/GitHub/easyRML/sources/"
+	output_file_path = "/mnt/e/GitHub/easyRML/sources/"
 	output_file_name = outputInfo["output"][0]["output_file_name"]
 	ouputFile = str(output_file_path) + str(output_file_name) + ".ttl"
 	return ouputFile
@@ -37,26 +38,36 @@ def generatePrefix(default,new):
 	return prefixes
 
 def generateTriplesMap(data):
-	#sourceName = data["triplesMap"][0]["logicalSource_path"]
-	sourceName = "temp_value"
-	TM_name = data["triplesMap"][0]["name"]
-	TM = "<" + TM_name + ">\n"
-	TM = TM + "\trml:logicalSource [ rml:source \"" + sourceName + \
-				"\";\n\t\t\t\t\trml:referenceFormulation ql:CSV ];\n"
-	return TM
+	triplesList = data["triplesMap"]
+	TM_list = []
+	global Tnames_list
+	for t in range (0,len(triplesList)):
+		Tnames_list.append(data["triplesMap"][t]["name"])
+		sourceName = data["triplesMap"][t]["logicalSource_path"]
+		#sourceName = "temp_value"
+		TM_name = data["triplesMap"][t]["name"]
+		TM = "\n<" + TM_name + ">\n"
+		TM = TM + "\trml:logicalSource [ rml:source \"" + sourceName + \
+					"\";\n\t\t\t\t\trml:referenceFormulation ql:CSV ];\n"
+		TM_list.append(TM)
+	return TM_list
 
 def generateSubjectMap(data):
-	subjectType = data["subjectMap"][0]["subjectType"]
-	subject = data["subjectMap"][0]["subject"]
-	termType = data["subjectMap"][0]["termType"]
-	if subjectType == "class":
-		SM = "\trr:subjectMap [\n\t\trr:constant \"" + subject + \
-		"\";\n\t\trr:termType " + termType + ";\n\t]"
-	elif subjectType == "Ref_to_data_as_uri":
-		subjectClass = data["subjectMap"][0]["subjectClass"]
-		SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
-		"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t]"	
-	return SM
+	subjectList = data["subjectMap"]
+	SM_list = []
+	for s in range (0,len(subjectList)):
+		subjectType = data["subjectMap"][s]["subjectType"]
+		subject = data["subjectMap"][s]["subject"]
+		termType = data["subjectMap"][s]["termType"]
+		if subjectType == "class":
+			SM = "\trr:subjectMap [\n\t\trr:constant \"" + subject + \
+			"\";\n\t\trr:termType " + termType + ";\n\t]"
+		elif subjectType == "Ref_to_data_as_uri":
+			subjectClass = data["subjectMap"][s]["subjectClass"]
+			SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
+			"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t]"
+		SM_list.append(SM)
+	return SM_list
 
 def generatePOM(data):
 	### Predicate ###	
@@ -67,10 +78,10 @@ def generatePOM(data):
 	for j in range (0,len(pomList)):
 		predicateURL = str(data["predicateObjectMap"][j]["predicate"])
 		if "#" in predicateURL:
-			predicate_url = predicateURL.split("#")[0]
+			predicate_url = "".join((predicateURL.split("#")[0],"#"))
 			predicate_value = predicateURL.split("#")[1]
 		else:
-			predicate_url = predicateURL.rsplit("/",1)[0]
+			predicate_url = "".join((predicateURL.rsplit("/",1)[0],"/"))
 			predicate_value = predicateURL.rsplit("/",1)[1]
 		predicate_prefix = ""
 		for p,u in prefixDict.items():
@@ -80,7 +91,6 @@ def generatePOM(data):
 			predicate = predicate_prefix + ":" + predicate_value
 		else:
 			predicate = predicateURL
-		print (predicate)
 		### Object ###
 		objectType = data["predicateObjectMap"][j]["objectType"]
 		objectValue = data["predicateObjectMap"][j]["object"]

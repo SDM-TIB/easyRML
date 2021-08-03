@@ -1,4 +1,16 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix clarify: <http://clarify2020.eu/vocab/> .
+<afa>
+	rml:logicalSource [ rml:source "";
+					rml:referenceFormulation ql:CSV ];
+	rr:subjectMap [
+		rr:constant "http://clarify2020.eu/vocab/Relation";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate http://clarify2020.eu/vocab/hasAntiangiogenic;
+		rr:objectMap [
+			rr:constant "http://clarify2020.eu/vocab/Drug";
+			rr:termType rr:IRI;
+		];
+	].

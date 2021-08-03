@@ -1,16 +1,16 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix clarify: <http://clarify2020.eu/vocab/> .
-< 1 >
-	rml:logicalSource [ rml:source "temp_value";
+<test>
+	rml:logicalSource [ rml:source "/mnt/e/data/drug/";
 					rml:referenceFormulation ql:CSV ];
 	rr:subjectMap [
-		rr:constant "http://clarify2020.eu/vocab/Enzyme";
+		rr:constant "http://clarify2020.eu/vocab/TumorType";
 		rr:termType rr:IRI;
-	];;
-	rr:predicateObjectMap [
-		rr:predicate http://clarify2020.eu/vocab/relation_isRelatedTo_annotation;
-		rr:objectMap [
-			rr:constant "http://clarify2020.eu/vocab/Drug";
-			rr:termType rr:IRI;
 	];
+	rr:predicateObjectMap [
+		rr:predicate clarify:hasOncologicalTreatmentLine;
+		rr:objectMap [
+			rr:constant "http://clarify2020.eu/vocab/Mutation";
+			rr:termType rr:IRI;
+		];
 	].

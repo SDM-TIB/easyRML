@@ -1,0 +1,45 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix bm: <http://bigmedilytics.eu/vocab/> .
+
+<Annotation_adverseEvernt_impact>
+	rml:logicalSource [ rml:source "/data/data/drug/";
+					rml:referenceFormulation ql:CSV ];
+	rr:subjectMap [
+		rr:template "http://bigmedilytics.eu/vocab/Annotation{CUI_AdverseEvent}";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate bm:impact;
+		rr:objectMap [
+			rml:reference "Impact";
+			rr:termType rr:Literal;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bm:annID;
+		rr:objectMap [
+			rml:reference "CUI_AdverseEvent";
+			rr:termType rr:Literal;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bm:provenance;
+		rr:objectMap [
+			rr:template "http://bigmedilytics.eu/vocab/SourceName/{--select the data field--}";
+			rr:termType rr:IRI;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bm:impact;
+		rr:objectMap [
+			rml:reference "Impact";
+			rr:termType rr:IRI;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bm:hasCUIAnnotation;
+		rr:objectMap [
+			rr:parentTriplesMap <--select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)-->;
+			rr:termType Term Type;
+		];
+	].
