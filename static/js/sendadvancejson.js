@@ -133,6 +133,11 @@ $(document).ready(function () {
     var finaljson = JSON.stringify(final);
     console.log(finaljson);
 
+    $("#predicateselecttriplesmap").append($('<option>', {
+      text: triplemapname
+      }));
+
+
     $("#triplemapname").val("");
     $("#datasourcepath").val("");
     $("#selectsubject").val("default").change();
