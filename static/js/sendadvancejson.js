@@ -1,9 +1,10 @@
 $(document).ready(function () {
   var final = [];
-  var sortFinal = [];
   var jsonPredicateObjectMap = { predicateObjectMap: [] };
+  var jsonTripleMap = { triplesMap: [] };
+  var jsonSubjectMap = { subjectMap: [] };
   $("#addanothertriples").on("click", function () {
-    var jsonTripleMap = { triplesMap: [] };
+    
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
 
@@ -12,7 +13,7 @@ $(document).ready(function () {
       logicalSource_path: datasourcepath,
     });
 
-    var jsonSubjectMap = { subjectMap: [] };
+    
 
     var valueofSubjectMap = $("#selectsubject option:selected").val();
 
@@ -125,9 +126,9 @@ $(document).ready(function () {
       });
     }
 
-    final.push(jsonTripleMap);
-    final.push(jsonSubjectMap);
-    final.push(jsonPredicateObjectMap);
+    // final.push(jsonTripleMap);
+    // final.push(jsonSubjectMap);
+    // final.push(jsonPredicateObjectMap);
     // console.log(final);
 
     var finaljson = JSON.stringify(final);
@@ -267,7 +268,6 @@ $(document).ready(function () {
   });
 
   $("#sendjsonMap").on("click", function () {
-    var jsonTripleMap = { triplesMap: [] };
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
 
@@ -276,7 +276,7 @@ $(document).ready(function () {
       logicalSource_path:datasourcepath,
     });
 
-    var jsonSubjectMap = { subjectMap: [] };
+    // var jsonSubjectMap = { subjectMap: [] };
 
     var valueofSubjectMap = $("#selectsubject option:selected").val();
 
