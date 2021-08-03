@@ -73,56 +73,59 @@ def generatePOM(data):
 	### Predicate ###	
 	global pomDict
 	global prefixDict
+	global Tnames_list
 	pomList = data["predicateObjectMap"]
 	POM = ""
-	for j in range (0,len(pomList)):
-		predicateURL = str(data["predicateObjectMap"][j]["predicate"])
-		if "#" in predicateURL:
-			predicate_url = "".join((predicateURL.split("#")[0],"#"))
-			predicate_value = predicateURL.split("#")[1]
-		else:
-			predicate_url = "".join((predicateURL.rsplit("/",1)[0],"/"))
-			predicate_value = predicateURL.rsplit("/",1)[1]
-		predicate_prefix = ""
-		for p,u in prefixDict.items():
-			if u == predicate_url:
-				predicate_prefix = p
-		if predicate_prefix != "":
-			predicate = predicate_prefix + ":" + predicate_value
-		else:
-			predicate = predicateURL
-		### Object ###
-		objectType = data["predicateObjectMap"][j]["objectType"]
-		objectValue = data["predicateObjectMap"][j]["object"]
-		termType = data["predicateObjectMap"][j]["termType"]
+	for n in Tnames_list:
+		pomName = "predicateObjectMap" + str(n)
+		for j in range (0,len(pomList)):
+			predicateURL = str(data[pomName][j]["predicate"])
+			if "#" in predicateURL:
+				predicate_url = "".join((predicateURL.split("#")[0],"#"))
+				predicate_value = predicateURL.split("#")[1]
+			else:
+				predicate_url = "".join((predicateURL.rsplit("/",1)[0],"/"))
+				predicate_value = predicateURL.rsplit("/",1)[1]
+			predicate_prefix = ""
+			for p,u in prefixDict.items():
+				if u == predicate_url:
+					predicate_prefix = p
+			if predicate_prefix != "":
+				predicate = predicate_prefix + ":" + predicate_value
+			else:
+				predicate = predicateURL
+			### Object ###
+			objectType = data["predicateObjectMap"][j]["objectType"]
+			objectValue = data["predicateObjectMap"][j]["object"]
+			termType = data["predicateObjectMap"][j]["termType"]
 
-		if objectType == "class":
-			objectMap = "rr:constant \"" + objectValue + "\";" + \
-			"\n\t\t\trr:termType " + termType + ";\n\t\t];"
+			if objectType == "class":
+				objectMap = "rr:constant \"" + objectValue + "\";" + \
+				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
-		elif objectType == "Ref_to_data":
-			objectMap = "rml:reference \"" + objectValue + "\";" + \
-			"\n\t\t\trr:termType " + termType + ";\n\t\t];"
+			elif objectType == "Ref_to_data":
+				objectMap = "rml:reference \"" + objectValue + "\";" + \
+				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
-		elif objectType == "Ref_to_data_as_uri":
-			objectClass = data["predicateObjectMap"][j]["objectClass"]
-			objectMap = "rr:template \"" + objectClass + "/{" + objectValue + \
-			"}\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
+			elif objectType == "Ref_to_data_as_uri":
+				objectClass = data["predicateObjectMap"][j]["objectClass"]
+				objectMap = "rr:template \"" + objectClass + "/{" + objectValue + \
+				"}\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
-		elif objectType == "Ref_to_TM_same_source":
-			objectMap = "rr:parentTriplesMap <" + objectValue + ">;" + \
-			"\n\t\t\trr:termType " + termType + ";\n\t\t];"
+			elif objectType == "Ref_to_TM_same_source":
+				objectMap = "rr:parentTriplesMap <" + objectValue + ">;" + \
+				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
-		elif objectType == "Ref_to_TM_different_source":
-			childValue = data["predicateObjectMap"][j]["child"]
-			parentValue = data["predicateObjectMap"][j]["parent"]
-			joinValue = "rr:joinCondition [\n\t\t\trr:child \"" + childValue + \
-			"\";\n\t\t\trr:parent \"" + parentValue + "\";];"
-			objectMap = "rr:parentTriplesMap <" + objectValue + ">;" +\
-			"\n\t\t\t" + "rr:termType " + termType + ";\n\t\t\t"+ joinValue + " ];"
-		POM = POM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + predicate + \
-		";\n\t\trr:objectMap [\n\t\t\t" + objectMap + "\n\t]"
-	POM = POM + "."
+			elif objectType == "Ref_to_TM_different_source":
+				childValue = data["predicateObjectMap"][j]["child"]
+				parentValue = data["predicateObjectMap"][j]["parent"]
+				joinValue = "rr:joinCondition [\n\t\t\trr:child \"" + childValue + \
+				"\";\n\t\t\trr:parent \"" + parentValue + "\";];"
+				objectMap = "rr:parentTriplesMap <" + objectValue + ">;" +\
+				"\n\t\t\t" + "rr:termType " + termType + ";\n\t\t\t"+ joinValue + " ];"
+			POM = POM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + predicate + \
+			";\n\t\trr:objectMap [\n\t\t\t" + objectMap + "\n\t]"
+		POM = POM + "."
 	return POM
 
 def generator_preliminary(userInputData):
