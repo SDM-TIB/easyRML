@@ -1,0 +1,50 @@
+[
+    {
+      "triplesMap":[
+        {
+          "name":"Abhi",
+          "logicalSource_path":"",
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:IRI"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"www.clarify.com/Annotation",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:IRI"
+            },
+            {
+              "predicate":"www.clarify.com/Drug",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ]
+        },
+        {
+          "name":"dd",
+          "logicalSource_path":"",
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"www.clarify.com/Disorder",
+              "objectType":"Ref_to_data",
+              "object":"--select the data field--",
+              "termType":"rr:Literal"
+            }
+          ]
+        }
+      ]
+    }
+  ]

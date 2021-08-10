@@ -1,690 +1,713 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>easyRML</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
-</head>
 
-<script type="text/javascript" src="../static/js/scripts.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    
+    <!--chosen link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css">
+    
+    <!--Manual CSS-->
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!--Manual JavaScript-->
+    <script src="../static/js/scripts.js"></script>
+
+    <!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	  <!--read json data using flask and ajax-->
+    <script src="../static/js/readJson.js"></script>
+
+    <!--disable button when input is empty-->
+    <script src="../static/js/disablebutton.js"></script>
+
+    <!---->
+    <script src="../static/js/showselectedblock.js"></script>
+
+
+    <!--multiple selection for dropdown list-->
+    <script src="../static/js/multipleselection.js"></script>
+
+    <!--upload ontology file-->
+    <script src="../static/js/uploadOntology.js"></script>
+
+    <!--upload source file-->
+    <script src="../static/js/uploadSource.js"></script>
+
+    <!--append option in triplesmap dropdown-->
+    <script src="../static/js/add_triplesmap_option.js"></script>
+
+    <!--append option in functionmap dropdown-->
+    <script src="../static/js/add_functionmap_option.js"></script>
+
+    <!--send json data from first block-->
+    <script src="../static/js/sendbasicjson.js"></script>
+
+    <!--send json data from triplesmap block-->
+    <script src="../static/js/sendadvancejson.js"></script>
+	
+	
+	
+
+    <script type="text/javascript">
+
+      $(function() {
+       $(".chosen-select").chosen({
+        no_results_text: "Oops, nothing found!"
+        });
+      });
+
+      $("#inputGroupSelect02").trigger("chosen:updated");
+
+
+    </script>
 
 
 
-<body>
-    <div class="header" id="myHeader">
-        <header>
-            <div class="logo"></div>
-            <div class="first-logo">
-                <img src="../static/images/SDM-easyRML.png" alt="logo1" style="width:300%">
+  </head>
+  <body>
+
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border border-4 border-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><h1 class="header-title">easyRML</h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#"><h3 class="header-text">RML Guidline</h3></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><h3 class="header-text">About us</h3></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--########################################################################################################-->
+
+    <!--form-->
+    <!-- <form> -->
+    <div>
+
+      <!--file management & Ontology-->
+
+      <div class="container-fluid firat">
+
+
+        <div class="row">
+
+          <!--file management-->
+          <fieldset class="col-6 border border-secondary border-4 first-input bg-light">
+            <legend class="w-auto">File Management</legend>
+            <div class="row first-row">
+              <div class="col-7">
+                <input type="text" class="form-control border border-secondary border-2" id="outputfilename" placeholder="Insert output mapping file name">
+              </div>
+              <div class="col-5">
+                <input type="text" class="form-control border border-secondary border-2" id="outputfilepath" placeholder="Insert output path">
+              </div>
             </div>
-<!--             <div class="second-logo">
-                <img src="../static/images/SDM-RDFizer1transp1.png" alt="logo2" style="width:20%">
-            </div> -->
-            <h3>
-                RML Mapping Rule Generator
-            </h3>
+
+
+            <div class="row second-row">
+              
+              <div class="col-10">
+                <div class="input-group mb-3 ">
+                  <select class="form-select chosen-select border border-2 border-secondary" multiple id="inputGroupSelect02" data-placeholder="select prefix from the available suggestion">
+                     <option disabled>all prefix from the available suggestion</option>
+                     
+                  </select>
+
+                  
+                </div>
+                
+              </div>
+              <div class="col-2">  
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-3"> 
+                <input type="text" class="form-control border border-secondary border-2" placeholder="write prefix" id="manualPrefix">
+              </div>
+
+              <div class="col-5"> 
+                <input type="text" class="form-control border border-secondary border-2" placeholder="Url for Prefix" id="manualUrl">
+              </div>
+
+              <div class="col-4"> 
+                <button class="btn border border-secondary border-2 add-more-button" id="addprefixbutton" type="button" disabled>+ add prefix</button> 
+              </div>
+              
+
+            </div>
+
+          </fieldset>
+          <!--#################################file management end#######################################################-->
+
+
+          <!--Ontology-->
+          <div class="col-6">
+            <div class="row file-upper"></div>
+            <div class="row">
+              <div class="col-10 d-flex justify-content-center">
+                <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
+                  <legend class="w-auto">Ontology</legend>
+                  
+                  <div class="row">
+                    <form method="POST" enctype= "multipart/form-data" id="formttl">
+                      <input class="file-upload-input" type='file' accept=".ttl" name = "file" id="uploadttlfile" hidden/>
+                    </form>
+                    <div class="col-3">
+                      <label for="uploadttlfile">
+                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                      </label>
+                    </div>
+                    <div class="col-9">
+                      <h4 class="pt-1"> &lt; Upload the Ontology</h4>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                </div>
+              </div>
+            
+            </div>
+            <div class="row file-down"></div>
+          </div>
+          <!--############################Ontology end#####################################-->
+
+
+        </div>
+        
+
+      </div>
+      <!--#############################file management & Ontology#############################################-->
+
+      <div class="container-fluid ">
+        <div class="row mb-3">
+          <div class="col-11">
+
+          </div>
+          <div class="col-1">
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjson" type="button"> send Json</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!--add another triplesmap button-->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-9">
+
+          </div>
+          <div class="col-3">
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="addanothertriples" type="button"> + add another TriplesMap</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--###########################  add another triplesmap button end#############################################-->
+
+      <!--Triple map main block-->
+      <div class="container-fluid ">
+        <div class="row secondbox">
+          <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
+            <legend class="w-auto">TriplesMap</legend>
+            <div class="col-12">
+
+              <!--first line-->
+              <div class="row">
+                <div class="col-6 ">
+            
+                  <div class="row mb-3">
+                    <div class="col-5">
+                      <input type="text" class="form-control border border-secondary border-2" placeholder="Name of Triple map" id="triplemapname">
+                    </div>
+                    <div class="col-7"></div>
+
+                  </div>
+
+                  <!--select subject option-->
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary" id="selectsubject" data-placeholder="select the subject type" onchange="showSelectBlock(this);">
+                          <option value="default" selected>--select the subject type--</option>
+                          <option value="0">Class</option>
+                          <option value="1">Reference to data as URI</option>
+                          <!-- <option value="2">Reference to a FunctionMap</option> -->
+                       </select>  
+                     </div>
+                    </div>
+                    <div class="col-5"></div>
+
+                  </div>
+                  <!--##############################select subject option################################-->
+                </div>
+
+
+                <!--upload source file-->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-1"></div>
+                    <form method="POST" enctype= "multipart/form-data" id="formsource">
+                      <input class="file-upload-input" type='file' accept=".csv" name = "file" id="uploadsourcefile" hidden/>
+                    </form>
+                    <div class="col-2">
+                      <label for="uploadsourcefile">
+                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                      </label>
+                    </div>
+                    <div class="col-8">
+                      <h4 class="pt-1"> &lt; Upload source here</h4>
+                    </div>
+                    <div class="col-1"></div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" class="form-control border border-secondary border-2" id="datasourcepath" placeholder="Add the path to data source to be added to the mapping">
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+                </div>
+                <!--#############################upload source file end#############################-->
+              </div>
+              <!--#############################first line end#############################################-->
+
+              <!--row box for first option-->
+              <div class="row mt-3 default" id="classbox">
+                <div class="col-9">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary" id="selectfirstclass" data-placeholder="select the corresponding class  (based on Ontology)">
+                          <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                       </select>  
+                      </div>
+                </div>
+                <div class="col-5"></div>
+              </div>
+              <!--##################################row box for first option end###########################################################-->
+
+              <!--row box for second option-->
+              <div class="row mt-3 default" id="datauribox">
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary" id="selectdatafield" data-placeholder="select data field ">
+                          <option value="default" selected>--select data field --</option>
+                       </select>  
+                      </div>
+                    </div>
+                    <div class="col-5"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-9">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary" id="selectclass" data-placeholder="select the corresponding class (based on Ontology)">
+                          <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                       </select>  
+                      </div>
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+                </div>
+              </div>
+              <!--####################################row box for second option end########################################################-->
+
+              <!--row box for third option-->
+              <div class="row mt-3 default" id="functionmapbox">
+                <div class="col-9">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary" id="selectfunctionmap" data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared the FunctionMap yet, first declared it)">
+                          <option value="default" selected>--select the FunctionMap from the already declared ones (if you haven't declared the FunctionMap yet, first declared it)--</option>
+                          <option value="1">Reference to data as URI</option>
+                          <option value="2">Reference to a FunctionMap</option>
+                       </select>  
+                      </div>
+                </div>
+                <div class="col-5"></div>
+              </div>
+              <!--##################################row box for third option end###########################################################-->
+
+              <!--Term type-->
+              <div class="row mt-3">
+                <div class="col-2">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary" id="selecttermtype" data-placeholder="Term type">
+                      <option value="default" selected>Term type</option>
+                      <option value="1">rr:IRI</option>
+                      <option value="2">rr:BlankNode</option>
+                   </select>  
+                  </div>
+                </div>
+                <div class="col-10"></div>
+
+              </div>
+              <!--############################Term type end#######################################################-->
+
+              <!--add another predicate object map button-->
+              
+              <div class="row">
+                  <div class="col-9"></div>
+                  <div class="col-3">
+                    <button class="btn border border-secondary border-2 add-another-predicate" id="addanotherpredicate" type="button"> + add another predicate object map</button>
+                  </div>
+              </div>
+              
+              <!--###########################  add another  predicate object map button end#############################################-->
+
+              <!-- predicate object map block-->
+              <div class="row">
+                <fieldset class="border border-secondary border-4 d-flex">
+                  <legend class="w-auto">PredicateObjectMap</legend>
+                  <div class="col-12">
+
+                    <!--select property option-->
+                    <div class="row mt-3">
+                      <div class="col-7">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selectproperty" data-placeholder="select the property (based on the Ontology)">
+                            <option value="default" selected>--select the property (based on the Ontology)--</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-5"></div>
+                    </div>
+                    <!--#############################################select property option end#####################################################-->
+
+                    <!--select object type option-->
+                    <div class="row mt-3">
+                      <div class="col-4">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selectobjecttype" data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
+                            <option value="default" selected>--select the Object type--</option>
+                            <option value="1">Class</option>
+                            <option value="2">Reference to data</option>
+                            <option value="3">Reference to data as URI</option>
+                            <option value="4">Reference to another triplesMap with the same data source</option>
+                            <option value="5">Reference to another triplesMap with a different data source</option>
+                            <!-- <option value="6">Reference to a FunctionMap</option> -->
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-8"></div>
+                    </div>
+                    <!--#############################################select object type option end#####################################################-->
+
+                    <!--select class from suggestion option-->
+                    <div class="row mt-3 default" id="selectclasssuggestionbox">
+                      <div class="col-7">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selectclasssuggestion" data-placeholder="select the class (based on the Ontology)">
+                            <option value="default" selected>--select the class (based on the Ontology)--</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-5"></div>
+                    </div>
+                    <!--#############################################select class from suggestion option end#####################################################-->
+
+                    <!--select data field from suggestion option-->
+                    <div class="row mt-3 default" id="selectdatafieldsuggestionbox">
+                      <div class="col-5">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selectdatafieldsuggestion" data-placeholder="select the data field">
+                            <option value="default" selected>--select the data field--</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-7"></div>
+                    </div>
+                    <!--#############################################select data field from suggestion option end#####################################################-->
+
+                    <!--select predicate reference to data as uri option box-->
+                    <div class="row mt-3 default" id="predicatedatauribox">
+                      <div class="col-9">
+                        <div class="row">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="predicateselectdatafield" data-placeholder="select the data field">
+                                <option value="default" selected>--select the data field --</option>
+                             </select>  
+                            </div>
+                          </div>
+                          <div class="col-5"></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-9">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="predicateselectclass" data-placeholder="select the corresponding class (based on Ontology)">
+                                <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                             </select>  
+                            </div>
+                          </div>
+                          <div class="col-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
+                    
+                    <!--select triplemaps from declred one option for same data-->
+                    <div class="row mt-3 default" id="predicateselecttriplesmapbox">
+                      <div class="col-10">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="predicateselecttriplesmap" data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                            <option value="default" selected>--select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)--</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-2"></div>
+                    </div>
+                    <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
+
+                    <!--select triplemaps from declred one option for different data-->
+                    <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent">
+                      <div class="col-10">
+                        <div class="row">
+                          <div class="col-10">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="predicateselecttriplesmapdifferentdata" data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                                <option value="default" selected>--select the TriplesMap from the already declared ones for different data (if you haven't declared TriplesMap yet, first declare it)--</option>
+                              </select>  
+                            </div>
+                          </div>
+                          <div class="col-2"></div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="joinconditionchild" data-placeholder="joinCondition child">
+                                <option value="default" selected>--joinCondition child--</option>
+                              </select>  
+                            </div>
+                          </div>
+                          <div class="col-1"></div>
+                          <div class="col-3">
+                            <input type="text" class="form-control border border-secondary border-2" placeholder="joinCondition parent" id="joinconditionparent">
+                          </div>
+                          <div class="col-1"></div>
+                        </div>
+                      </div>
+                      <div class="col-2"></div>
+                    </div>
+                    <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
+
+                    <!--select functionmap from declred one option-->
+                    <div class="row mt-3 default" id="predicateselectfunctionmapbox">
+                      <div class="col-10">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="predicateselectfunctionmap" data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
+                            <option value="default" selected>--select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)--</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-2"></div>
+                    </div>
+                    <!--#############################################select functionmap from declred one option end#####################################################-->
+
+                    <!--Term type PredicateObjectMap-->
+                    <div class="row mt-3">
+                      <div class="col-2">
+                        <div class="input-group mb-3 ">
+                          <select class="form-select border border-2 border-secondary" id="selecttermtypepredicateobjectmap" data-placeholder="Term Type">
+                            <option value="default" selected>Term Type</option>
+                            <option value="1">rr:IRI</option>
+                            <option value="2">rr:BlankNode</option>
+                            <option value="3">rr:Literal</option>
+                          </select>  
+                        </div>
+                      </div>
+                      <div class="col-10"></div>
+                    </div>
+                    <!--#############################################Term type PredicateObjectMap end#####################################################-->
+
+                  </div>
+                </fieldset>
+              </div>
+              <!--###########################################################predicate object map block end##########################################-->
+
+            </div>
+
+          </fieldset>
+        </div>
+
+
+      </div>
+
+      <!--##########################################Triplemap end#################################################-->
+
+
+      <!--add function map button-->
+      <!-- <div class="container-fluid mt-3">
+        <div class="row">
+          <div class="col-8">
+          </div>
+          <div class="col-3">
+            <button class="btn border border-secondary border-2 add-another-functionmap" id="addanotherfunction" type="button"> + add FunctionMap</button>
+          </div>
+          <div class="col-1"></div>
+
+        </div>
+      </div> -->
+      <!--###########################  add another functionmap button end#############################################-->
+
+      <!--Function map-->
+      <!-- <div class="container-fluid">
+        <div class="row thirdbox">
+          <div class="col-10">
+            <div class="row">
+              <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
+                <legend class="w-auto">FunctionMap</legend>
+                <div class="col-12">
+
+                  <div class="row">
+
+                    <div class="col-6">
+                      
+                      <div class="row mb-3">
+                        <div class="col-7">
+                          <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the FunctionMap" id="functionmapname">
+                        </div>
+                        <div class="col-5"></div>
+                      </div>
+
+                      <div class="row mb-1">
+                        <div class="col-6">
+                          <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function">
+                        </div>
+                        <div class="col-6"></div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-6">
+                          <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the function">
+                        </div>
+                        <div class="col-6"></div>
+                      </div>
+
+                    </div> -->
+
+                    <!--upload source header file block-->
+                    <!-- <div class="col-6">
+                      <div class="row">
+                        <div class="col-1"></div>
+                        <form method="POST" enctype= "multipart/form-data" id="formsourceheader">
+                          <input class="file-upload-input" type='file' accept=".csv" name = "file" id="uploadsourceheaderfile" hidden/>
+                        </form>
+                        <div class="col-2">
+                          <label for="uploadsourceheaderfile">
+                            <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                          </label>
+                        </div>
+                        <div class="col-8">
+                          <h4 class="pt-1"> &lt; Upload source header file</h4>
+                        </div>
+                        <div class="col-1"></div>
+                      </div>
+                    </div> -->
+                    <!--######################upload source header file block end##########################-->
+
+                  <!-- </div> -->
+
+                  <!--add another parameter button-->
+                  <!-- <div class="row">
+                    <div class="col-7"></div>
+                    <div class="col-3">
+                      <button class="btn border border-secondary border-2 add-another-prarameter" id="addanotherparameter" type="button"> + add another parameter</button>
+                    </div>
+                    <div class="col-2"></div>
+                  </div> -->
+                  <!--#############################add another parameter button end############################-->
+
+                  <!--Parameter block-->
+                  <!-- <div class="row">
+                    <div class="col-10">
+                      <div class="row">
+                        <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
+                          <legend class="w-auto">Parameter</legend>
+                          <div class="col-12">
+
+                            <div class="row mb-3">
+                              <div class="col-3">
+                                <input type="text" class="form-control border border-secondary border-2" placeholder="Parameter name">
+                              </div>
+                              <div class="col-9"></div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-5">
+                                <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function parameters">
+                              </div>
+                              <div class="col-7"></div>
+                            </div>
+
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                    <div class="col-2"></div>
+                  </div> -->
+                  <!--##########################################parameter block end#################################################-->
+
+                <!-- </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div> -->
+      <!--##########################################FunctionMap end#################################################-->
+    
+      <!--add another triplesmap button-->
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col-11">
+
+          </div>
+          <div class="col-1">
+            <button class="btn border border-secondary border-2 add-another-triplesmap" id="sendjsonMap" type="button"> Create Mapping File</button>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-    </header>
-    </div>
-
-    <div class="content">
-
-        <!-- Type mapping_file_name -->
-        <div id="file_name">
-            <label id="selectnamefile">mapping_file_name : </label>
-            <input type="text" id="filename" size="20"><br />
-            <!--  <button id="getFileName" type="button" onclick="GetFileName()">Get File Name</button> -->
-        </div>
-        <br>
-        <!-- Type the output folder -->
-        
-        <div id="output_folder" title="Tip: Please start with output/">
-          
-            <label id="outputFol">output_folder: </label>
-            <input type="text" id="output" placeholder="e.g. output/" size="40" required><br />
-            <!--  <button id="getOutput" type="button" onclick="GetOutput()">Get Output Folder</button> -->
-
-        </div>
-
-        <br>
-
-        <!-- Select the number of prefixes -->
-        <div id="preNumber">
-            <p>Default prefixes:</p>
-            <p>@PREFIX rr: &lt http://www.w3.org/ns/r2rml#>. </p>
-            <p>@PREFIX rml: &lt http://semweb.mmlab.be/ns/rml#> .</p>
-            <p>@PREFIX ql: &lt http://semweb.mmlab.be/ns/ql#> .</p>
-            <p>@PREFIX rdfs: &lt http://www.w3.org/2000/01/rdf-schema#> .</p>
-            <p>@PREFIX rdf: &lt http://www.w3.org/1999/02/22-rdf-syntax-ns#> .</p>
-            <p>@PREFIX rev: &lt http://purl.org/stuff/rev#> .</p>
-            <p>@PREFIX schema: &lt http://schema.org/> .</p>
-            <p>@PREFIX xsd: &lt http://www.w3.org/2001/XMLSchema#> .</p>
-            <label id="selectPre">How many more than default prefixes do you consider?</label>
-            <input type="text" value="" id="pref" maxlength="1" size="1" onclick="GetNumberPre()"><br />
-            <!-- <button id="getnumberPre" type="button" onclick="GetNumberPre()">Get Number of
-                Prefixes</button> -->
-        </div>
-
-        <br>
-	    <!-- Adding prefixes in loop !!!!!!!!!!-->
-        <!-- Type label of prefix -->
-        <div id="labelPre">
-           
-            <div id="pref01" style="display: none">
-                <label id="selectlabel1">prefix1 : </label>
-                <input type="text" id="labpre1" size="3">
-                <label id="selectlabelpre1"></label>
-                <input type="url" id="prefix1" size="30"><br />
-            </div>
-            <div id="pref02" style="display: none">
-                <label id="selectlabel2">prefix2 : </label>
-                <input type="text" id="labpre2" size="3">
-                <label id="selectlabelpre2"></label>
-                <input type="text" id="prefix2" size="30"><br />
-            </div>
-            <div id="pref03" style="display: none">
-                <label id="selectlabel3">prefix3 : </label>
-                <input type="text" id="labpre3" size="3">
-                <label id="selectlabelpre3"></label>
-                <input type="text" id="prefix3" size="30"><br />
-            </div>
-            <div id="pref04" style="display: none">
-                <label id="selectlabel4">prefix4 : </label>
-                <input type="text" id="labpre4" size="3">
-                <label id="selectlabelpre4"></label>
-                <input type="text" id="prefix4" size="30"><br />
-            </div>
-            <div id="pref05" style="display: none">
-                <label id="selectlabel5">prefix5 : </label>
-                <input type="text" id="labpre5" size="3">
-                <label id="selectlabelpre5"></label>
-                <input type="text" id="prefix5" size="30"><br />
-            </div>
-            <div id="pref06" style="display: none">
-                <label id="selectlabel6">prefix6 : </label>
-                <input type="text" id="labpre6" size="3">
-                <label id="selectlabelpre6"></label>
-                <input type="text" id="prefix6" size="30"><br />
-            </div>
-            <div id="pref07" style="display: none">
-                <label id="selectlabel7">prefix7 : </label>
-                <input type="text" id="labpre7" size="3">
-                <label id="selectlabelpre7"></label>
-                <input type="text" id="prefix7" size="30"><br />
-            </div>
-            <div id="pref08" style="display: none">
-                <label id="selectlabel8">prefix8 : </label>
-                <input type="text" id="labpre8" size="3">
-                <label id="selectlabelpre8"></label>
-                <input type="text" id="prefix8" size="30"><br />
-            </div>
-            <div id="pref09" style="display: none">
-                <label id="selectlabel9">prefix9 : </label>
-                <input type="text" id="labpre9" size="3">
-                <label id="selectlabelpre9"></label>
-                <input type="text" id="prefix9" size="30"><br />
-            </div>
-            <div id="pref010" style="display: none">
-                <label id="selectlabel10">prefix10 : </label>
-                <input type="text" id="labpre10" size="3">
-                <label id="selectlabelpre10"></label>
-                <input type="text" id="prefix10" size="30"><br />
-            </div>
-            <div id="pref011" style="display: none">
-                <label id="selectlabel11">prefix11 : </label>
-                <input type="text" id="labpre11" size="3">
-                <label id="selectlabelpre11"></label>
-                <input type="text" id="prefix11" size="30"><br />
-            </div>
-        </div>
-        <br>
-       
-        <br>
-        
-        <!-- **********************************************Loop for Triple Maps****************************************** -->
-        <div id="loopTMNumber">
-        	   <label id="loopselectTM">How many TriplesMap do you consider? </label>
-            <input type="text" value="" id="loopTM" maxlength="3" size="1" onclick="loopcountNumberTM()">
-            <!-- <button type="button" id="loopbuttonTM" onclick="submitValueTM()">Get Values!</button> -->
-        <div id="TMList" class="loopTMColors" style="display: none">  
-        	<!-- <div id="proList" class="looppropertyColors" style="display: none">   -->
-
-<script type="text/javascript">
-// var poms;
-var formMainTM = document.getElementById("TMList");
-var formMainPro = document.getElementById("proList");
-var TM = document.getElementById("loopTM").value;
-var resultTM = [];
-var formDataTM = "";
-  formDataTM += '<form class="formClass">' +
-  '<div>' +
-  '<label>source:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. biomarkers.csv" name="sourceTM">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>sourceFormat:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. CSV" name="sourceFormatTM">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<select id="subjects" class="inputClass" name="selectSubj"><option value="selectSub" selected="selected">-- Select Subject Type --</option><option value="string">string</option><option value="integer">integer</option></select>'+
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>subjectMap:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. http://project-iasis.eu/Biomarker/{biomarker}" name="subjectMap">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>termType:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. yes/no" name="termType">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>How many Predicate Object Map do you consider?</label>' +
-  '<input type="text" maxlength="3" size="1" class="inputClass" name="numPoms">' +
-  // '<button type="button" id="loopbuttonTM" onclick="submitValueTM()">Get Values!</button>' +
-  '</div>' +
-  '</form>';
- 
-
-function loopcountNumberTM() {
-    var i;
-    var TM = document.getElementById("loopTM").value;
-    formMainTM.innerHTML = "";
-   if (TM > 0) {
-   TMList.style.display = "block";
- }
- for (i = 1; i <= TM; i++) {
-  formMainTM.innerHTML += ("==============================================================="+ "<br />");
-  formMainTM.innerHTML += ("[TM"+i+"]"+ "<br/>" + "<br/>");
-  formMainTM.innerHTML += ("name: TriplesMap"+i+ "<br/>" + "<br/>");
-  formMainTM.innerHTML += formDataTM;
- }
-
-}
+    <!-- </form> -->
 
 
-
-</script>
-
-
-</div>
-</div>
-        <br>
-
-        <div>
-          <button type="button" id="loopbuttonTM" onclick="submitValueTM()">Show Predicate Object Map!</button>
-        </div>
-        
-         <br>
-          <br>
-
-        <!-- **********************************Loop for Predicate Object Map****************************************** -->
-        
-       <div id="pomList" class="loopPomColors" style="display: none">  
- 
-<script type="text/javascript">
-var formMainPom = document.getElementById("pomList");
-var result = [];
-var formDataPom = "";
-var i;
-  formDataPom += '<form class="formClass">' +
-  '<div>' +
-  '<label>predicate:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. rdf:type" name="predicate">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<select id="objects" class="inputClass" name="selectObjType"><option value="selectPara" selected="selected">-- Select Object Type --</option><option value="string">string</option><option value="reference to data">reference to data</option><option value="reference to triplesMap">reference to triplesMap</option><option value="reference to functionMap">reference to functionMap</option></select>'+
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>object:</label>' +
-  '<input type="text" class="inputClass" name="object">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>dataType:</label>' +
-  '<input type="text" placeholder="yes/no" class="inputClass" name="dataType">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>termType:</label>' +
-  '<input type="text" placeholder="yes/no" class="inputClass" name="termTypes">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>joinCondition:</label>' +
-  '<input type="text" placeholder="yes/no" class="inputClass" name="joinCondition" onclick="SelectedjoinCondition()">' +
-  '</div>' +
-  '<br/>' +
-  '</form>';
-
-  var formDataJoin = "";
-  formDataJoin += '<form class="formClass">' +
-  '<div>' +
-  '<label>child:</label>' +
-  '<input type="text" placeholder="e.g. enst" class="inputClass" name="child">' +
-  '<label>parent:</label>' +
-  '<input type="text" placeholder="e.g. Transcript" class="inputClass" name="parent">' +
-  '</div>' +
-  '</form>';
- 
-
- function submitValueTM() {
-  var poms = "";
-  var forms = document.getElementsByTagName("form");
-  var inputs;
-  var selects;
-  var tempResult = {};
-  resultTM = [];
-  for (var i = 0; i < forms.length; i++) {
-    inputs = forms[i].getElementsByTagName("input");
-    tempResult = {};
-    for (var j = 0; j < inputs.length; j++) 
-     tempResult[inputs[j].name] = inputs[j].value;    
-    selects = forms[i].getElementsByTagName("select");
-    for (var k = 0; k < selects.length; k++)
-    tempResult[selects[k].name] = selects[k].value;
-    resultTM.push(tempResult);
-    console.log(tempResult);
-  }  
- 
    
-  
- for (var m = 0; m < forms.length; m ++) {
-  poms = resultTM[m].numPoms;
-
-    console.log(poms);
-
-    // formMainPom.innerHTML = "";
-   if (poms > 0) {
-   pomList.style.display = "block";
-
-
- }
-  
- for (var i = 1; i <= poms; i++) {
-  formMainPom.innerHTML += ("==============================================================="+ "<br />");
-  formMainPom.innerHTML += ("[TM-POM"+i+"]"+ "<br/>" + "<br/>");
-  formMainPom.innerHTML += formDataPom;
- }
-
-}
-
-}
-
-
-function submitValuePom() {
-  var forms = document.getElementsByTagName("form");
-  var inputs;
-  var selects;
-  var tempResult = {};
-  result = [];
-  for (var i = 0; i < forms.length; i++) {
-    inputs = forms[i].getElementsByTagName("input");
-    tempResult = {};
-    for (var j = 0; j < inputs.length; j++) 
-     tempResult[inputs[j].name] = inputs[j].value;    
-    selects = forms[i].getElementsByTagName("select");
-    for (var k = 0; k < selects.length; k++)
-    tempResult[selects[k].name] = selects[k].value;
-    result.push(tempResult);
-  
-  }  
-  // console.log(result);
     
-// for (var m = 0; m < forms.length; m ++) {
- // console.log(result[m].name);
- // console.log(result[m].selectParam);
- // console.log(result[m].address);
-// }
-}
-
-function SelectedjoinCondition() {
-  var forms = document.getElementsByTagName("form");
-  var getJoinCondition = "";
-  var inputs;
-  var selects;
-  var tempResult = {};
-  resultTM = [];
-  for (var i = 0; i < forms.length; i++) {
-    inputs = forms[i].getElementsByTagName("input");
-    tempResult = {};
-    for (var j = 0; j < inputs.length; j++) 
-     tempResult[inputs[j].name] = inputs[j].value;    
-    selects = forms[i].getElementsByTagName("select");
-    for (var k = 0; k < selects.length; k++)
-    tempResult[selects[k].name] = selects[k].value;
-    resultTM.push(tempResult);
-  
-  }  
-  
- for (var m = 0; m < forms.length; m ++) {
-   getJoinCondition = resultTM[m].joinCondition;
-  
-  if (getJoinCondition == "yes") {
-    formMainPom.innerHTML += formDataJoin;
-  }
- } 
-}
-
-</script>
-
-</div>
-        <br>
-
-        <!-- **********************************Loop for Join Condition****************************************** -->
-        
-       <!-- <div id="joinList" class="loopJoinColors" style="display: none">  
- 
-<script type="text/javascript">
-var formMainJoin = document.getElementById("joinList");
-var result = [];
-var formDataJoin = "";
-var i;
-  formDataJoin += '<form class="formClass">' +
-  '<div>' +
-  '<label>child:</label>' +
-  '<input type="text" placeholder="e.g. enst" class="inputClass" name="child">' +
-  '<label>parent:</label>' +
-  '<input type="text" placeholder="e.g. Transcript" class="inputClass" name="parent">' +
-  '</div>' +
-  '</form>';
- 
-
-function SelectedjoinCondition() {
-  var forms = document.getElementsByTagName("form");
-  var getJoinCondition = "";
-  var inputs;
-  var selects;
-  var tempResult = {};
-  resultTM = [];
-  for (var i = 0; i < forms.length; i++) {
-    inputs = forms[i].getElementsByTagName("input");
-    tempResult = {};
-    for (var j = 0; j < inputs.length; j++) 
-     tempResult[inputs[j].name] = inputs[j].value;    
-    selects = forms[i].getElementsByTagName("select");
-    for (var k = 0; k < selects.length; k++)
-    tempResult[selects[k].name] = selects[k].value;
-    resultTM.push(tempResult);
-  
-  }  
-  
- for (var m = 0; m < forms.length; m ++) {
-   getJoinCondition = resultTM[m].joinCondition;
-  
-  if (getJoinCondition == "yes") {
-    joinList.style.display = "block";
-    formMainJoin.innerHTML += formDataJoin;
-  }
- } 
-}
-
-</script>
-
-</div>
-        <br>
- -->
-
-<!-- ************************************************************************************************** -->
-        <!-- **********************************************Loop for Function Maps****************************************** -->
-        <div id="loopFunNumber">
-        	   <label id="loopselectFun">How many FunctionsMap do you consider? </label>
-            <input type="text" value="" id="loopFun" maxlength="3" size="1" onclick="loopcountNumberFun()">
-            <!-- <button type="button" id="loopbuttonFun" onclick="submitValueFun()">Get Values!</button> -->
-        <div id="funList" class="loopfunctionColors" style="display: none">  
-        	<!-- <div id="proList" class="looppropertyColors" style="display: none">   -->
-
-<script type="text/javascript">
-	var nops;
-var formMainFun = document.getElementById("funList");
-var formMainPro = document.getElementById("proList");
-var fun = document.getElementById("loopFun").value;
-var resultFun = [];
-var formDataFun = "";
-  formDataFun += '<form class="formClass">' +
-  '<div>' +
-  '<label>functionMapName:</label>' +
-  '<input type="text" class="inputClass" name="functionMapName">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>source:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. biomarkers.csv" name="source">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>sourceFormat:</label>' +
-  '<input type="text" class="inputClass" placeholder="e.g. CSV" name="sourceFormat">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>functionName:</label>' +
-  '<input type="text" class="inputClass" name="functionName">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>Add number of parameters:</label>' +
-  '<input type="text" maxlength="3" size="1" class="inputClass" name="numParameter" onclick="loopcountNumberPro()">' +
-  '</div>' +
-  '</form>';
- 
-
-function loopcountNumberFun() {
-    var i;
-    var fun = document.getElementById("loopFun").value;
-    formMainFun.innerHTML = "";
-   if (fun > 0) {
-   funList.style.display = "block";
- }
- for (i = 1; i <= fun; i++) {
-  formMainFun.innerHTML += ("==============================================================="+ "<br />");
-  formMainFun.innerHTML += ("[F"+i+"]"+ "<br/>" + "<br/>");
-  formMainFun.innerHTML += formDataFun;
- }
-
-}
-
-</script>
-</div>
-</div>
-        <br>
-
-        <div>
-          <button type="button" id="loopbuttonFun" onclick="submitValueFun()">Show Parameters!</button>
-        </div>
-         <br>
-          <br>
-
-        <!-- **********************************************Loop for Properties****************************************** -->
-        
-       <div id="proList" class="looppropertyColors" style="display: none">  
- 
-<script type="text/javascript">
-var formMainPro = document.getElementById("proList");
-var result = [];
-var formDataPro = "";
-var i;
-  formDataPro += '<form class="formClass">' +
-  '<div>' +
-  '<label>parameter:</label>' +
-  '<input type="text" class="inputClass" name="parameter">' +
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<select id="parameters" class="inputClass" name="selectParam"><option value="selectPara" selected="selected">-- Select Parameter Type --</option><option value="constant">constant</option><option value="reference to data">reference to data</option><option value="reference to functionMap">reference to functionMap</option></select>'+
-  '</div>' +
-  '<br/>' +
-
-  '<div>' +
-  '<label>value:</label>' +
-  '<input type="text" class="inputClass" name="value">' +
-  // '<button type="button" id="loopbuttonFun" onclick="submitValueFun()">Get Values!</button>' +
-  '</div>' +
-  '</form>';
- 
- function submitValueFun() {
-  var forms = document.getElementsByTagName("form");
-  var inputs;
-  var selects;
-  var tempResult = {};
-  resultFun = [];
-  for (var i = 0; i < forms.length; i++) {
-    inputs = forms[i].getElementsByTagName("input");
-    tempResult = {};
-    for (var j = 0; j < inputs.length; j++) 
-     tempResult[inputs[j].name] = inputs[j].value;    
-    selects = forms[i].getElementsByTagName("select");
-    for (var k = 0; k < selects.length; k++)
-    tempResult[selects[k].name] = selects[k].value;
-    resultFun.push(tempResult);
-  
-  }  
-  // console.log(resultFun);
+    <!--javascript for bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     
- for (var m = 0; m < forms.length; m ++) {
-  nops = resultFun[m].numParameter;
-    //console.log(nops);
-    // formMainPro.innerHTML = "";
-   if (nops > 0) {
-   proList.style.display = "block";
- }
- // for (var j = 1; j <= 10; j++) {
- for (var i = 1; i <= nops; i++) {
-  formMainPro.innerHTML += ("==============================================================="+ "<br />");
-  formMainPro.innerHTML += ("[F"+1+"P"+i+"]"+ "<br/>" + "<br/>");
-  formMainPro.innerHTML += formDataPro;
- }
-}
-// }
-}
-
-function loopcountNumberPro() {
-    var i;
-    // var nop = document.getElementById("loopNop").value;
-    // console.log(nops);
-    formMainPro.innerHTML = "";
-   if (nops > 0) {
-   proList.style.display = "block";
- }
- // for (i = 1; i <= nops; i++) {
- //  formMainPro.innerHTML += ("==============================================================="+ "<br />");
- //  formMainPro.innerHTML += ("[F1P"+i+"]"+ "<br/>" + "<br/>");
- //  formMainPro.innerHTML += formDataPro;
- // }
-
-}
-
-function submitValuePro() {
-  var forms = document.getElementsByTagName("form");
-  var inputs;
-  var selects;
-  var tempResult = {};
-  result = [];
-  for (var i = 0; i < forms.length; i++) {
-    inputs = forms[i].getElementsByTagName("input");
-    tempResult = {};
-    for (var j = 0; j < inputs.length; j++) 
-     tempResult[inputs[j].name] = inputs[j].value;    
-    selects = forms[i].getElementsByTagName("select");
-    for (var k = 0; k < selects.length; k++)
-    tempResult[selects[k].name] = selects[k].value;
-    result.push(tempResult);
-  
-  }  
-  // console.log(result);
-    
-// for (var m = 0; m < forms.length; m ++) {
- // console.log(result[m].parameter);
- // console.log(result[m].selectParam);
- // console.log(result[m].value);
-// }
-}
-</script>
-
-
-
-</div>
-     
-        <br>
-
-<!-- ************************************************************************************************** -->
-            <br>
-            <button type="button" id="fixedbutton" onclick="GenerateMR()">Generate Mapping Rule</button>
-
-			<br>
-            <br>
-			  <p id="demo"></p>
-            <a download="myfile" id="downloadlink" style="display: none">Download</a>
-            <script>
-              (
-                function () {
-                    var textFile = null,
-                         makeTextFile = function (text) {
-                             var data = new Blob([text], { type: 'text/plain' });
-
-                            if (textFile !== null) {
-                               window.URL.revokeObjectURL(textFile);
-                           }
-
-                           textFile = window.URL.createObjectURL(data);
-
-                           return textFile;
-                       };
-
-                    var create = document.getElementById('fixedbutton');
-                     create.addEventListener('click', function () {
-                       
-                         var link = document.getElementById('downloadlink'); 
-                         link.href = makeTextFile(getresponseConfig());
-                         
-
-                     }, false); 
-                      })();
-            </script>
-            <br><br>
-        
-
-        
-
-
-
-<!-- div for end of class="content" -->
-    </div>
-    <!-- Footer -->
-    <div class="footer">
-        <p>
-        <h5>Copyright © 2020 TIB-SDM. All rights reserved.</h5>
-
-        <a href="https://github.com/SDM-TIB/RMLMappingRuleGenerator">More Information</a>
-        </p>
-    </div>
-
-</body>
-
+    <!--javascript for chosen-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+  </body>
 </html>
-
-
