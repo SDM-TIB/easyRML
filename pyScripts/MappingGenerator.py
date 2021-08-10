@@ -76,8 +76,9 @@ def generatePOM(data):
 	global Tnames_list
 	pomList = data["predicateObjectMap"]
 	POM = ""
+	POM_list = []
 	for n in Tnames_list:
-		pomName = "predicateObjectMap" + str(n)
+		pomName = "predicateObjectMap_" + str(n)
 		for j in range (0,len(pomList)):
 			predicateURL = str(data[pomName][j]["predicate"])
 			if "#" in predicateURL:
@@ -95,9 +96,9 @@ def generatePOM(data):
 			else:
 				predicate = predicateURL
 			### Object ###
-			objectType = data["predicateObjectMap"][j]["objectType"]
-			objectValue = data["predicateObjectMap"][j]["object"]
-			termType = data["predicateObjectMap"][j]["termType"]
+			objectType = data[pomName][j]["objectType"]
+			objectValue = data[pomName][j]["object"]
+			termType = data[pomName][j]["termType"]
 
 			if objectType == "class":
 				objectMap = "rr:constant \"" + objectValue + "\";" + \
@@ -125,8 +126,9 @@ def generatePOM(data):
 				"\n\t\t\t" + "rr:termType " + termType + ";\n\t\t\t"+ joinValue + " ];"
 			POM = POM + ";\n\trr:predicateObjectMap [\n\t\trr:predicate " + predicate + \
 			";\n\t\trr:objectMap [\n\t\t\t" + objectMap + "\n\t]"
-		POM = POM + "."
-	return POM
+		POM_list.append(POM)
+		#POM = POM + "."
+	return POM_list
 
 def generator_preliminary(userInputData):
 	global output
@@ -137,11 +139,12 @@ def generator_preliminary(userInputData):
 	return ""
 
 def generator_tripleMap(userInputData):
-	TM = generateTriplesMap(userInputData[0])
-	SM = generateSubjectMap(userInputData[1])
-	POM = generatePOM(userInputData[2])
+	TM_list = generateTriplesMap(userInputData[0])
+	SM_list = generateSubjectMap(userInputData[1])
+	POM_list = generatePOM(userInputData[2])
 	global mapping
-	mapping = mapping + str(TM) + str(SM) + str(POM)
+	for i in range(0,len(TM_list)):
+		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
 	global output
 	mappingFile = open(output, "w+")
 	mappingFile.write(mapping)

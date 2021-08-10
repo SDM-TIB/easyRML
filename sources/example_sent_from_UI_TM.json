@@ -17,3 +17,4 @@
 	{"predicateObjectMap_TM1":[{"predicate":"http://clarify2020.eu/vocab/hasImmunotherapy","objectType":"class","object":"http://clarify2020.eu/vocab/Biomarker","termType":"rr:IRI"},{"predicate":"http://clarify2020.eu/vocab/relation_isRelatedTo_publication","objectType":"class","object":"http://clarify2020.eu/vocab/LungCancerDrug","termType":"rr:IRI"}]},
 	{"predicateObjectMap_TM2":[{"predicate":"http://clarify2020.eu/vocab/hasImmunotherapy","objectType":"class","object":"http://clarify2020.eu/vocab/Biomarker","termType":"rr:IRI"},{"predicate":"http://clarify2020.eu/vocab/relation_isRelatedTo_publication","objectType":"class","object":"http://clarify2020.eu/vocab/LungCancerDrug","termType":"rr:IRI"}]}
 ]
+
