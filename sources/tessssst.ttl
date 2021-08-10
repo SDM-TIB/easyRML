@@ -1,0 +1,38 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix clarify: <http://clarify2020.eu/vocab/> .
+
+<drug>
+	rml:logicalSource [ rml:source "/data/drug/";
+				rml:referenceFormulation ql:CSV ];
+	rr:subjectMap [
+		rr:constant "http://clarify2020.eu/vocab/Mutation";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate clarify:provenance;
+		rr:objectMap [
+			rml:reference "TABLE_NAME";
+			rr:termType rr:Literal;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate clarify:target_isRelatedTo_gene;
+		rr:objectMap [
+			rr:template "http://clarify2020.eu/vocab/LiquidBiopsy/{TABLE_NAME}";
+			rr:termType rr:IRI;
+		];
+	].
+<disorder>
+	rml:logicalSource [ rml:source "/data/disorder.csv";
+				rml:referenceFormulation ql:CSV ];
+	rr:subjectMap [
+		rr:template "http://clarify2020.eu/vocab/Mutation{TABLE_NAME}";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate clarify:hasOncologicalTreatmentLine;
+		rr:objectMap [
+			rr:parentTriplesMap <drug>;
+			rr:termType rr:BlankNode;
+		];
+	].

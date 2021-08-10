@@ -1,0 +1,52 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix clarify: <http://clarify2020.eu/vocab/> .
+
+<drug>
+	rml:logicalSource [ rml:source "/data/drug/";
+				rml:referenceFormulation ql:CSV ];
+	rr:subjectMap [
+		rr:template "http://clarify2020.eu/vocab/DrugEnzymeInteraction{biomarker}";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate clarify:hasDiagnosisCancerStageCategory;
+		rr:objectMap [
+			rml:reference "biomarker_CUI";
+			rr:termType rr:Literal;
+		];
+	].;
+	rr:predicateObjectMap [
+		rr:predicate clarify:isAffected;
+		rr:objectMap [
+			rr:constant "http://clarify2020.eu/vocab/TkiDrug";
+			rr:termType rr:IRI;
+		];
+	].
+<disorder>
+	rml:logicalSource [ rml:source "/data/disorder/";
+				rml:referenceFormulation ql:CSV ];
+	rr:subjectMap [
+		rr:template "http://clarify2020.eu/vocab/LCPatient{COLUMN_NAME}";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate clarify:hasDiagnosisCancerStageCategory;
+		rr:objectMap [
+			rml:reference "biomarker_CUI";
+			rr:termType rr:Literal;
+		];
+	].;
+	rr:predicateObjectMap [
+		rr:predicate clarify:isAffected;
+		rr:objectMap [
+			rr:constant "http://clarify2020.eu/vocab/TkiDrug";
+			rr:termType rr:IRI;
+		];
+	].;
+	rr:predicateObjectMap [
+		rr:predicate clarify:hasDiagnosisCancerStageCategory;
+		rr:objectMap [
+			rr:template "http://clarify2020.eu/vocab/TkiDrug/{TABLE_NAME}";
+			rr:termType Term Type;
+		];
+	].
