@@ -8,10 +8,6 @@ $(document).ready(function () {
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
 
-    jsonTripleMap.triplesMap.push({
-      name: triplemapname,
-      logicalSource_path: datasourcepath,
-    });
 
     
 
@@ -40,6 +36,9 @@ $(document).ready(function () {
         termType: termtype,
       });
     }
+
+    
+    
 
 
     var valueofPredicateObjectMap = $(
@@ -131,6 +130,13 @@ $(document).ready(function () {
     // final.push(jsonPredicateObjectMap);
     // console.log(final);
 
+    jsonTripleMap.triplesMap.push({
+      name: triplemapname,
+      logicalSource_path: datasourcepath,
+      subjectMap: jsonSubjectMap.subjectMap,
+      predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+    });
+
     var finaljson = JSON.stringify(final);
     console.log(finaljson);
 
@@ -157,6 +163,9 @@ $(document).ready(function () {
     $("#joinconditionchild").val("default").change();
     $("#selecttermtypepredicateobjectmap").val("default").change();
     $("#joinconditionparent").val("");
+
+    jsonPredicateObjectMap = { predicateObjectMap: [] };
+    jsonSubjectMap = { subjectMap: [] };
   });
 
   $("#addanotherpredicate").on("click", function () {
@@ -246,6 +255,9 @@ $(document).ready(function () {
       });
     }
 
+    // jsonTripleMap.triplesMap.push({
+    //   predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap,
+    // })
     // final.push(jsonPredicateObjectMap);
     // console.log(final);
 
@@ -271,10 +283,7 @@ $(document).ready(function () {
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
 
-    jsonTripleMap.triplesMap.push({
-      name: triplemapname,
-      logicalSource_path:datasourcepath,
-    });
+    
 
     // var jsonSubjectMap = { subjectMap: [] };
 
@@ -388,9 +397,16 @@ $(document).ready(function () {
       });
     }
 
+    jsonTripleMap.triplesMap.push({
+      name: triplemapname,
+      logicalSource_path:datasourcepath,
+      subjectMap: jsonSubjectMap.subjectMap,
+      predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap,
+    });
+
     final.push(jsonTripleMap);
-    final.push(jsonSubjectMap);
-    final.push(jsonPredicateObjectMap);
+    // final.push(jsonSubjectMap);
+    // final.push(jsonPredicateObjectMap);
     // console.log(final);
 
 

@@ -1,0 +1,50 @@
+[
+    {
+      "triplesMap":[
+        {
+          "name":"Abhi",
+          "logicalSource_path":"",
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:IRI"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"--select the property (based on the Ontology)--",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:IRI"
+            },
+            {
+              "predicate":"--select the property (based on the Ontology)--",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ]
+        },
+        {
+          "name":"dd",
+          "logicalSource_path":"",
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"--select the property (based on the Ontology)--",
+              "objectType":"Ref_to_data",
+              "object":"--select the data field--",
+              "termType":"rr:Literal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
