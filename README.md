@@ -10,8 +10,5 @@ Required python packages:
 - pandas
 - flask
 
-# Background Knowledge
-https://github.com/SDM-TIB/easyRML/wiki
-
 # Authors
 The easyRML has been developed by members of the Scientific Data Management Group at TIB, Samaneh Jozashoori (samaneh.jozashoori@tib.eu), Abhi akbari (current UI, abhiakbari023@gmail.com) and Emetis Niazmand (UI version1.0, emetis.niazmand@tib.eu) under the supervision of Maria-Esther Vidal (maria.vidal@tib.eu).
