@@ -1,20 +1,45 @@
-[
-    {"triplesMap":[{"name":"","logicalSource_path":""}]},
-    {"subjectMap":[{"subjectType":"class","subject":"","termType":""},{"subjectType":"class","subject":"","termType":""}]},
-    {"subjectMap":[{"subjectType":"Ref_to_data_as_uri","subject":"","subjectClass":"","termType":""}]},
-    {"predicateObjectMap":[{"predicate":"","objectType":"class","object":"","termType":""}]},
-    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_data","object":"","termType":""}]},
-    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_data_as_uri","object":"","objectClass":"","termType":""}]},
-    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_TM_same_source","object":"","termType":""}]},
-    {"predicateObjectMap":[{"predicate":"","objectType":"Ref_to_TM_different_source","object":"","child":"","parent":"","termType":""}]}
-]
-
-### more than one TM:
-
-[
-	{"triplesMap":[{"name":"TM1","logicalSource_path":""},{"name":"TM2","logicalSource_path":""}]},
-	{"subjectMap":[{"subjectType":"class","subject":"http://clarify2020.eu/vocab/Target","termType":"rr:IRI"},{"subjectType":"class","subject":"http://clarify2020.eu/vocab/DrugGroup","termType":"rr:IRI"}]},
-	{"predicateObjectMap_TM1":[{"predicate":"http://clarify2020.eu/vocab/hasImmunotherapy","objectType":"class","object":"http://clarify2020.eu/vocab/Biomarker","termType":"rr:IRI"},{"predicate":"http://clarify2020.eu/vocab/relation_isRelatedTo_publication","objectType":"class","object":"http://clarify2020.eu/vocab/LungCancerDrug","termType":"rr:IRI"}]},
-	{"predicateObjectMap_TM2":[{"predicate":"http://clarify2020.eu/vocab/hasImmunotherapy","objectType":"class","object":"http://clarify2020.eu/vocab/Biomarker","termType":"rr:IRI"},{"predicate":"http://clarify2020.eu/vocab/relation_isRelatedTo_publication","objectType":"class","object":"http://clarify2020.eu/vocab/LungCancerDrug","termType":"rr:IRI"}]}
-]
-
+{"triplesMap":[
+    {
+    "name":"",
+    "logicalSource_path":"",
+    "subjectMap":{
+        "subjectType" :"",
+        "subject":"",
+        "termType":"",
+        },
+    "predicateObjectMap":[{
+        "predicate" :"",
+        "objectType":"",
+        "object":"",
+        "termType":""
+        },
+        {
+        "predicate" :"",
+        "objectType":"",
+        "object":"",
+        "termType":""
+        }]
+    },
+    {
+    "name":"",
+    "logicalSource_path":"",
+    "subjectMap":{
+        "subjectType" :"",
+        "subject":"",
+        "termType":"",
+        },
+    "predicateObjectMap":[{
+        "predicate" :"",
+        "objectType":"",
+        "object":"",
+        "termType":""
+        },
+        {
+        "predicate" :"",
+        "objectType":"",
+        "object":"",
+        "termType":""
+        }]
+    }
+    ]
+}
