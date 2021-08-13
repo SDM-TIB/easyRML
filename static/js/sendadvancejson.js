@@ -144,6 +144,10 @@ $(document).ready(function () {
       text: triplemapname
       }));
 
+    $("#predicateselecttriplesmapdifferentdata").append($('<option>', {
+      text: triplemapname
+      }));
+
 
     $("#triplemapname").val("");
     $("#datasourcepath").val("");
