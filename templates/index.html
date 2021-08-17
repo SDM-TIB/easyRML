@@ -60,11 +60,14 @@
 
       $(function() {
        $(".chosen-select").chosen({
-        no_results_text: "Oops, nothing found!"
+        no_results_text: "Oops, nothing found!",
+        width:"100%"
         });
       });
 
       $("#inputGroupSelect02").trigger("chosen:updated");
+      $("#selectdatafield").trigger("chosen:updated");
+      $("#predicateselectdatafield").trigger("chosen:updated");
 
 
     </script>
@@ -318,8 +321,8 @@
                   <div class="row">
                     <div class="col-7">
                       <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="selectdatafield" data-placeholder="select data field ">
-                          <option value="default" selected>--select data field --</option>
+                        <select class="form-select chosen-select border border-2 border-secondary" multiple id="selectdatafield" data-placeholder="select data field">
+                          <option value="default" disabled>--select data field --</option>
                        </select>  
                       </div>
                     </div>
@@ -451,8 +454,8 @@
                         <div class="row">
                           <div class="col-7">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary" id="predicateselectdatafield" data-placeholder="select the data field">
-                                <option value="default" selected>--select the data field --</option>
+                              <select class="form-select chosen-select border border-2 border-secondary" multiple id="predicateselectdatafield" data-placeholder="select the data field">
+                                <option value="default" disabled>--select the data field --</option>
                              </select>  
                             </div>
                           </div>
