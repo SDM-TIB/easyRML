@@ -81,7 +81,22 @@
         tags: true,
         theme: "bootstrap-5",
       });
-    });
+
+      $("#selectfirstclass").select2({
+        tags: true,
+        theme: "bootstrap-5",
+      });
+
+      $("#selectclasssuggestion").select2({
+        tags: true,
+        theme: "bootstrap-5",
+      });
+
+      $("#predicateselectclass").select2({
+        tags: true,
+        theme: "bootstrap-5",
+      });
+    }); 
 
     // $('select:not(.normal)').each(function() {
     //     $('#selectclass').select2({
@@ -367,7 +382,7 @@
 
             <!--row box for first option-->
             <div class="row mt-3 default" id="classbox">
-              <div class="col-9">
+              <div class="col-7">
                 <div class="input-group mb-3 ">
                   <select class="form-select border border-2 border-secondary" id="selectfirstclass"
                     data-placeholder="select the corresponding class  (based on Ontology)">
