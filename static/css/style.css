@@ -320,6 +320,8 @@ legend {
   box-shadow: 3px 3px 2px 1px #807878;
 }
 
-.input-group > .select2-container--bootstrap {
+.input-group > .select2-container--bootstrap-5 {
 	border: 2px solid black !important;
+  border-radius: 3px !important;
 }
+
