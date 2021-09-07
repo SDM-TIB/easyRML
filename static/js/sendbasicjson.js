@@ -26,8 +26,8 @@ $(document).ready(function(){
       var jsonObj = {"newPrefixes":[]};
 
       $('#inputGroupSelect02 option:selected').each(function(){
-        console.log(this);
-        console.log(this.value);
+        // console.log(this);
+        // console.log(this.value);
         if(this.getAttribute("isnewprefix")){
         jsonObj.newPrefixes.push({
           prefix: this.value,
@@ -44,8 +44,8 @@ $(document).ready(function(){
       var jsonOb = {"defaultPrefixes":[]};
 
       $('#inputGroupSelect02 option:selected').each(function(){
-        console.log(this);
-        console.log(this.value);
+        // console.log(this);
+        // console.log(this.value);
         if(!this.getAttribute("isnewprefix")){
         jsonOb.defaultPrefixes.push({
           prefix: this.value,
@@ -64,7 +64,7 @@ $(document).ready(function(){
       final.push(jsonFile);
       final.push(jsonOb);
       final.push(jsonObj);
-      // console.log(final);
+      console.log(final);
 
       var finaljson = JSON.stringify(final);
       console.log(finaljson);
