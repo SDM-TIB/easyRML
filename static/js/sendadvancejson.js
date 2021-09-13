@@ -26,7 +26,7 @@ $(document).ready(function () {
     } else if (valueofSubjectMap == 1) {
       var subjectType = "Ref_to_data_as_uri";
 
-      var subject;
+      var subject = [];
       
       $("#selectdatafield option:selected").each(function(){
         subject.push({
@@ -86,7 +86,7 @@ $(document).ready(function () {
       var predicate = $("#selectproperty option:selected").text();
       var objectType = "Ref_to_data_as_uri";
 
-      var object;
+      var object = [];
       
       $("#predicateselectdatafield option:selected").each(function(){
         object.push({
