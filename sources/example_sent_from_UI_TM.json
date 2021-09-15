@@ -1,45 +1,51 @@
-{"triplesMap":[
+[
     {
-    "name":"",
-    "logicalSource_path":"",
-    "subjectMap":{
-        "subjectType" :"",
-        "subject":"",
-        "termType":"",
-        },
-    "predicateObjectMap":[{
-        "predicate" :"",
-        "objectType":"",
-        "object":"",
-        "termType":""
+      "triplesMap":[
+        {
+          "name":"Abhi",
+          "logicalSource_path":"",
+          "subjectMap":[
+            {
+              "subjectType":"Ref_to_data_as_uri",
+              "subject":[{"data":"TABLE_NAME"},{"data":"COLUMN_NAME"}],
+              "subjectClass":"http://clarify2020.eu/vocab/LungCancerDrug",
+              "termType":"rr:IRI"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"www.clarify.com/Annotation",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:IRI"
+            },
+            {
+              "predicate":"www.clarify.com/Drug",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ]
         },
         {
-        "predicate" :"",
-        "objectType":"",
-        "object":"",
-        "termType":""
-        }]
-    },
-    {
-    "name":"",
-    "logicalSource_path":"",
-    "subjectMap":{
-        "subjectType" :"",
-        "subject":"",
-        "termType":"",
-        },
-    "predicateObjectMap":[{
-        "predicate" :"",
-        "objectType":"",
-        "object":"",
-        "termType":""
-        },
-        {
-        "predicate" :"",
-        "objectType":"",
-        "object":"",
-        "termType":""
-        }]
+          "name":"dd",
+          "logicalSource_path":"",
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"www.clarify.com/Disorder",
+              "objectType":"Ref_to_data",
+              "object":"--select the data field--",
+              "termType":"rr:Literal"
+            }
+          ]
+        }
+      ]
     }
-    ]
-}
+  ]
