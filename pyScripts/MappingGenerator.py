@@ -55,15 +55,20 @@ def generateSubjectMap(data):
 	SM_list = []
 	for s in range (0,len(subjectList)):
 		subjectType = data[s]["subjectMap"][0]["subjectType"]
-		subject = data[s]["subjectMap"][0]["subject"]
 		termType = data[s]["subjectMap"][0]["termType"]
 		if subjectType == "class":
+			subject = data[s]["subjectMap"][0]["subject"]
 			SM = "\trr:subjectMap [\n\t\trr:constant \"" + subject + \
 			"\";\n\t\trr:termType " + termType + ";\n\t]"
 		elif subjectType == "Ref_to_data_as_uri":
 			subjectClass = data[s]["subjectMap"][0]["subjectClass"]
-			SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
-			"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t]"
+			SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + "/"
+			d_len = len(data[s]["subjectMap"][0]["subject"])
+			for d in range(0,(d_len-1)):
+				subject = data[s]["subjectMap"][0]["subject"][d]["data"]
+				SM = SM + "{" + subject + "}_"
+			SM = SM + "{" + data[s]["subjectMap"][0]["subject"][d_len-1]["data"] + "}"
+			SM = SM + "\";\n\t\trr:termType " + termType + ";\n\t]"
 		SM_list.append(SM)
 	return SM_list
 
@@ -99,23 +104,32 @@ def generatePOM(data):
 			termType = data[n]["predicateObjectMap"][j]["termType"]
 
 			if objectType == "class":
+				objectValue = data[n]["predicateObjectMap"][j]["object"]
 				objectMap = "rr:constant \"" + objectValue + "\";" + \
 				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
 			elif objectType == "Ref_to_data":
+				objectValue = data[n]["predicateObjectMap"][j]["object"]
 				objectMap = "rml:reference \"" + objectValue + "\";" + \
 				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
 			elif objectType == "Ref_to_data_as_uri":
 				objectClass = data[n]["predicateObjectMap"][j]["objectClass"]
-				objectMap = "rr:template \"" + objectClass + "/{" + objectValue + \
-				"}\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
+				objectMap = "rr:template \"" + objectClass + "/"
+				d_len = len(data[n]["predicateObjectMap"][j]["object"])
+				for d in range(0,(d_len-1)):
+					objectValue = data[n]["predicateObjectMap"][j]["object"][d]["data"]
+					objectMap = objectMap + "{" + objectValue + "}_"
+				objectMap = objectMap + "{" + data[n]["predicateObjectMap"][j]["object"][d_len-1]["data"] + "}" 
+				objectMap = objectMap + "\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
 			elif objectType == "Ref_to_TM_same_source":
+				objectValue = data[n]["predicateObjectMap"][j]["object"]
 				objectMap = "rr:parentTriplesMap <" + objectValue + ">;" + \
 				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
 			elif objectType == "Ref_to_TM_different_source":
+				objectValue = data[n]["predicateObjectMap"][j]["object"]
 				childValue = data[n]["predicateObjectMap"][j]["child"]
 				parentValue = data[n]["predicateObjectMap"][j]["parent"]
 				joinValue = "rr:joinCondition [\n\t\t\trr:child \"" + childValue + \

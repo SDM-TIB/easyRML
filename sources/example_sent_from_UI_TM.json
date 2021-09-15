@@ -21,8 +21,9 @@
             },
             {
               "predicate":"www.clarify.com/Drug",
-              "objectType":"class",
-              "object":"--select the class (based on the Ontology)--",
+              "objectType":"Ref_to_data_as_uri",
+              "object":[{"data":"TABLE_NAME"},{"data":"COLUMN_NAME"}],
+              "objectClass":"http://clarify2020.eu/vocab/LungCancerDrug",
               "termType":"rr:BlankNode"
             }
           ]
