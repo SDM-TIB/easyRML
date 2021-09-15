@@ -19,7 +19,8 @@ $(document).on("change", "#uploadttlfile", function () {
 
       $('#selectclass').empty();
       $('#selectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
-
+      // $("#selectclass").trigger("chosen:updated");
+      
       $('#selectclasssuggestion').empty();
       $('#selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
         
@@ -38,6 +39,7 @@ $(document).on("change", "#uploadttlfile", function () {
             $.each(json, function(file) {
                 $('#selectfirstclass').append($('<option value="' + this + '">' + this + '</option>'));
                 $('#selectclass').append($('<option value="' + this + '">' + this + '</option>'));
+                // $("#selectclass").trigger("chosen:updated");
                 $('#selectclasssuggestion').append($('<option value="' + this + '">' + this + '</option>'));
                 $('#predicateselectclass').append($('<option value="' + this + '">' + this + '</option>'));
               });

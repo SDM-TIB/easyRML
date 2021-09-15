@@ -15,13 +15,15 @@ $(document).on("change", "#uploadsourcefile", function () {
         alert(data1);
 
         $('#selectdatafield').empty();
-        $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
+        $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
+        $("#selectdatafield").trigger("chosen:updated");
 
         $('#selectdatafieldsuggestion').empty();
         $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
         
         $('#predicateselectdatafield').empty();
-        $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
+        $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
+        $("#predicateselectdatafield").trigger("chosen:updated");
 
         $('#joinconditionchild').empty();
         $('#joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop('selected',true));
@@ -34,8 +36,13 @@ $(document).on("change", "#uploadsourcefile", function () {
             success: function( json ) {
               $.each(json, function(file) {
                   $('#selectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
+                  $("#selectdatafield").trigger("chosen:updated");
+                  
                   $('#selectdatafieldsuggestion').append($('<option value="' + this + '">' + this + '</option>'));
+
                   $('#predicateselectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
+                  $("#predicateselectdatafield").trigger("chosen:updated");
+                  
                   $('#joinconditionchild').append($('<option value="' + this + '">' + this + '</option>'));
                 });
               }

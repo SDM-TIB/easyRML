@@ -25,7 +25,16 @@ $(document).ready(function () {
       });
     } else if (valueofSubjectMap == 1) {
       var subjectType = "Ref_to_data_as_uri";
-      var subject = $("#selectdatafield option:selected").text();
+
+      var subject = [];
+      
+      $("#selectdatafield option:selected").each(function(){
+        subject.push({
+          data: this.text
+        });
+      });
+
+      
       var subjectClass = $("#selectclass option:selected").text();
       var termtype = $("#selecttermtype option:selected").text();
 
@@ -76,7 +85,15 @@ $(document).ready(function () {
     } else if (valueofPredicateObjectMap == 3) {
       var predicate = $("#selectproperty option:selected").text();
       var objectType = "Ref_to_data_as_uri";
-      var object = $("#predicateselectdatafield option:selected").text();
+
+      var object = [];
+      
+      $("#predicateselectdatafield option:selected").each(function(){
+        object.push({
+          data: this.text
+        });
+      });
+      
       var objectClass = $("#predicateselectclass option:selected").text();
       var termType = $(
         "#selecttermtypepredicateobjectmap option:selected"
@@ -144,19 +161,32 @@ $(document).ready(function () {
       text: triplemapname
       }));
 
+    $("#predicateselecttriplesmapdifferentdata").append($('<option>', {
+      text: triplemapname
+      }));
+
 
     $("#triplemapname").val("");
     $("#datasourcepath").val("");
     $("#selectsubject").val("default").change();
     $("#selectfirstclass").val("default").change();
-    $("#selectdatafield").val("default").change();
+    // $("#selectdatafield").val("default").change();
+
+    $('#selectdatafield option:selected').prop("selected", false);
+    $("#selectdatafield").trigger("chosen:updated");
+    
     $("#selectclass").val("default").change();
     $("#selecttermtype").val("default").change();
     $("#selectproperty").val("default").change();
     $("#selectobjecttype").val("default").change();
     $("#selectclasssuggestion").val("default").change();
     $("#selectdatafieldsuggestion").val("default").change();
-    $("#predicateselectdatafield").val("default").change();
+
+    
+    // $("#predicateselectdatafield").val("default").change();
+    $('#predicateselectdatafield option:selected').prop("selected", false);
+    $("#predicateselectdatafield").trigger("chosen:updated");
+
     $("#predicateselectclass").val("default").change();
     $("#predicateselecttriplesmap").val("default").change();
     $("#predicateselecttriplesmapdifferentdata").val("default").change();
@@ -167,6 +197,11 @@ $(document).ready(function () {
     jsonPredicateObjectMap = { predicateObjectMap: [] };
     jsonSubjectMap = { subjectMap: [] };
   });
+
+
+
+
+
 
   $("#addanotherpredicate").on("click", function () {
     
@@ -206,7 +241,14 @@ $(document).ready(function () {
     } else if (valueofPredicateObjectMap == 3) {
       var predicate = $("#selectproperty option:selected").text();
       var objectType = "Ref_to_data_as_uri";
-      var object = $("#predicateselectdatafield option:selected").text();
+      
+      var object = []
+      
+      $("#predicateselectdatafield option:selected").each(function(){
+        object.push({
+          data: this.text
+        });
+      });
       var objectClass = $("#predicateselectclass option:selected").text();
       var termType = $(
         "#selecttermtypepredicateobjectmap option:selected"
@@ -270,7 +312,11 @@ $(document).ready(function () {
     $("#selectobjecttype").val("default").change();
     $("#selectclasssuggestion").val("default").change();
     $("#selectdatafieldsuggestion").val("default").change();
-    $("#predicateselectdatafield").val("default").change();
+
+    // $("#predicateselectdatafield").val("default").change();
+    $('#predicateselectdatafield option:selected').prop("selected", false);
+    $("#predicateselectdatafield").trigger("chosen:updated");
+
     $("#predicateselectclass").val("default").change();
     $("#predicateselecttriplesmap").val("default").change();
     $("#predicateselecttriplesmapdifferentdata").val("default").change();
@@ -278,6 +324,25 @@ $(document).ready(function () {
     $("#selecttermtypepredicateobjectmap").val("default").change();
     $("#joinconditionparent").val("");
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   $("#sendjsonMap").on("click", function () {
     var triplemapname = $("#triplemapname").val();
@@ -301,7 +366,15 @@ $(document).ready(function () {
       });
     } else if (valueofSubjectMap == 1) {
       var subjectType = "Ref_to_data_as_uri";
-      var subject = $("#selectdatafield option:selected").text();
+      
+      var subject = []
+      
+      $("#selectdatafield option:selected").each(function(){
+        subject.push({
+          data: this.text
+        });
+      });
+
       var subjectClass = $("#selectclass option:selected").text();
       var termtype = $("#selecttermtype option:selected").text();
 
@@ -348,7 +421,14 @@ $(document).ready(function () {
     } else if (valueofPredicateObjectMap == 3) {
       var predicate = $("#selectproperty option:selected").text();
       var objectType = "Ref_to_data_as_uri";
-      var object = $("#predicateselectdatafield option:selected").text();
+      
+      var object = []
+      
+      $("#predicateselectdatafield option:selected").each(function(){
+        object.push({
+          data: this.text
+        });
+      });
       var objectClass = $("#predicateselectclass option:selected").text();
       var termType = $(
         "#selecttermtypepredicateobjectmap option:selected"
