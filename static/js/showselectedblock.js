@@ -24,6 +24,29 @@ function showSelectBlock(nameSelect) {
   }
 }
 
+
+function showSelectDataSource(nameDataSource) {
+  if (nameDataSource) {
+    if (nameDataSource.value == 0) {
+      document.getElementById("csvbox").style.display = "block";
+      document.getElementById("rdbbox").style.display = "none";
+    } else if (nameDataSource.value == 1) {
+      document.getElementById("csvbox").style.display = "none";
+      document.getElementById("rdbbox").style.display = "block";
+    } else {
+      document.getElementById("csvbox").style.display = "none";
+      document.getElementById("rdbbox").style.display = "none";
+    }
+  } else {
+    document.getElementById("csvbox").style.display = "none";
+    document.getElementById("rdbbox").style.display = "none";
+  }
+}
+
+
+
+
+
 function showSelectPredicateBlock(predicateNameSelect) {
   if (predicateNameSelect) {
     if (predicateNameSelect.value == 1) {
