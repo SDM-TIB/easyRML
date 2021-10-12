@@ -4,6 +4,26 @@ $(document).ready(function () {
   var jsonTripleMap = { triplesMap: [] };
   var jsonSubjectMap = { subjectMap: [] };
   $("#addanothertriples").on("click", function () {
+
+
+
+    //datalist for database name
+    var databasename = $('#databasename').val();
+
+    console.log(databasename);
+
+    var datalist = document.getElementById('datalist');
+    console.log(datalist);
+
+    var option = document.createElement('option');
+    option.value = databasename;
+    datalist.append(option);
+    console.log(datalist);
+
+    $('#databasename').val("");
+
+
+
     
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();

@@ -372,7 +372,7 @@
                 </div>
 
 
-
+                <!--#####################csv box ##################################-->
                 <div class="default" id="csvbox">
                   <div class="row">
                     <div class="col-1"></div>
@@ -400,17 +400,21 @@
                     <div class="col-3"></div>
                   </div>
                 </div>
+                <!--#####################end csv box ##################################-->
 
+
+                <!--#####################RDB box ##################################-->
                 <div class="default" id="rdbbox">
                   <div class="row">
                     <div class="col-9">
-                      <input type="text" class="form-control border border-secondary border-2" id="databasename"
-                        placeholder="Name of Database">
+                      <input type="text" list="datalist" class="form-control border border-secondary border-2" id="databasename"
+                        placeholder="Name of Database" autocomplete="on">
+                        <datalist id="datalist"></datalist>
                     </div>
                     <div class="col-3"></div>
                   </div>
                 </div>
-
+                <!--#####################end RDB box ##################################-->
 
               </div>
               <!--#############################upload source file end#############################-->
