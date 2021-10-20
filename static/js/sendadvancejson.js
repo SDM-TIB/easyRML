@@ -7,20 +7,62 @@ $(document).ready(function () {
 
 
 
-    //datalist for database name
+    //datalist for database
     var databasename = $('#databasename').val();
+    var databaseurl = $('#databaseurl').val();
+    var databasedriver = $('#databasedriver').val();
+    var databaseusername = $('#databaseusername').val();
+    var databasepassword = $('#databasepassword').val();
+    var databasetable = $('#databasetable').val();
+    var databasequery = $('#databasequery').val();
 
-    console.log(databasename);
+    // console.log(databasename);
 
-    var datalist = document.getElementById('datalist');
-    console.log(datalist);
+    var namedatalist = document.getElementById('namedatalist');
+    var urldatalist = document.getElementById('urldatalist');
+    var driverdatalist = document.getElementById('driverdatalist');
+    var usernamedatalist = document.getElementById('usernamedatalist');
+    var passworddatalist = document.getElementById('passworddatalist');
+    var tabledatalist = document.getElementById('tabledatalist');
+    var querydatalist = document.getElementById('querydatalist');
+    // console.log(namedatalist);
 
-    var option = document.createElement('option');
-    option.value = databasename;
-    datalist.append(option);
-    console.log(datalist);
+    var optionname = document.createElement('option');
+    optionname.value = databasename;
+    namedatalist.append(optionname);
+
+    var optionurl = document.createElement('option');
+    optionurl.value = databaseurl;
+    urldatalist.append(optionurl);
+    
+    var optiondriver = document.createElement('option');
+    optiondriver.value = databasedriver;
+    driverdatalist.append(optiondriver);
+    
+    var optionusername = document.createElement('option');
+    optionusername.value = databaseusername;
+    usernamedatalist.append(optionusername);
+
+    var optionpassword = document.createElement('option');
+    optionpassword.value = databasepassword;
+    passworddatalist.append(optionpassword);
+
+    var optiontable = document.createElement('option');
+    optiontable.value = databasetable;
+    tabledatalist.append(optiontable);
+
+    var optionquery = document.createElement('option');
+    optionquery.value = databasequery;
+    querydatalist.append(optionquery);
+    // console.log(namedatalist);
 
     $('#databasename').val("");
+    $('#databaseurl').val("");
+    $('#databasedriver').val("");
+    $('#databaseusername').val("");
+    $('#databasepassword').val("");
+    $('#databasetable').val("");
+    $('#databasequery').val("");
 
 
 
