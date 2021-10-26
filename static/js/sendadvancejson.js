@@ -12,7 +12,6 @@ $(document).ready(function () {
     var databaseurl = $('#databaseurl').val();
     var databasedriver = $('#databasedriver').val();
     var databaseusername = $('#databaseusername').val();
-    var databasepassword = $('#databasepassword').val();
     var databasetable = $('#databasetable').val();
     var databasequery = $('#databasequery').val();
 
@@ -22,7 +21,6 @@ $(document).ready(function () {
     var urldatalist = document.getElementById('urldatalist');
     var driverdatalist = document.getElementById('driverdatalist');
     var usernamedatalist = document.getElementById('usernamedatalist');
-    var passworddatalist = document.getElementById('passworddatalist');
     var tabledatalist = document.getElementById('tabledatalist');
     var querydatalist = document.getElementById('querydatalist');
     // console.log(namedatalist);
@@ -42,11 +40,7 @@ $(document).ready(function () {
     var optionusername = document.createElement('option');
     optionusername.value = databaseusername;
     usernamedatalist.append(optionusername);
-
-    var optionpassword = document.createElement('option');
-    optionpassword.value = databasepassword;
-    passworddatalist.append(optionpassword);
-
+    
     var optiontable = document.createElement('option');
     optiontable.value = databasetable;
     tabledatalist.append(optiontable);
