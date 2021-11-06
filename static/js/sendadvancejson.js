@@ -32,15 +32,15 @@ $(document).ready(function () {
     var optionurl = document.createElement('option');
     optionurl.value = databaseurl;
     urldatalist.append(optionurl);
-    
+
     var optiondriver = document.createElement('option');
     optiondriver.value = databasedriver;
     driverdatalist.append(optiondriver);
-    
+
     var optionusername = document.createElement('option');
     optionusername.value = databaseusername;
     usernamedatalist.append(optionusername);
-    
+
     var optiontable = document.createElement('option');
     optiontable.value = databasetable;
     tabledatalist.append(optiontable);
@@ -50,22 +50,21 @@ $(document).ready(function () {
     querydatalist.append(optionquery);
     // console.log(namedatalist);
 
-    $('#databasename').val("");
-    $('#databaseurl').val("");
-    $('#databasedriver').val("");
-    $('#databaseusername').val("");
-    $('#databasepassword').val("");
-    $('#databasetable').val("");
-    $('#databasequery').val("");
+
+
+    var valueofDataType = $("#selecttypedatasource option:selected").val();
 
 
 
-    
+
+
     var triplemapname = $("#triplemapname").val();
+
     var datasourcepath = $("#datasourcepath").val();
 
 
-    
+
+
 
     var valueofSubjectMap = $("#selectsubject option:selected").val();
 
@@ -83,14 +82,14 @@ $(document).ready(function () {
       var subjectType = "Ref_to_data_as_uri";
 
       var subject = [];
-      
-      $("#selectdatafield option:selected").each(function(){
+
+      $("#selectdatafield option:selected").each(function () {
         subject.push({
           data: this.text
         });
       });
 
-      
+
       var subjectClass = $("#selectclass option:selected").text();
       var termtype = $("#selecttermtype option:selected").text();
 
@@ -102,8 +101,8 @@ $(document).ready(function () {
       });
     }
 
-    
-    
+
+
 
 
     var valueofPredicateObjectMap = $(
@@ -143,13 +142,13 @@ $(document).ready(function () {
       var objectType = "Ref_to_data_as_uri";
 
       var object = [];
-      
-      $("#predicateselectdatafield option:selected").each(function(){
+
+      $("#predicateselectdatafield option:selected").each(function () {
         object.push({
           data: this.text
         });
       });
-      
+
       var objectClass = $("#predicateselectclass option:selected").text();
       var termType = $(
         "#selecttermtypepredicateobjectmap option:selected"
@@ -203,23 +202,42 @@ $(document).ready(function () {
     // final.push(jsonPredicateObjectMap);
     // console.log(final);
 
-    jsonTripleMap.triplesMap.push({
-      name: triplemapname,
-      logicalSource_path: datasourcepath,
-      subjectMap: jsonSubjectMap.subjectMap,
-      predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
-    });
+    if (valueofDataType == 0) {
+
+      jsonTripleMap.triplesMap.push({
+        name: triplemapname,
+        logicalSource_path: datasourcepath,
+        subjectMap: jsonSubjectMap.subjectMap,
+        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+      });
+
+    }else if(valueofDataType == 1){
+      jsonTripleMap.triplesMap.push({
+        name: triplemapname,
+        databasename: databasename,
+        databaseurl: databaseurl,
+        databasedriver: databasedriver,
+        databaseusername: databaseusername,
+        databasetable: databasetable,
+        databasequery: databasequery,
+        subjectMap: jsonSubjectMap.subjectMap,
+        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+      });
+    }
+
+
+
 
     var finaljson = JSON.stringify(final);
     console.log(finaljson);
 
     $("#predicateselecttriplesmap").append($('<option>', {
       text: triplemapname
-      }));
+    }));
 
     $("#predicateselecttriplesmapdifferentdata").append($('<option>', {
       text: triplemapname
-      }));
+    }));
 
 
     $("#triplemapname").val("");
@@ -230,7 +248,7 @@ $(document).ready(function () {
 
     $('#selectdatafield option:selected').prop("selected", false);
     $("#selectdatafield").trigger("chosen:updated");
-    
+
     $("#selectclass").val("default").change();
     $("#selecttermtype").val("default").change();
     $("#selectproperty").val("default").change();
@@ -238,7 +256,7 @@ $(document).ready(function () {
     $("#selectclasssuggestion").val("default").change();
     $("#selectdatafieldsuggestion").val("default").change();
 
-    
+
     // $("#predicateselectdatafield").val("default").change();
     $('#predicateselectdatafield option:selected').prop("selected", false);
     $("#predicateselectdatafield").trigger("chosen:updated");
@@ -250,6 +268,14 @@ $(document).ready(function () {
     $("#selecttermtypepredicateobjectmap").val("default").change();
     $("#joinconditionparent").val("");
 
+    $('#databasename').val("");
+    $('#databaseurl').val("");
+    $('#databasedriver').val("");
+    $('#databaseusername').val("");
+    $('#databasepassword').val("");
+    $('#databasetable').val("");
+    $('#databasequery').val("");
+
     jsonPredicateObjectMap = { predicateObjectMap: [] };
     jsonSubjectMap = { subjectMap: [] };
   });
@@ -260,7 +286,7 @@ $(document).ready(function () {
 
 
   $("#addanotherpredicate").on("click", function () {
-    
+
 
     var valueofPredicateObjectMap = $(
       "#selectobjecttype option:selected"
@@ -297,10 +323,10 @@ $(document).ready(function () {
     } else if (valueofPredicateObjectMap == 3) {
       var predicate = $("#selectproperty option:selected").text();
       var objectType = "Ref_to_data_as_uri";
-      
+
       var object = []
-      
-      $("#predicateselectdatafield option:selected").each(function(){
+
+      $("#predicateselectdatafield option:selected").each(function () {
         object.push({
           data: this.text
         });
@@ -404,7 +430,18 @@ $(document).ready(function () {
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
 
-    
+    //datalist for database
+    var databasename = $('#databasename').val();
+    var databaseurl = $('#databaseurl').val();
+    var databasedriver = $('#databasedriver').val();
+    var databaseusername = $('#databaseusername').val();
+    var databasetable = $('#databasetable').val();
+    var databasequery = $('#databasequery').val();
+
+    var valueofDataType = $("#selecttypedatasource option:selected").val();
+
+
+
 
     // var jsonSubjectMap = { subjectMap: [] };
 
@@ -422,10 +459,10 @@ $(document).ready(function () {
       });
     } else if (valueofSubjectMap == 1) {
       var subjectType = "Ref_to_data_as_uri";
-      
+
       var subject = []
-      
-      $("#selectdatafield option:selected").each(function(){
+
+      $("#selectdatafield option:selected").each(function () {
         subject.push({
           data: this.text
         });
@@ -477,10 +514,10 @@ $(document).ready(function () {
     } else if (valueofPredicateObjectMap == 3) {
       var predicate = $("#selectproperty option:selected").text();
       var objectType = "Ref_to_data_as_uri";
-      
+
       var object = []
-      
-      $("#predicateselectdatafield option:selected").each(function(){
+
+      $("#predicateselectdatafield option:selected").each(function () {
         object.push({
           data: this.text
         });
@@ -533,12 +570,30 @@ $(document).ready(function () {
       });
     }
 
-    jsonTripleMap.triplesMap.push({
-      name: triplemapname,
-      logicalSource_path:datasourcepath,
-      subjectMap: jsonSubjectMap.subjectMap,
-      predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap,
-    });
+
+    if (valueofDataType == 0) {
+
+      jsonTripleMap.triplesMap.push({
+        name: triplemapname,
+        logicalSource_path: datasourcepath,
+        subjectMap: jsonSubjectMap.subjectMap,
+        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+      });
+
+    }else if(valueofDataType == 1){
+      jsonTripleMap.triplesMap.push({
+        name: triplemapname,
+        databasename: databasename,
+        databaseurl: databaseurl,
+        databasedriver: databasedriver,
+        databaseusername: databaseusername,
+        databasetable: databasetable,
+        databasequery: databasequery,
+        subjectMap: jsonSubjectMap.subjectMap,
+        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+      });
+    }
+
 
     final.push(jsonTripleMap);
     // final.push(jsonSubjectMap);
