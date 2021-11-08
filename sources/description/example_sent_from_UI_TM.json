@@ -27,7 +27,6 @@
         },
         {
           "name":"dd",
-          "logicalSource_path":"",
           "logicalSource":[
             {
               "sourceType":"RDB",
