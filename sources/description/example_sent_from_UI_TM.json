@@ -1,0 +1,66 @@
+[
+    {
+      "triplesMap":[
+        {
+          "name":"Abhi",
+          "logicalSource":[
+            {
+              "sourceType":"CSV",
+              "logicalSource_path":"/data/drug/",
+            }
+          ],
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"www.clarify.com/Annotation",
+              "objectType":"class",
+              "object":"--select the class (based on the Ontology)--",
+              "termType":"rr:IRI"
+            },
+            {
+              "predicate":"www.clarify.com/Drug",
+              "objectType":"Ref_to_data_as_uri",
+              "object":[{"data":"TABLE_NAME"},{"data":"COLUMN_NAME"}],
+              "objectClass":"http://clarify2020.eu/vocab/LungCancerDrug",
+              "termType":"rr:BlankNode"
+            }
+          ]
+        },
+        {
+          "name":"dd",
+          "logicalSource":[
+            {
+              "sourceType":"RDB",
+              "databasename":"DBMs",
+              "databaseurl":"URL",
+              "databasedriver":"driver",
+              "databaseusername":"username",
+              "databasetable":"table",
+              "databasequery":"query",
+            }
+          ],
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ],
+          "predicateObjectMap":[
+            {
+              "predicate":"www.clarify.com/Disorder",
+              "objectType":"Ref_to_data",
+              "object":"--select the data field--",
+              "termType":"rr:Literal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
