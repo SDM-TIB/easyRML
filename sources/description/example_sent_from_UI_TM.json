@@ -9,6 +9,13 @@
               "logicalSource_path":"/data/drug/",
             }
           ],
+          "subjectMap":[
+            {
+              "subjectType":"class",
+              "subject":"--select the corresponding class (based on Ontology)--",
+              "termType":"rr:BlankNode"
+            }
+          ],
           "predicateObjectMap":[
             {
               "predicate":"www.clarify.com/Annotation",
