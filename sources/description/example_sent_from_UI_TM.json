@@ -3,13 +3,10 @@
       "triplesMap":[
         {
           "name":"Abhi",
-          "logicalSource_path":"",
-          "subjectMap":[
+          "logicalSource":[
             {
-              "subjectType":"Ref_to_data_as_uri",
-              "subject":[{"data":"TABLE_NAME"},{"data":"COLUMN_NAME"}],
-              "subjectClass":"http://clarify2020.eu/vocab/LungCancerDrug",
-              "termType":"rr:IRI"
+              "sourceType":"CSV",
+              "logicalSource_path":"/data/drug/",
             }
           ],
           "predicateObjectMap":[
@@ -31,6 +28,17 @@
         {
           "name":"dd",
           "logicalSource_path":"",
+          "logicalSource":[
+            {
+              "sourceType":"RDB",
+              "databasename":"DBMs",
+              "databaseurl":"URL",
+              "databasedriver":"driver",
+              "databaseusername":"username",
+              "databasetable":"table",
+              "databasequery":"query",
+            }
+          ],
           "subjectMap":[
             {
               "subjectType":"class",
