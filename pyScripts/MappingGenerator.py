@@ -36,40 +36,41 @@ def generatePrefix(default,new):
 		prefixes = prefixes + prefixString + "\n"
 	return prefixes
 
-def generateTriplesMap(triplesMap_data):
-	triplesList = triplesMap_data
-	TM_list = []
-	for t in range (0,len(triplesList)):
-		Tnames_list.append(triplesMap_data[t]["name"])
-		TM_name = triplesMap_data[t]["name"]
-		TM = "\n<" + TM_name + ">\n"
-		if triplesMap_data[t]["logicalSource_path"][0]["sourceType"] == "RDB":
-			generateLogicalSource(triplesMap_data[t]["logicalSource_path"][0])
-		else:
-			sourcePATH = triplesMap_data[t]["logicalSource"][0]["logicalSource_path"]
-			#sourcePATH = "temp_value"
-			TM = TM + "\trml:logicalSource [ rml:source \"" + sourcePATH + \
-			"\";\n\t\t\t\trml:referenceFormulation ql:CSV ];\n"
-			TM_list.append(TM)
-
-	return TM_list
-
-def generateLogicalSource(logicalSource_data):
+def generateTriplesMap(data):
 	triplesList = data
 	TM_list = []
 	for t in range (0,len(triplesList)):
-		Tnames_list.append(data[t]["name"])
-	gfotajs
-		db_name = logicalSource_data["databasename"]
-		db_url = logicalSource_data["databaseurl"]
-		db_driver = logicalSource_data["databasedriver"]
-		db_username = logicalSource_data["databaseusername"]
-		db_password = logicalSource_data["databasepassword"]
-		db_table = logicalSource_data["databasetable"]
-		sql_query = logicalSource_data["databasequery"]
-		TM = TM + "\trml:logicalSource [ rml:source <" + sourceName + \
-					">;\n\t\t\t\trr:sqlVersion rr: rml:referenceFormulation ql:CSV ];\n"
-		TM_list.append(TM)
+		TM_name = data[t]["name"]
+		if data[t]["logicalSource_path"][0]["sourceType"] == "RDB":
+			logicalSource_data = data[t]["logicalSource"][0]
+			db_name = logicalSource_data["databasename"]
+			Tnames_list.append(db_name)
+			db_url = logicalSource_data["databaseurl"]
+			db_driver = logicalSource_data["databasedriver"]
+			db_username = logicalSource_data["databaseusername"]
+			db_password = logicalSource_data["databasepassword"]
+			db_table = logicalSource_data["databasetable"]
+			sql_query = logicalSource_data["databasequery"]
+			## Adding the RDB triplesMap:
+			TM = "\n<" + db_name + "> a d2rq:Database;\n\td2rq:jdbcDSN \"" + db_name + \
+					"\";\n\t d2rq:jdbcDriver \"" + db_driver + "\";\n\td2rq:username \"" + \
+					db_username + "\";\n\t d2rq:password \"" + db_password + "\" .\n"
+			Tnames_list.append(data[t]["name"])
+			TM = TM + "\n<" + TM_name + ">\n\trml:logicalSource [\n\t\t rml:source <" + \
+										db_name + ">;\n\t\t rr:sqlVersion rr:SQL2008;\n\t\t"
+			if db_table != "":
+				TM = TM + "rr:tableName \"" + "\";];"
+			if sql_query != "":
+				TM = TM + "rml:query \"\"\"" + sql_query + "\"\"\";\n\t];\n"
+		else:
+			Tnames_list.append(data[t]["name"])
+
+			sourcePATH = data[t]["logicalSource"][0]["logicalSource_path"]
+			#sourcePATH = "temp_value"
+			TM = "\n<" + TM_name + ">\n"
+			TM = TM + "\trml:logicalSource [ rml:source \"" + sourcePATH + \
+			"\";\n\t\t\t\trml:referenceFormulation ql:CSV ];\n"
+			TM_list.append(TM)
 	return TM_list
 
 def generateSubjectMap(data):
