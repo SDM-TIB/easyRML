@@ -3,6 +3,7 @@ $(document).ready(function () {
   var jsonPredicateObjectMap = { predicateObjectMap: [] };
   var jsonTripleMap = { triplesMap: [] };
   var jsonSubjectMap = { subjectMap: [] };
+  var jsonLogicalSource = { logicalSource: [] };
   $("#addanothertriples").on("click", function () {
 
 
@@ -54,6 +55,9 @@ $(document).ready(function () {
 
     var valueofDataType = $("#selecttypedatasource option:selected").val();
 
+    var typeofDataType = $("#selecttypedatasource option:selected").text();
+    console.log(typeofDataType)
+
 
 
 
@@ -62,6 +66,10 @@ $(document).ready(function () {
 
     var datasourcepath = $("#datasourcepath").val();
 
+    jsonLogicalSource.logicalSource.push({
+      sourceType: typeofDataType,
+      logicalSource_path: datasourcepath
+    })
 
 
 
@@ -206,7 +214,7 @@ $(document).ready(function () {
 
       jsonTripleMap.triplesMap.push({
         name: triplemapname,
-        logicalSource_path: datasourcepath,
+        logicalSource: jsonLogicalSource.logicalSource,
         subjectMap: jsonSubjectMap.subjectMap,
         predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
       });
@@ -278,6 +286,7 @@ $(document).ready(function () {
 
     jsonPredicateObjectMap = { predicateObjectMap: [] };
     jsonSubjectMap = { subjectMap: [] };
+    jsonLogicalSource = { logicalSource: [] };
   });
 
 
@@ -441,6 +450,15 @@ $(document).ready(function () {
     var valueofDataType = $("#selecttypedatasource option:selected").val();
 
 
+    var typeofDataType = $("#selecttypedatasource option:selected").text();
+
+    jsonLogicalSource.logicalSource.push({
+      sourceType: typeofDataType,
+      logicalSource_path: datasourcepath
+    })
+
+
+
 
 
     // var jsonSubjectMap = { subjectMap: [] };
@@ -575,7 +593,7 @@ $(document).ready(function () {
 
       jsonTripleMap.triplesMap.push({
         name: triplemapname,
-        logicalSource_path: datasourcepath,
+        logicalSource: jsonLogicalSource.logicalSource,
         subjectMap: jsonSubjectMap.subjectMap,
         predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
       });
