@@ -1,12 +1,9 @@
 '''
 @auther: samiscoding@github
 '''
-from configparser import ConfigParser, ExtendedInterpolation
 import pandas as pd
 import json
-#import sys
-#import os
-import SPARQLWrapper
+
 #################################################################################
 prefixDict = dict()
 mapping = ""
