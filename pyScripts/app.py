@@ -6,7 +6,6 @@ from flask.json import jsonify
 import json
 import MappingGenerator
 import dataExtractor
-from configparser import ConfigParser, ExtendedInterpolation
 from werkzeug.utils import secure_filename
 
 ############################################################################
