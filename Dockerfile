@@ -12,5 +12,5 @@ EXPOSE 5000
 
 
 # Run app.py when the container launches
-CMD ./run_service.sh
+CMD /easyRML/run_service.sh
 
