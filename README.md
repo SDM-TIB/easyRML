@@ -6,9 +6,9 @@ Required python version:
 3
 
 Required python packages:
-- configparser
+- Flask
 - pandas
-- flask
+- werkzeug
 
 # How to use
 Here is a [demo video](https://tib.eu/cloud/s/rFYL3CZHqYSQjFC).
