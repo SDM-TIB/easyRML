@@ -96,13 +96,13 @@
         tags: true,
         theme: "bootstrap-5",
       });
-
+      
       $("#selectproperty").select2({
         tags: true,
         theme: "bootstrap-5",
       });
 
-    });
+    }); 
 
     // $('select:not(.normal)').each(function() {
     //     $('#selectclass').select2({
@@ -142,7 +142,7 @@
   <!--navigation bar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light border border-4 border-secondary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/">
         <img class="header-title" src="../static/images/easlyrml.png">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -152,12 +152,12 @@
       <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="rmlguideline.html">
-              <h3 class="header-text">RML Guidline</h3>
+            <a class="nav-link" aria-current="page" href="/guideline_url">
+              <h3 class="header-text">RML Guidleine</h3>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">
+            <a class="nav-link" href="/aboutUs_url">
               <h3 class="header-text">About us</h3>
             </a>
           </li>
@@ -357,118 +357,30 @@
               <!--upload source file-->
               <div class="col-6">
                 <div class="row">
-                  <div class="col-7">
-                    <div class="input-group mb-3 ">
-                      <select class="form-select border border-2 border-secondary" id="selecttypedatasource"
-                        data-placeholder="select the subject type" onchange="showSelectDataSource(this);">
-                        <option value="default" selected>--Select type of the data source--</option>
-                        <option value="0">CSV</option>
-                        <option value="1">RDB</option>
-                        <!-- <option value="2">Reference to a FunctionMap</option> -->
-                      </select>
-                    </div>
+                  <div class="col-1"></div>
+                  <form method="POST" enctype="multipart/form-data" id="formsource">
+                    <input class="file-upload-input" type='file' accept=".csv" name="file" id="uploadsourcefile"
+                      hidden />
+                  </form>
+                  <div class="col-2">
+                    <label for="uploadsourcefile">
+                      <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
+                        alt="...">
+                    </label>
                   </div>
-                  <div class="col-5"></div>
+                  <div class="col-8">
+                    <h4 class="pt-1"> &lt; Upload source here</h4>
+                  </div>
+                  <div class="col-1"></div>
                 </div>
 
-
-                <!--#####################csv box ##################################-->
-                <div class="default" id="csvbox">
-                  <div class="row">
-                    <div class="col-1"></div>
-                    <form method="POST" enctype="multipart/form-data" id="formsource">
-                      <input class="file-upload-input" type='file' accept=".csv" name="file" id="uploadsourcefile"
-                        hidden />
-                    </form>
-                    <div class="col-2">
-                      <label for="uploadsourcefile">
-                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
-                          alt="...">
-                      </label>
-                    </div>
-                    <div class="col-8">
-                      <h4 class="pt-1"> &lt; Upload source here</h4>
-                    </div>
-                    <div class="col-1"></div>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="text" class="form-control border border-secondary border-2" id="datasourcepath"
+                      placeholder="Add the path to data source to be added to the mapping">
                   </div>
-
-                  <div class="row">
-                    <div class="col-9">
-                      <input type="text" class="form-control border border-secondary border-2" id="datasourcepath"
-                        placeholder="Add the path to data source to be added to the mapping">
-                    </div>
-                    <div class="col-3"></div>
-                  </div>
+                  <div class="col-3"></div>
                 </div>
-                <!--#####################end csv box ##################################-->
-
-
-                <!--#####################RDB box ##################################-->
-                <div class="default" id="rdbbox">
-                  <div class="row">
-                    <div class="col-9">
-                      <input type="text" list="namedatalist" class="form-control border border-secondary border-2"
-                        id="databasename" placeholder="Name of Database" autocomplete="on">
-                      <datalist id="namedatalist"></datalist>
-                    </div>
-                    <div class="col-3"></div>
-                  </div>
-
-                  <div class="row mt-2">
-                    <div class="col-9">
-                      <input type="text" list="urldatalist" class="form-control border border-secondary border-2"
-                        id="databaseurl" placeholder="JDBC database URL" autocomplete="on">
-                      <datalist id="urldatalist"></datalist>
-                    </div>
-                    <div class="col-3"></div>
-                  </div>
-
-                  <div class="row mt-2">
-                    <div class="col-9">
-                      <input type="text" list="driverdatalist" class="form-control border border-secondary border-2"
-                        id="databasedriver" placeholder="JDBC database driver class name" autocomplete="on">
-                      <datalist id="driverdatalist"></datalist>
-                    </div>
-                    <div class="col-3"></div>
-                  </div>
-
-                  <div class="row mt-2">
-                    <div class="col-4">
-                      <input type="text" list="usernamedatalist" class="form-control border border-secondary border-2"
-                        id="databaseusername" placeholder="Username to access the database" autocomplete="on">
-                      <datalist id="usernamedatalist"></datalist>
-                    </div>
-
-                    <div class="col-1"></div>
-
-                    <div class="col-4">
-                      <input type="password" class="form-control border border-secondary border-2" id="databasepassword"
-                        placeholder="Password to access the database">
-                    </div>
-                  </div>
-
-                  <div class="row mt-2">
-                    <div class="col-4">
-                      <input type="text" list="tabledatalist" class="form-control border border-secondary border-2"
-                        id="databasetable" placeholder="Name of the table" autocomplete="on">
-                      <datalist id="tabledatalist"></datalist>
-                    </div>
-
-                    <div class="col-1"></div>
-
-                    <div class="col-4">
-                      <input type="text" list="querydatalist" class="form-control border border-secondary border-2"
-                        id="databasequery" placeholder="SQL query" autocomplete="on">
-                      <datalist id="querydatalist"></datalist>
-                    </div>
-                  </div>
-
-
-
-
-                </div>
-                <!--#####################end RDB box ##################################-->
-
               </div>
               <!--#############################upload source file end#############################-->
             </div>
