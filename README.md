@@ -13,5 +13,13 @@ Required python packages:
 # How to use
 Here is a [demo video](https://tib.eu/cloud/s/rFYL3CZHqYSQjFC).
 
+Pull the image:
+docker pull sdmtib/easyrml:2.0
+
+run:
+docker run -d --name easyRML -p 5000:5000 sdmtib/easyrml:2.0
+docker start easyRML
+
+
 # Authors
 easyRML is an ongoing research and development effort by members of the Scientific Data Management Group at TIB, [Samaneh Jozashoori](https://github.com/samiscoding) (samaneh.jozashoori@tib.eu), [Abhi akbari](https://github.com/abhi055) (current UI, abhiakbari023@gmail.com) and [Emetis Niazmand](https://github.com/ENiaz) (UI version1.0, emetis.niazmand@tib.eu) under the supervision of [Maria-Esther Vidal](https://github.com/mevs) (maria.vidal@tib.eu).
