@@ -10,7 +10,8 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE 5000
 
+RUN sed -i 's/\r$//' $app/filename.sh  && \  
+chmod +x $easyRML/run_service.sh
 
-# Run app.py when the container launches
-CMD /easyRML/run_service.sh
+CMD $easyRML/run_service.sh
 
