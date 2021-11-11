@@ -2,3 +2,6 @@ Flask
 pandas
 werkzeug
 SPARQLWrapper
+rdflib==4.2.2
+configparser
+pyparsing==2.2.0
