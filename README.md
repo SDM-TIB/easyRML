@@ -4,11 +4,7 @@ easyRML facilitates the RML Mapping rule generation. It receives mappings data f
 # Installating and running
 Required python version:
 3
-
-Required python packages:
-- Flask
-- pandas
-- werkzeug
+[Reuired python packages](https://github.com/SDM-TIB/easyRML/blob/master/requirements.txt)
 
 # How to use
 Here is a [demo video](https://tib.eu/cloud/s/rFYL3CZHqYSQjFC).
