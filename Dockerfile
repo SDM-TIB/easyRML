@@ -10,8 +10,8 @@ RUN pip3 install -r requirements.txt
 
 EXPOSE 5000
 
-RUN sed -i 's/\r$//' $app/filename.sh  && \  
-chmod +x $easyRML/run_service.sh
+RUN sed -i 's/\r$//' ./run_service.sh  && \  
+chmod +x ./run_service.sh
 
-CMD $easyRML/run_service.sh
+CMD ./run_service.sh
 

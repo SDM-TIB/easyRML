@@ -19,7 +19,6 @@ Here is a [demo video](https://tib.eu/cloud/s/rFYL3CZHqYSQjFC).
 ```
 docker pull sdmtib/easyrml:2.0
 docker run -d --name easyRML -p 5000:5000 sdmtib/easyrml:2.0
-docker start easyRML
 
 ```
 
