@@ -8,11 +8,12 @@ from SPARQLWrapper import SPARQLWrapper,JSON
 import json
 from rdflib import Graph
 import csv
+import mysql.connector
 
 ##############################################################################
 
 ##################### Extract Classes from the Ontology ######################
-
+'''
 #### ontology as an endpoint
 def readClassesFromOntologyEndpoint(endpoint):
     sparql = SPARQLWrapper(endpoint)
@@ -23,7 +24,7 @@ def readClassesFromOntologyEndpoint(endpoint):
     sparql.setReturnFormat(JSON)
     classes = sparql.query().convert()  
     return classes
-
+'''
 #### ontology as an turtle file
 def readClassesFromOntologyTurtle(file):
     ontologyGraph = Graph()
@@ -40,7 +41,7 @@ def readClassesFromOntologyTurtle(file):
     return owlClassList
 
 #################### Extract Properties from the Ontology ######################
-
+'''
 #### ontology as an endpoint
 def readPropertiesFromOntologyEndpoint(endpoint):
     sparql = SPARQLWrapper(endpoint)
@@ -54,7 +55,7 @@ def readPropertiesFromOntologyEndpoint(endpoint):
     sparql.setReturnFormat(JSON)
     properties = sparql.query().convert()
     return properties
-
+'''
 #### ontology as an turtle file
 def readPropertiesFromOntologyTurtle(filename):
     file = filename
@@ -92,6 +93,28 @@ def extractFields(file):
         dataFields_json = {}
     return dataFields_json
 
+###################### Extract columns from RDB ########################
+'''
+def extractFields(file):
+ 
+    mydb = mysql.connector.connect(
+          host=file["RDB_host"],
+          port=file["RDB_port"],
+          user=file["databaseusername"],
+          passwd=file["databasepassword"],
+          database=file["databasename"]
+        )
+    table = file["databasetable"]
+    query="""
+    SELECT * from databasetable 
+    """
+    mycursor = mydb.cursor()
+    mycursor.execute(query)
+    myresult = mycursor.fetchall()
+    print (myresult)
+    return (myresult_json)
+
+'''
 ############################# Extract Prefixes ##############################
 
 def readURLs(filePath):
