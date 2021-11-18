@@ -23,6 +23,16 @@ responseConfig = {}
 def index():
     return render_template('index.html')
 
+################### redirecting to "RML Guidline" tab #####################
+@app.route('/guideline_url', methods=['GET'])
+def guideline_url():
+    return render_template('rmlguideline.html')
+
+################### redirecting to "About us" tab #####################
+@app.route('/aboutUs_url', methods=['GET'])
+def aboutUs_url():
+    return render_template('contact.html')
+    
 #### checking if the format of the ontology file uploaded by the user is correct ####
 def ontology_allowed_file(filename):
     return '.' in filename and \
