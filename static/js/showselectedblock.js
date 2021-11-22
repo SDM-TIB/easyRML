@@ -30,16 +30,20 @@ function showSelectDataSource(nameDataSource) {
     if (nameDataSource.value == 0) {
       document.getElementById("csvbox").style.display = "block";
       document.getElementById("rdbbox").style.display = "none";
+      document.getElementById("submitRDB").style.display = "none";
     } else if (nameDataSource.value == 1) {
       document.getElementById("csvbox").style.display = "none";
       document.getElementById("rdbbox").style.display = "block";
+      document.getElementById("submitRDB").style.display = "block";
     } else {
       document.getElementById("csvbox").style.display = "none";
       document.getElementById("rdbbox").style.display = "none";
+      document.getElementById("submitRDB").style.display = "none";
     }
   } else {
     document.getElementById("csvbox").style.display = "none";
     document.getElementById("rdbbox").style.display = "none";
+    document.getElementById("submitRDB").style.display = "none";
   }
 }
 

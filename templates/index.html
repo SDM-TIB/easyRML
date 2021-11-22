@@ -72,6 +72,8 @@
   <script src="../static/js/sendadvancejson.js"></script>
 
 
+  <!--send only RDB data from triplesmap block-->
+  <script src="../static/js/sendRDBdata.js"></script>
 
 
   <script type="text/javascript">
@@ -446,6 +448,9 @@
                         <input type="password" class="form-control border border-secondary border-2" id="databasepassword"
                           placeholder="Password to access the database" autocomplete="on">
                       </div>
+                      
+                      <div class="col-1"></div>
+  
                     </div>
   
                     <div class="row mt-2">
@@ -462,6 +467,27 @@
                           placeholder="SQL query" autocomplete="on">
                           <datalist id="querydatalist"></datalist>
                       </div>
+                    
+                      <div class="col-1"></div>
+  
+                    </div>
+  
+  
+                    <div class="row mt-2">
+                      <div class="col-4">
+                        <input type="text" class="form-control border border-secondary border-2" id="databasehost"
+                          placeholder="RDB_host" autocomplete="on">
+                      </div>
+  
+                      <div class="col-1"></div>
+                      
+                      <div class="col-4">
+                        <input type="text" class="form-control border border-secondary border-2" id="databaseport"
+                          placeholder="RDB_port" autocomplete="on">
+                      </div>
+                    
+                      <div class="col-1"></div>
+  
                     </div>
   
                     
@@ -878,12 +904,20 @@
       <!--add another triplesmap button-->
       <div class="container-fluid">
         <div class="row mb-3">
-          <div class="col-10">
+          <div class="col-8">
   
           </div>
           <div class="col-2">
+            <div class="default" id="submitRDB">
+            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendRDB"
+              type="button">Submit RDB data</button>
+            </div>
+          </div>
+
+
+          <div class="col-2">
             <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMap"
-              type="button"> Create Mapping File</button>
+              type="button">Create Mapping File</button>
           </div>
   
         </div>
