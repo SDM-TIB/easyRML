@@ -77,7 +77,7 @@ def readPropertiesFromOntologyTurtle(filename):
 
 ###################### Extract Fields from Data Header ########################
 
-def extractFields(file):
+def extractFields_csv(file):
     fileName = file.split('/')[-1]
     if fileName.rsplit('.', 1)[1].lower() == 'csv':
         with open(file, newline='') as dataFile:
@@ -94,19 +94,21 @@ def extractFields(file):
     return dataFields_json
 
 ###################### Extract columns from RDB ########################
-'''
-def extractFields(file):
+
+def extractFields_RDB(file):
  
     mydb = mysql.connector.connect(
           host=file["RDB_host"],
           port=file["RDB_port"],
           user=file["databaseusername"],
           passwd=file["databasepassword"],
-          database=file["databasename"]
+          database=file["databasename"] 
         )
     table = file["databasetable"]
     query="""
-    SELECT * from databasetable 
+    SELECT *
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_NAME = table
     """
     mycursor = mydb.cursor()
     mycursor.execute(query)
@@ -114,7 +116,7 @@ def extractFields(file):
     print (myresult)
     return (myresult_json)
 
-'''
+
 ############################# Extract Prefixes ##############################
 
 def readURLs(filePath):

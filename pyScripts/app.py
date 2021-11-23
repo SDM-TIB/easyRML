@@ -71,8 +71,8 @@ def readOntology():
     return ''   
 
 ################ uploading the data source file ##################
-@app.route('/readDataSource', methods=['POST'])
-def readDataSource():
+@app.route('/readDataSource_csv', methods=['POST'])
+def readDataSource_csv():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)         
@@ -100,10 +100,26 @@ def receiveProperties():
     return Response(property_json, mimetype="application/json")
 
 ######## extract and provide data fields based on the uploaded data source file #########
-@app.route('/receiveDataFields', methods=['GET'])
-def receiveDataFields():
-    dataFields_json = dataExtractor.extractFields(dataFileAddress)       
-    return Response(dataFields_json, mimetype="application/json")
+@app.route('/receiveDataFields_csv', methods=['GET'])
+def receiveDataFields_csv():
+    dataFields_csv_json = dataExtractor.extractFields_csv(dataFileAddress)       
+    return Response(dataFields_csv_json, mimetype="application/json")
+
+################ uploading the data source file ##################
+@app.route('/readDataSource_rdb', methods=['POST'])
+def readDataSource_rdb():
+    if request.is_json:
+        global rdbInformation
+        rdbInformation = request.get_json()          
+    else:
+        print ("NOT JSON")
+    return ''
+
+######## extract and provide data fields based on the uploaded data source file #########
+@app.route('/receiveDataFields_rdb', methods=['GET'])
+def receiveDataFields_rdb():
+    dataFields_rdb_json = dataExtractor.extractFields_rdb(rdbInformation)       
+    return Response(dataFields_rdb_json, mimetype="application/json")
 
 ################ Upload TriplesMaps Names ##################
 @app.route('/readTriplesNames', methods=['POST'])
