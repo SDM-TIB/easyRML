@@ -105,17 +105,17 @@ def extractFields_RDB(file):
           database=file["databasename"] 
         )
     table = file["databasetable"]
-    query="""
-    SELECT *
+    query="""SELECT COLUMN_NAME
     FROM INFORMATION_SCHEMA.COLUMNS
-    WHERE TABLE_NAME = table
-    """
+    WHERE TABLE_NAME ='""" + table + """'"""
+    print(query)
     mycursor = mydb.cursor()
     mycursor.execute(query)
-    myresult = mycursor.fetchall()
-    print (myresult)
-    return (myresult_json)
-
+    result_list = mycursor.fetchall()
+    final_result_list = list(map(lambda x : ''.join(x), result_list))
+    print (final_result_list)
+    result_json = json.dumps(final_result_list)
+    return (result_json)
 
 ############################# Extract Prefixes ##############################
 

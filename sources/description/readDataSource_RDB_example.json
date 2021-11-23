@@ -1,11 +1,9 @@
 {
-      "sourceType":"",
-      "databasename":"DBMs",
-      "databaseurl":"URL",
-      "databasedriver":"driver",
-      "databaseusername":"username",
-      "databasepassword":"password",
-      "databasetable":"table",
-      "databasequery":"query",
-      "sqlqueryversion":"SQL2008"
+      "databasename":"CLARIFY_Patient_IDs",
+      "databaseusername":"",
+      "databasepassword":"",
+      "databasetable":"lc_slcg_patient_ids",
+      "sqlqueryversion":"SQL2008",
+      "RDB_host":"6.tcp.ngrok.io",
+      "RDB_port":"18706"
 }
