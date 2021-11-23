@@ -449,7 +449,7 @@
                           placeholder="Password to access the database" autocomplete="on">
                       </div>
                       
-                      <div class="col-1"></div>
+                      <div class="col-3"></div>
   
                     </div>
   
@@ -468,7 +468,18 @@
                           <datalist id="querydatalist"></datalist>
                       </div>
                     
-                      <div class="col-1"></div>
+                      <div class="col-3"></div>
+  
+                    </div>
+
+                    <div class="row mt-2">
+                      <div class="col-9">
+                        <input type="text" list="queryversiondatalist" class="form-control border border-secondary border-2" id="databaseqeryversion"
+                          placeholder="SQL query version" autocomplete="on">
+                          <datalist id="queryversiondatalist"></datalist>
+                      </div>
+                   
+                      <div class="col-3"></div>
   
                     </div>
   
@@ -486,9 +497,24 @@
                           placeholder="RDB_port" autocomplete="on">
                       </div>
                     
-                      <div class="col-1"></div>
+                      <div class="col-3"></div>
   
                     </div>
+
+                    
+                    <div class="row mt-2">
+                      <div class="col-5"></div>
+  
+                      <div class="col-4">
+                        <button class="btn border border-secondary border-2 add-another-triplesmap float-end" id="sendRDB"
+                        type="button">Submit RDB data</button>
+                      </div>
+                    
+                      <div class="col-3"></div>
+  
+                    </div>
+
+                   
   
                     
   
@@ -904,16 +930,10 @@
       <!--add another triplesmap button-->
       <div class="container-fluid">
         <div class="row mb-3">
-          <div class="col-8">
+          <div class="col-10">
   
           </div>
-          <div class="col-2">
-            <div class="default" id="submitRDB">
-            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendRDB"
-              type="button">Submit RDB data</button>
-            </div>
-          </div>
-
+          
 
           <div class="col-2">
             <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMap"

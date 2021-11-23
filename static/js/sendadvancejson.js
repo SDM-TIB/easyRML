@@ -15,6 +15,7 @@ $(document).ready(function () {
     var databaseusername = $('#databaseusername').val();
     var databasetable = $('#databasetable').val();
     var databasequery = $('#databasequery').val();
+    var databasequeryversion = $('#databaseqeryversion').val();
 
     // console.log(databasename);
 
@@ -24,6 +25,7 @@ $(document).ready(function () {
     var usernamedatalist = document.getElementById('usernamedatalist');
     var tabledatalist = document.getElementById('tabledatalist');
     var querydatalist = document.getElementById('querydatalist');
+    var queryversiondatalist = document.getElementById('queryversiondatalist');
     // console.log(namedatalist);
 
     var optionname = document.createElement('option');
@@ -49,6 +51,11 @@ $(document).ready(function () {
     var optionquery = document.createElement('option');
     optionquery.value = databasequery;
     querydatalist.append(optionquery);
+
+    
+    var optionqueryversion = document.createElement('option');
+    optionqueryversion.value = databasequeryversion;
+    queryversiondatalist.append(optionqueryversion);
     // console.log(namedatalist);
 
 
@@ -283,6 +290,7 @@ $(document).ready(function () {
     $('#databasepassword').val("");
     $('#databasetable').val("");
     $('#databasequery').val("");
+    $('#databaseqeryversion').val("");
 
     jsonPredicateObjectMap = { predicateObjectMap: [] };
     jsonSubjectMap = { subjectMap: [] };
