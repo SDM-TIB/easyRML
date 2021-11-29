@@ -95,7 +95,7 @@ def extractFields_csv(file):
 
 ###################### Extract columns from RDB ########################
 
-def extractFields_RDB(file):
+def extractFields_rdb(file):
  
     mydb = mysql.connector.connect(
           host=file["RDBdata"][0]["RDB_host"],
