@@ -98,13 +98,13 @@ def extractFields_csv(file):
 def extractFields_RDB(file):
  
     mydb = mysql.connector.connect(
-          host=file["RDB_host"],
-          port=file["RDB_port"],
-          user=file["databaseusername"],
-          passwd=file["databasepassword"],
-          database=file["databasename"] 
+          host=file[RDBdata][0]["RDB_host"],
+          port=file[RDBdata][0]["RDB_port"],
+          user=file[RDBdata][0]["databaseusername"],
+          passwd=file[RDBdata][0]["databasepassword"],
+          database=file[RDBdata][0]["databasename"] 
         )
-    table = file["databasetable"]
+    table = file[RDBdata][0]["databasetable"]
     query="""SELECT COLUMN_NAME
     FROM INFORMATION_SCHEMA.COLUMNS
     WHERE TABLE_NAME ='""" + table + """'"""
