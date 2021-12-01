@@ -33,7 +33,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "/readDataSource_RDB",
+            url: "/readDataSource_rdb",
             data: JSON.stringify(RDBdata),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -56,7 +56,7 @@ $(document).ready(function () {
                 $('#joinconditionchild').append($('<option>', { value: "default", text: "--joinCondition child--" }).prop('selected', true));
 
                 $.ajax({
-                    url: '/receiveDataFields_RDB',
+                    url: '/receiveDataFields_rdb',
                     type: 'GET',
                     contentType: "application/json",
                     dataType: 'json',
