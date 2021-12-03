@@ -7,6 +7,7 @@ $(document).ready(function () {
         var databaseurl = $("#databaseurl").val();
         var databasedriver = $("#databasedriver").val();
         var databaseusername = $("#databaseusername").val();
+        var databasepassword = $("#databasepassword").val();
         var databasetable = $("#databasetable").val();
         var databasequery = $("#databasequery").val();
         var databasequeryversion = $("#databaseqeryversion").val();
@@ -20,6 +21,7 @@ $(document).ready(function () {
             databaseurl: databaseurl,
             databasedriver: databasedriver,
             databaseusername: databaseusername,
+            databasepassword: databasepassword,
             databasetable: databasetable,
             databasequery: databasequery,
             sqlqueryversion: databasequeryversion,
@@ -35,7 +37,6 @@ $(document).ready(function () {
             type: "POST",
             url: "/readDataSource_rdb",
             data: JSON.stringify(RDBdata),
-            dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 alert(data);
