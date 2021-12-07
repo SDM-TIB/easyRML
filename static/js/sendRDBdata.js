@@ -2,28 +2,20 @@ $(document).ready(function () {
     $("#sendRDB").on("click", function () {
         var RDBdata = { RDBdata: [] };
 
-        var typeofDataType = $("#selecttypedatasource option:selected").text();
         var databasename = $("#databasename").val();
-        var databaseurl = $("#databaseurl").val();
-        var databasedriver = $("#databasedriver").val();
         var databaseusername = $("#databaseusername").val();
         var databasepassword = $("#databasepassword").val();
         var databasetable = $("#databasetable").val();
-        var databasequery = $("#databasequery").val();
         var databasequeryversion = $("#databaseqeryversion").val();
         var databasehost = $("#databasehost").val();
-        var databaseport = $("#databaseport").val();
+        var databaseport = parseInt($("#databaseport").val());
 
 
         RDBdata.RDBdata.push({
-            sourceType: typeofDataType,
             databasename: databasename,
-            databaseurl: databaseurl,
-            databasedriver: databasedriver,
             databaseusername: databaseusername,
             databasepassword: databasepassword,
             databasetable: databasetable,
-            databasequery: databasequery,
             sqlqueryversion: databasequeryversion,
             RDB_host: databasehost,
             RDB_port: databaseport
