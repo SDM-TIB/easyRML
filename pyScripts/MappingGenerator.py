@@ -41,7 +41,7 @@ def generateTriplesMap(data):
 	TM_list = []
 	for t in range (0,len(triplesList)):
 		TM_name = data[t]["name"]
-		if data[t]["logicalSource_path"][0]["sourceType"] == "RDB":
+		if data[t]["logicalSource"][0]["sourceType"] == "RDB":
 			logicalSource_data = data[t]["logicalSource"][0]
 			db_name = logicalSource_data["databasename"]
 			Tnames_list.append(db_name)
