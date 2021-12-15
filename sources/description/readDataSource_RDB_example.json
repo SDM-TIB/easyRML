@@ -1,8 +1,8 @@
 {
-      "databasename":"CLARIFY_Patient_IDs",
+      "databasename":"easyRML",
       "databaseusername":"",
       "databasepassword":"",
-      "databasetable":"lc_slcg_patient_ids",
+      "databasetable":"biomarkers_drugs",
       "sqlqueryversion":"SQL2008",
       "RDB_host":"6.tcp.ngrok.io",
       "RDB_port":"18706"
