@@ -16,6 +16,8 @@ $(document).ready(function () {
     var databasetable = $('#databasetable').val();
     var databasequery = $('#databasequery').val();
     var databasequeryversion = $('#databaseqeryversion').val();
+    var databasehost = $('#databasehost').val();
+    var databaseport = $('#databaseport').val();
 
     // console.log(databasename);
 
@@ -26,6 +28,8 @@ $(document).ready(function () {
     var tabledatalist = document.getElementById('tabledatalist');
     var querydatalist = document.getElementById('querydatalist');
     var queryversiondatalist = document.getElementById('queryversiondatalist');
+    var rdbhostdatalist = document.getElementById('rdbhostdatalist');
+    var rdbportdatalist = document.getElementById('rdbportdatalist');
     // console.log(namedatalist);
 
     var optionname = document.createElement('option');
@@ -52,10 +56,17 @@ $(document).ready(function () {
     optionquery.value = databasequery;
     querydatalist.append(optionquery);
 
-    
     var optionqueryversion = document.createElement('option');
     optionqueryversion.value = databasequeryversion;
     queryversiondatalist.append(optionqueryversion);
+
+    var optionrdbhost = document.createElement('option');
+    optionrdbhost.value = databasehost;
+    rdbhostdatalist.append(optionrdbhost);
+
+    var optionrdbport = document.createElement('option');
+    optionrdbport.value = databaseport;
+    rdbportdatalist.append(optionrdbport);
     // console.log(namedatalist);
 
 
@@ -73,12 +84,27 @@ $(document).ready(function () {
 
     var datasourcepath = $("#datasourcepath").val();
 
-    jsonLogicalSource.logicalSource.push({
-      sourceType: typeofDataType,
-      logicalSource_path: datasourcepath
-    })
 
+    if (valueofDataType == 0) {
 
+      jsonLogicalSource.logicalSource.push({
+        sourceType: typeofDataType,
+        logicalSource_path: datasourcepath
+      });
+
+    } else if (valueofDataType == 1) {
+
+      jsonLogicalSource.logicalSource.push({
+        sourceType: typeofDataType,
+        databasename: databasename,
+        databaseurl: databaseurl,
+        databasedriver: databasedriver,
+        databaseusername: databaseusername,
+        databasetable: databasetable,
+        databasequery: databasequery,
+      });
+
+    }
 
 
     var valueofSubjectMap = $("#selectsubject option:selected").val();
@@ -115,8 +141,6 @@ $(document).ready(function () {
         termType: termtype,
       });
     }
-
-
 
 
 
@@ -212,34 +236,13 @@ $(document).ready(function () {
       });
     }
 
-    // final.push(jsonTripleMap);
-    // final.push(jsonSubjectMap);
-    // final.push(jsonPredicateObjectMap);
-    // console.log(final);
 
-    if (valueofDataType == 0) {
-
-      jsonTripleMap.triplesMap.push({
-        name: triplemapname,
-        logicalSource: jsonLogicalSource.logicalSource,
-        subjectMap: jsonSubjectMap.subjectMap,
-        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
-      });
-
-    }else if(valueofDataType == 1){
-      jsonTripleMap.triplesMap.push({
-        name: triplemapname,
-        databasename: databasename,
-        databaseurl: databaseurl,
-        databasedriver: databasedriver,
-        databaseusername: databaseusername,
-        databasetable: databasetable,
-        databasequery: databasequery,
-        subjectMap: jsonSubjectMap.subjectMap,
-        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
-      });
-    }
-
+    jsonTripleMap.triplesMap.push({
+      name: triplemapname,
+      logicalSource: jsonLogicalSource.logicalSource,
+      subjectMap: jsonSubjectMap.subjectMap,
+      predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+    });
 
 
 
@@ -291,6 +294,8 @@ $(document).ready(function () {
     $('#databasetable').val("");
     $('#databasequery').val("");
     $('#databaseqeryversion').val("");
+    $('#databasehost').val("");
+    $('#databaseport').val("");
 
     jsonPredicateObjectMap = { predicateObjectMap: [] };
     jsonSubjectMap = { subjectMap: [] };
@@ -396,12 +401,6 @@ $(document).ready(function () {
       });
     }
 
-    // jsonTripleMap.triplesMap.push({
-    //   predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap,
-    // })
-    // final.push(jsonPredicateObjectMap);
-    // console.log(final);
-
     console.log(jsonPredicateObjectMap);
 
     var finaljson = JSON.stringify(final);
@@ -460,13 +459,26 @@ $(document).ready(function () {
 
     var typeofDataType = $("#selecttypedatasource option:selected").text();
 
-    jsonLogicalSource.logicalSource.push({
-      sourceType: typeofDataType,
-      logicalSource_path: datasourcepath
-    })
+    if (valueofDataType == 0) {
 
+      jsonLogicalSource.logicalSource.push({
+        sourceType: typeofDataType,
+        logicalSource_path: datasourcepath
+      });
 
+    } else if (valueofDataType == 1) {
 
+      jsonLogicalSource.logicalSource.push({
+        sourceType: typeofDataType,
+        databasename: databasename,
+        databaseurl: databaseurl,
+        databasedriver: databasedriver,
+        databaseusername: databaseusername,
+        databasetable: databasetable,
+        databasequery: databasequery
+      });
+
+    }
 
 
     // var jsonSubjectMap = { subjectMap: [] };
@@ -597,28 +609,13 @@ $(document).ready(function () {
     }
 
 
-    if (valueofDataType == 0) {
+    jsonTripleMap.triplesMap.push({
+      name: triplemapname,
+      logicalSource: jsonLogicalSource.logicalSource,
+      subjectMap: jsonSubjectMap.subjectMap,
+      predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
+    });
 
-      jsonTripleMap.triplesMap.push({
-        name: triplemapname,
-        logicalSource: jsonLogicalSource.logicalSource,
-        subjectMap: jsonSubjectMap.subjectMap,
-        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
-      });
-
-    }else if(valueofDataType == 1){
-      jsonTripleMap.triplesMap.push({
-        name: triplemapname,
-        databasename: databasename,
-        databaseurl: databaseurl,
-        databasedriver: databasedriver,
-        databaseusername: databaseusername,
-        databasetable: databasetable,
-        databasequery: databasequery,
-        subjectMap: jsonSubjectMap.subjectMap,
-        predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
-      });
-    }
 
 
     final.push(jsonTripleMap);
@@ -631,14 +628,6 @@ $(document).ready(function () {
     var finaljson = JSON.stringify(final);
     console.log(finaljson);
 
-    // let dataURI= 'data:application/json;charset=utf-8,' + encodeURIComponent(finaljson);
-
-    // let exportfilename = '/templates/input.json';
-
-    // let linkelement = document.createElement('a');
-    // linkelement.setAttribute('href', dataURI);
-    // linkelement.setAttribute('download', exportfilename);
-    // linkelement.click();
 
     $.ajax({
       type: "POST",
