@@ -15,6 +15,7 @@ $(document).ready(function () {
     var databaseusername = $('#databaseusername').val();
     var databasetable = $('#databasetable').val();
     var databasequery = $('#databasequery').val();
+    var databasepassword = $("#databasepassword").val();
     var databasequeryversion = $('#databaseqeryversion').val();
     var databasehost = $('#databasehost').val();
     var databaseport = $('#databaseport').val();
@@ -100,6 +101,7 @@ $(document).ready(function () {
         databaseurl: databaseurl,
         databasedriver: databasedriver,
         databaseusername: databaseusername,
+        databasepassword: databasepassword,
         databasetable: databasetable,
         databasequery: databasequery,
       });
@@ -451,6 +453,7 @@ $(document).ready(function () {
     var databaseurl = $('#databaseurl').val();
     var databasedriver = $('#databasedriver').val();
     var databaseusername = $('#databaseusername').val();
+    var databasepassword = $("#databasepassword").val();
     var databasetable = $('#databasetable').val();
     var databasequery = $('#databasequery').val();
 
@@ -474,6 +477,7 @@ $(document).ready(function () {
         databaseurl: databaseurl,
         databasedriver: databasedriver,
         databaseusername: databaseusername,
+        databasepassword: databasepassword,
         databasetable: databasetable,
         databasequery: databasequery
       });
