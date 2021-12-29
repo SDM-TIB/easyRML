@@ -59,18 +59,18 @@ def generateTriplesMap(data):
 			TM = TM + "\n<" + TM_name + ">\n\trml:logicalSource [\n\t\t rml:source <" + \
 										db_name + ">;\n\t\t rr:sqlVersion rr:SQL2008;\n\t\t"
 			if db_table != "":
-				TM = TM + "rr:tableName \"" + "\";];"
+				TM = TM + "rr:tableName \"" + db_table + "\";"
 			if sql_query != "":
-				TM = TM + "rml:query \"\"\"" + sql_query + "\"\"\";\n\t];\n"
+				TM = TM + "rml:query \"\"\"" + sql_query + "\"\"\";"
+			TM = TM + "\n\t];\n"
 		else:
 			Tnames_list.append(data[t]["name"])
-
 			sourcePATH = data[t]["logicalSource"][0]["logicalSource_path"]
 			#sourcePATH = "temp_value"
 			TM = "\n<" + TM_name + ">\n"
 			TM = TM + "\trml:logicalSource [ rml:source \"" + sourcePATH + \
 			"\";\n\t\t\t\trml:referenceFormulation ql:CSV ];\n"
-			TM_list.append(TM)
+		TM_list.append(TM)
 	return TM_list
 
 def generateSubjectMap(data):
@@ -124,7 +124,6 @@ def generatePOM(data):
 			objectType = data[n]["predicateObjectMap"][j]["objectType"]
 			objectValue = data[n]["predicateObjectMap"][j]["object"]
 			termType = data[n]["predicateObjectMap"][j]["termType"]
-			print (termType)
 
 			if objectType == "class":
 				objectMap = "rr:constant \"" + objectValue + "\";" + \
@@ -142,7 +141,6 @@ def generatePOM(data):
 						objectValue_string = objectValue_string + "_/{" + objectValue[l]["data"] + "/}"
 				objectMap = "rr:template \"" + objectClass + objectValue_string + \
 				"\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
-
 			elif objectType == "Ref_to_TM_same_source":
 				objectMap = "rr:parentTriplesMap <" + objectValue + ">;" + \
 				"\n\t\t\trr:termType " + termType + ";\n\t\t];"
@@ -158,6 +156,7 @@ def generatePOM(data):
 			";\n\t\trr:objectMap [\n\t\t\t" + objectMap + "\n\t]"
 		POM = POM + "."
 		POM_list.append(POM)
+	print (POM_list)
 	return POM_list
 
 def generator_preliminary(userInputData):
@@ -180,6 +179,7 @@ def generator_tripleMap(userInputData):
 	for i in range(0,len(TM_list)):
 		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
 	global output
+	output = "/Users/sam/Desktop/easyRML-Developing_v2.0/sda_test.ttl"
 	mappingFile = open(output, "w+")
 	mappingFile.write(mapping)
 	mappingFile.close()
@@ -188,4 +188,8 @@ def generator_tripleMap(userInputData):
 
 
 if __name__ == "__main__":
-        generator_tripleMap()
+	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
+	#data = json.load(f)
+	#generator_tripleMap(data)
+
+
