@@ -85,8 +85,12 @@ def generateSubjectMap(data):
 			"\";\n\t\trr:termType " + termType + ";\n\t]"
 		elif subjectType == "Ref_to_data_as_uri":
 			subjectClass = data[s]["subjectMap"][0]["subjectClass"]
+			subject_string = subject[0]["data"]
+			if len(subject) > 1:
+				for l in range(1,len(subject)):
+					subject_string = subject_string + "_/{" + subject[l]["data"] + "/}"
 			SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
-			"{" + subject + "}\";\n\t\trr:termType " + termType + ";\n\t]"
+			"{" + subject_string + "}\";\n\t\trr:termType " + termType + ";\n\t]"
 		SM_list.append(SM)
 	return SM_list
 
@@ -120,6 +124,7 @@ def generatePOM(data):
 			objectType = data[n]["predicateObjectMap"][j]["objectType"]
 			objectValue = data[n]["predicateObjectMap"][j]["object"]
 			termType = data[n]["predicateObjectMap"][j]["termType"]
+			print (termType)
 
 			if objectType == "class":
 				objectMap = "rr:constant \"" + objectValue + "\";" + \
@@ -131,8 +136,12 @@ def generatePOM(data):
 
 			elif objectType == "Ref_to_data_as_uri":
 				objectClass = data[n]["predicateObjectMap"][j]["objectClass"]
-				objectMap = "rr:template \"" + objectClass + "/{" + objectValue + \
-				"}\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
+				objectValue_string = "/{" + objectValue[0]["data"] + "/}"
+				if len(objectValue) > 1:
+					for l in range(1,len(objectValue)):
+						objectValue_string = objectValue_string + "_/{" + objectValue[l]["data"] + "/}"
+				objectMap = "rr:template \"" + objectClass + objectValue_string + \
+				"\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
 
 			elif objectType == "Ref_to_TM_same_source":
 				objectMap = "rr:parentTriplesMap <" + objectValue + ">;" + \
