@@ -85,7 +85,7 @@ def generateSubjectMap(data):
 			"\";\n\t\trr:termType " + termType + ";\n\t]"
 		elif subjectType == "Ref_to_data_as_uri":
 			subjectClass = data[s]["subjectMap"][0]["subjectClass"]
-			subject_string = subject[0]["data"]
+			subject_string = "/{" + subject[0]["data"] + "/}"
 			if len(subject) > 1:
 				for l in range(1,len(subject)):
 					subject_string = subject_string + "_/{" + subject[l]["data"] + "/}"
@@ -135,10 +135,10 @@ def generatePOM(data):
 
 			elif objectType == "Ref_to_data_as_uri":
 				objectClass = data[n]["predicateObjectMap"][j]["objectClass"]
-				objectValue_string = "/{" + objectValue[0]["data"] + "/}"
+				objectValue_string = "/{" + objectValue[0]["data"] + "}"
 				if len(objectValue) > 1:
 					for l in range(1,len(objectValue)):
-						objectValue_string = objectValue_string + "_/{" + objectValue[l]["data"] + "/}"
+						objectValue_string = objectValue_string + "_{" + objectValue[l]["data"] + "}"
 				objectMap = "rr:template \"" + objectClass + objectValue_string + \
 				"\";" + "\n\t\t\trr:termType " + termType + ";\n\t\t];"
 			elif objectType == "Ref_to_TM_same_source":
@@ -179,7 +179,7 @@ def generator_tripleMap(userInputData):
 	for i in range(0,len(TM_list)):
 		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
 	global output
-	output = "/Users/sam/Desktop/easyRML-Developing_v2.0/sda_test.ttl"
+	#output = "/Users/sam/Desktop/easyRML-Developing_v2.0/sda_test.ttl"
 	mappingFile = open(output, "w+")
 	mappingFile.write(mapping)
 	mappingFile.close()
@@ -188,6 +188,7 @@ def generator_tripleMap(userInputData):
 
 
 if __name__ == "__main__":
+	generator_tripleMap()
 	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
 	#data = json.load(f)
 	#generator_tripleMap(data)
