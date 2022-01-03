@@ -637,7 +637,6 @@ $(document).ready(function () {
       type: "POST",
       url: "/readUserInput_triplesMap",
       data: JSON.stringify(final),
-      dataType: "json",
       contentType: "application/json; charset=utf-8",
       success: function (data) {
         alert(data);
