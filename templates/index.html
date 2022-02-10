@@ -192,7 +192,7 @@
               </div>
               <div class="col-5">
                 <input type="text" class="form-control border border-secondary border-2" id="outputfilepath"
-                  placeholder="Insert output path">
+                  placeholder="Insert output path" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add the input as...'C:/Users/Desktop/folder/'">
               </div>
             </div>
   
@@ -219,12 +219,12 @@
             <div class="row">
               <div class="col-3">
                 <input type="text" class="form-control border border-secondary border-2" placeholder="write prefix"
-                  id="manualPrefix">
+                  id="manualPrefix" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add the prefix for e.g. rr,rml...">
               </div>
   
               <div class="col-5">
                 <input type="text" class="form-control border border-secondary border-2" placeholder="Url for Prefix"
-                  id="manualUrl">
+                  id="manualUrl" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Use proper url as 'http://www.w3.org/ns/r2rml'">
               </div>
   
               <div class="col-4">
@@ -343,7 +343,7 @@
                       <div class="input-group mb-3 ">
                         <select class="form-select border border-2 border-secondary" id="selectsubject"
                           data-placeholder="select the subject type" onchange="showSelectBlock(this);">
-                          <option value="default" selected>--select the subject type--</option>
+                          <option value="default" selected disabled>--select the subject type--</option>
                           <option value="0">Class</option>
                           <option value="1">Reference to data as URI</option>
                           <!-- <option value="2">Reference to a FunctionMap</option> -->
@@ -398,7 +398,7 @@
                     <div class="row">
                       <div class="col-9">
                         <input type="text" class="form-control border border-secondary border-2" id="datasourcepath"
-                          placeholder="Add the path to data source to be added to the mapping">
+                          placeholder="Add the path to data source to be added to the mapping"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Path must be exactly like this '/sources/data.csv'">
                       </div>
                       <div class="col-3"></div>
                     </div>
@@ -487,7 +487,7 @@
                     <div class="row mt-2">
                       <div class="col-4">
                         <input type="text" list="rdbhostdatalist" class="form-control border border-secondary border-2" id="databasehost"
-                          placeholder="RDB_host" autocomplete="on">
+                          placeholder="RDB_host" autocomplete="on"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Insert a valid host">
                           <datalist id="rdbhostdatalist"></datalist>
                       </div>
   
@@ -495,7 +495,7 @@
                       
                       <div class="col-4">
                         <input type="text" list="rdbportdatalist" class="form-control border border-secondary border-2" id="databaseport"
-                          placeholder="RDB_port" autocomplete="on">
+                          placeholder="RDB_port" autocomplete="on"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Insert a valid port">
                           <datalist id="rdbportdatalist"></datalist>
                       </div>
                     
@@ -535,7 +535,7 @@
                   <div class="input-group mb-3 ">
                     <select class="form-select border border-2 border-secondary" id="selectfirstclass"
                       data-placeholder="select the corresponding class  (based on Ontology)">
-                      <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                      <option value="default" selected disabled>--select the corresponding class (based on Ontology)--</option>
                     </select>
                   </div>
                 </div>
@@ -562,7 +562,7 @@
                       <div class="input-group mb-3 " id="mymodel">
                         <select class="form-select border border-2 border-secondary" id="selectclass"
                           data-placeholder="select the corresponding class (based on Ontology)">
-                          <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                          <option value="default" selected disabled>--select the corresponding class (based on Ontology)--</option>
                         </select>
                       </div>
                     </div>
@@ -595,7 +595,7 @@
                   <div class="input-group mb-3 ">
                     <select class="form-select border border-2 border-secondary" id="selecttermtype"
                       data-placeholder="Term type">
-                      <option value="default" selected>Term type</option>
+                      <option value="default" selected disabled>Term type</option>
                       <option value="1">rr:IRI</option>
                       <option value="2">rr:BlankNode</option>
                     </select>
@@ -630,7 +630,7 @@
                         <div class="input-group mb-3 ">
                           <select class="form-select border border-2 border-secondary" id="selectproperty"
                             data-placeholder="select the property (based on the Ontology)">
-                            <option value="default" selected>--select the property (based on the Ontology)--</option>
+                            <option value="default" selected disabled>--select the property (based on the Ontology)--</option>
                           </select>
                         </div>
                       </div>
@@ -644,7 +644,7 @@
                         <div class="input-group mb-3 ">
                           <select class="form-select border border-2 border-secondary" id="selectobjecttype"
                             data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
-                            <option value="default" selected>--select the Object type--</option>
+                            <option value="default" selected disabled>--select the Object type--</option>
                             <option value="1">Class</option>
                             <option value="2">Reference to data</option>
                             <option value="3">Reference to data as URI</option>
@@ -664,7 +664,7 @@
                         <div class="input-group mb-3 ">
                           <select class="form-select border border-2 border-secondary" id="selectclasssuggestion"
                             data-placeholder="select the class (based on the Ontology)">
-                            <option value="default" selected>--select the class (based on the Ontology)--</option>
+                            <option value="default" selected disabled>--select the class (based on the Ontology)--</option>
                           </select>
                         </div>
                       </div>
@@ -678,7 +678,7 @@
                         <div class="input-group mb-3 ">
                           <select class="form-select border border-2 border-secondary" id="selectdatafieldsuggestion"
                             data-placeholder="select the data field">
-                            <option value="default" selected>--select the data field--</option>
+                            <option value="default" selected disabled>--select the data field--</option>
                           </select>
                         </div>
                       </div>
@@ -705,7 +705,7 @@
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary" id="predicateselectclass"
                                 data-placeholder="select the corresponding class (based on Ontology)">
-                                <option value="default" selected>--select the corresponding class (based on Ontology)--
+                                <option value="default" selected disabled>--select the corresponding class (based on Ontology)--
                                 </option>
                               </select>
                             </div>
@@ -722,8 +722,7 @@
                         <div class="input-group mb-3 ">
                           <select class="form-select border border-2 border-secondary" id="predicateselecttriplesmap"
                             data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
-                            <option value="default" selected>--select the TriplesMap from the already declared ones (if
-                              you haven't declared TriplesMap yet, first declare it)--</option>
+                            <option value="default" selected disabled>--select the TriplesMap from the already declared ones ( If you have not defined the triplesMap that you want to refer to yet, please first define it)--</option>
                           </select>
                         </div>
                       </div>
@@ -740,7 +739,7 @@
                               <select class="form-select border border-2 border-secondary"
                                 id="predicateselecttriplesmapdifferentdata"
                                 data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
-                                <option value="default" selected>--select the TriplesMap from the already declared ones
+                                <option value="default" selected disabled>--select the TriplesMap from the already declared ones
                                   for different data (if you haven't declared TriplesMap yet, first declare it)--</option>
                               </select>
                             </div>
@@ -753,7 +752,7 @@
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary" id="joinconditionchild"
                                 data-placeholder="joinCondition child">
-                                <option value="default" selected>--joinCondition child--</option>
+                                <option value="default" selected disabled>--joinCondition child--</option>
                               </select>
                             </div>
                           </div>
@@ -790,7 +789,7 @@
                         <div class="input-group mb-3 ">
                           <select class="form-select border border-2 border-secondary"
                             id="selecttermtypepredicateobjectmap" data-placeholder="Term Type">
-                            <option value="default" selected>Term Type</option>
+                            <option value="default" selected disabled>Term Type</option>
                             <option value="1">rr:IRI</option>
                             <option value="2">rr:BlankNode</option>
                             <option value="3">rr:Literal</option>
