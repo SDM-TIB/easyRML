@@ -12,7 +12,7 @@ $(document).on("change", "#uploadttlfile", function () {
     processData: false,
     async: false,
     success: function (data) {
-      alert(data);
+      alert("File succesfully uploded");
 
       $('#selectfirstclass').empty();
       $('#selectfirstclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
@@ -59,6 +59,7 @@ $(document).on("change", "#uploadttlfile", function () {
           });
       },
       error: function (jqXHR, textStatus, errorThrown) {
+        alert("format of file is wrong or error in upload");
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);

@@ -639,7 +639,46 @@ $(document).ready(function () {
       data: JSON.stringify(final),
       contentType: "application/json; charset=utf-8",
       success: function (data) {
-        alert(data);
+        // alert(data);
+        alert("Mapping file has been generated successfully");
+        $("#triplemapname").val("");
+        $("#datasourcepath").val("");
+        $("#selectsubject").val("default").change();
+        $("#selectfirstclass").val("default").change();
+        // $("#selectdatafield").val("default").change();
+
+        $('#selectdatafield option:selected').prop("selected", false);
+        $("#selectdatafield").trigger("chosen:updated");
+
+        $("#selectclass").val("default").change();
+        $("#selecttermtype").val("default").change();
+        $("#selectproperty").val("default").change();
+        $("#selectobjecttype").val("default").change();
+        $("#selectclasssuggestion").val("default").change();
+        $("#selectdatafieldsuggestion").val("default").change();
+
+
+        // $("#predicateselectdatafield").val("default").change();
+        $('#predicateselectdatafield option:selected').prop("selected", false);
+        $("#predicateselectdatafield").trigger("chosen:updated");
+
+        $("#predicateselectclass").val("default").change();
+        $("#predicateselecttriplesmap").val("default").change();
+        $("#predicateselecttriplesmapdifferentdata").val("default").change();
+        $("#joinconditionchild").val("default").change();
+        $("#selecttermtypepredicateobjectmap").val("default").change();
+        $("#joinconditionparent").val("");
+
+        $('#databasename').val("");
+        $('#databaseurl').val("");
+        $('#databasedriver').val("");
+        $('#databaseusername').val("");
+        $('#databasepassword').val("");
+        $('#databasetable').val("");
+        $('#databasequery').val("");
+        $('#databaseqeryversion').val("");
+        $('#databasehost').val("");
+        $('#databaseport').val("");
       },
       error: function (jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);

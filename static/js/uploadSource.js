@@ -12,7 +12,7 @@ $(document).on("change", "#uploadsourcefile", function () {
       processData: false,
       async: false,
       success: function (data1) {
-        alert(data1);
+        alert("File succesfully uploded");
 
         $('#selectdatafield').empty();
         $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
@@ -49,6 +49,7 @@ $(document).on("change", "#uploadsourcefile", function () {
             });
       },
       error: function (jqXHR, textStatus, errorThrown) {
+        alert("format of file is wrong or error in upload");
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);
