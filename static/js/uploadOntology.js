@@ -15,20 +15,20 @@ $(document).on("change", "#uploadttlfile", function () {
       alert("File succesfully uploded");
 
       $('#selectfirstclass').empty();
-      $('#selectfirstclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('#selectfirstclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $('#selectclass').empty();
-      $('#selectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('#selectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
       // $("#selectclass").trigger("chosen:updated");
       
       $('#selectclasssuggestion').empty();
-      $('#selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('#selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
         
       $('#predicateselectclass').empty();
-      $('#predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('#predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $('#selectproperty').empty();
-      $('#selectproperty').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop('selected',true));
+      $('#selectproperty').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $.ajax({
         url:'/receiveClasses',

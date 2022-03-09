@@ -330,3 +330,6 @@ legend {
   text-decoration: underline;
 }
 
+.tool-tip {
+  display: inline-block;
+}

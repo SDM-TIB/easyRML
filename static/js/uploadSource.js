@@ -19,14 +19,14 @@ $(document).on("change", "#uploadsourcefile", function () {
         $("#selectdatafield").trigger("chosen:updated");
 
         $('#selectdatafieldsuggestion').empty();
-        $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('selected',true));
+        $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field--" }).prop({'selected':true, 'disabled':true}));
         
         $('#predicateselectdatafield').empty();
         $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
         $("#predicateselectdatafield").trigger("chosen:updated");
 
         $('#joinconditionchild').empty();
-        $('#joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop('selected',true));
+        $('#joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop({'selected':true, 'disabled':true}));
 
         $.ajax({
           url:'/receiveDataFields_csv',

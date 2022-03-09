@@ -17,9 +17,26 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
+
   $('#sendjsonMap').prop('disabled', true);
 
-  //tooltip while button disable
+
+  
+    //tooltip while button disable or enable
+  function changetooltip(){
+  
+  if($('#sendjsonMap').is(':disabled')){
+
+    document.getElementById("tooltipfinal").setAttribute("data-bs-original-title", "newText");
+    $('[data-toggle="tooltip"]').tooltip();
+
+  }
+  else if($('#sendjsonMap').is(':enabled')){
+    document.getElementById("tooltipfinal").setAttribute("data-bs-original-title", "oldText");
+    $('[data-toggle="tooltip"]').tooltip();
+  }
+  }
+ 
   
 
   function validateButton() {
@@ -104,6 +121,7 @@ $(document).ready(function () {
     console.log(buttonDisabled);
 
     $('#sendjsonMap').prop('disabled', buttonDisabled);
+    changetooltip();
   }
 
 
