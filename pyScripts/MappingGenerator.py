@@ -23,6 +23,7 @@ def generateOutput(outputInfo):
 
 def generatePrefix(default,new):
 	global prefixDict
+	prefixDict.update({"rr":"http://www.w3.org/ns/r2rml#","rml":"http://semweb.mmlab.be/ns/rml#"})
 	defaultList = default["defaultPrefixes"]
 	for i in range (0,len(defaultList)):
 		prefixDict.update({defaultList[i]["prefix"]:defaultList[i]["url"]})
@@ -42,9 +43,8 @@ def generateTriplesMap(data):
 	for t in range (0,len(triplesList)):
 		TM_name = data[t]["name"]
 		if data[t]["logicalSource"][0]["sourceType"] == "RDB":
-			if "d2rq" not in prefixDict.keys():
-				rdbPrefixString = "@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> ."
-				prefixes = prefixes + rdbPrefixString
+			rdbPrefixString = "@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> ."
+			prefixes = prefixes + rdbPrefixString
 			logicalSource_data = data[t]["logicalSource"][0]
 			db_name = logicalSource_data["databasename"]
 			Tnames_list.append(db_name)
@@ -122,6 +122,7 @@ def generatePOM(data):
 			if predicate_prefix != "":
 				predicate = predicate_prefix + ":" + predicate_value
 			else:
+				print (predicateURL)
 				predicate = predicateURL
 			### Object ###
 			objectType = data[n]["predicateObjectMap"][j]["objectType"]
