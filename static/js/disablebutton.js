@@ -27,12 +27,12 @@ $(document).ready(function () {
   
   if($('#sendjsonMap').is(':disabled')){
 
-    document.getElementById("tooltipfinal").setAttribute("data-bs-original-title", "newText");
+    document.getElementById("tooltipfinal").setAttribute("data-bs-original-title", "Fill required data to generate file");
     $('[data-toggle="tooltip"]').tooltip();
 
   }
   else if($('#sendjsonMap').is(':enabled')){
-    document.getElementById("tooltipfinal").setAttribute("data-bs-original-title", "oldText");
+    document.getElementById("tooltipfinal").setAttribute("data-bs-original-title", "Click to generate mapping file");
     $('[data-toggle="tooltip"]').tooltip();
   }
   }
