@@ -14,8 +14,8 @@ UPLOAD_FOLDER = './'
 ontology_allowed_extensions = {'ttl'}
 dataSource_allowed_extensions = {'csv'}
 userInput_allowed_extensions = {'json'}
-#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 new_allowed_extensions = {'csv','json'}
 #####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
