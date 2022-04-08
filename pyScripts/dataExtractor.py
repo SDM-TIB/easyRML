@@ -102,7 +102,28 @@ def readPrefix(filePath):
     file_df = pd.read_csv(filePath, low_memory=False)
     return (list(file_df["prefix"]))
 
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+def extractNewFields(file):
+    fileName = file.split('/')[-1]
+    if fileName.rsplit('.', 1)[1].lower() == 'csv':
+        with open(file, newline='') as newDataFile:
+            reader = csv.reader(newDataFile)
+            newFields = next(reader)
+        newFields_json = json.dumps(newFields) 
+    elif fileName.rsplit('.', 1)[1].lower() == 'json':
+        with open(file, "r") as newDataFile:
+            newData_json = json.load(newDataFile)
+        for newFields in newData_json.keys():
+            newFields_json = json.dumps(newFields)
+    else:
+        newFields_json = {}
+    return newFields_json
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 ########################## Extract Triples Names #############################
+
 
 def extractTriplesMapsNames(file):
     TList = []

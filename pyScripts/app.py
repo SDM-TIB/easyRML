@@ -14,6 +14,11 @@ UPLOAD_FOLDER = './'
 ontology_allowed_extensions = {'ttl'}
 dataSource_allowed_extensions = {'csv'}
 userInput_allowed_extensions = {'json'}
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+new_allowed_extensions = {'csv','json'}
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
@@ -46,6 +51,32 @@ def dataSource_allowed_file(filename):
 def userInput_allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in userInput_allowed_extensions
+
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+def new_allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in new_allowed_extensions
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+@app.route('/readNewFile', methods=['POST'])
+def readNewFile():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '' and new_allowed_file(uploaded_file.filename):
+        filename = secure_filename(uploaded_file.filename)         
+        uploaded_file.save('../sources/' + filename)
+  
+    global newFileAddress
+    newFileAddress = "../sources/" + filename
+    return ''   
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#####$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+@app.route('/receiveNewFile', methods=['GET'])
+def receiveNewFile():
+    newFields_json = dataExtractor.extractNewFields(newFileAddress)       
+    return Response(newFields_json, mimetype="application/json")  
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+######$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$              
 
 ############ extract and provide prefixes to the user #########
 @app.route('/receivePrefix', methods=['GET'])
