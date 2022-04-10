@@ -77,7 +77,7 @@
 
 
   <script type="text/javascript">
-
+    
     $(document).ready(function () {
       $("#selectclass").select2({
         tags: true,
@@ -104,7 +104,30 @@
         theme: "bootstrap-5",
       });
 
+      $('#more-btn').click(function(){
+	  document.getElementById("less-btn").style.display =
+        "block";
+        document.getElementById("more-btn").style.display="none";
+        document.getElementById("first-predicate-element").style.display="flex";
+        document.getElementById("second-predicate-element").style.display="flex";
+        document.getElementById("third-predicate-element").style.display="flex";
     });
+
+      $('#less-btn').click(function(){
+	  
+    document.getElementById("more-btn").style.display =
+        "block";
+        document.getElementById("less-btn").style.display="none";
+        
+        document.getElementById("first-predicate-element").style.display="none";
+        document.getElementById("second-predicate-element").style.display="none";
+        document.getElementById("third-predicate-element").style.display="none";
+        
+      });
+
+    });
+
+   
 
     // $('select:not(.normal)').each(function() {
     //     $('#selectclass').select2({
@@ -633,11 +656,31 @@
             <!-- predicate object map block-->
             <div class="row">
               <fieldset class="border border-secondary border-4 d-flex">
-                <legend class="w-auto">PredicateObjectMap</legend>
+                <legend class="w-auto mb-0">PredicateObjectMap</legend>
                 <div class="col-12">
-
                   <!--select property option-->
-                  <div class="row mt-3">
+
+                  <div class="row mt-0 mb-2">
+                    <div class="col-11">
+
+                    </div>
+                    <div class="col-1">
+                      <button class="float-end border-0 default" id="more-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>  
+                      </button>
+                      <button class="float-end border-0 " id="less-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                        </svg>
+                      </button>
+                      </div>
+
+                  </div>
+
+
+                  <div class="row mt-3" id="first-predicate-element">
                     <div class="col-7">
                       <div class="input-group mb-3 ">
                         <select class="form-select border border-2 border-secondary" id="selectproperty"
@@ -653,7 +696,7 @@
                   <!--#############################################select property option end#####################################################-->
 
                   <!--select object type option-->
-                  <div class="row mt-3">
+                  <div class="row mt-3" id="second-predicate-element">
                     <div class="col-4">
                       <div class="input-group mb-3 ">
                         <select class="form-select border border-2 border-secondary" id="selectobjecttype"
@@ -811,7 +854,7 @@
                   <!--#############################################select functionmap from declred one option end#####################################################-->
 
                   <!--Term type PredicateObjectMap-->
-                  <div class="row mt-3">
+                  <div class="row mt-3" id="third-predicate-element">
                     <div class="col-2">
                       <div class="input-group mb-3 ">
                         <select class="form-select border border-2 border-secondary"
@@ -832,19 +875,6 @@
             </div>
             <!--###########################################################predicate object map block end##########################################-->
 
-            <div class="row mt-3">
-              <div class="col-2">
-                <button class="btn border border-secondary border-2 add-another-triplesmap" id="PreviousPredicate"
-                type="button">Previous Predicate</button>
-              </div>
-              
-              <div class="col-8"></div>
-              
-              <div class="col-2">
-                <button class="btn border border-secondary border-2 add-another-triplesmap float-end" id="nextPredicate"
-                type="button">Next Predicate</button>
-              </div>
-            </div>
 
           </div>
 
