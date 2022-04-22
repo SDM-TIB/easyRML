@@ -112,7 +112,7 @@
         document.getElementById("second-predicate-element").style.display = "flex";
         document.getElementById("third-predicate-element").style.display = "flex";
       });
-      
+
 
       $('#less-btn').click(function () {
 
@@ -132,10 +132,37 @@
         var first_container = document.getElementById("first-container");
         var first_element = document.getElementById("first-element");
         first_container.appendChild(first_element.cloneNode(true));
+        
+        
+        // var first_container = document.getElementById("last-element");
+        // var first_element = document.getElementById("first-element");
+        // first_element.insertBefore(first_container.cloneNode(true));
+
+        // var first_element = $(this).closest("#first-element");
+        // first_element.clone(true, true).appendTo(first_element.parent());
       }
 
+      function remove_minus() {
+        console.log("b")
+        // var first_container = document.getElementById("first-container");
+        // var first_element = document.getElementById("first-element");
+        // first_container.children().last().remove();
+        $("#first-container").children().last().remove();
+        
+
+        
+        // var first_container = document.getElementById("last-element");
+        // var first_element = document.getElementById("first-element");
+        // first_element.insertBefore(first_container.cloneNode(true));
+
+        // var first_element = $(this).closest("#first-element");
+        // first_element.clone(true, true).appendTo(first_element.parent());
+      }
 
       $('#add-plus').click(add_plus);
+      $('#remove-minus').click(remove_minus);
+
+      
 
     });
 
@@ -360,7 +387,7 @@
       <div class="row secondbox">
         <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
           <legend class="w-auto">TriplesMap</legend>
-          <div class="col-12" id="first-container">
+          <div class="col-12">
 
             <!--first line-->
             <div class="row">
@@ -668,9 +695,10 @@
             <!--###########################  add another  predicate object map button end#############################################-->
 
             <!-- predicate object map block-->
+            <div id="first-container">
             <div class="row" id="first-element">
 
-              <div class="col-11">
+              <div class="col-12">
                 <div class="row">
                   <fieldset class="border border-secondary border-4 d-flex">
                     <legend class="w-auto mb-0">PredicateObjectMap</legend>
@@ -905,8 +933,24 @@
                   </fieldset>
                 </div>
               </div>
-              <div class="col-1 mt-2">
-                <button class="btn border border-secondary border-2 plus-btn" id="add-plus">
+            </div>
+          </div>
+            <!--###########################################################predicate object map block end##########################################-->
+
+
+            <div class="row" id="last-element">
+              <div class="col-10"></div>
+
+              <div class="col-1">
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="col-1">
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="add-plus">
                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                     class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -915,8 +959,6 @@
                 </button>
               </div>
             </div>
-            <!--###########################################################predicate object map block end##########################################-->
-
 
           </div>
 
