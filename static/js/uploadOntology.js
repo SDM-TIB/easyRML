@@ -27,8 +27,8 @@ $(document).on("change", "#uploadttlfile", function () {
       $('#predicateselectclass').empty();
       $('#predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
-      $('#selectproperty').empty();
-      $('#selectproperty').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
+      $('.selectpropertyvalue').empty();
+      $('.selectpropertyvalue').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $.ajax({
         url:'/receiveClasses',
@@ -53,7 +53,7 @@ $(document).on("change", "#uploadttlfile", function () {
         dataType: 'json',
         success: function( json ) {
             $.each(json, function(file) {
-                $('#selectproperty').append($('<option value="' + this + '">' + this + '</option>'));
+                $('.selectpropertyvalue').append($('<option value="' + this + '">' + this + '</option>'));
                 });
             }
           });

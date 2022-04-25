@@ -104,6 +104,10 @@
         theme: "bootstrap-5",
       });
 
+
+      var click = 1;
+
+
       $('#more-btn').click(function () {
         document.getElementById("less-btn").style.display =
           "block";
@@ -127,19 +131,59 @@
 
       });
 
+
+
       function add_plus() {
+        const clicked = click++;
         console.log("a")
         var first_container = document.getElementById("first-container");
-        var first_element = document.getElementById("first-element");
-        first_container.appendChild(first_element.cloneNode(true));
-        
-        
-        // var first_container = document.getElementById("last-element");
-        // var first_element = document.getElementById("first-element");
-        // first_element.insertBefore(first_container.cloneNode(true));
+        var first_element = document.getElementById("first-element").cloneNode(true);
+        first_element.id = `first-element${clicked}`
 
-        // var first_element = $(this).closest("#first-element");
-        // first_element.clone(true, true).appendTo(first_element.parent());
+
+
+        var first_element_more_btn = first_element.querySelector("#more-btn");
+        first_element_more_btn.id = `more-btn${clicked}`;
+
+        
+        var first_element_less_btn = first_element.querySelector("#less-btn");
+        first_element_less_btn.id = `less-btn${clicked}`;
+
+        first_element.querySelector("#first-predicate-element").id = `first-predicate-element${clicked}`;
+        first_element.querySelector("#second-predicate-element").id = `second-predicate-element${clicked}`;
+        first_element.querySelector("#third-predicate-element").id = `third-predicate-element${clicked}`;
+
+
+        first_container.appendChild(first_element.cloneNode(true));
+
+        console.log(first_element_more_btn);
+        document.querySelector(`#more-btn${clicked}`).addEventListener("click", function () {
+          // console.log("b");
+          document.querySelector(`#less-btn${clicked}`).style.display =
+            "block";
+          document.querySelector(`#more-btn${clicked}`).style.display = "none";
+          document.querySelector(`#first-predicate-element${clicked}`).style.display = "flex";
+          document.querySelector(`#second-predicate-element${clicked}`).style.display = "flex";
+          document.querySelector(`#third-predicate-element${clicked}`).style.display = "flex";
+        });
+
+
+
+        document.querySelector(`#less-btn${clicked}`).addEventListener("click", function () {
+
+          console.log("c");
+
+          document.querySelector(`#more-btn${clicked}`).style.display =
+            "block";
+          document.querySelector(`#less-btn${clicked}`).style.display = "none";
+
+          document.querySelector(`#first-predicate-element${clicked}`).style.display = "none";
+          document.querySelector(`#second-predicate-element${clicked}`).style.display = "none";
+          document.querySelector(`#third-predicate-element${clicked}`).style.display = "none";
+
+
+        });
+
       }
 
       function remove_minus() {
@@ -148,9 +192,9 @@
         // var first_element = document.getElementById("first-element");
         // first_container.children().last().remove();
         $("#first-container").children().last().remove();
-        
 
-        
+
+
         // var first_container = document.getElementById("last-element");
         // var first_element = document.getElementById("first-element");
         // first_element.insertBefore(first_container.cloneNode(true));
@@ -162,7 +206,7 @@
       $('#add-plus').click(add_plus);
       $('#remove-minus').click(remove_minus);
 
-      
+
 
     });
 
@@ -696,245 +740,248 @@
 
             <!-- predicate object map block-->
             <div id="first-container">
-            <div class="row" id="first-element">
+              <div class="row" id="first-element" >
 
-              <div class="col-12">
-                <div class="row">
-                  <fieldset class="border border-secondary border-4 d-flex">
-                    <legend class="w-auto mb-0">PredicateObjectMap</legend>
-                    <div class="col-12">
-                      <!--select property option-->
+                <div class="col-12">
+                  <div class="row">
+                    <fieldset class="border border-secondary border-4 d-flex">
+                      <legend class="w-auto mb-0">PredicateObjectMap</legend>
+                      <div class="col-12">
+                        <!--select property option-->
 
-                      <div class="row mt-0 mb-2">
-                        <div class="col-11">
+                        <div class="row mt-0 mb-2">
+                          <div class="col-11">
 
-                        </div>
-                        <div class="col-1">
-                          <button class="float-end border-0 default" id="more-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
-                              class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                              <path
-                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                            </svg>
-                          </button>
-                          <button class="float-end border-0 " id="less-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
-                              class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                              <path
-                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                            </svg>
-                          </button>
-                        </div>
-
-                      </div>
-
-
-                      <div class="row mt-3" id="first-predicate-element">
-                        <div class="col-7">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="selectproperty"
-                              data-placeholder="select the property (based on the Ontology)">
-                              <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="you can't find option until you not upload proper ontology file" selected
-                                disabled>
-                                --select the property (based on the Ontology)--</option>
-                            </select>
                           </div>
-                        </div>
-                        <div class="col-5"></div>
-                      </div>
-                      <!--#############################################select property option end#####################################################-->
-
-                      <!--select object type option-->
-                      <div class="row mt-3" id="second-predicate-element">
-                        <div class="col-4">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="selectobjecttype"
-                              data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
-                              <option value="default" selected disabled>--select the Object type--</option>
-                              <option value="1">Class</option>
-                              <option value="2">Reference to data</option>
-                              <option value="3">Reference to data as URI</option>
-                              <option value="4">Reference to another triplesMap with the same data source</option>
-                              <option value="5">Reference to another triplesMap with a different data source</option>
-                              <!-- <option value="6">Reference to a FunctionMap</option> -->
-                            </select>
+                          <div class="col-1">
+                            <button class="float-end border-0 default" id="more-btn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                                class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                  d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                              </svg>
+                            </button>
+                            <button class="float-end border-0 " id="less-btn">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                                class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                <path
+                                  d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                              </svg>
+                            </button>
                           </div>
-                        </div>
-                        <div class="col-8"></div>
-                      </div>
-                      <!--#############################################select object type option end#####################################################-->
 
-                      <!--select class from suggestion option-->
-                      <div class="row mt-3 default" id="selectclasssuggestionbox">
-                        <div class="col-7">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="selectclasssuggestion"
-                              data-placeholder="select the class (based on the Ontology)">
-                              <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="you can't find option until you not upload proper ontology file" selected
-                                disabled>
-                                --select the class (based on the Ontology)--</option>
-                            </select>
+                        </div>
+
+
+                        <div class="row mt-3" id="first-predicate-element">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary selectpropertyvalue" id="selectproperty"
+                                data-placeholder="select the property (based on the Ontology)">
+                                <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                  title="you can't find option until you not upload proper ontology file" selected
+                                  disabled>
+                                  --select the property (based on the Ontology)--</option>
+                              </select>
+                            </div>
                           </div>
+                          <div class="col-5"></div>
                         </div>
-                        <div class="col-5"></div>
-                      </div>
-                      <!--#############################################select class from suggestion option end#####################################################-->
+                        <!--#############################################select property option end#####################################################-->
 
-                      <!--select data field from suggestion option-->
-                      <div class="row mt-3 default" id="selectdatafieldsuggestionbox">
-                        <div class="col-5">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="selectdatafieldsuggestion"
-                              data-placeholder="select the data field">
-                              <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                title="you can't find option until you not upload proper csv file" selected disabled>
-                                --select
-                                the data field--</option>
-                            </select>
+                        <!--select object type option-->
+                        <div class="row mt-3" id="second-predicate-element">
+                          <div class="col-4">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="selectobjecttype"
+                                data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
+                                <option value="default" selected disabled>--select the Object type--</option>
+                                <option value="1">Class</option>
+                                <option value="2">Reference to data</option>
+                                <option value="3">Reference to data as URI</option>
+                                <option value="4">Reference to another triplesMap with the same data source</option>
+                                <option value="5">Reference to another triplesMap with a different data source</option>
+                                <!-- <option value="6">Reference to a FunctionMap</option> -->
+                              </select>
+                            </div>
                           </div>
+                          <div class="col-8"></div>
                         </div>
-                        <div class="col-7"></div>
-                      </div>
-                      <!--#############################################select data field from suggestion option end#####################################################-->
+                        <!--#############################################select object type option end#####################################################-->
 
-                      <!--select predicate reference to data as uri option box-->
-                      <div class="row mt-3 default" id="predicatedatauribox">
-                        <div class="col-9">
-                          <div class="row">
-                            <div class="col-7">
-                              <div class="input-group mb-3 ">
-                                <select class="form-select chosen-select border border-2 border-secondary" multiple
-                                  id="predicateselectdatafield" data-placeholder="select the data field">
-                                  <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="you can't find option until you not upload proper csv file" disabled>--select
-                                    the
-                                    data field --</option>
-                                </select>
+                        <!--select class from suggestion option-->
+                        <div class="row mt-3 default" id="selectclasssuggestionbox">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="selectclasssuggestion"
+                                data-placeholder="select the class (based on the Ontology)">
+                                <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                  title="you can't find option until you not upload proper ontology file" selected
+                                  disabled>
+                                  --select the class (based on the Ontology)--</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-5"></div>
+                        </div>
+                        <!--#############################################select class from suggestion option end#####################################################-->
+
+                        <!--select data field from suggestion option-->
+                        <div class="row mt-3 default" id="selectdatafieldsuggestionbox">
+                          <div class="col-5">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary"
+                                id="selectdatafieldsuggestion" data-placeholder="select the data field">
+                                <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                  title="you can't find option until you not upload proper csv file" selected disabled>
+                                  --select
+                                  the data field--</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-7"></div>
+                        </div>
+                        <!--#############################################select data field from suggestion option end#####################################################-->
+
+                        <!--select predicate reference to data as uri option box-->
+                        <div class="row mt-3 default" id="predicatedatauribox">
+                          <div class="col-9">
+                            <div class="row">
+                              <div class="col-7">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select chosen-select border border-2 border-secondary" multiple
+                                    id="predicateselectdatafield" data-placeholder="select the data field">
+                                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                      title="you can't find option until you not upload proper csv file" disabled>
+                                      --select
+                                      the
+                                      data field --</option>
+                                  </select>
+                                </div>
                               </div>
+                              <div class="col-5"></div>
                             </div>
-                            <div class="col-5"></div>
-                          </div>
-                          <div class="row">
-                            <div class="col-9">
-                              <div class="input-group mb-3 ">
-                                <select class="form-select border border-2 border-secondary" id="predicateselectclass"
-                                  data-placeholder="select the corresponding class (based on Ontology)">
-                                  <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="you can't find option until you not upload proper ontology file" selected
-                                    disabled>
-                                    --select the corresponding class (based on Ontology)--
-                                  </option>
-                                </select>
+                            <div class="row">
+                              <div class="col-9">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select border border-2 border-secondary" id="predicateselectclass"
+                                    data-placeholder="select the corresponding class (based on Ontology)">
+                                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                      title="you can't find option until you not upload proper ontology file" selected
+                                      disabled>
+                                      --select the corresponding class (based on Ontology)--
+                                    </option>
+                                  </select>
+                                </div>
                               </div>
+                              <div class="col-3"></div>
                             </div>
-                            <div class="col-3"></div>
                           </div>
                         </div>
-                      </div>
-                      <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
+                        <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
 
-                      <!--select triplemaps from declred one option for same data-->
-                      <div class="row mt-3 default" id="predicateselecttriplesmapbox">
-                        <div class="col-10">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="predicateselecttriplesmap"
-                              data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
-                              <option value="default" selected disabled>--select the TriplesMap from the already
-                                declared
-                                ones ( If you have not defined the triplesMap that you want to refer to yet, please
-                                first
-                                define it)--</option>
-                            </select>
+                        <!--select triplemaps from declred one option for same data-->
+                        <div class="row mt-3 default" id="predicateselecttriplesmapbox">
+                          <div class="col-10">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary"
+                                id="predicateselecttriplesmap"
+                                data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                                <option value="default" selected disabled>--select the TriplesMap from the already
+                                  declared
+                                  ones ( If you have not defined the triplesMap that you want to refer to yet, please
+                                  first
+                                  define it)--</option>
+                              </select>
+                            </div>
                           </div>
+                          <div class="col-2"></div>
                         </div>
-                        <div class="col-2"></div>
-                      </div>
-                      <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
+                        <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
 
-                      <!--select triplemaps from declred one option for different data-->
-                      <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent">
-                        <div class="col-10">
-                          <div class="row">
-                            <div class="col-10">
-                              <div class="input-group mb-3 ">
-                                <select class="form-select border border-2 border-secondary"
-                                  id="predicateselecttriplesmapdifferentdata"
-                                  data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
-                                  <option value="default" selected disabled>--select the TriplesMap from the already
-                                    declared ones
-                                    for different data (if you haven't declared TriplesMap yet, first declare it)--
-                                  </option>
-                                </select>
+                        <!--select triplemaps from declred one option for different data-->
+                        <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent">
+                          <div class="col-10">
+                            <div class="row">
+                              <div class="col-10">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select border border-2 border-secondary"
+                                    id="predicateselecttriplesmapdifferentdata"
+                                    data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                                    <option value="default" selected disabled>--select the TriplesMap from the already
+                                      declared ones
+                                      for different data (if you haven't declared TriplesMap yet, first declare it)--
+                                    </option>
+                                  </select>
+                                </div>
                               </div>
+                              <div class="col-2"></div>
                             </div>
-                            <div class="col-2"></div>
-                          </div>
 
-                          <div class="row">
-                            <div class="col-7">
-                              <div class="input-group mb-3 ">
-                                <select class="form-select border border-2 border-secondary" id="joinconditionchild"
-                                  data-placeholder="joinCondition child">
-                                  <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                    title="you can't find option until you not upload proper csv file" selected
-                                    disabled>
-                                    --joinCondition child--</option>
-                                </select>
+                            <div class="row">
+                              <div class="col-7">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select border border-2 border-secondary" id="joinconditionchild"
+                                    data-placeholder="joinCondition child">
+                                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                      title="you can't find option until you not upload proper csv file" selected
+                                      disabled>
+                                      --joinCondition child--</option>
+                                  </select>
+                                </div>
                               </div>
+                              <div class="col-1"></div>
+                              <div class="col-3">
+                                <input type="text" class="form-control border border-secondary border-2"
+                                  placeholder="joinCondition parent" id="joinconditionparent">
+                              </div>
+                              <div class="col-1"></div>
                             </div>
-                            <div class="col-1"></div>
-                            <div class="col-3">
-                              <input type="text" class="form-control border border-secondary border-2"
-                                placeholder="joinCondition parent" id="joinconditionparent">
+                          </div>
+                          <div class="col-2"></div>
+                        </div>
+                        <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
+
+                        <!--select functionmap from declred one option-->
+                        <div class="row mt-3 default" id="predicateselectfunctionmapbox">
+                          <div class="col-10">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary"
+                                id="predicateselectfunctionmap"
+                                data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
+                                <option value="default" selected>--select the FunctionMap from the already declared ones
+                                  (if
+                                  you haven't declared FunctionMap yet, first declare it)--</option>
+                              </select>
                             </div>
-                            <div class="col-1"></div>
                           </div>
+                          <div class="col-2"></div>
                         </div>
-                        <div class="col-2"></div>
-                      </div>
-                      <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
+                        <!--#############################################select functionmap from declred one option end#####################################################-->
 
-                      <!--select functionmap from declred one option-->
-                      <div class="row mt-3 default" id="predicateselectfunctionmapbox">
-                        <div class="col-10">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="predicateselectfunctionmap"
-                              data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
-                              <option value="default" selected>--select the FunctionMap from the already declared ones
-                                (if
-                                you haven't declared FunctionMap yet, first declare it)--</option>
-                            </select>
+                        <!--Term type PredicateObjectMap-->
+                        <div class="row mt-3" id="third-predicate-element">
+                          <div class="col-2">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary"
+                                id="selecttermtypepredicateobjectmap" data-placeholder="Term Type">
+                                <option value="default" selected disabled>Term Type</option>
+                                <option value="1">rr:IRI</option>
+                                <option value="2">rr:BlankNode</option>
+                                <option value="3">rr:Literal</option>
+                              </select>
+                            </div>
                           </div>
+                          <div class="col-10"></div>
                         </div>
-                        <div class="col-2"></div>
-                      </div>
-                      <!--#############################################select functionmap from declred one option end#####################################################-->
+                        <!--#############################################Term type PredicateObjectMap end#####################################################-->
 
-                      <!--Term type PredicateObjectMap-->
-                      <div class="row mt-3" id="third-predicate-element">
-                        <div class="col-2">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary"
-                              id="selecttermtypepredicateobjectmap" data-placeholder="Term Type">
-                              <option value="default" selected disabled>Term Type</option>
-                              <option value="1">rr:IRI</option>
-                              <option value="2">rr:BlankNode</option>
-                              <option value="3">rr:Literal</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-10"></div>
                       </div>
-                      <!--#############################################Term type PredicateObjectMap end#####################################################-->
-
-                    </div>
-                  </fieldset>
+                    </fieldset>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
             <!--###########################################################predicate object map block end##########################################-->
 
 
@@ -943,8 +990,9 @@
 
               <div class="col-1">
                 <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
+                    viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                   </svg>
                 </button>
               </div>

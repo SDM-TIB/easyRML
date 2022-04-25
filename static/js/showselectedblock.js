@@ -48,6 +48,8 @@ function showSelectDataSource(nameDataSource) {
 
 
 function showSelectPredicateBlock(predicateNameSelect) {
+  console.log(predicateNameSelect)
+  // predicateNameSelect.id.split("-").pop();
   if (predicateNameSelect) {
     if (predicateNameSelect.value == 1) {
       document.getElementById("selectclasssuggestionbox").style.display =
