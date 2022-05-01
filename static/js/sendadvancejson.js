@@ -445,6 +445,9 @@ $(document).ready(function () {
 
 
   $("#sendjsonMap").on("click", function () {
+
+    console.log(document.querySelector('#first-container'))
+
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
 

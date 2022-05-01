@@ -79,6 +79,10 @@
   <script type="text/javascript">
 
     $(document).ready(function () {
+
+
+      var click = 1;
+
       $("#selectclass").select2({
         tags: true,
         theme: "bootstrap-5",
@@ -89,7 +93,7 @@
         theme: "bootstrap-5",
       });
 
-      $("#selectclasssuggestion").select2({
+      $("#selectclasssuggestion1").select2({
         tags: true,
         theme: "bootstrap-5",
       });
@@ -105,60 +109,113 @@
       });
 
 
-      var click = 1;
 
 
-      $('#more-btn').click(function () {
-        document.getElementById("less-btn").style.display =
+      $('#more-btn1').click(function () {
+        document.getElementById("less-btn1").style.display =
           "block";
-        document.getElementById("more-btn").style.display = "none";
-        document.getElementById("first-predicate-element").style.display = "flex";
-        document.getElementById("second-predicate-element").style.display = "flex";
-        document.getElementById("third-predicate-element").style.display = "flex";
+        document.getElementById("more-btn1").style.display = "none";
+        document.getElementById("first-predicate-element1").style.display = "flex";
+        document.getElementById("second-predicate-element1").style.display = "flex";
+        document.getElementById("third-predicate-element1").style.display = "flex";
       });
 
 
-      $('#less-btn').click(function () {
-
-        document.getElementById("more-btn").style.display =
+      $('#less-btn1').click(function () {
+        document.getElementById("more-btn1").style.display =
           "block";
-        document.getElementById("less-btn").style.display = "none";
-
-        document.getElementById("first-predicate-element").style.display = "none";
-        document.getElementById("second-predicate-element").style.display = "none";
-        document.getElementById("third-predicate-element").style.display = "none";
-
-
+        document.getElementById("less-btn1").style.display = "none";
+        document.getElementById("first-predicate-element1").style.display = "none";
+        document.getElementById("second-predicate-element1").style.display = "none";
+        document.getElementById("third-predicate-element1").style.display = "none";
       });
 
 
 
       function add_plus() {
-        const clicked = click++;
-        console.log("a")
+        const clicked = ++click;
+
         var first_container = document.getElementById("first-container");
-        var first_element = document.getElementById("first-element").cloneNode(true);
+
+
+        for (var i = 1; i < clicked; i++) {
+
+          $(`#selectclasssuggestion${i}`)
+            // call destroy to revert the changes made by Select2
+            .select2("destroy")
+            .end();
+
+        }
+
+        var first_element = document.getElementById("first-element1").cloneNode(true);
+
         first_element.id = `first-element${clicked}`
 
 
 
-        var first_element_more_btn = first_element.querySelector("#more-btn");
+        var first_element_more_btn = first_element.querySelector("#more-btn1");
         first_element_more_btn.id = `more-btn${clicked}`;
 
-        
-        var first_element_less_btn = first_element.querySelector("#less-btn");
+
+        var first_element_less_btn = first_element.querySelector("#less-btn1");
         first_element_less_btn.id = `less-btn${clicked}`;
 
-        first_element.querySelector("#first-predicate-element").id = `first-predicate-element${clicked}`;
-        first_element.querySelector("#second-predicate-element").id = `second-predicate-element${clicked}`;
-        first_element.querySelector("#third-predicate-element").id = `third-predicate-element${clicked}`;
 
 
-        first_container.appendChild(first_element.cloneNode(true));
 
-        console.log(first_element_more_btn);
+        first_element.querySelector("#first-predicate-element1").id = `first-predicate-element${clicked}`;
+        first_element.querySelector("#selectproperty1").id = `selectproperty${clicked}`;
+
+
+
+        first_element.querySelector("#second-predicate-element1").id = `second-predicate-element${clicked}`;
+        first_element.querySelector("#selectobjecttype1").id = `selectobjecttype${clicked}`;
+        first_element.querySelector("#selectclasssuggestionbox1").id = `selectclasssuggestionbox${clicked}`;
+        first_element.querySelector("#selectclasssuggestion1").id = `selectclasssuggestion${clicked}`;
+
+
+        first_element.querySelector("#selectdatafieldsuggestionbox1").id = `selectdatafieldsuggestionbox${clicked}`;
+        first_element.querySelector("#selectdatafieldsuggestion1").id = `selectdatafieldsuggestion${clicked}`;
+        first_element.querySelector("#predicatedatauribox1").id = `predicatedatauribox${clicked}`;
+        first_element.querySelector("#predicateselectdatafield1").id = `predicateselectdatafield${clicked}`;
+        first_element.querySelector("#predicateselectclass1").id = `predicateselectclass${clicked}`;
+        first_element.querySelector("#predicateselecttriplesmapbox1").id = `predicateselecttriplesmapbox${clicked}`;
+        first_element.querySelector("#predicateselecttriplesmap1").id = `predicateselecttriplesmap${clicked}`;
+        first_element.querySelector("#predicateselecttriplesmapboxdifferent1").id = `predicateselecttriplesmapboxdifferent${clicked}`;
+        first_element.querySelector("#predicateselecttriplesmapdifferentdata1").id = `predicateselecttriplesmapdifferentdata${clicked}`;
+        first_element.querySelector("#joinconditionchild1").id = `joinconditionchild${clicked}`;
+        first_element.querySelector("#joinconditionparent1").id = `joinconditionparent${clicked}`;
+        first_element.querySelector("#predicateselectfunctionmapbox1").id = `predicateselectfunctionmapbox${clicked}`;
+        first_element.querySelector("#predicateselectfunctionmap1").id = `predicateselectfunctionmap${clicked}`;
+
+
+
+        first_element.querySelector("#third-predicate-element1").id = `third-predicate-element${clicked}`;
+        first_element.querySelector("#selecttermtypepredicateobjectmap1").id = `selecttermtypepredicateobjectmap${clicked}`;
+
+
+        first_container.appendChild(first_element);
+
+
+
+
+        for (var i = 1; i <= clicked; i++) {
+
+          $(`#selectclasssuggestion${i}`)
+            // call destroy to revert the changes made by Select2
+            .select2({
+              tags: true,
+              theme: "bootstrap-5",
+            });
+
+        }
+
+        // $(".selectclasssuggestion").select2();
+
+        // $(`#selectclasssuggestion${clicked}`).select2();
+
         document.querySelector(`#more-btn${clicked}`).addEventListener("click", function () {
-          // console.log("b");
+
           document.querySelector(`#less-btn${clicked}`).style.display =
             "block";
           document.querySelector(`#more-btn${clicked}`).style.display = "none";
@@ -171,7 +228,6 @@
 
         document.querySelector(`#less-btn${clicked}`).addEventListener("click", function () {
 
-          console.log("c");
 
           document.querySelector(`#more-btn${clicked}`).style.display =
             "block";
@@ -187,26 +243,13 @@
       }
 
       function remove_minus() {
-        console.log("b")
-        // var first_container = document.getElementById("first-container");
-        // var first_element = document.getElementById("first-element");
-        // first_container.children().last().remove();
+
         $("#first-container").children().last().remove();
 
-
-
-        // var first_container = document.getElementById("last-element");
-        // var first_element = document.getElementById("first-element");
-        // first_element.insertBefore(first_container.cloneNode(true));
-
-        // var first_element = $(this).closest("#first-element");
-        // first_element.clone(true, true).appendTo(first_element.parent());
       }
 
       $('#add-plus').click(add_plus);
       $('#remove-minus').click(remove_minus);
-
-
 
     });
 
@@ -740,7 +783,7 @@
 
             <!-- predicate object map block-->
             <div id="first-container">
-              <div class="row" id="first-element" >
+              <div class="row" id="first-element1">
 
                 <div class="col-12">
                   <div class="row">
@@ -754,14 +797,14 @@
 
                           </div>
                           <div class="col-1">
-                            <button class="float-end border-0 default" id="more-btn">
+                            <button class="float-end border-0 default" id="more-btn1">
                               <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                                 class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                 <path
                                   d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                               </svg>
                             </button>
-                            <button class="float-end border-0 " id="less-btn">
+                            <button class="float-end border-0 " id="less-btn1">
                               <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                                 class="bi bi-caret-up-fill" viewBox="0 0 16 16">
                                 <path
@@ -773,11 +816,11 @@
                         </div>
 
 
-                        <div class="row mt-3" id="first-predicate-element">
+                        <div class="row mt-3" id="first-predicate-element1">
                           <div class="col-7">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary selectpropertyvalue" id="selectproperty"
-                                data-placeholder="select the property (based on the Ontology)">
+                              <select class="form-select border border-2 border-secondary selectpropertyvalue"
+                                id="selectproperty1" data-placeholder="select the property (based on the Ontology)">
                                 <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                   title="you can't find option until you not upload proper ontology file" selected
                                   disabled>
@@ -790,10 +833,10 @@
                         <!--#############################################select property option end#####################################################-->
 
                         <!--select object type option-->
-                        <div class="row mt-3" id="second-predicate-element">
+                        <div class="row mt-3" id="second-predicate-element1">
                           <div class="col-4">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary" id="selectobjecttype"
+                              <select class="form-select border border-2 border-secondary" id="selectobjecttype1"
                                 data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
                                 <option value="default" selected disabled>--select the Object type--</option>
                                 <option value="1">Class</option>
@@ -810,11 +853,11 @@
                         <!--#############################################select object type option end#####################################################-->
 
                         <!--select class from suggestion option-->
-                        <div class="row mt-3 default" id="selectclasssuggestionbox">
+                        <div class="row mt-3 default" id="selectclasssuggestionbox1">
                           <div class="col-7">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary" id="selectclasssuggestion"
-                                data-placeholder="select the class (based on the Ontology)">
+                              <select class="form-select border border-2 border-secondary selectclasssuggestion"
+                                id="selectclasssuggestion1" data-placeholder="select the class (based on the Ontology)">
                                 <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                   title="you can't find option until you not upload proper ontology file" selected
                                   disabled>
@@ -827,11 +870,11 @@
                         <!--#############################################select class from suggestion option end#####################################################-->
 
                         <!--select data field from suggestion option-->
-                        <div class="row mt-3 default" id="selectdatafieldsuggestionbox">
+                        <div class="row mt-3 default" id="selectdatafieldsuggestionbox1">
                           <div class="col-5">
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary"
-                                id="selectdatafieldsuggestion" data-placeholder="select the data field">
+                                id="selectdatafieldsuggestion1" data-placeholder="select the data field">
                                 <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                   title="you can't find option until you not upload proper csv file" selected disabled>
                                   --select
@@ -844,13 +887,13 @@
                         <!--#############################################select data field from suggestion option end#####################################################-->
 
                         <!--select predicate reference to data as uri option box-->
-                        <div class="row mt-3 default" id="predicatedatauribox">
+                        <div class="row mt-3 default" id="predicatedatauribox1">
                           <div class="col-9">
                             <div class="row">
                               <div class="col-7">
                                 <div class="input-group mb-3 ">
                                   <select class="form-select chosen-select border border-2 border-secondary" multiple
-                                    id="predicateselectdatafield" data-placeholder="select the data field">
+                                    id="predicateselectdatafield1" data-placeholder="select the data field">
                                     <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                       title="you can't find option until you not upload proper csv file" disabled>
                                       --select
@@ -864,7 +907,8 @@
                             <div class="row">
                               <div class="col-9">
                                 <div class="input-group mb-3 ">
-                                  <select class="form-select border border-2 border-secondary" id="predicateselectclass"
+                                  <select class="form-select border border-2 border-secondary"
+                                    id="predicateselectclass1"
                                     data-placeholder="select the corresponding class (based on Ontology)">
                                     <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                       title="you can't find option until you not upload proper ontology file" selected
@@ -881,11 +925,11 @@
                         <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
 
                         <!--select triplemaps from declred one option for same data-->
-                        <div class="row mt-3 default" id="predicateselecttriplesmapbox">
+                        <div class="row mt-3 default" id="predicateselecttriplesmapbox1">
                           <div class="col-10">
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary"
-                                id="predicateselecttriplesmap"
+                                id="predicateselecttriplesmap1"
                                 data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
                                 <option value="default" selected disabled>--select the TriplesMap from the already
                                   declared
@@ -900,13 +944,13 @@
                         <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
 
                         <!--select triplemaps from declred one option for different data-->
-                        <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent">
+                        <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent1">
                           <div class="col-10">
                             <div class="row">
                               <div class="col-10">
                                 <div class="input-group mb-3 ">
                                   <select class="form-select border border-2 border-secondary"
-                                    id="predicateselecttriplesmapdifferentdata"
+                                    id="predicateselecttriplesmapdifferentdata1"
                                     data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
                                     <option value="default" selected disabled>--select the TriplesMap from the already
                                       declared ones
@@ -921,7 +965,7 @@
                             <div class="row">
                               <div class="col-7">
                                 <div class="input-group mb-3 ">
-                                  <select class="form-select border border-2 border-secondary" id="joinconditionchild"
+                                  <select class="form-select border border-2 border-secondary" id="joinconditionchild1"
                                     data-placeholder="joinCondition child">
                                     <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                       title="you can't find option until you not upload proper csv file" selected
@@ -933,7 +977,7 @@
                               <div class="col-1"></div>
                               <div class="col-3">
                                 <input type="text" class="form-control border border-secondary border-2"
-                                  placeholder="joinCondition parent" id="joinconditionparent">
+                                  placeholder="joinCondition parent" id="joinconditionparent1">
                               </div>
                               <div class="col-1"></div>
                             </div>
@@ -943,11 +987,11 @@
                         <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
 
                         <!--select functionmap from declred one option-->
-                        <div class="row mt-3 default" id="predicateselectfunctionmapbox">
+                        <div class="row mt-3 default" id="predicateselectfunctionmapbox1">
                           <div class="col-10">
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary"
-                                id="predicateselectfunctionmap"
+                                id="predicateselectfunctionmap1"
                                 data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
                                 <option value="default" selected>--select the FunctionMap from the already declared ones
                                   (if
@@ -960,11 +1004,11 @@
                         <!--#############################################select functionmap from declred one option end#####################################################-->
 
                         <!--Term type PredicateObjectMap-->
-                        <div class="row mt-3" id="third-predicate-element">
+                        <div class="row mt-3" id="third-predicate-element1">
                           <div class="col-2">
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary"
-                                id="selecttermtypepredicateobjectmap" data-placeholder="Term Type">
+                                id="selecttermtypepredicateobjectmap1" data-placeholder="Term Type">
                                 <option value="default" selected disabled>Term Type</option>
                                 <option value="1">rr:IRI</option>
                                 <option value="2">rr:BlankNode</option>

@@ -48,112 +48,114 @@ function showSelectDataSource(nameDataSource) {
 
 
 function showSelectPredicateBlock(predicateNameSelect) {
-  console.log(predicateNameSelect)
+  console.log(predicateNameSelect.id)
   // predicateNameSelect.id.split("-").pop();
+  const clicked = predicateNameSelect.id.match(/\d+/)[0];
   if (predicateNameSelect) {
     if (predicateNameSelect.value == 1) {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "block";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("predicatedatauribox").style.display = "none";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "none";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "none";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "none";
     } else if (predicateNameSelect.value == 2) {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "block";
-      document.getElementById("predicatedatauribox").style.display = "none";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "none";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "none";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "none";
     } else if (predicateNameSelect.value == 3) {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("predicatedatauribox").style.display = "block";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "block";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "none";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "none";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "none";
     } else if (predicateNameSelect.value == 4) {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("predicatedatauribox").style.display = "none";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "block";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "none";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "none";
     } else if (predicateNameSelect.value == 5) {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("predicatedatauribox").style.display = "none";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "none";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "block";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "none";
     } else if (predicateNameSelect.value == 6) {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("predicatedatauribox").style.display = "none";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "none";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "none";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "block";
     } else {
-      document.getElementById("selectclasssuggestionbox").style.display =
+      document.getElementById(`selectclasssuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("selectdatafieldsuggestionbox").style.display =
+      document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
         "none";
-      document.getElementById("predicatedatauribox").style.display = "none";
-      document.getElementById("predicateselecttriplesmapbox").style.display =
+      document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+      document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
         "none";
       document.getElementById(
-        "predicateselecttriplesmapboxdifferent"
+        `predicateselecttriplesmapboxdifferent${clicked}`
       ).style.display = "none";
-      document.getElementById("predicateselectfunctionmapbox").style.display =
+      document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
         "none";
     }
   } else {
-    document.getElementById("selectclasssuggestionbox").style.display = "none";
-    document.getElementById("selectdatafieldsuggestionbox").style.display =
+    document.getElementById(`selectclasssuggestionbox${clicked}`).style.display = "none";
+    document.getElementById(`selectdatafieldsuggestionbox${clicked}`).style.display =
       "none";
-    document.getElementById("predicatedatauribox").style.display = "none";
-    document.getElementById("predicateselecttriplesmapbox").style.display =
+    document.getElementById(`predicatedatauribox${clicked}`).style.display = "none";
+    document.getElementById(`predicateselecttriplesmapbox${clicked}`).style.display =
       "none";
     document.getElementById(
-      "predicateselecttriplesmapboxdifferent"
+      `predicateselecttriplesmapboxdifferent${clicked}`
     ).style.display = "none";
-    document.getElementById("predicateselectfunctionmapbox").style.display =
+    document.getElementById(`predicateselectfunctionmapbox${clicked}`).style.display =
       "none";
   }
 }
+
