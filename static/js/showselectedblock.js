@@ -48,7 +48,7 @@ function showSelectDataSource(nameDataSource) {
 
 
 function showSelectPredicateBlock(predicateNameSelect) {
-  console.log(predicateNameSelect.id)
+  // console.log(predicateNameSelect.id)
   // predicateNameSelect.id.split("-").pop();
   const clicked = predicateNameSelect.id.match(/\d+/)[0];
   if (predicateNameSelect) {
