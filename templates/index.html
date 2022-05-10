@@ -141,8 +141,8 @@
         } else if (document.getElementById("selectobjecttype1").value == 3) {
           document.getElementById("predicatedatauribox1").style.display =
             "block";
-          document.getElementById("predicateselectdatafield1").style.display =
-            "block";
+          // document.getElementById("predicateselectdatafield1").style.display =
+          //   "block";
           document.getElementById("predicateselectclass1").style.display =
             "block";
         } else if (document.getElementById("selectobjecttype1").value == 4) {
@@ -272,6 +272,7 @@
         first_container.appendChild(first_element);
 
         //updating chosen effect to clone element
+        // $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
         $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
         $(`#predicateselectdatafield${clicked}`).chosen({no_results_text: "Oops, nothing found!",width: "100%"});
         $(`#predicateselectdatafield${clicked}`).trigger("chosen:updated");
@@ -325,8 +326,9 @@
           } else if (document.querySelector(`#selectobjecttype${clicked}`).value == 3) {
             document.querySelector(`#predicatedatauribox${clicked}`).style.display =
               "block";
-            document.querySelector(`#predicateselectdatafield${clicked}`).style.display =
-              "block";
+            // document.querySelector(`#predicateselectdatafield${clicked}`).style.display =
+            //   "block";
+              
             document.querySelector(`#predicateselectclass${clicked}`).style.display =
               "block";
           } else if (document.querySelector(`#selectobjecttype${clicked}`).value == 4) {
