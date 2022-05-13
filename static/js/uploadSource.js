@@ -18,15 +18,15 @@ $(document).on("change", "#uploadsourcefile", function () {
         $('#selectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
         $("#selectdatafield").trigger("chosen:updated");
 
-        $('#selectdatafieldsuggestion').empty();
-        $('#selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field--" }).prop({'selected':true, 'disabled':true}));
+        $('.selectdatafieldsuggestion').empty();
+        $('.selectdatafieldsuggestion').append($('<option>' , {value: "default", text: "--select the data field--" }).prop({'selected':true, 'disabled':true}));
         
-        $('#predicateselectdatafield').empty();
-        $('#predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
-        $("#predicateselectdatafield").trigger("chosen:updated");
+        $('.predicateselectdatafield').empty();
+        $('.predicateselectdatafield').append($('<option>' , {value: "default", text: "--select the data field--" }).prop('disabled',true));
+        $(".predicateselectdatafield").trigger("chosen:updated");
 
-        $('#joinconditionchild').empty();
-        $('#joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop({'selected':true, 'disabled':true}));
+        $('.joinconditionchild').empty();
+        $('.joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop({'selected':true, 'disabled':true}));
 
         $.ajax({
           url:'/receiveDataFields_csv',
@@ -38,12 +38,12 @@ $(document).on("change", "#uploadsourcefile", function () {
                   $('#selectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
                   $("#selectdatafield").trigger("chosen:updated");
                   
-                  $('#selectdatafieldsuggestion').append($('<option value="' + this + '">' + this + '</option>'));
+                  $('.selectdatafieldsuggestion').append($('<option value="' + this + '">' + this + '</option>'));
 
-                  $('#predicateselectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
-                  $("#predicateselectdatafield").trigger("chosen:updated");
+                  $('.predicateselectdatafield').append($('<option value="' + this + '">' + this + '</option>'));
+                  $(".predicateselectdatafield").trigger("chosen:updated");
                   
-                  $('#joinconditionchild').append($('<option value="' + this + '">' + this + '</option>'));
+                  $('.joinconditionchild').append($('<option value="' + this + '">' + this + '</option>'));
                 });
               }
             });

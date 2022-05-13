@@ -24,8 +24,8 @@ $(document).on("change", "#uploadttlfile", function () {
       $('.selectclasssuggestion').empty();
       $('.selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
         
-      $('#predicateselectclass').empty();
-      $('#predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
+      $('.predicateselectclass').empty();
+      $('.predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $('.selectpropertyvalue').empty();
       $('.selectpropertyvalue').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
@@ -41,7 +41,7 @@ $(document).on("change", "#uploadttlfile", function () {
                 $('#selectclass').append($('<option value="' + this + '">' + this + '</option>'));
                 // $("#selectclass").trigger("chosen:updated");
                 $('.selectclasssuggestion').append($('<option value="' + this + '">' + this + '</option>'));
-                $('#predicateselectclass').append($('<option value="' + this + '">' + this + '</option>'));
+                $('.predicateselectclass').append($('<option value="' + this + '">' + this + '</option>'));
               });
             }
           });

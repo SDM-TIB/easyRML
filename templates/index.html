@@ -121,6 +121,8 @@
       $("#selectdatafield").trigger("chosen:updated");
       $("#predicateselectdatafield1").trigger("chosen:updated");
 
+
+
       $('#more-btn1').click(function () {
         document.getElementById("less-btn1").style.display =
           "block";
@@ -211,7 +213,13 @@
 
 
       function add_plus() {
+
         const clicked = ++click;
+
+        //remove button disable if last element is remaining
+        disableremovebutton();
+
+
 
         var first_container = document.getElementById("first-container");
 
@@ -274,12 +282,15 @@
         //updating chosen effect to clone element
         // $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
         $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
-        $(`#predicateselectdatafield${clicked}`).chosen({no_results_text: "Oops, nothing found!",width: "100%"});
+        $(`#predicateselectdatafield${clicked}`).chosen({ no_results_text: "Oops, nothing found!", width: "100%" });
         $(`#predicateselectdatafield${clicked}`).trigger("chosen:updated");
 
 
 
         document.querySelector(`#selectobjecttype${clicked}`).value = "default";
+        document.querySelector(`#selectclasssuggestion${clicked}`).value = "default";
+
+        document.querySelector(`#selectproperty${clicked}`).value = "default";
 
         if (document.querySelector(`#selectobjecttype${clicked}`).value == "default") {
           document.querySelector(`#selectclasssuggestionbox${clicked}`).style.display =
@@ -328,7 +339,7 @@
               "block";
             // document.querySelector(`#predicateselectdatafield${clicked}`).style.display =
             //   "block";
-              
+
             document.querySelector(`#predicateselectclass${clicked}`).style.display =
               "block";
           } else if (document.querySelector(`#selectobjecttype${clicked}`).value == 4) {
@@ -404,11 +415,26 @@
       }
 
 
+      //remove button disable if last element is remaining
+      function disableremovebutton() {
+        if (click > 1) {
+          $(`#remove-minus`).prop("disabled", false);
+        }
+        else {
+          $(`#remove-minus`).prop("disabled", true);
+        }
+      }
+
+
 
       function remove_minus() {
         --click;
+        //remove button disable if last element is remaining
+        disableremovebutton();
         $("#first-container").children().last().remove();
+
       }
+
 
       $('#add-plus').click(add_plus);
       $('#remove-minus').click(remove_minus);
@@ -903,13 +929,13 @@
 
             <!--add another predicate object map button-->
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-9"></div>
               <div class="col-3">
                 <button class="btn border border-secondary border-2 add-another-predicate" id="addanotherpredicate"
                   type="button"> + add another predicate object map</button>
               </div>
-            </div>
+            </div> -->
 
             <!--###########################  add another  predicate object map button end#############################################-->
 
@@ -1005,7 +1031,7 @@
                         <div class="row mt-3 default" id="selectdatafieldsuggestionbox1">
                           <div class="col-5">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary"
+                              <select class="form-select border border-2 border-secondary selectdatafieldsuggestion"
                                 id="selectdatafieldsuggestion1" data-placeholder="select the data field">
                                 <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                   title="you can't find option until you not upload proper csv file" selected disabled>
@@ -1024,8 +1050,9 @@
                             <div class="row">
                               <div class="col-7">
                                 <div class="input-group mb-3 ">
-                                  <select class="form-select chosen-select border border-2 border-secondary" multiple
-                                    id="predicateselectdatafield1" data-placeholder="select the data field">
+                                  <select
+                                    class="form-select chosen-select border border-2 border-secondary predicateselectdatafield"
+                                    multiple id="predicateselectdatafield1" data-placeholder="select the data field">
                                     <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                       title="you can't find option until you not upload proper csv file" disabled>
                                       --select
@@ -1039,7 +1066,7 @@
                             <div class="row">
                               <div class="col-9">
                                 <div class="input-group mb-3 ">
-                                  <select class="form-select border border-2 border-secondary"
+                                  <select class="form-select border border-2 border-secondary predicateselectclass"
                                     id="predicateselectclass1"
                                     data-placeholder="select the corresponding class (based on Ontology)">
                                     <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -1097,8 +1124,8 @@
                             <div class="row">
                               <div class="col-7">
                                 <div class="input-group mb-3 ">
-                                  <select class="form-select border border-2 border-secondary" id="joinconditionchild1"
-                                    data-placeholder="joinCondition child">
+                                  <select class="form-select border border-2 border-secondary joinconditionchild"
+                                    id="joinconditionchild1" data-placeholder="joinCondition child">
                                     <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                       title="you can't find option until you not upload proper csv file" selected
                                       disabled>
@@ -1165,7 +1192,8 @@
               <div class="col-10"></div>
 
               <div class="col-1">
-                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus">
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="remove predicate object map" disabled>
                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
                     viewBox="0 0 16 16">
                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -1174,7 +1202,8 @@
               </div>
 
               <div class="col-1">
-                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="add-plus">
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="add-plus" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="add another predicate object map">
                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                     class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
