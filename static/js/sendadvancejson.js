@@ -20,8 +20,6 @@ $(document).ready(function () {
     var databasehost = $('#databasehost').val();
     var databaseport = $('#databaseport').val();
 
-    // console.log(databasename);
-
     var namedatalist = document.getElementById('namedatalist');
     var urldatalist = document.getElementById('urldatalist');
     var driverdatalist = document.getElementById('driverdatalist');
@@ -31,7 +29,7 @@ $(document).ready(function () {
     var queryversiondatalist = document.getElementById('queryversiondatalist');
     var rdbhostdatalist = document.getElementById('rdbhostdatalist');
     var rdbportdatalist = document.getElementById('rdbportdatalist');
-    // console.log(namedatalist);
+   
 
     var optionname = document.createElement('option');
     optionname.value = databasename;
@@ -68,19 +66,14 @@ $(document).ready(function () {
     var optionrdbport = document.createElement('option');
     optionrdbport.value = databaseport;
     rdbportdatalist.append(optionrdbport);
-    // console.log(namedatalist);
+   
 
 
 
     var valueofDataType = $("#selecttypedatasource option:selected").val();
 
     var typeofDataType = $("#selecttypedatasource option:selected").text();
-    console.log(typeofDataType)
-
-
-
-
-
+   
     var triplemapname = $("#triplemapname").val();
 
     var datasourcepath = $("#datasourcepath").val();
@@ -247,10 +240,6 @@ $(document).ready(function () {
     });
 
 
-
-    var finaljson = JSON.stringify(final);
-    console.log(finaljson);
-
     $("#predicateselecttriplesmap").append($('<option>', {
       text: triplemapname
     }));
@@ -403,10 +392,6 @@ $(document).ready(function () {
       });
     }
 
-    console.log(jsonPredicateObjectMap);
-
-    var finaljson = JSON.stringify(final);
-    console.log(finaljson);
 
     $("#selectproperty").val("default").change();
     $("#selectobjecttype").val("default").change();
@@ -447,6 +432,8 @@ $(document).ready(function () {
   $("#sendjsonMap").on("click", function () {
 
     console.log(document.querySelector('#first-container'))
+
+    console.log($('#first-container').children().length)
 
     var triplemapname = $("#triplemapname").val();
     var datasourcepath = $("#datasourcepath").val();
@@ -626,14 +613,7 @@ $(document).ready(function () {
 
 
     final.push(jsonTripleMap);
-    // final.push(jsonSubjectMap);
-    // final.push(jsonPredicateObjectMap);
-    // console.log(final);
 
-
-
-    var finaljson = JSON.stringify(final);
-    console.log(finaljson);
 
 
     $.ajax({

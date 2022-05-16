@@ -75,6 +75,9 @@
   <!--send only RDB data from triplesmap block-->
   <script src="../static/js/sendRDBdata.js"></script>
 
+  <!--send only final json for new view-->
+  <script src="../static/js/sendadvancejsonnew.js"></script>
+
 
   <script type="text/javascript">
 
@@ -219,8 +222,6 @@
         //remove button disable if last element is remaining
         disableremovebutton();
 
-
-
         var first_container = document.getElementById("first-container");
 
         for (var i = 1; i < clicked; i++) {
@@ -229,7 +230,6 @@
             .select2("destroy")
             .end();
         }
-
 
         var first_element = document.getElementById("first-element1").cloneNode(true);
         first_element.id = `first-element${clicked}`
@@ -1347,6 +1347,24 @@
         <div class="col-2">
           <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
             <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMap"
+              type="button">Create Mapping File</button>
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container-fluid">
+      <div class="row mb-3">
+        <div class="col-10">
+
+        </div>
+
+
+        <div class="col-2">
+          <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMapNew"
               type="button">Create Mapping File</button>
           </span>
         </div>
