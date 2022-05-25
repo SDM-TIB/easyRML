@@ -1,4 +1,9 @@
+
 $(document).ready(function () {
+
+  
+
+
   var final = [];
   var jsonPredicateObjectMap = { predicateObjectMap: [] };
   var jsonTripleMap = { triplesMap: [] };
@@ -139,97 +144,191 @@ $(document).ready(function () {
 
 
 
-    var valueofPredicateObjectMap = $(
-      "#selectobjecttype option:selected"
-    ).val();
+    // var valueofPredicateObjectMap = $(
+    //   "#selectobjecttype option:selected"
+    // ).val();
 
-    if (valueofPredicateObjectMap == 1) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "class";
-      var object = $("#selectclasssuggestion option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    // if (valueofPredicateObjectMap == 1) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "class";
+    //   var object = $("#selectclasssuggestion option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 2) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_data";
-      var object = $("#selectdatafieldsuggestion option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 2) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_data";
+    //   var object = $("#selectdatafieldsuggestion option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 3) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_data_as_uri";
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 3) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_data_as_uri";
 
-      var object = [];
+    //   var object = [];
 
-      $("#predicateselectdatafield option:selected").each(function () {
-        object.push({
-          data: this.text
-        });
-      });
+    //   $("#predicateselectdatafield option:selected").each(function () {
+    //     object.push({
+    //       data: this.text
+    //     });
+    //   });
 
-      var objectClass = $("#predicateselectclass option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    //   var objectClass = $("#predicateselectclass option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        objectClass: objectClass,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 4) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_TM_same_source";
-      var object = $("#predicateselecttriplesmap option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     objectClass: objectClass,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 4) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_TM_same_source";
+    //   var object = $("#predicateselecttriplesmap option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 5) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_TM_different_source";
-      var object = $(
-        "#predicateselecttriplesmapdifferentdata option:selected"
-      ).text();
-      var child = $("#joinconditionchild option:selected").text();
-      var parent = $("#joinconditionparent").val();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 5) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_TM_different_source";
+    //   var object = $(
+    //     "#predicateselecttriplesmapdifferentdata option:selected"
+    //   ).text();
+    //   var child = $("#joinconditionchild option:selected").text();
+    //   var parent = $("#joinconditionparent").val();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        child: child,
-        parent: parent,
-        termType: termType,
-      });
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     child: child,
+    //     parent: parent,
+    //     termType: termType,
+    //   });
+    // }
+
+    const childrenCount = $('#first-container').children().length;
+
+    for (var i = 1; i <= childrenCount; i++) {
+        let valueofPredicateObjectMap = document.querySelector(`#selectobjecttype${i}`).value;
+
+        if (valueofPredicateObjectMap == 1) {
+            var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+            var objectType = "class";
+            var object = $(`#selectclasssuggestion${i} option:selected`).text().trim();
+            var termType = $(
+                `#selecttermtypepredicateobjectmap${i} option:selected`
+            ).text().trim();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+                predicate: predicate,
+                objectType: objectType,
+                object: object,
+                termType: termType,
+            });
+        }else if (valueofPredicateObjectMap == 2) {
+            var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+            var objectType = "Ref_to_data";
+            var object = $(`#selectdatafieldsuggestion${i} option:selected`).text().trim();
+            var termType = $(
+                `#selecttermtypepredicateobjectmap${i} option:selected`
+            ).text().trim();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+                predicate: predicate,
+                objectType: objectType,
+                object: object,
+                termType: termType,
+            });
+        } else if (valueofPredicateObjectMap == 3) {
+            var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+            var objectType = "Ref_to_data_as_uri";
+
+            var object = []
+
+            $(`#predicateselectdatafield${i} option:selected`).each(function () {
+                object.push({
+                    data: this.text
+                });
+            });
+            var objectClass = $(`#predicateselectclass${i} option:selected`).text().trim();
+            var termType = $(
+                `#selecttermtypepredicateobjectmap${i} option:selected`
+            ).text().trim();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+                predicate: predicate,
+                objectType: objectType,
+                object: object,
+                objectClass: objectClass,
+                termType: termType,
+            });
+        } else if (valueofPredicateObjectMap == 4) {
+            var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+            var objectType = "Ref_to_TM_same_source";
+            var object = $(`#predicateselecttriplesmap${i} option:selected`).text().trim();
+            var termType = $(
+                `#selecttermtypepredicateobjectmap${i} option:selected`
+            ).text().trim();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+                predicate: predicate,
+                objectType: objectType,
+                object: object,
+                termType: termType,
+            });
+        } else if (valueofPredicateObjectMap == 5) {
+            var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+            var objectType = "Ref_to_TM_different_source";
+            var object = $(
+                `#predicateselecttriplesmapdifferentdata${i} option:selected`
+            ).text().trim();
+            var child = $(`#joinconditionchild${i} option:selected`).text().trim();
+            var parent = $(`#joinconditionparent${i}`).val();
+            var termType = $(
+                `#selecttermtypepredicateobjectmap${i} option:selected`
+            ).text().trim();
+
+            jsonPredicateObjectMap.predicateObjectMap.push({
+                predicate: predicate,
+                objectType: objectType,
+                object: object,
+                child: child,
+                parent: parent,
+                termType: termType,
+            });
+        }
     }
+
 
 
     jsonTripleMap.triplesMap.push({
@@ -238,6 +337,9 @@ $(document).ready(function () {
       subjectMap: jsonSubjectMap.subjectMap,
       predicateObjectMap: jsonPredicateObjectMap.predicateObjectMap
     });
+
+    
+    console.log(JSON.stringify(jsonTripleMap));
 
 
     $("#predicateselecttriplesmap").append($('<option>', {
@@ -248,6 +350,11 @@ $(document).ready(function () {
       text: triplemapname
     }));
 
+    for(let i = childrenCount;i>1; --i){
+      
+      click = 1;
+      $("#first-container").children().last().remove();
+    }
 
     $("#triplemapname").val("");
     $("#datasourcepath").val("");
@@ -296,119 +403,119 @@ $(document).ready(function () {
 
 
 
+//old button to add another predicate object map
+
+  // $("#addanotherpredicate").on("click", function () {
 
 
-  $("#addanotherpredicate").on("click", function () {
+  //   var valueofPredicateObjectMap = $(
+  //     "#selectobjecttype option:selected"
+  //   ).val();
+
+  //   if (valueofPredicateObjectMap == 1) {
+  //     var predicate = $("#selectproperty option:selected").text();
+  //     var objectType = "class";
+  //     var object = $("#selectclasssuggestion option:selected").text();
+  //     var termType = $(
+  //       "#selecttermtypepredicateobjectmap option:selected"
+  //     ).text();
+
+  //     jsonPredicateObjectMap.predicateObjectMap.push({
+  //       predicate: predicate,
+  //       objectType: objectType,
+  //       object: object,
+  //       termType: termType,
+  //     });
+  //   } else if (valueofPredicateObjectMap == 2) {
+  //     var predicate = $("#selectproperty option:selected").text();
+  //     var objectType = "Ref_to_data";
+  //     var object = $("#selectdatafieldsuggestion option:selected").text();
+  //     var termType = $(
+  //       "#selecttermtypepredicateobjectmap option:selected"
+  //     ).text();
+
+  //     jsonPredicateObjectMap.predicateObjectMap.push({
+  //       predicate: predicate,
+  //       objectType: objectType,
+  //       object: object,
+  //       termType: termType,
+  //     });
+  //   } else if (valueofPredicateObjectMap == 3) {
+  //     var predicate = $("#selectproperty option:selected").text();
+  //     var objectType = "Ref_to_data_as_uri";
+
+  //     var object = []
+
+  //     $("#predicateselectdatafield option:selected").each(function () {
+  //       object.push({
+  //         data: this.text
+  //       });
+  //     });
+  //     var objectClass = $("#predicateselectclass option:selected").text();
+  //     var termType = $(
+  //       "#selecttermtypepredicateobjectmap option:selected"
+  //     ).text();
+
+  //     jsonPredicateObjectMap.predicateObjectMap.push({
+  //       predicate: predicate,
+  //       objectType: objectType,
+  //       object: object,
+  //       objectClass: objectClass,
+  //       termType: termType,
+  //     });
+  //   } else if (valueofPredicateObjectMap == 4) {
+  //     var predicate = $("#selectproperty option:selected").text();
+  //     var objectType = "Ref_to_TM_same_source";
+  //     var object = $("#predicateselecttriplesmap option:selected").text();
+  //     var termType = $(
+  //       "#selecttermtypepredicateobjectmap option:selected"
+  //     ).text();
+
+  //     jsonPredicateObjectMap.predicateObjectMap.push({
+  //       predicate: predicate,
+  //       objectType: objectType,
+  //       object: object,
+  //       termType: termType,
+  //     });
+  //   } else if (valueofPredicateObjectMap == 5) {
+  //     var predicate = $("#selectproperty option:selected").text();
+  //     var objectType = "Ref_to_TM_different_source";
+  //     var object = $(
+  //       "#predicateselecttriplesmapdifferentdata option:selected"
+  //     ).text();
+  //     var child = $("#joinconditionchild option:selected").text();
+  //     var parent = $("#joinconditionparent").val();
+  //     var termType = $(
+  //       "#selecttermtypepredicateobjectmap option:selected"
+  //     ).text();
+
+  //     jsonPredicateObjectMap.predicateObjectMap.push({
+  //       predicate: predicate,
+  //       objectType: objectType,
+  //       object: object,
+  //       child: child,
+  //       parent: parent,
+  //       termType: termType,
+  //     });
+  //   }
 
 
-    var valueofPredicateObjectMap = $(
-      "#selectobjecttype option:selected"
-    ).val();
+  //   $("#selectproperty").val("default").change();
+  //   $("#selectobjecttype").val("default").change();
+  //   $("#selectclasssuggestion").val("default").change();
+  //   $("#selectdatafieldsuggestion").val("default").change();
 
-    if (valueofPredicateObjectMap == 1) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "class";
-      var object = $("#selectclasssuggestion option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+  //   // $("#predicateselectdatafield").val("default").change();
+  //   $('#predicateselectdatafield option:selected').prop("selected", false);
+  //   $("#predicateselectdatafield").trigger("chosen:updated");
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 2) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_data";
-      var object = $("#selectdatafieldsuggestion option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
-
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 3) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_data_as_uri";
-
-      var object = []
-
-      $("#predicateselectdatafield option:selected").each(function () {
-        object.push({
-          data: this.text
-        });
-      });
-      var objectClass = $("#predicateselectclass option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
-
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        objectClass: objectClass,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 4) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_TM_same_source";
-      var object = $("#predicateselecttriplesmap option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
-
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 5) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_TM_different_source";
-      var object = $(
-        "#predicateselecttriplesmapdifferentdata option:selected"
-      ).text();
-      var child = $("#joinconditionchild option:selected").text();
-      var parent = $("#joinconditionparent").val();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
-
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        child: child,
-        parent: parent,
-        termType: termType,
-      });
-    }
-
-
-    $("#selectproperty").val("default").change();
-    $("#selectobjecttype").val("default").change();
-    $("#selectclasssuggestion").val("default").change();
-    $("#selectdatafieldsuggestion").val("default").change();
-
-    // $("#predicateselectdatafield").val("default").change();
-    $('#predicateselectdatafield option:selected').prop("selected", false);
-    $("#predicateselectdatafield").trigger("chosen:updated");
-
-    $("#predicateselectclass").val("default").change();
-    $("#predicateselecttriplesmap").val("default").change();
-    $("#predicateselecttriplesmapdifferentdata").val("default").change();
-    $("#joinconditionchild").val("default").change();
-    $("#selecttermtypepredicateobjectmap").val("default").change();
-    $("#joinconditionparent").val("");
-  });
+  //   $("#predicateselectclass").val("default").change();
+  //   $("#predicateselecttriplesmap").val("default").change();
+  //   $("#predicateselecttriplesmapdifferentdata").val("default").change();
+  //   $("#joinconditionchild").val("default").change();
+  //   $("#selecttermtypepredicateobjectmap").val("default").change();
+  //   $("#joinconditionparent").val("");
+  // });
 
 
 
@@ -511,96 +618,196 @@ $(document).ready(function () {
       });
     }
 
-    var valueofPredicateObjectMap = $(
-      "#selectobjecttype option:selected"
-    ).val();
 
-    if (valueofPredicateObjectMap == 1) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "class";
-      var object = $("#selectclasssuggestion option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 2) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_data";
-      var object = $("#selectdatafieldsuggestion option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 3) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_data_as_uri";
+    
 
-      var object = []
+    // var valueofPredicateObjectMap = $(
+    //   "#selectobjecttype option:selected"
+    // ).val();
 
-      $("#predicateselectdatafield option:selected").each(function () {
-        object.push({
-          data: this.text
-        });
-      });
-      var objectClass = $("#predicateselectclass option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    // if (valueofPredicateObjectMap == 1) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "class";
+    //   var object = $("#selectclasssuggestion option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        objectClass: objectClass,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 4) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_TM_same_source";
-      var object = $("#predicateselecttriplesmap option:selected").text();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 2) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_data";
+    //   var object = $("#selectdatafieldsuggestion option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        termType: termType,
-      });
-    } else if (valueofPredicateObjectMap == 5) {
-      var predicate = $("#selectproperty option:selected").text();
-      var objectType = "Ref_to_TM_different_source";
-      var object = $(
-        "#predicateselecttriplesmapdifferentdata option:selected"
-      ).text();
-      var child = $("#joinconditionchild option:selected").text();
-      var parent = $("#joinconditionparent").val();
-      var termType = $(
-        "#selecttermtypepredicateobjectmap option:selected"
-      ).text();
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 3) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_data_as_uri";
 
-      jsonPredicateObjectMap.predicateObjectMap.push({
-        predicate: predicate,
-        objectType: objectType,
-        object: object,
-        child: child,
-        parent: parent,
-        termType: termType,
-      });
-    }
+    //   var object = []
+
+    //   $("#predicateselectdatafield option:selected").each(function () {
+    //     object.push({
+    //       data: this.text
+    //     });
+    //   });
+    //   var objectClass = $("#predicateselectclass option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
+
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     objectClass: objectClass,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 4) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_TM_same_source";
+    //   var object = $("#predicateselecttriplesmap option:selected").text();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
+
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     termType: termType,
+    //   });
+    // } else if (valueofPredicateObjectMap == 5) {
+    //   var predicate = $("#selectproperty option:selected").text();
+    //   var objectType = "Ref_to_TM_different_source";
+    //   var object = $(
+    //     "#predicateselecttriplesmapdifferentdata option:selected"
+    //   ).text();
+    //   var child = $("#joinconditionchild option:selected").text();
+    //   var parent = $("#joinconditionparent").val();
+    //   var termType = $(
+    //     "#selecttermtypepredicateobjectmap option:selected"
+    //   ).text();
+
+    //   jsonPredicateObjectMap.predicateObjectMap.push({
+    //     predicate: predicate,
+    //     objectType: objectType,
+    //     object: object,
+    //     child: child,
+    //     parent: parent,
+    //     termType: termType,
+    //   });
+    // }
+
+    const childrenCount = $('#first-container').children().length;
+
+        for (var i = 1; i <= childrenCount; i++) {
+            let valueofPredicateObjectMap = document.querySelector(`#selectobjecttype${i}`).value;
+
+            if (valueofPredicateObjectMap == 1) {
+                var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+                var objectType = "class";
+                var object = $(`#selectclasssuggestion${i} option:selected`).text().trim();
+                var termType = $(
+                    `#selecttermtypepredicateobjectmap${i} option:selected`
+                ).text().trim();
+
+                jsonPredicateObjectMap.predicateObjectMap.push({
+                    predicate: predicate,
+                    objectType: objectType,
+                    object: object,
+                    termType: termType,
+                });
+            }else if (valueofPredicateObjectMap == 2) {
+                var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+                var objectType = "Ref_to_data";
+                var object = $(`#selectdatafieldsuggestion${i} option:selected`).text().trim();
+                var termType = $(
+                    `#selecttermtypepredicateobjectmap${i} option:selected`
+                ).text().trim();
+    
+                jsonPredicateObjectMap.predicateObjectMap.push({
+                    predicate: predicate,
+                    objectType: objectType,
+                    object: object,
+                    termType: termType,
+                });
+            } else if (valueofPredicateObjectMap == 3) {
+                var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+                var objectType = "Ref_to_data_as_uri";
+    
+                var object = []
+    
+                $(`#predicateselectdatafield${i} option:selected`).each(function () {
+                    object.push({
+                        data: this.text
+                    });
+                });
+                var objectClass = $(`#predicateselectclass${i} option:selected`).text().trim();
+                var termType = $(
+                    `#selecttermtypepredicateobjectmap${i} option:selected`
+                ).text().trim();
+    
+                jsonPredicateObjectMap.predicateObjectMap.push({
+                    predicate: predicate,
+                    objectType: objectType,
+                    object: object,
+                    objectClass: objectClass,
+                    termType: termType,
+                });
+            } else if (valueofPredicateObjectMap == 4) {
+                var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+                var objectType = "Ref_to_TM_same_source";
+                var object = $(`#predicateselecttriplesmap${i} option:selected`).text().trim();
+                var termType = $(
+                    `#selecttermtypepredicateobjectmap${i} option:selected`
+                ).text().trim();
+    
+                jsonPredicateObjectMap.predicateObjectMap.push({
+                    predicate: predicate,
+                    objectType: objectType,
+                    object: object,
+                    termType: termType,
+                });
+            } else if (valueofPredicateObjectMap == 5) {
+                var predicate = $(`#selectproperty${i} option:selected`).text().trim();
+                var objectType = "Ref_to_TM_different_source";
+                var object = $(
+                    `#predicateselecttriplesmapdifferentdata${i} option:selected`
+                ).text().trim();
+                var child = $(`#joinconditionchild${i} option:selected`).text().trim();
+                var parent = $(`#joinconditionparent${i}`).val();
+                var termType = $(
+                    `#selecttermtypepredicateobjectmap${i} option:selected`
+                ).text().trim();
+    
+                jsonPredicateObjectMap.predicateObjectMap.push({
+                    predicate: predicate,
+                    objectType: objectType,
+                    object: object,
+                    child: child,
+                    parent: parent,
+                    termType: termType,
+                });
+            }
+
+            
+        }
 
 
     jsonTripleMap.triplesMap.push({
@@ -611,6 +818,7 @@ $(document).ready(function () {
     });
 
 
+    console.log(JSON.stringify(jsonTripleMap));
 
     final.push(jsonTripleMap);
 

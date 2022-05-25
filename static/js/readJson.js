@@ -5,8 +5,6 @@ $.ajax({
   dataType: "json",
   success: function (json) {
     var value;
-
-    console.log(this);
     $.each(json, function (file) {
       if (this == "http://www.w3.org/ns/r2rml#") {
         value = "rr";

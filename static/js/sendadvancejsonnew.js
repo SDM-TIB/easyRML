@@ -13,9 +13,9 @@ $(document).ready(function () {
         const childrenCount = $('#first-container').children().length;
 
         for (var i = 1; i <= childrenCount; i++) {
-            let valueofObjectType = document.querySelector(`#selectobjecttype${i}`).value;
+            let valueofPredicateObjectMap = document.querySelector(`#selectobjecttype${i}`).value;
 
-            if (valueofObjectType == 1) {
+            if (valueofPredicateObjectMap == 1) {
                 var predicate = $(`#selectproperty${i} option:selected`).text().trim();
                 var objectType = "class";
                 var object = $(`#selectclasssuggestion${i} option:selected`).text().trim();
@@ -29,7 +29,7 @@ $(document).ready(function () {
                     object: object,
                     termType: termType,
                 });
-            }else if (valueofObjectType == 2) {
+            }else if (valueofPredicateObjectMap == 2) {
                 var predicate = $(`#selectproperty${i} option:selected`).text().trim();
                 var objectType = "Ref_to_data";
                 var object = $(`#selectdatafieldsuggestion${i} option:selected`).text().trim();
@@ -43,7 +43,7 @@ $(document).ready(function () {
                     object: object,
                     termType: termType,
                 });
-            } else if (valueofObjectType == 3) {
+            } else if (valueofPredicateObjectMap == 3) {
                 var predicate = $(`#selectproperty${i} option:selected`).text().trim();
                 var objectType = "Ref_to_data_as_uri";
     
@@ -66,7 +66,7 @@ $(document).ready(function () {
                     objectClass: objectClass,
                     termType: termType,
                 });
-            } else if (valueofObjectType == 4) {
+            } else if (valueofPredicateObjectMap == 4) {
                 var predicate = $(`#selectproperty${i} option:selected`).text().trim();
                 var objectType = "Ref_to_TM_same_source";
                 var object = $(`#predicateselecttriplesmap${i} option:selected`).text().trim();
@@ -80,7 +80,7 @@ $(document).ready(function () {
                     object: object,
                     termType: termType,
                 });
-            } else if (valueofObjectType == 5) {
+            } else if (valueofPredicateObjectMap == 5) {
                 var predicate = $(`#selectproperty${i} option:selected`).text().trim();
                 var objectType = "Ref_to_TM_different_source";
                 var object = $(
@@ -102,9 +102,13 @@ $(document).ready(function () {
                 });
             }
 
-            console.log(JSON.stringify(jsonPredicateObjectMap));
             
-    jsonPredicateObjectMap = { predicateObjectMap: [] };
+    // jsonPredicateObjectMap = { predicateObjectMap: [] };
         }
+
+        
+        console.log(jsonPredicateObjectMap);
+
+        console.log(JSON.stringify(jsonPredicateObjectMap));
     })
 });
