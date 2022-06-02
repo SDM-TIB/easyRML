@@ -351,10 +351,11 @@ $(document).ready(function () {
     }));
 
     for(let i = childrenCount;i>1; --i){
-      
-      click = 1;
+      click=1;
       $("#first-container").children().last().remove();
     }
+
+
 
     $("#triplemapname").val("");
     $("#datasourcepath").val("");
