@@ -123,6 +123,30 @@
       $("#inputGroupSelect02").trigger("chosen:updated");
       $("#selectdatafield").trigger("chosen:updated");
       $("#predicateselectdatafield1").trigger("chosen:updated");
+
+      function add_plus_triplesmap(){
+        var first_triplesmap_container = document.getElementById("first-triplesmap-container");
+        
+      var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
+        
+
+
+      first_triplesmap_container.appendChild(first_triplesmap_element);
+      }
+
+      function remove_minus_triplesmap(){
+console.log("minus")
+      }
+
+
+
+
+      $('#add-plus-triplesmap').click(add_plus_triplesmap);
+    $('#remove-minus-triplesmap').click(remove_minus_triplesmap);
+
+
+
+
     });
 
 
@@ -313,8 +337,8 @@
     <!--###########################  add another triplesmap button end#############################################-->
 
     <!--Triple map main block-->
-    <div class="container-fluid">
-      <div class="row secondbox">
+    <div class="container-fluid" id="first-triplesmap-container">
+      <div class="row secondbox" id="first-triplesmap-element1">
         <fieldset class="border border-secondary border-4 bg-light d-block first-input">
           <legend class="w-auto">TriplesMap</legend>
           <div class="col-12">
@@ -1021,13 +1045,45 @@
         </div> -->
     <!--##########################################FunctionMap end#################################################-->
 
-    <!--add another triplesmap button-->
-    <div class="container-fluid">
-      <div class="row mb-3">
-        <div class="col-10">
 
+    <!--plus - minus button for triplesmap-->
+
+
+    <div class="container-fluid">
+      <div class="row" >
+        <div class="col-10"></div>
+
+        <div class="col-1">
+          <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-4" id="remove-minus-triplesmap"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove triplemap" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
+              viewBox="0 0 16 16">
+              <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+            </svg>
+          </button>
         </div>
 
+        <div class="col-1">
+          <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-5" id="add-plus-triplesmap"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="add another ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-plus-lg"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--########################end plus - minus button for triplesmap##############################-->
+
+
+
+    <!--create mapping file button-->
+    <div class="container-fluid mt-5">
+      <div class="row mb-3">
+        <div class="col-10">
+        </div>
 
         <div class="col-2">
           <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
@@ -1039,6 +1095,7 @@
       </div>
 
     </div>
+    <!--#######################3end create mapping file button##############################-->
 
   </div>
   <!-- </form> -->
