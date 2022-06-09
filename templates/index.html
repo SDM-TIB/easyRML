@@ -124,25 +124,33 @@
       $("#selectdatafield").trigger("chosen:updated");
       $("#predicateselectdatafield1").trigger("chosen:updated");
 
-      function add_plus_triplesmap(){
+      var clickTriples=1;
+
+      function add_plus_triplesmap() {
+
+        const clickedTriples=++clickTriples;
+
         var first_triplesmap_container = document.getElementById("first-triplesmap-container");
-        
-      var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
+
+        var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
+        first_triplesmap_element.id=`first-triplesmap-element${clickedTriples}`;
+
         
 
 
-      first_triplesmap_container.appendChild(first_triplesmap_element);
+
+        first_triplesmap_container.appendChild(first_triplesmap_element);
       }
 
-      function remove_minus_triplesmap(){
-console.log("minus")
+      function remove_minus_triplesmap() {
+        console.log("minus")
       }
 
 
 
 
       $('#add-plus-triplesmap').click(add_plus_triplesmap);
-    $('#remove-minus-triplesmap').click(remove_minus_triplesmap);
+      $('#remove-minus-triplesmap').click(remove_minus_triplesmap);
 
 
 
@@ -796,7 +804,7 @@ console.log("minus")
                         <div class="row mt-3 default" id="predicateselecttriplesmapbox1">
                           <div class="col-10">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary"
+                              <select class="form-select border border-2 border-secondary predicateselecttriplesmap"
                                 id="predicateselecttriplesmap1"
                                 data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
                                 <option value="default" selected disabled>--select the TriplesMap from the already
@@ -817,7 +825,8 @@ console.log("minus")
                             <div class="row">
                               <div class="col-10">
                                 <div class="input-group mb-3 ">
-                                  <select class="form-select border border-2 border-secondary"
+                                  <select
+                                    class="form-select border border-2 border-secondary predicateselecttriplesmapdifferentdata"
                                     id="predicateselecttriplesmapdifferentdata1"
                                     data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
                                     <option value="default" selected disabled>--select the TriplesMap from the already
@@ -1050,12 +1059,12 @@ console.log("minus")
 
 
     <div class="container-fluid">
-      <div class="row" >
+      <div class="row">
         <div class="col-10"></div>
 
         <div class="col-1">
           <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-4" id="remove-minus-triplesmap"
-            data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove triplemap" >
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove triplemap">
             <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
               viewBox="0 0 16 16">
               <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />

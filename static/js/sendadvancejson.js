@@ -342,11 +342,11 @@ $(document).ready(function () {
     console.log(JSON.stringify(jsonTripleMap));
 
 
-    $("#predicateselecttriplesmap").append($('<option>', {
+    $(".predicateselecttriplesmap").append($('<option>', {
       text: triplemapname
     }));
 
-    $("#predicateselecttriplesmapdifferentdata").append($('<option>', {
+    $(".predicateselecttriplesmapdifferentdata").append($('<option>', {
       text: triplemapname
     }));
 
