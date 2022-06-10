@@ -130,20 +130,36 @@
 
         const clickedTriples=++clickTriples;
 
+        disableremovetriplesmapbutton();
+
         var first_triplesmap_container = document.getElementById("first-triplesmap-container");
 
         var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
         first_triplesmap_element.id=`first-triplesmap-element${clickedTriples}`;
 
-        
+
 
 
 
         first_triplesmap_container.appendChild(first_triplesmap_element);
       }
 
+       //remove button disable if last element is remaining
+    function disableremovetriplesmapbutton() {
+      if (clickTriples > 1) {
+        $(`#remove-minus-triplesmap`).prop("disabled", false);
+      }
+      else {
+        $(`#remove-minus-triplesmap`).prop("disabled", true);
+      }
+    }
+
+
       function remove_minus_triplesmap() {
-        console.log("minus")
+        --clickTriples;
+      //remove button disable if last element is remaining
+      disableremovetriplesmapbutton();
+      $("#first-triplesmap-container").children().last().remove();
       }
 
 
@@ -1064,7 +1080,7 @@
 
         <div class="col-1">
           <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-4" id="remove-minus-triplesmap"
-            data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove triplemap">
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove triplemap" disabled>
             <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
               viewBox="0 0 16 16">
               <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
