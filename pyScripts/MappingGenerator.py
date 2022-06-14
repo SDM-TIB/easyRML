@@ -82,13 +82,13 @@ def generateSubjectMap(data):
 			SM = "\trr:subjectMap [\n\t\trr:constant \"" + subject + \
 			"\";\n\t\trr:termType " + termType + ";\n\t]"
 		elif subjectType == "Ref_to_data_as_uri":
-			subjectClass = data[s]["subjectMap"][0]["subjectClass"]
-			subject_string = "/{" + subject[0]["data"] + "/}"
+			subjectClass = data[s]["subjectMap"][0]["subjectClass"] + "/"
+			subject_string = "{" + subject[0]["data"] + "}"
 			if len(subject) > 1:
 				for l in range(1,len(subject)):
-					subject_string = subject_string + "_/{" + subject[l]["data"] + "/}"
+					subject_string = subject_string + "_{" + subject[l]["data"] + "}"
 			SM = "\trr:subjectMap [\n\t\trr:template \"" + subjectClass + \
-			"{" + subject_string + "}\";\n\t\trr:termType " + termType + ";\n\t]"
+			subject_string + "\";\n\t\trr:termType " + termType + ";\n\t]"
 		SM_list.append(SM)
 	return SM_list
 
@@ -200,5 +200,3 @@ if __name__ == "__main__":
 	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
 	#data = json.load(f)
 	#generator_tripleMap(data)
-
-
