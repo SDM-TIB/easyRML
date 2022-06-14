@@ -23,19 +23,14 @@ def generateOutput(outputInfo):
 
 def generatePrefix(default,new):
 	global prefixDict
-	prefixDict.update({"rr":"http://www.w3.org/ns/r2rml#","rml":"http://semweb.mmlab.be/ns/rml#"})
+	prefixDict.update({"rr":"http://www.w3.org/ns/r2rml#","rml":"http://semweb.mmlab.be/ns/rml#","ql":"http://semweb.mmlab.be/ns/ql#"})
 	defaultList = default["defaultPrefixes"]
 	for i in range (0,len(defaultList)):
 		prefixDict.update({defaultList[i]["prefix"]:defaultList[i]["url"]})
 	userList = new["newPrefixes"]
 	for i in range (0,len(userList)):
 		prefixDict.update({userList[i]["prefix"]:userList[i]["url"]})
-	### writing ###
-	prefixes = ""
-	for prefix in prefixDict.keys():
-		prefixString = "@prefix "+ prefix + ": <" + str(prefixDict[prefix]) + "> ."
-		prefixes = prefixes + prefixString + "\n"
-	return prefixes
+	return ""
 
 def generateTriplesMap(data):
 	triplesList = data
@@ -119,11 +114,14 @@ def generatePOM(data):
 			for p,u in prefixDict.items():
 				if u == predicate_url:
 					predicate_prefix = p
-			if predicate_prefix != "":
-				predicate = predicate_prefix + ":" + predicate_value
-			else:
-				print (predicateURL)
-				predicate = predicateURL
+				else:
+					predicate_prefix = str(predicate_url.split("://")[1].split(".")[0])  
+					prefixDict.update({predicate_prefix:predicate_url})
+			#if predicate_prefix != "":
+			predicate = predicate_prefix + ":" + predicate_value
+			#else:
+			#	print (predicateURL)
+			#	predicate = predicateURL
 			### Object ###
 			objectType = data[n]["predicateObjectMap"][j]["objectType"]
 			objectValue = data[n]["predicateObjectMap"][j]["object"]
@@ -163,15 +161,20 @@ def generatePOM(data):
 	print (POM_list)
 	return POM_list
 
+def writePrefix():
+	prefixes = ""
+	for prefix in prefixDict.keys():
+		prefixString = "@prefix "+ prefix + ": <" + str(prefixDict[prefix]) + "> ."
+		prefixes = prefixes + prefixString + "\n"
+	return prefixes
+
 def generator_preliminary(userInputData):
 	global output
 	output = generateOutput(userInputData[0])
-	prefixes = generatePrefix(userInputData[1],userInputData[2])
-	global mapping
-	mapping = prefixes
+	generatePrefix(userInputData[1],userInputData[2])
 	return ""
 
-def generator_tripleMap(userInputData):
+def generator_mapping(userInputData): ## Generating the triplesMaps and writing everything (preliminary and triplesMap) in the mapping file
 	#with open("../sources/example_sent_from_UI_TM1.json") as inputFile:
 	#	inputObject = json.load(inputFile)
 	#	inputFile.close()
@@ -180,6 +183,7 @@ def generator_tripleMap(userInputData):
 	SM_list = generateSubjectMap(userInputData[0]['triplesMap'])
 	POM_list = generatePOM(userInputData[0]['triplesMap'])
 	global mapping
+	mapping = writePrefix()
 	for i in range(0,len(TM_list)):
 		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
 	global output
