@@ -1,5 +1,16 @@
 
-    var click = 1;
+  var click = 1;
+
+  
+    //remove button disable if last element is remaining
+    function disableremovebutton() {
+      if (click > 1) {
+        $(`#remove-minus`).prop("disabled", false);
+      }
+      else {
+        $(`#remove-minus`).prop("disabled", true);
+      }
+    }
 $(document).ready(function () {
 
     $('#more-btn1').click(function () {
@@ -291,15 +302,6 @@ $(document).ready(function () {
     }
 
 
-    //remove button disable if last element is remaining
-    function disableremovebutton() {
-      if (click > 1) {
-        $(`#remove-minus`).prop("disabled", false);
-      }
-      else {
-        $(`#remove-minus`).prop("disabled", true);
-      }
-    }
 
 
 

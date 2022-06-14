@@ -352,6 +352,7 @@ $(document).ready(function () {
 
     for(let i = childrenCount;i>1; --i){
       click=1;
+      disableremovebutton();
       $("#first-container").children().last().remove();
     }
 
@@ -819,9 +820,11 @@ $(document).ready(function () {
     });
 
 
-    console.log(JSON.stringify(jsonTripleMap));
+    // console.log(JSON.stringify(jsonTripleMap));
 
     final.push(jsonTripleMap);
+
+    console.log(JSON.stringify(final))
 
 
 
