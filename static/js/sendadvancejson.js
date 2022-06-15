@@ -352,6 +352,7 @@ $(document).ready(function () {
 
     for(let i = childrenCount;i>1; --i){
       click=1;
+      disableremovebutton();
       $("#first-container").children().last().remove();
     }
 
