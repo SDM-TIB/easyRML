@@ -111,7 +111,7 @@ $(document).ready(function () {
       var first_container = document.getElementById("first-container");
 
       for (var i = 1; i < clicked; i++) {
-        $(`#selectclasssuggestion${i}`)
+        $(`#selectclasssuggestion-1-${i}`)
           // call destroy to revert the changes made by Select2
           .select2("destroy")
           .end();
