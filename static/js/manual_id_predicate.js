@@ -126,9 +126,12 @@ $(document).ready(function () {
       var first_element_less_btn = first_element.querySelector("#less-btn-1-1");
       first_element_less_btn.id = `less-btn-1-${clicked}`;
 
+
+      //first option in predicate
       first_element.querySelector("#first-predicate-element-1-1").id = `first-predicate-element-1-${clicked}`;
       first_element.querySelector("#selectproperty-1-1").id = `selectproperty-1-${clicked}`;
 
+      //second option in predicate
       first_element.querySelector("#second-predicate-element-1-1").id = `second-predicate-element-1-${clicked}`;
       first_element.querySelector("#selectobjecttype-1-1").id = `selectobjecttype-1-${clicked}`;
 
@@ -142,7 +145,7 @@ $(document).ready(function () {
 
       //box 3
       first_element.querySelector("#predicatedatauribox-1-1").id = `predicatedatauribox-1-${clicked}`;
-      first_element.querySelector("#predicateselectdatafield-1-1").id = `predicateselectdatafield$-1-{clicked}`;
+      first_element.querySelector("#predicateselectdatafield-1-1").id = `predicateselectdatafield-1-${clicked}`;
       first_element.querySelector("#predicateselectclass-1-1").id = `predicateselectclass-1-${clicked}`;
 
       //box 4
@@ -159,6 +162,7 @@ $(document).ready(function () {
       first_element.querySelector("#predicateselectfunctionmapbox-1-1").id = `predicateselectfunctionmapbox-1-${clicked}`;
       first_element.querySelector("#predicateselectfunctionmap-1-1").id = `predicateselectfunctionmap-1-${clicked}`;
 
+      //third option in predicate
       first_element.querySelector("#third-predicate-element-1-1").id = `third-predicate-element-1-${clicked}`;
       first_element.querySelector("#selecttermtypepredicateobjectmap-1-1").id = `selecttermtypepredicateobjectmap-1-${clicked}`;
 
@@ -304,10 +308,10 @@ $(document).ready(function () {
     //remove button disable if last element is remaining
     function disableremovebutton() {
       if (click > 1) {
-        $(`#remove-minus`).prop("disabled", false);
+        $(`#remove-minus1`).prop("disabled", false);
       }
       else {
-        $(`#remove-minus`).prop("disabled", true);
+        $(`#remove-minus1`).prop("disabled", true);
       }
     }
 
@@ -322,8 +326,8 @@ $(document).ready(function () {
     }
 
 
-    $('#add-plus').click(add_plus);
-    $('#remove-minus').click(remove_minus);
+    $('#add-plus1').click(add_plus);
+    $('#remove-minus1').click(remove_minus);
 
 
   });

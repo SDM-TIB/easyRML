@@ -124,15 +124,26 @@
       $("#selectdatafield").trigger("chosen:updated");
       $("#predicateselectdatafield1").trigger("chosen:updated");
 
-      var clickTriples=1;
+      var clickTriples = 1;
 
       function add_plus_triplesmap() {
 
-        const clickedTriples=++clickTriples;
+        const clickedTriples = ++clickTriples;
 
         disableremovetriplesmapbutton();
 
         var first_triplesmap_container = document.getElementById("first-triplesmap-container");
+
+
+        for (var i = 1; i <= clickedTriples; i++) {
+
+          $(`#selectclasssuggestion-${i}-1`)
+            // call destroy to revert the changes made by Select2
+          .select2("destroy")
+          .end();
+
+        }
+
 
 
         var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
@@ -155,8 +166,8 @@
         first_triplesmap_element.querySelector('#rdbbox1').id = `rdbbox${clickTriples}`;
 
         //database input
-        
-        first_triplesmap_element.querySelector('#databasename1').id = `databasename${clickTriples}`; 
+
+        first_triplesmap_element.querySelector('#databasename1').id = `databasename${clickTriples}`;
         first_triplesmap_element.querySelector('#databaseurl1').id = `databaseurl${clickTriples}`;
         first_triplesmap_element.querySelector('#databasedriver1').id = `databasedriver${clickTriples}`;
         first_triplesmap_element.querySelector('#databaseusername1').id = `databaseusername${clickTriples}`;
@@ -171,28 +182,96 @@
         //term type for first
         first_triplesmap_element.querySelector('#selecttermtype1').id = `selecttermtype${clickTriples}`;
 
+        //more less btn
+        var first_triplesmap_element_more_btn = first_triplesmap_element.querySelector("#more-btn-1-1");
+        first_triplesmap_element_more_btn.id = `more-btn-${clickedTriples}-1`;
 
+        var first_triplesmap_element_less_btn = first_triplesmap_element.querySelector("#less-btn-1-1");
+        first_triplesmap_element_less_btn.id = `less-btn-${clickedTriples}-1`;
+
+        //first option in predicate
+        first_triplesmap_element.querySelector("#first-predicate-element-1-1").id = `first-predicate-element-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#selectproperty-1-1").id = `selectproperty-${clickedTriples}-1`;
+
+        //second option in predicate
+        first_triplesmap_element.querySelector("#second-predicate-element-1-1").id = `second-predicate-element-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#selectobjecttype-1-1").id = `selectobjecttype-${clickedTriples}-1`;
+
+        //box 1
+        first_triplesmap_element.querySelector("#selectclasssuggestionbox-1-1").id = `selectclasssuggestionbox-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#selectclasssuggestion-1-1").id = `selectclasssuggestion-${clickedTriples}-1`;
+
+        //box 2
+        first_triplesmap_element.querySelector("#selectdatafieldsuggestionbox-1-1").id = `selectdatafieldsuggestionbox-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#selectdatafieldsuggestion-1-1").id = `selectdatafieldsuggestion-${clickedTriples}-1`;
+
+        //box 3
+        first_triplesmap_element.querySelector("#predicatedatauribox-1-1").id = `predicatedatauribox-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#predicateselectdatafield-1-1").id = `predicateselectdatafield-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#predicateselectclass-1-1").id = `predicateselectclass-${clickedTriples}-1`;
+
+        //box 4
+        first_triplesmap_element.querySelector("#predicateselecttriplesmapbox-1-1").id = `predicateselecttriplesmapbox-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#predicateselecttriplesmap-1-1").id = `predicateselecttriplesmap-${clickedTriples}-1`;
+
+        //box 5
+        first_triplesmap_element.querySelector("#predicateselecttriplesmapboxdifferent-1-1").id = `predicateselecttriplesmapboxdifferent-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#predicateselecttriplesmapdifferentdata-1-1").id = `predicateselecttriplesmapdifferentdata-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#joinconditionchild-1-1").id = `joinconditionchild-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#joinconditionparent-1-1").id = `joinconditionparent-${clickedTriples}-1`;
+
+        //box 6
+        first_triplesmap_element.querySelector("#predicateselectfunctionmapbox-1-1").id = `predicateselectfunctionmapbox-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#predicateselectfunctionmap-1-1").id = `predicateselectfunctionmap-${clickedTriples}-1`;
+
+        ////third option in predicate
+        first_triplesmap_element.querySelector("#third-predicate-element-1-1").id = `third-predicate-element-${clickedTriples}-1`;
+        first_triplesmap_element.querySelector("#selecttermtypepredicateobjectmap-1-1").id = `selecttermtypepredicateobjectmap-${clickedTriples}-1`;
+
+
+        //add plus remove minus button
+        first_triplesmap_element.querySelector("#add-plus1").id = `add-plus${clickedTriples}`;
+        first_triplesmap_element.querySelector("#remove-minus1").id = `remove-minus${clickedTriples}`;
 
 
         first_triplesmap_container.appendChild(first_triplesmap_element);
+
+        
+      //updating chosen effect to clone element
+      // $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
+      $(`#predicateselectdatafield-${clickedTriples}-1`).removeClass("chzn-done").css("display", "block").next().remove();
+      $(`#predicateselectdatafield-${clickedTriples}-1`).chosen({ no_results_text: "Oops, nothing found!", width: "100%" });
+      $(`#predicateselectdatafield-${clickedTriples}-1`).trigger("chosen:updated");
+
+
+        for (var i = 1; i <= clickedTriples; i++) {
+
+          $(`#selectclasssuggestion-${i}-1`)
+            .select2({
+              tags: true,
+              theme: "bootstrap-5",
+            });
+
+        }
+        // document.querySelector(`add-plus${clickedTriples}`).addEventListener("click",add_plus)
       }
 
-       //remove button disable if last element is remaining
-    function disableremovetriplesmapbutton() {
-      if (clickTriples > 1) {
-        $(`#remove-minus-triplesmap`).prop("disabled", false);
+      //remove button disable if last element is remaining
+      function disableremovetriplesmapbutton() {
+        if (clickTriples > 1) {
+          $(`#remove-minus-triplesmap`).prop("disabled", false);
+        }
+        else {
+          $(`#remove-minus-triplesmap`).prop("disabled", true);
+        }
       }
-      else {
-        $(`#remove-minus-triplesmap`).prop("disabled", true);
-      }
-    }
 
 
       function remove_minus_triplesmap() {
         --clickTriples;
-      //remove button disable if last element is remaining
-      disableremovetriplesmapbutton();
-      $("#first-triplesmap-container").children().last().remove();
+        //remove button disable if last element is remaining
+        disableremovetriplesmapbutton();
+        $("#first-triplesmap-container").children().last().remove();
       }
 
 
@@ -522,8 +601,8 @@
                     <div class="col-1"></div>
 
                     <div class="col-4">
-                      <input type="password" class="form-control border border-secondary border-2" id="databasepassword1"
-                        placeholder="Password to access the database">
+                      <input type="password" class="form-control border border-secondary border-2"
+                        id="databasepassword1" placeholder="Password to access the database">
                     </div>
 
                     <div class="col-3"></div>
@@ -588,8 +667,8 @@
                     <div class="col-5"></div>
 
                     <div class="col-4">
-                      <button class="btn border border-secondary border-2 add-another-triplesmap float-end" id="sendRDB1"
-                        type="button">Submit RDB data</button>
+                      <button class="btn border border-secondary border-2 add-another-triplesmap float-end"
+                        id="sendRDB1" type="button">Submit RDB data</button>
                     </div>
 
                     <div class="col-3"></div>
@@ -781,7 +860,8 @@
                           <div class="col-7">
                             <div class="input-group mb-3 ">
                               <select class="form-select border border-2 border-secondary selectclasssuggestion"
-                                id="selectclasssuggestion-1-1" data-placeholder="select the class (based on the Ontology)">
+                                id="selectclasssuggestion-1-1"
+                                data-placeholder="select the class (based on the Ontology)">
                                 <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                   title="you can't find option until you not upload proper ontology file" selected
                                   disabled>
@@ -959,7 +1039,7 @@
               <div class="col-10"></div>
 
               <div class="col-1">
-                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus"
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus1"
                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove predicate object map" disabled>
                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
                     viewBox="0 0 16 16">
@@ -969,7 +1049,7 @@
               </div>
 
               <div class="col-1">
-                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="add-plus"
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="add-plus1"
                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="add another predicate object map">
                   <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                     class="bi bi-plus-lg" viewBox="0 0 16 16">
