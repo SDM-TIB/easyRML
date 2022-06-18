@@ -86,12 +86,12 @@
 
 
 
-      $("#selectclass").select2({
+      $("#selectclass1").select2({
         tags: true,
         theme: "bootstrap-5",
       });
 
-      $("#selectfirstclass").select2({
+      $("#selectfirstclass1").select2({
         tags: true,
         theme: "bootstrap-5",
       });
@@ -101,12 +101,12 @@
         theme: "bootstrap-5",
       });
 
-      $("#predicateselectclass").select2({
+      $("#predicateselectclass-1-1").select2({
         tags: true,
         theme: "bootstrap-5",
       });
 
-      $("#selectproperty").select2({
+      $("#selectproperty-1-1").select2({
         tags: true,
         theme: "bootstrap-5",
       });
@@ -124,63 +124,96 @@
       $("#selectdatafield").trigger("chosen:updated");
       $("#predicateselectdatafield1").trigger("chosen:updated");
 
-      var clickTriples = 1;
 
       function add_plus_triplesmap() {
 
-        const clickedTriples = ++clickTriples;
 
-        disableremovetriplesmapbutton();
+        triplesmap_array.push(1);
+
+        const clickedTriples = triplesmap_array.length;
+
+        // console.log(clickedTriples)
+
+        // disableremovetriplesmapbutton();
 
         var first_triplesmap_container = document.getElementById("first-triplesmap-container");
 
+        // console.log(first_triplesmap_container)
 
-        for (var i = 1; i <= clickedTriples; i++) {
 
-          $(`#selectclasssuggestion-${i}-1`)
-            // call destroy to revert the changes made by Select2
-          .select2("destroy")
-          .end();
+
+
+        var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
+
+
+
+
+        first_triplesmap_element.id = `first-triplesmap-element${clickedTriples}`;
+
+
+
+        const childrenCount = first_triplesmap_element.querySelector("#first-container1");
+
+        childrenCount.normalize();
+
+        console.log(childrenCount.childNodes)
+
+        // console.log(first_triplesmap_element.querySelector("#first-container1").childNodes)
+
+ 
+        for (let i = childrenCount.childNodes.length; i > 2; --i) {
+          // click=1;
+          // disableremovebutton();
+          
+          childrenCount.removeChild(childrenCount.lastChild);
 
         }
 
 
 
-        var first_triplesmap_element = document.getElementById("first-triplesmap-element1").cloneNode(true);
-        first_triplesmap_element.id = `first-triplesmap-element${clickedTriples}`;
 
-        first_triplesmap_element.querySelector('#triplemapname1').id = `triplemapname${clickTriples}`;
+
+        for (var i = 1; i < clickedTriples; i++) {
+
+          $(`#selectclasssuggestion-${i}-1`)
+            // call destroy to revert the changes made by Select2
+            .select2("destroy")
+            .end();
+
+        }
+
+        first_triplesmap_element.querySelector('#triplemapname1').id = `triplemapname${clickedTriples}`;
 
         //select sybject type
-        first_triplesmap_element.querySelector('#selectsubject1').id = `selectsubject${clickTriples}`;
-        first_triplesmap_element.querySelector('#classbox1').id = `classbox${clickTriples}`;
-        first_triplesmap_element.querySelector('#selectfirstclass1').id = `selectfirstclass${clickTriples}`;
-        first_triplesmap_element.querySelector('#datauribox1').id = `datauribox${clickTriples}`;
-        first_triplesmap_element.querySelector('#selectdatafield1').id = `selectdatafield${clickTriples}`;
-        first_triplesmap_element.querySelector('#selectclass1').id = `selectclass${clickTriples}`;
+        first_triplesmap_element.querySelector('#selectsubject1').id = `selectsubject${clickedTriples}`;
+        first_triplesmap_element.querySelector('#classbox1').id = `classbox${clickedTriples}`;
+        first_triplesmap_element.querySelector('#selectfirstclass1').id = `selectfirstclass${clickedTriples}`;
+        first_triplesmap_element.querySelector('#datauribox1').id = `datauribox${clickedTriples}`;
+        first_triplesmap_element.querySelector('#selectdatafield1').id = `selectdatafield${clickedTriples}`;
+        first_triplesmap_element.querySelector('#selectclass1').id = `selectclass${clickedTriples}`;
 
         //select datatype box
-        first_triplesmap_element.querySelector('#selecttypedatasource1').id = `selecttypedatasource${clickTriples}`;
-        first_triplesmap_element.querySelector('#csvbox1').id = `csvbox${clickTriples}`;
-        first_triplesmap_element.querySelector('#formsource1').id = `formsource${clickTriples}`;
-        first_triplesmap_element.querySelector('#rdbbox1').id = `rdbbox${clickTriples}`;
+        first_triplesmap_element.querySelector('#selecttypedatasource1').id = `selecttypedatasource${clickedTriples}`;
+        first_triplesmap_element.querySelector('#csvbox1').id = `csvbox${clickedTriples}`;
+        first_triplesmap_element.querySelector('#formsource1').id = `formsource${clickedTriples}`;
+        first_triplesmap_element.querySelector('#rdbbox1').id = `rdbbox${clickedTriples}`;
 
         //database input
 
-        first_triplesmap_element.querySelector('#databasename1').id = `databasename${clickTriples}`;
-        first_triplesmap_element.querySelector('#databaseurl1').id = `databaseurl${clickTriples}`;
-        first_triplesmap_element.querySelector('#databasedriver1').id = `databasedriver${clickTriples}`;
-        first_triplesmap_element.querySelector('#databaseusername1').id = `databaseusername${clickTriples}`;
-        first_triplesmap_element.querySelector('#databasepassword1').id = `databasepassword${clickTriples}`;
-        first_triplesmap_element.querySelector('#databasetable1').id = `databasetable${clickTriples}`;
-        first_triplesmap_element.querySelector('#databasequery1').id = `databasequery${clickTriples}`;
-        first_triplesmap_element.querySelector('#databaseqeryversion1').id = `databaseqeryversion${clickTriples}`;
-        first_triplesmap_element.querySelector('#databasehost1').id = `databasehost${clickTriples}`;
-        first_triplesmap_element.querySelector('#databaseport1').id = `databaseport${clickTriples}`;
-        first_triplesmap_element.querySelector('#sendRDB1').id = `sendRDB${clickTriples}`;
+        first_triplesmap_element.querySelector('#databasename1').id = `databasename${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databaseurl1').id = `databaseurl${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databasedriver1').id = `databasedriver${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databaseusername1').id = `databaseusername${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databasepassword1').id = `databasepassword${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databasetable1').id = `databasetable${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databasequery1').id = `databasequery${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databaseqeryversion1').id = `databaseqeryversion${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databasehost1').id = `databasehost${clickedTriples}`;
+        first_triplesmap_element.querySelector('#databaseport1').id = `databaseport${clickedTriples}`;
+        first_triplesmap_element.querySelector('#sendRDB1').id = `sendRDB${clickedTriples}`;
 
         //term type for first
-        first_triplesmap_element.querySelector('#selecttermtype1').id = `selecttermtype${clickTriples}`;
+        first_triplesmap_element.querySelector('#selecttermtype1').id = `selecttermtype${clickedTriples}`;
 
         //more less btn
         var first_triplesmap_element_more_btn = first_triplesmap_element.querySelector("#more-btn-1-1");
@@ -188,6 +221,10 @@
 
         var first_triplesmap_element_less_btn = first_triplesmap_element.querySelector("#less-btn-1-1");
         first_triplesmap_element_less_btn.id = `less-btn-${clickedTriples}-1`;
+
+        //container
+
+        first_triplesmap_element.querySelector("#first-container1").id = `first-container${clickedTriples}`;
 
         //first option in predicate
         first_triplesmap_element.querySelector("#first-predicate-element-1-1").id = `first-predicate-element-${clickedTriples}-1`;
@@ -234,14 +271,16 @@
         first_triplesmap_element.querySelector("#remove-minus1").id = `remove-minus${clickedTriples}`;
 
 
+
+
         first_triplesmap_container.appendChild(first_triplesmap_element);
 
-        
-      //updating chosen effect to clone element
-      // $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
-      $(`#predicateselectdatafield-${clickedTriples}-1`).removeClass("chzn-done").css("display", "block").next().remove();
-      $(`#predicateselectdatafield-${clickedTriples}-1`).chosen({ no_results_text: "Oops, nothing found!", width: "100%" });
-      $(`#predicateselectdatafield-${clickedTriples}-1`).trigger("chosen:updated");
+
+        //updating chosen effect to clone element
+        // $(`#predicateselectdatafield${clicked}`).removeClass("chzn-done").css("display", "block").next().remove();
+        $(`#predicateselectdatafield-${clickedTriples}-1`).removeClass("chzn-done").css("display", "block").next().remove();
+        $(`#predicateselectdatafield-${clickedTriples}-1`).chosen({ no_results_text: "Oops, nothing found!", width: "100%" });
+        $(`#predicateselectdatafield-${clickedTriples}-1`).trigger("chosen:updated");
 
 
         for (var i = 1; i <= clickedTriples; i++) {
@@ -253,24 +292,30 @@
             });
 
         }
-        // document.querySelector(`add-plus${clickedTriples}`).addEventListener("click",add_plus)
+
+
+
+        document.querySelector(`#add-plus${clickedTriples}`).addEventListener("click", (event) => add_plus(event));
+
       }
 
+
+
       //remove button disable if last element is remaining
-      function disableremovetriplesmapbutton() {
-        if (clickTriples > 1) {
-          $(`#remove-minus-triplesmap`).prop("disabled", false);
-        }
-        else {
-          $(`#remove-minus-triplesmap`).prop("disabled", true);
-        }
-      }
+      // function disableremovetriplesmapbutton() {
+      //   if (clickedTriples > 1) {
+      //     $(`#remove-minus-triplesmap`).prop("disabled", false);
+      //   }
+      //   else {
+      //     $(`#remove-minus-triplesmap`).prop("disabled", true);
+      //   }
+      // }
 
 
       function remove_minus_triplesmap() {
-        --clickTriples;
+        --clickedTriples;
         //remove button disable if last element is remaining
-        disableremovetriplesmapbutton();
+        // disableremovetriplesmapbutton();
         $("#first-triplesmap-container").children().last().remove();
       }
 
@@ -785,7 +830,7 @@
             <!--###########################  add another  predicate object map button end#############################################-->
 
             <!-- predicate object map block-->
-            <div id="first-container">
+            <div id="first-container1">
               <div class="row" id="first-element-1-1">
 
                 <div class="col-12">
