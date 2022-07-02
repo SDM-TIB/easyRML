@@ -8,11 +8,12 @@ from SPARQLWrapper import SPARQLWrapper,JSON
 import json
 from rdflib import Graph
 import csv
+import mysql.connector
 
 ##############################################################################
 
 ##################### Extract Classes from the Ontology ######################
-
+'''
 #### ontology as an endpoint
 def readClassesFromOntologyEndpoint(endpoint):
     sparql = SPARQLWrapper(endpoint)
@@ -23,7 +24,7 @@ def readClassesFromOntologyEndpoint(endpoint):
     sparql.setReturnFormat(JSON)
     classes = sparql.query().convert()  
     return classes
-
+'''
 #### ontology as an turtle file
 def readClassesFromOntologyTurtle(file):
     ontologyGraph = Graph()
@@ -40,7 +41,7 @@ def readClassesFromOntologyTurtle(file):
     return owlClassList
 
 #################### Extract Properties from the Ontology ######################
-
+'''
 #### ontology as an endpoint
 def readPropertiesFromOntologyEndpoint(endpoint):
     sparql = SPARQLWrapper(endpoint)
@@ -54,7 +55,7 @@ def readPropertiesFromOntologyEndpoint(endpoint):
     sparql.setReturnFormat(JSON)
     properties = sparql.query().convert()
     return properties
-
+'''
 #### ontology as an turtle file
 def readPropertiesFromOntologyTurtle(filename):
     file = filename
@@ -76,7 +77,7 @@ def readPropertiesFromOntologyTurtle(filename):
 
 ###################### Extract Fields from Data Header ########################
 
-def extractFields(file):
+def extractFields_csv(file):
     fileName = file.split('/')[-1]
     if fileName.rsplit('.', 1)[1].lower() == 'csv':
         with open(file, newline='') as dataFile:
@@ -91,6 +92,30 @@ def extractFields(file):
     else:
         dataFields_json = {}
     return dataFields_json
+
+###################### Extract columns from RDB ########################
+
+def extractFields_rdb(file):
+ 
+    mydb = mysql.connector.connect(
+          host=file["RDBdata"][0]["RDB_host"],
+          port=file["RDBdata"][0]["RDB_port"],
+          user=file["RDBdata"][0]["databaseusername"],
+          passwd=file["RDBdata"][0]["databasepassword"],
+          database=file["RDBdata"][0]["databasename"] 
+        )
+    table = file["RDBdata"][0]["databasetable"]
+    query="""SELECT COLUMN_NAME
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE TABLE_NAME ='""" + table + """'"""
+    print(query)
+    mycursor = mydb.cursor()
+    mycursor.execute(query)
+    result_list = mycursor.fetchall()
+    final_result_list = list(map(lambda x : ''.join(x), result_list))
+    print (final_result_list)
+    result_json = json.dumps(final_result_list)
+    return (result_json)
 
 ############################# Extract Prefixes ##############################
 

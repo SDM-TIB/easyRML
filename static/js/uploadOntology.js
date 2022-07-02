@@ -12,23 +12,23 @@ $(document).on("change", "#uploadttlfile", function () {
     processData: false,
     async: false,
     success: function (data) {
-      alert(data);
+      alert("File succesfully uploded");
 
       $('#selectfirstclass').empty();
-      $('#selectfirstclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('#selectfirstclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $('#selectclass').empty();
-      $('#selectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('#selectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
       // $("#selectclass").trigger("chosen:updated");
       
-      $('#selectclasssuggestion').empty();
-      $('#selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('.selectclasssuggestion').empty();
+      $('.selectclasssuggestion').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
         
-      $('#predicateselectclass').empty();
-      $('#predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop('selected',true));
+      $('.predicateselectclass').empty();
+      $('.predicateselectclass').append($('<option>' , {value: "default", text: "--select the corresponding class (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
-      $('#selectproperty').empty();
-      $('#selectproperty').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop('selected',true));
+      $('.selectpropertyvalue').empty();
+      $('.selectpropertyvalue').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $.ajax({
         url:'/receiveClasses',
@@ -40,8 +40,8 @@ $(document).on("change", "#uploadttlfile", function () {
                 $('#selectfirstclass').append($('<option value="' + this + '">' + this + '</option>'));
                 $('#selectclass').append($('<option value="' + this + '">' + this + '</option>'));
                 // $("#selectclass").trigger("chosen:updated");
-                $('#selectclasssuggestion').append($('<option value="' + this + '">' + this + '</option>'));
-                $('#predicateselectclass').append($('<option value="' + this + '">' + this + '</option>'));
+                $('.selectclasssuggestion').append($('<option value="' + this + '">' + this + '</option>'));
+                $('.predicateselectclass').append($('<option value="' + this + '">' + this + '</option>'));
               });
             }
           });
@@ -53,12 +53,13 @@ $(document).on("change", "#uploadttlfile", function () {
         dataType: 'json',
         success: function( json ) {
             $.each(json, function(file) {
-                $('#selectproperty').append($('<option value="' + this + '">' + this + '</option>'));
+                $('.selectpropertyvalue').append($('<option value="' + this + '">' + this + '</option>'));
                 });
             }
           });
       },
       error: function (jqXHR, textStatus, errorThrown) {
+        alert("format of file is wrong or error in upload");
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);

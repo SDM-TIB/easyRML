@@ -5,8 +5,6 @@ $.ajax({
   dataType: "json",
   success: function (json) {
     var value;
-
-    console.log(this);
     $.each(json, function (file) {
       if (this == "http://www.w3.org/ns/r2rml#") {
         value = "rr";
@@ -24,6 +22,9 @@ $.ajax({
         value = "schema";
       } else if (this == "http://www.w3.org/2001/XMLSchema#") {
         value = "xsd";
+      } else if (this == "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#") {
+        console.log(this);
+        value = "d2rq";
       } else {
         value = "";
       }

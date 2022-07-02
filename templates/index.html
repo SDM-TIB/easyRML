@@ -72,11 +72,20 @@
   <script src="../static/js/sendadvancejson.js"></script>
 
 
+  <!--send only RDB data from triplesmap block-->
+  <script src="../static/js/sendRDBdata.js"></script>
+
+  <!--send only final json for new view-->
+  <script src="../static/js/sendadvancejsonnew.js"></script>
+
+  <script src="../static/js/manual_id_predicate.js"></script>
 
 
   <script type="text/javascript">
-
     $(document).ready(function () {
+
+
+
       $("#selectclass").select2({
         tags: true,
         theme: "bootstrap-5",
@@ -87,7 +96,7 @@
         theme: "bootstrap-5",
       });
 
-      $("#selectclasssuggestion").select2({
+      $("#selectclasssuggestion1").select2({
         tags: true,
         theme: "bootstrap-5",
       });
@@ -96,40 +105,25 @@
         tags: true,
         theme: "bootstrap-5",
       });
-      
+
       $("#selectproperty").select2({
         tags: true,
         theme: "bootstrap-5",
       });
 
-    }); 
 
-    // $('select:not(.normal)').each(function() {
-    //     $('#selectclass').select2({
-    //       theme: "bootstrap-5",
 
-    //     });
-    //   });
-
-    //   $(function () {
-    //     $('#selectclass').select2({
-    //       dropdownParent: $('#mymodel'),
-    //     });
-    //   });
-
-    $(function () {
-      $(".chosen-select").chosen({
-        no_results_text: "Oops, nothing found!",
-        width: "100%"
+      $(function () {
+        $(".chosen-select").chosen({
+          no_results_text: "Oops, nothing found!",
+          width: "100%"
+        });
       });
+
+      $("#inputGroupSelect02").trigger("chosen:updated");
+      $("#selectdatafield").trigger("chosen:updated");
+      $("#predicateselectdatafield1").trigger("chosen:updated");
     });
-
-    $("#inputGroupSelect02").trigger("chosen:updated");
-    $("#selectdatafield").trigger("chosen:updated");
-    $("#predicateselectdatafield").trigger("chosen:updated");
-      // $("#selectclass").trigger("chosen:updated");
-
-
 
 
   </script>
@@ -149,16 +143,16 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse d-block justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/guideline_url">
-              <h3 class="header-text">RML Guideline</h3>
+              <h3 class="header-text">How To Use</h3>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/aboutUs_url">
-              <h3 class="header-text">About us</h3>
+              <h3 class="header-text">About Us</h3>
             </a>
           </li>
         </ul>
@@ -167,6 +161,7 @@
   </nav>
 
   <!--########################################################################################################-->
+
 
   <!--form-->
   <!-- <form> -->
@@ -189,7 +184,8 @@
             </div>
             <div class="col-5">
               <input type="text" class="form-control border border-secondary border-2" id="outputfilepath"
-                placeholder="Insert output path">
+                placeholder="Insert output path" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Add the input as...'C:/Users/Desktop/folder/'">
             </div>
           </div>
 
@@ -216,12 +212,14 @@
           <div class="row">
             <div class="col-3">
               <input type="text" class="form-control border border-secondary border-2" placeholder="write prefix"
-                id="manualPrefix">
+                id="manualPrefix" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Add the prefix for e.g. rr,rml...">
             </div>
 
             <div class="col-5">
               <input type="text" class="form-control border border-secondary border-2" placeholder="Url for Prefix"
-                id="manualUrl">
+                id="manualUrl" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Use proper url as 'http://www.w3.org/ns/r2rml'">
             </div>
 
             <div class="col-4">
@@ -240,7 +238,7 @@
         <div class="col-6">
           <div class="row file-upper"></div>
           <div class="row">
-            <div class="col-10 d-flex justify-content-center">
+            <div class="col-10 d-block justify-content-center">
               <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
                 <legend class="w-auto">Ontology</legend>
 
@@ -315,9 +313,9 @@
     <!--###########################  add another triplesmap button end#############################################-->
 
     <!--Triple map main block-->
-    <div class="container-fluid ">
+    <div class="container-fluid">
       <div class="row secondbox">
-        <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
+        <fieldset class="border border-secondary border-4 bg-light d-block first-input">
           <legend class="w-auto">TriplesMap</legend>
           <div class="col-12">
 
@@ -340,7 +338,7 @@
                     <div class="input-group mb-3 ">
                       <select class="form-select border border-2 border-secondary" id="selectsubject"
                         data-placeholder="select the subject type" onchange="showSelectBlock(this);">
-                        <option value="default" selected>--select the subject type--</option>
+                        <option value="default" selected disabled>--select the subject type--</option>
                         <option value="0">Class</option>
                         <option value="1">Reference to data as URI</option>
                         <!-- <option value="2">Reference to a FunctionMap</option> -->
@@ -357,30 +355,174 @@
               <!--upload source file-->
               <div class="col-6">
                 <div class="row">
-                  <div class="col-1"></div>
-                  <form method="POST" enctype="multipart/form-data" id="formsource">
-                    <input class="file-upload-input" type='file' accept=".csv" name="file" id="uploadsourcefile"
-                      hidden />
-                  </form>
-                  <div class="col-2">
-                    <label for="uploadsourcefile">
-                      <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
-                        alt="...">
-                    </label>
+                  <div class="col-7">
+                    <div class="input-group mb-3 ">
+                      <select class="form-select border border-2 border-secondary" id="selecttypedatasource"
+                        data-placeholder="select the subject type" onchange="showSelectDataSource(this);">
+                        <option value="default" selected>--Select type of the data source--</option>
+                        <option value="0">CSV</option>
+                        <option value="1">RDB</option>
+                        <!-- <option value="2">Reference to a FunctionMap</option> -->
+                      </select>
+                    </div>
                   </div>
-                  <div class="col-8">
-                    <h4 class="pt-1"> &lt; Upload source here</h4>
-                  </div>
-                  <div class="col-1"></div>
+                  <div class="col-5"></div>
                 </div>
 
-                <div class="row">
-                  <div class="col-9">
-                    <input type="text" class="form-control border border-secondary border-2" id="datasourcepath"
-                      placeholder="Add the path to data source to be added to the mapping">
+
+                <!--#####################csv box ##################################-->
+                <div class="default" id="csvbox">
+                  <div class="row">
+                    <div class="col-1"></div>
+                    <form method="POST" enctype="multipart/form-data" id="formsource">
+                      <input class="file-upload-input" type='file' accept=".csv" name="file" id="uploadsourcefile"
+                        hidden />
+                    </form>
+                    <div class="col-2">
+                      <label for="uploadsourcefile">
+                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
+                          alt="...">
+                      </label>
+                    </div>
+                    <div class="col-8">
+                      <h4 class="pt-1"> &lt; Upload source here</h4>
+                    </div>
+                    <div class="col-1"></div>
                   </div>
-                  <div class="col-3"></div>
+
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" class="form-control border border-secondary border-2" id="datasourcepath"
+                        placeholder="Add the path to data source to be added to the mapping" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="Path must be exactly like this '/sources/data.csv'">
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
                 </div>
+                <!--#####################end csv box ##################################-->
+
+
+                <!--#####################RDB box ##################################-->
+                <div class="default" id="rdbbox">
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" list="namedatalist" class="form-control border border-secondary border-2"
+                        id="databasename" placeholder="Name of Database" autocomplete="on">
+                      <datalist id="namedatalist"></datalist>
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-9">
+                      <input type="text" list="urldatalist" class="form-control border border-secondary border-2"
+                        id="databaseurl" placeholder="JDBC database URL" autocomplete="on">
+                      <datalist id="urldatalist"></datalist>
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-9">
+                      <input type="text" list="driverdatalist" class="form-control border border-secondary border-2"
+                        id="databasedriver" placeholder="JDBC database driver class name" autocomplete="on">
+                      <datalist id="driverdatalist"></datalist>
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-4">
+                      <input type="text" list="usernamedatalist" class="form-control border border-secondary border-2"
+                        id="databaseusername" placeholder="Username to access the database" autocomplete="on">
+                      <datalist id="usernamedatalist"></datalist>
+                    </div>
+
+                    <div class="col-1"></div>
+
+                    <div class="col-4">
+                      <input type="password" class="form-control border border-secondary border-2" id="databasepassword"
+                        placeholder="Password to access the database">
+                    </div>
+
+                    <div class="col-3"></div>
+
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-4">
+                      <input type="text" list="tabledatalist" class="form-control border border-secondary border-2"
+                        id="databasetable" placeholder="Name of the table" autocomplete="on">
+                      <datalist id="tabledatalist"></datalist>
+                    </div>
+
+                    <div class="col-1"></div>
+
+                    <div class="col-4">
+                      <input type="text" list="querydatalist" class="form-control border border-secondary border-2"
+                        id="databasequery" placeholder="SQL query" autocomplete="on">
+                      <datalist id="querydatalist"></datalist>
+                    </div>
+
+                    <div class="col-3"></div>
+
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-9">
+                      <input type="text" list="queryversiondatalist"
+                        class="form-control border border-secondary border-2" id="databaseqeryversion"
+                        placeholder="SQL query version" autocomplete="on">
+                      <datalist id="queryversiondatalist"></datalist>
+                    </div>
+
+                    <div class="col-3"></div>
+
+                  </div>
+
+
+                  <div class="row mt-2">
+                    <div class="col-4">
+                      <input type="text" list="rdbhostdatalist" class="form-control border border-secondary border-2"
+                        id="databasehost" placeholder="RDB_host" autocomplete="on" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="Insert a valid host">
+                      <datalist id="rdbhostdatalist"></datalist>
+                    </div>
+
+                    <div class="col-1"></div>
+
+                    <div class="col-4">
+                      <input type="text" list="rdbportdatalist" class="form-control border border-secondary border-2"
+                        id="databaseport" placeholder="RDB_port" autocomplete="on" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="Insert a valid port">
+                      <datalist id="rdbportdatalist"></datalist>
+                    </div>
+
+                    <div class="col-3"></div>
+
+                  </div>
+
+
+                  <div class="row mt-2">
+                    <div class="col-5"></div>
+
+                    <div class="col-4">
+                      <button class="btn border border-secondary border-2 add-another-triplesmap float-end" id="sendRDB"
+                        type="button">Submit RDB data</button>
+                    </div>
+
+                    <div class="col-3"></div>
+
+                  </div>
+
+
+
+
+
+
+                </div>
+                <!--#####################end RDB box ##################################-->
+
               </div>
               <!--#############################upload source file end#############################-->
             </div>
@@ -392,7 +534,9 @@
                 <div class="input-group mb-3 ">
                   <select class="form-select border border-2 border-secondary" id="selectfirstclass"
                     data-placeholder="select the corresponding class  (based on Ontology)">
-                    <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                      title="you can't find option until you not upload proper ontology file" selected disabled>--select
+                      the corresponding class (based on Ontology)--</option>
                   </select>
                 </div>
               </div>
@@ -408,7 +552,10 @@
                     <div class="input-group mb-3 ">
                       <select class="form-select chosen-select border border-2 border-secondary" multiple
                         id="selectdatafield" data-placeholder="select data field">
-                        <option value="default" disabled>--select data field --</option>
+                        <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                          title="you can't find option until you not upload proper csv file" disabled>--select data
+                          field
+                          --</option>
                       </select>
                     </div>
                   </div>
@@ -419,7 +566,9 @@
                     <div class="input-group mb-3 " id="mymodel">
                       <select class="form-select border border-2 border-secondary" id="selectclass"
                         data-placeholder="select the corresponding class (based on Ontology)">
-                        <option value="default" selected>--select the corresponding class (based on Ontology)--</option>
+                        <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                          title="you can't find option until you not upload proper ontology file" selected disabled>
+                          --select the corresponding class (based on Ontology)--</option>
                       </select>
                     </div>
                   </div>
@@ -452,7 +601,7 @@
                 <div class="input-group mb-3 ">
                   <select class="form-select border border-2 border-secondary" id="selecttermtype"
                     data-placeholder="Term type">
-                    <option value="default" selected>Term type</option>
+                    <option value="default" selected disabled>Term type</option>
                     <option value="1">rr:IRI</option>
                     <option value="2">rr:BlankNode</option>
                   </select>
@@ -465,203 +614,289 @@
 
             <!--add another predicate object map button-->
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-9"></div>
               <div class="col-3">
                 <button class="btn border border-secondary border-2 add-another-predicate" id="addanotherpredicate"
                   type="button"> + add another predicate object map</button>
               </div>
-            </div>
+            </div> -->
 
             <!--###########################  add another  predicate object map button end#############################################-->
 
             <!-- predicate object map block-->
-            <div class="row">
-              <fieldset class="border border-secondary border-4 d-flex">
-                <legend class="w-auto">PredicateObjectMap</legend>
+            <div id="first-container">
+              <div class="row" id="first-element1">
+
                 <div class="col-12">
+                  <div class="row">
+                    <fieldset class="border border-secondary border-4 d-block">
+                      <legend class="w-auto mb-0">PredicateObjectMap</legend>
+                      <div class="col-12">
+                        <!--select property option-->
 
-                  <!--select property option-->
-                  <div class="row mt-3">
-                    <div class="col-7">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="selectproperty"
-                          data-placeholder="select the property (based on the Ontology)">
-                          <option value="default" selected>--select the property (based on the Ontology)--</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-5"></div>
-                  </div>
-                  <!--#############################################select property option end#####################################################-->
+                        <div class="row mt-0 mb-2">
+                          <div class="col-11">
 
-                  <!--select object type option-->
-                  <div class="row mt-3">
-                    <div class="col-4">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="selectobjecttype"
-                          data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
-                          <option value="default" selected>--select the Object type--</option>
-                          <option value="1">Class</option>
-                          <option value="2">Reference to data</option>
-                          <option value="3">Reference to data as URI</option>
-                          <option value="4">Reference to another triplesMap with the same data source</option>
-                          <option value="5">Reference to another triplesMap with a different data source</option>
-                          <!-- <option value="6">Reference to a FunctionMap</option> -->
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-8"></div>
-                  </div>
-                  <!--#############################################select object type option end#####################################################-->
+                          </div>
+                          <div class="col-1">
+                            <button class="float-end border-0 default" id="more-btn1">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                                class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                  d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                              </svg>
+                            </button>
+                            <button class="float-end border-0 " id="less-btn1">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                                class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                <path
+                                  d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                              </svg>
+                            </button>
+                          </div>
 
-                  <!--select class from suggestion option-->
-                  <div class="row mt-3 default" id="selectclasssuggestionbox">
-                    <div class="col-7">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="selectclasssuggestion"
-                          data-placeholder="select the class (based on the Ontology)">
-                          <option value="default" selected>--select the class (based on the Ontology)--</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-5"></div>
-                  </div>
-                  <!--#############################################select class from suggestion option end#####################################################-->
+                        </div>
 
-                  <!--select data field from suggestion option-->
-                  <div class="row mt-3 default" id="selectdatafieldsuggestionbox">
-                    <div class="col-5">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="selectdatafieldsuggestion"
-                          data-placeholder="select the data field">
-                          <option value="default" selected>--select the data field--</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-7"></div>
-                  </div>
-                  <!--#############################################select data field from suggestion option end#####################################################-->
 
-                  <!--select predicate reference to data as uri option box-->
-                  <div class="row mt-3 default" id="predicatedatauribox">
-                    <div class="col-9">
-                      <div class="row">
-                        <div class="col-7">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select chosen-select border border-2 border-secondary" multiple
-                              id="predicateselectdatafield" data-placeholder="select the data field">
-                              <option value="default" disabled>--select the data field --</option>
-                            </select>
+                        <div class="row mt-3" id="first-predicate-element1">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary selectpropertyvalue"
+                                id="selectproperty1" data-placeholder="select the property (based on the Ontology)">
+                                <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                  title="you can't find option until you not upload proper ontology file" selected
+                                  disabled>
+                                  --select the property (based on the Ontology)--</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-5"></div>
+                        </div>
+                        <!--#############################################select property option end#####################################################-->
+
+                        <!--select object type option-->
+                        <div class="row mt-3" id="second-predicate-element1">
+                          <div class="col-4">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary" id="selectobjecttype1"
+                                data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
+                                <option value="default" selected disabled>--select the Object type--</option>
+                                <option value="1">Class</option>
+                                <option value="2">Reference to data</option>
+                                <option value="3">Reference to data as URI</option>
+                                <option value="4">Reference to another triplesMap with the same data source</option>
+                                <option value="5">Reference to another triplesMap with a different data source</option>
+                                <!-- <option value="6">Reference to a FunctionMap</option> -->
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-8"></div>
+                        </div>
+                        <!--#############################################select object type option end#####################################################-->
+
+                        <!--select class from suggestion option-->
+                        <div class="row mt-3 default" id="selectclasssuggestionbox1">
+                          <div class="col-7">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary selectclasssuggestion"
+                                id="selectclasssuggestion1" data-placeholder="select the class (based on the Ontology)">
+                                <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                  title="you can't find option until you not upload proper ontology file" selected
+                                  disabled>
+                                  --select the class (based on the Ontology)--</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-5"></div>
+                        </div>
+                        <!--#############################################select class from suggestion option end#####################################################-->
+
+                        <!--select data field from suggestion option-->
+                        <div class="row mt-3 default" id="selectdatafieldsuggestionbox1">
+                          <div class="col-5">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary selectdatafieldsuggestion"
+                                id="selectdatafieldsuggestion1" data-placeholder="select the data field">
+                                <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                  title="you can't find option until you not upload proper csv file" selected disabled>
+                                  --select
+                                  the data field--</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-7"></div>
+                        </div>
+                        <!--#############################################select data field from suggestion option end#####################################################-->
+
+                        <!--select predicate reference to data as uri option box-->
+                        <div class="row mt-3 default" id="predicatedatauribox1">
+                          <div class="col-9">
+                            <div class="row">
+                              <div class="col-7">
+                                <div class="input-group mb-3 ">
+                                  <select
+                                    class="form-select chosen-select border border-2 border-secondary predicateselectdatafield"
+                                    multiple id="predicateselectdatafield1" data-placeholder="select the data field">
+                                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                      title="you can't find option until you not upload proper csv file" disabled>
+                                      --select
+                                      the
+                                      data field --</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-5"></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-9">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select border border-2 border-secondary predicateselectclass"
+                                    id="predicateselectclass1"
+                                    data-placeholder="select the corresponding class (based on Ontology)">
+                                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                      title="you can't find option until you not upload proper ontology file" selected
+                                      disabled>
+                                      --select the corresponding class (based on Ontology)--
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-3"></div>
+                            </div>
                           </div>
                         </div>
-                        <div class="col-5"></div>
-                      </div>
-                      <div class="row">
-                        <div class="col-9">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="predicateselectclass"
-                              data-placeholder="select the corresponding class (based on Ontology)">
-                              <option value="default" selected>--select the corresponding class (based on Ontology)--
-                              </option>
-                            </select>
+                        <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
+
+                        <!--select triplemaps from declred one option for same data-->
+                        <div class="row mt-3 default" id="predicateselecttriplesmapbox1">
+                          <div class="col-10">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary predicateselecttriplesmap"
+                                id="predicateselecttriplesmap1"
+                                data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                                <option value="default" selected disabled>--select the TriplesMap from the already
+                                  declared
+                                  ones ( If you have not defined the triplesMap that you want to refer to yet, please
+                                  first
+                                  define it)--</option>
+                              </select>
+                            </div>
                           </div>
+                          <div class="col-2"></div>
                         </div>
-                        <div class="col-3"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
+                        <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
 
-                  <!--select triplemaps from declred one option for same data-->
-                  <div class="row mt-3 default" id="predicateselecttriplesmapbox">
-                    <div class="col-10">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="predicateselecttriplesmap"
-                          data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
-                          <option value="default" selected>--select the TriplesMap from the already declared ones (if
-                            you haven't declared TriplesMap yet, first declare it)--</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-2"></div>
-                  </div>
-                  <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
+                        <!--select triplemaps from declred one option for different data-->
+                        <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent1">
+                          <div class="col-10">
+                            <div class="row">
+                              <div class="col-10">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select border border-2 border-secondary predicateselecttriplesmapdifferentdata"
+                                    id="predicateselecttriplesmapdifferentdata1"
+                                    data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                                    <option value="default" selected disabled>--select the TriplesMap from the already
+                                      declared ones
+                                      for different data (if you haven't declared TriplesMap yet, first declare it)--
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-2"></div>
+                            </div>
 
-                  <!--select triplemaps from declred one option for different data-->
-                  <div class="row mt-3 default" id="predicateselecttriplesmapboxdifferent">
-                    <div class="col-10">
-                      <div class="row">
-                        <div class="col-10">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary"
-                              id="predicateselecttriplesmapdifferentdata"
-                              data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
-                              <option value="default" selected>--select the TriplesMap from the already declared ones
-                                for different data (if you haven't declared TriplesMap yet, first declare it)--</option>
-                            </select>
+                            <div class="row">
+                              <div class="col-7">
+                                <div class="input-group mb-3 ">
+                                  <select class="form-select border border-2 border-secondary joinconditionchild"
+                                    id="joinconditionchild1" data-placeholder="joinCondition child">
+                                    <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                      title="you can't find option until you not upload proper csv file" selected
+                                      disabled>
+                                      --joinCondition child--</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-1"></div>
+                              <div class="col-3">
+                                <input type="text" class="form-control border border-secondary border-2"
+                                  placeholder="joinCondition parent" id="joinconditionparent1">
+                              </div>
+                              <div class="col-1"></div>
+                            </div>
                           </div>
+                          <div class="col-2"></div>
                         </div>
-                        <div class="col-2"></div>
-                      </div>
+                        <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
 
-                      <div class="row">
-                        <div class="col-7">
-                          <div class="input-group mb-3 ">
-                            <select class="form-select border border-2 border-secondary" id="joinconditionchild"
-                              data-placeholder="joinCondition child">
-                              <option value="default" selected>--joinCondition child--</option>
-                            </select>
+                        <!--select functionmap from declred one option-->
+                        <div class="row mt-3 default" id="predicateselectfunctionmapbox1">
+                          <div class="col-10">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary"
+                                id="predicateselectfunctionmap1"
+                                data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
+                                <option value="default" selected>--select the FunctionMap from the already declared ones
+                                  (if
+                                  you haven't declared FunctionMap yet, first declare it)--</option>
+                              </select>
+                            </div>
                           </div>
+                          <div class="col-2"></div>
                         </div>
-                        <div class="col-1"></div>
-                        <div class="col-3">
-                          <input type="text" class="form-control border border-secondary border-2"
-                            placeholder="joinCondition parent" id="joinconditionparent">
+                        <!--#############################################select functionmap from declred one option end#####################################################-->
+
+                        <!--Term type PredicateObjectMap-->
+                        <div class="row mt-3" id="third-predicate-element1">
+                          <div class="col-2">
+                            <div class="input-group mb-3 ">
+                              <select class="form-select border border-2 border-secondary"
+                                id="selecttermtypepredicateobjectmap1" data-placeholder="Term Type">
+                                <option value="default" selected disabled>Term Type</option>
+                                <option value="1">rr:IRI</option>
+                                <option value="2">rr:BlankNode</option>
+                                <option value="3">rr:Literal</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-10"></div>
                         </div>
-                        <div class="col-1"></div>
-                      </div>
-                    </div>
-                    <div class="col-2"></div>
-                  </div>
-                  <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
+                        <!--#############################################Term type PredicateObjectMap end#####################################################-->
 
-                  <!--select functionmap from declred one option-->
-                  <div class="row mt-3 default" id="predicateselectfunctionmapbox">
-                    <div class="col-10">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary" id="predicateselectfunctionmap"
-                          data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
-                          <option value="default" selected>--select the FunctionMap from the already declared ones (if
-                            you haven't declared FunctionMap yet, first declare it)--</option>
-                        </select>
                       </div>
-                    </div>
-                    <div class="col-2"></div>
+                    </fieldset>
                   </div>
-                  <!--#############################################select functionmap from declred one option end#####################################################-->
-
-                  <!--Term type PredicateObjectMap-->
-                  <div class="row mt-3">
-                    <div class="col-2">
-                      <div class="input-group mb-3 ">
-                        <select class="form-select border border-2 border-secondary"
-                          id="selecttermtypepredicateobjectmap" data-placeholder="Term Type">
-                          <option value="default" selected>Term Type</option>
-                          <option value="1">rr:IRI</option>
-                          <option value="2">rr:BlankNode</option>
-                          <option value="3">rr:Literal</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-10"></div>
-                  </div>
-                  <!--#############################################Term type PredicateObjectMap end#####################################################-->
-
                 </div>
-              </fieldset>
+              </div>
             </div>
             <!--###########################################################predicate object map block end##########################################-->
+
+
+            <div class="row" id="last-element">
+              <div class="col-10"></div>
+
+              <div class="col-1">
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="remove-minus"
+                  data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove predicate object map" disabled>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
+                    viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="col-1">
+                <button class="btn border border-secondary border-2 plus-btn float-end mt-2" id="add-plus"
+                  data-bs-toggle="tooltip" data-bs-placement="bottom" title="add another predicate object map">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                    class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
           </div>
 
@@ -676,123 +911,114 @@
 
     <!--add function map button-->
     <!-- <div class="container-fluid mt-3">
-        <div class="row">
-          <div class="col-8">
+          <div class="row">
+            <div class="col-8">
+            </div>
+            <div class="col-3">
+              <button class="btn border border-secondary border-2 add-another-functionmap" id="addanotherfunction" type="button"> + add FunctionMap</button>
+            </div>
+            <div class="col-1"></div>
           </div>
-          <div class="col-3">
-            <button class="btn border border-secondary border-2 add-another-functionmap" id="addanotherfunction" type="button"> + add FunctionMap</button>
-          </div>
-          <div class="col-1"></div>
-
-        </div>
-      </div> -->
+        </div> -->
     <!--###########################  add another functionmap button end#############################################-->
 
     <!--Function map-->
     <!-- <div class="container-fluid">
-        <div class="row thirdbox">
-          <div class="col-10">
-            <div class="row">
-              <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
-                <legend class="w-auto">FunctionMap</legend>
-                <div class="col-12">
-
-                  <div class="row">
-
-                    <div class="col-6">
-                      
-                      <div class="row mb-3">
-                        <div class="col-7">
-                          <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the FunctionMap" id="functionmapname">
+          <div class="row thirdbox">
+            <div class="col-10">
+              <div class="row">
+                <fieldset class="border border-secondary border-4 bg-light d-block first-input">
+                  <legend class="w-auto">FunctionMap</legend>
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-6">
+                        
+                        <div class="row mb-3">
+                          <div class="col-7">
+                            <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the FunctionMap" id="functionmapname">
+                          </div>
+                          <div class="col-5"></div>
                         </div>
-                        <div class="col-5"></div>
-                      </div>
-
-                      <div class="row mb-1">
-                        <div class="col-6">
-                          <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function">
+                        <div class="row mb-1">
+                          <div class="col-6">
+                            <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function">
+                          </div>
+                          <div class="col-6"></div>
                         </div>
-                        <div class="col-6"></div>
-                      </div>
-
-                      <div class="row">
-                        <div class="col-6">
-                          <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the function">
+                        <div class="row">
+                          <div class="col-6">
+                            <input type="text" class="form-control border border-secondary border-2" placeholder="Name of the function">
+                          </div>
+                          <div class="col-6"></div>
                         </div>
-                        <div class="col-6"></div>
-                      </div>
-
-                    </div> -->
+                      </div> -->
 
     <!--upload source header file block-->
     <!-- <div class="col-6">
-                      <div class="row">
-                        <div class="col-1"></div>
-                        <form method="POST" enctype= "multipart/form-data" id="formsourceheader">
-                          <input class="file-upload-input" type='file' accept=".csv" name = "file" id="uploadsourceheaderfile" hidden/>
-                        </form>
-                        <div class="col-2">
-                          <label for="uploadsourceheaderfile">
-                            <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
-                          </label>
+                        <div class="row">
+                          <div class="col-1"></div>
+                          <form method="POST" enctype= "multipart/form-data" id="formsourceheader">
+                            <input class="file-upload-input" type='file' accept=".csv" name = "file" id="uploadsourceheaderfile" hidden/>
+                          </form>
+                          <div class="col-2">
+                            <label for="uploadsourceheaderfile">
+                              <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" alt="...">
+                            </label>
+                          </div>
+                          <div class="col-8">
+                            <h4 class="pt-1"> &lt; Upload source header file</h4>
+                          </div>
+                          <div class="col-1"></div>
                         </div>
-                        <div class="col-8">
-                          <h4 class="pt-1"> &lt; Upload source header file</h4>
-                        </div>
-                        <div class="col-1"></div>
-                      </div>
-                    </div> -->
+                      </div> -->
     <!--######################upload source header file block end##########################-->
 
     <!-- </div> -->
 
     <!--add another parameter button-->
     <!-- <div class="row">
-                    <div class="col-7"></div>
-                    <div class="col-3">
-                      <button class="btn border border-secondary border-2 add-another-prarameter" id="addanotherparameter" type="button"> + add another parameter</button>
-                    </div>
-                    <div class="col-2"></div>
-                  </div> -->
+                      <div class="col-7"></div>
+                      <div class="col-3">
+                        <button class="btn border border-secondary border-2 add-another-prarameter" id="addanotherparameter" type="button"> + add another parameter</button>
+                      </div>
+                      <div class="col-2"></div>
+                    </div> -->
     <!--#############################add another parameter button end############################-->
 
     <!--Parameter block-->
     <!-- <div class="row">
-                    <div class="col-10">
-                      <div class="row">
-                        <fieldset class="border border-secondary border-4 bg-light d-flex first-input">
-                          <legend class="w-auto">Parameter</legend>
-                          <div class="col-12">
-
-                            <div class="row mb-3">
-                              <div class="col-3">
-                                <input type="text" class="form-control border border-secondary border-2" placeholder="Parameter name">
+                      <div class="col-10">
+                        <div class="row">
+                          <fieldset class="border border-secondary border-4 bg-light d-block first-input">
+                            <legend class="w-auto">Parameter</legend>
+                            <div class="col-12">
+                              <div class="row mb-3">
+                                <div class="col-3">
+                                  <input type="text" class="form-control border border-secondary border-2" placeholder="Parameter name">
+                                </div>
+                                <div class="col-9"></div>
                               </div>
-                              <div class="col-9"></div>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-5">
-                                <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function parameters">
+                              <div class="row">
+                                <div class="col-5">
+                                  <input type="text" class="form-control border border-secondary border-2" placeholder="Prefix of the function parameters">
+                                </div>
+                                <div class="col-7"></div>
                               </div>
-                              <div class="col-7"></div>
                             </div>
-
-                          </div>
-                        </fieldset>
+                          </fieldset>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-2"></div>
-                  </div> -->
+                      <div class="col-2"></div>
+                    </div> -->
     <!--##########################################parameter block end#################################################-->
 
     <!-- </div>
-              </fieldset>
+                </fieldset>
+              </div>
             </div>
+            <div class="col-2"></div>
           </div>
-          <div class="col-2"></div>
-        </div>
-      </div> -->
+        </div> -->
     <!--##########################################FunctionMap end#################################################-->
 
     <!--add another triplesmap button-->
@@ -801,9 +1027,13 @@
         <div class="col-10">
 
         </div>
+
+
         <div class="col-2">
-          <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMap"
-            type="button"> Create Mapping File</button>
+          <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMap"
+              type="button">Create Mapping File</button>
+          </span>
         </div>
 
       </div>
