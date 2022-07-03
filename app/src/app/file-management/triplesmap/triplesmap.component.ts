@@ -27,6 +27,7 @@ export class TriplesmapComponent implements OnInit {
   selectSubjectClass: string = '';
   selectTermType: string='';
 
+  showTriples=true;
 
   constructor(private backendConnection: BackendConnectionService, private formService: FormServiceService) { }
 
