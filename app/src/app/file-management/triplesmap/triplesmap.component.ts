@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BackendConnectionService } from 'src/app/backend-connection.service';
 import { tap,take, switchMap } from 'rxjs/operators';
+import { Triplesmaptype } from 'src/app/types';
+import { FormServiceService } from 'src/app/form-service.service';
 
 @Component({
   selector: 'app-triplesmap',
@@ -11,10 +13,9 @@ export class TriplesmapComponent implements OnInit {
 
   @Input () classOptions: any [] = [];
   @Input () propertyOptions: any [] = [];
+  @Input () triplesMap: Triplesmaptype={} as any;
   
   dataFieldOptions: any[] = [];
-
-  predicateMapComponentArray = [1];
 
   selectedDataType: string = '0';
   selectedSubjectType: string = '0';
@@ -22,18 +23,12 @@ export class TriplesmapComponent implements OnInit {
   dropdownList: any[] = [];
   dropdownSettings = {};
 
-  RDBConnection = { databasename: '',
-  databaseurl:'',
-  databasedriver:'',
-    databaseusername: '',
-    databasepassword: '',
-    databasetable: '',
-    databasequery:'',
-    sqlqueryversion: '',
-    RDB_host: '',
-    RDB_port: ''}
+  selectSubject: string = '';
+  selectSubjectClass: string = '';
+  selectTermType: string='';
 
-  constructor(private backendConnection: BackendConnectionService) { }
+
+  constructor(private backendConnection: BackendConnectionService, private formService: FormServiceService) { }
 
   ngOnInit(): void {
 
@@ -49,11 +44,12 @@ export class TriplesmapComponent implements OnInit {
   }
 
   onItemSelect(event: any) {
-    console.log(event)
+    this.triplesMap.subjectMap[0].subject.push({data:event.item_text});
   }
 
-  onSelectAll(event: any) {
-    console.log(event);
+  onItemDeSelect(event: any) {
+    const index = this.triplesMap.subjectMap[0].subject.findIndex((ele:any) => ele.data===event.item_text);
+    this.triplesMap.subjectMap[0].subject.splice(index,1);
   }
 
   onCsvUpload(event: any) {
@@ -69,15 +65,19 @@ export class TriplesmapComponent implements OnInit {
 
   }
 
+  addPredicateObjectMap(){
+    this.triplesMap.predicateObjectMap.push(this.formService.getNewpredicateObjectMapType());
+  }
+
   sendRDBData(){
     const dbProp: {RDBdata:any[]}= {RDBdata:[]}
     let prop :any={}
-    Object.keys(this.RDBConnection).forEach((key)=>{ 
+    Object.keys(this.triplesMap.logicalSource[0]).forEach((key)=>{ 
       if(key === "databasename" || key === "databaseusername" || key === "databasepassword" || key === "databasetable" || key === "sqlqueryversion" || key === "RDB_host"){
-        prop[key]=this.RDBConnection[key];
+        prop[key]=this.triplesMap.logicalSource[0][key];
       }
       if(key === 'RDB_port'){
-        prop[key]=parseInt(this.RDBConnection[key]);
+        prop[key]=parseInt(this.triplesMap.logicalSource[0][key]);
       }
     })
     dbProp.RDBdata.push(prop);
@@ -87,6 +87,86 @@ export class TriplesmapComponent implements OnInit {
     });
 
 
+  }
+
+  setSubjectMap(){
+    if(this.triplesMap.subjectMap.length === 1)
+    {
+      if(this.selectedSubjectType === '1'){
+        this.triplesMap.subjectMap[0].subjectType='class';
+        this.triplesMap.subjectMap[0].subject = '';
+        if(this.triplesMap.subjectMap[0].subjectClass || this.triplesMap.subjectMap[0].subjectClass  === ''){
+          delete this.triplesMap.subjectMap[0].subjectClass;
+        }
+      }
+      else{
+        this.triplesMap.subjectMap[0].subjectType='Ref_to_data_as_uri';
+        this.triplesMap.subjectMap[0].subject = [];
+        this.triplesMap.subjectMap[0].subjectClass = '';
+      }
+     }
+     else{
+      if(this.selectedSubjectType === '1'){
+        this.triplesMap.subjectMap.push({subjectType:"class",subject:"",termType:""})
+      }
+      else{
+        this.triplesMap.subjectMap.push({subjectType:"Ref_to_data_as_uri",subject:[],subjectClass:"",termType:""})
+      }
+     }
+  }
+
+  setselectSubject(){
+    this.triplesMap.subjectMap[0].subject = this.selectSubject;
+  }
+
+  setSelectSubjectClass(){
+
+    this.triplesMap.subjectMap[0].subjectClass = this.selectSubjectClass;
+  }
+
+  setSelectTermType(){
+
+    this.triplesMap.subjectMap[0].termType = this.selectTermType === '1' ? 'rr:IRI': 'rr:BlankNode';
+  }
+
+  setLogicalSource(){
+    if(this.triplesMap.logicalSource.length === 1)
+    {
+      if(this.selectedDataType === '1'){
+        this.triplesMap.logicalSource[0]={sourceType:'CSV',logicalSource_path:''};
+      }
+      else{
+        this.triplesMap.logicalSource[0]={sourceType:'RDB',
+        databasename:'',
+        databaseurl:'',
+        databasedriver:'',
+        databaseusername:'',
+        databasepassword:'',
+        databasetable:'',
+        databasequery:'',
+        sqlqueryversion:'',
+        RDB_host:'',
+        RDB_port:''}
+      }
+     }
+     else{
+      if(this.selectedDataType === '1'){
+        this.triplesMap.logicalSource.push({sourceType:"CSV",logicalSource_path:""})
+      }
+      else{
+        this.triplesMap.logicalSource.push({sourceType:"RDB",
+        databasename:'',
+        databaseurl:'',
+        databasedriver:'',
+        databaseusername:'',
+        databasepassword:'',
+        databasetable:'',
+        databasequery:'',
+        sqlqueryversion:'',
+        RDB_host:'',
+        RDB_port:''})
+      }
+     }
   }
 
 

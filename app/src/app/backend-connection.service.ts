@@ -49,5 +49,9 @@ export class BackendConnectionService {
     return this.http.post(this.url+'/readUserInput_preliminary',data)
   }
 
+  UploadTriplesMapUserInput(data: any){
+    return this.http.post(this.url+'/readUserInput_triplesMap',data)
+  }
+
 
 }
