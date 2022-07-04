@@ -3,7 +3,7 @@
 
       <div class="col-12">
         <div class="row">
-          <fieldset class="border border-secondary border-4 d-block">
+          <fieldset class="border border-secondary border-4 d-block predicatebox">
             <legend class="w-auto mb-0">PredicateObjectMap</legend>
             <div class="col-12">
               <!--select property option-->
@@ -13,14 +13,14 @@
 
                 </div>
                 <div class="col-1">
-                  <button class="float-end border-0 default" *ngIf="!showPredicate" (click)="showPredicate=!showPredicate">
+                  <button class="float-end border-0 bg-btn-color" *ngIf="!showPredicate" (click)="showPredicate=!showPredicate">
                     <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                       class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                       <path
                         d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                     </svg>
                   </button>
-                  <button class="float-end border-0" *ngIf="showPredicate" (click)="showPredicate=!showPredicate" >
+                  <button class="float-end border-0 bg-btn-color" *ngIf="showPredicate" (click)="showPredicate=!showPredicate" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
                       class="bi bi-caret-up-fill" viewBox="0 0 16 16">
                       <path

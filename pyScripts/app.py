@@ -18,20 +18,24 @@ dataSource_allowed_extensions = {'csv'}
 userInput_allowed_extensions = {'json'}
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# this line is added
 cors = CORS(app,resources={r"*":{"origins":["http://localhost:4200"]}})
 responseConfig = {}
 
+# this need to remove
 @app.route('/', methods=['GET'])
-# @cross_origin(origin='*')
 def index():
     return render_template('index.html')
 
 ################### redirecting to "RML Guidline" tab #####################
+# this need to remove
 @app.route('/guideline_url', methods=['GET'])
 def guideline_url():
     return render_template('rmlguideline.html')
 
 ################### redirecting to "About us" tab #####################
+# this need to remove
 @app.route('/aboutUs_url', methods=['GET'])
 def aboutUs_url():
     return render_template('contact.html')
@@ -57,6 +61,7 @@ def userInput_allowed_file(filename):
 # @cross_origin(origin='*')
 def receivePrefix():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
+    # path changed 
     prefix_list = dataExtractor.readURLs('easyRML\sources\defaultPrefixes.csv') 
     prefix_json = json.dumps(prefix_list)
     return Response(prefix_json, mimetype="application/json")
@@ -67,12 +72,14 @@ def receivePrefix():
 def readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
-        filename = secure_filename(uploaded_file.filename)         
+        filename = secure_filename(uploaded_file.filename)    
+        # path changed      
         uploaded_file.save('easyRML\sources' + filename)
 #        flash('Successfully Uploaded!')
 #    else:
 #        error = 'Invalid File Format'   
     global ontologyFileAddress
+    # path changed 
     ontologyFileAddress = 'easyRML\sources' + filename
     
     return ''   
@@ -82,12 +89,14 @@ def readOntology():
 def readDataSource_csv():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
-        filename = secure_filename(uploaded_file.filename)         
+        filename = secure_filename(uploaded_file.filename)     
+        # path changed     
         uploaded_file.save('easyRML\sources' + filename)
 #        flash('Successfully Uploaded!')
 #    else:
 #        error = 'Invalid File Format'
     global dataFileAddress
+    # path changed 
     dataFileAddress = "easyRML\sources" + filename
     #MappingGenerator.receiveSource(dataFileAddress)
     return ""
@@ -188,5 +197,7 @@ def generateMapping():
 '''
 ############################################
 
+
+# This can be modified as you want but then need to change url in easyRML\app\src\app\backend-connection.service.ts
 if __name__ == "__main__":
     app.run(debug=True)
