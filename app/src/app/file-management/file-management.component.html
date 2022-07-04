@@ -5,8 +5,8 @@
 
         <!--file management-->
 
-        <fieldset class="col-6 border border-secondary border-4 first-input bg-light">
-            <legend class="w-auto">File Management</legend>
+        <fieldset class="col-4 border border-secondary border-4 first-input bg-light">
+            <legend class="w-auto">Output File Information</legend>
 
             <div class="row first-row">
                 <div class="col-7">
@@ -20,16 +20,16 @@
                 </div>
             </div>
 
+        </fieldset>
+
+        <!--#################################file management end#######################################################-->
+        <fieldset class="col-4 border border-secondary border-4 first-input bg-light ms-3">
+            <legend class="w-auto">Prefix Information</legend>
 
             <div class="row second-row">
 
                 <div class="col-10">
-                    <!-- <div class="input-group mb-3 "> -->
-                    <!-- <select class="form-select chosen-select border border-2 border-secondary" multiple
-                   data-placeholder="prefixData" formControlName="prefixData">
-                  <option disabled>all prefix from the available suggestion</option>
   
-                </select> -->
                     <ng-multiselect-dropdown [placeholder]="'select prefix from the available suggestion'"
                         [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)"
                         (onDeSelect)="onItemDeSelect($event)">
@@ -68,45 +68,30 @@
 
         </fieldset>
 
-        <!--#################################file management end#######################################################-->
+         <!--#################################prefix information start#######################################################-->
+         
+        <!--#################################prefix information end#######################################################-->
+
 
 
         <!--Ontology-->
-        <div class="col-6">
-            <div class="row file-upper"></div>
-            <div class="row">
-                <div class="col-10 d-block justify-content-center">
-                    <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
+                    <fieldset class="col-3 border border-4 border-secondary bg-light ms-3">
                         <legend class="w-auto">Ontology</legend>
 
                         <div class="row">
                             <input class="file-upload-input" type='file' (change)="onOntologyUpload($event)"
                                 accept=".ttl" name="file" id="uploadttlfile" />
 
-                            <div class="col-3">
+                            <div class="col-4"></div>
+                            <div class="col-4">
                                 <label for="uploadttlfile">
-                                    <img src="../../assets/upload-file.jpg"
-                                        class="rounded float-start image-upload bg-white" alt="...">
+                                    <img src="../../assets/upload-file.jpg" 
+                                        class="rounded float-start image-upload bg-white" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload Ontology File Here" alt="...">
                                 </label>
                             </div>
-                            <div class="col-9">
-                                <h4 class="pt-1"> &lt; Upload the Ontology</h4>
-                            </div>
+                            <div class="col-4"></div>
                         </div>
                     </fieldset>
-                </div>
-
-                <div class="file-upload-content">
-                    <img class="file-upload-image" src="#" alt="your image" />
-                    <div class="image-title-wrap">
-                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
-                                class="image-title">Uploaded Image</span></button>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row file-down"></div>
-        </div>
         <!--############################Ontology end#####################################-->
 
 

@@ -7,14 +7,30 @@
     margin-bottom: 20px;
   }
   
+
 .second-row {
     margin-bottom: 30px;
   }
   
 .plus-btn {
-  background-color: #c8cdcf;
+  background-color: #f8f9fa;
+  // color: white;
   box-shadow: 3px 3px 2px 1px #807878;
 }
+
+.first-input{
+  // background-color: #6B4633;
+  // background-color:rgba(153, 212, 2, 0.33);
+  // color: white;
+}
+// input[type=text],input[type=text]::placeholder{
+//   // color:white;
+//   background-color: #F8DFB8;
+//  }
+
+//  select{
+//   background-color: #F8DFB8;
+//  }
   
 .file-upper,
 .file-down {
@@ -64,16 +80,18 @@
   }
   
 .add-another-triplesmap {
-    background-color: #c8cdcf;
-    box-shadow: 3px 3px 2px 1px #807878;
+    background-color: #253812;
+    color: white;
+    box-shadow: 3px 3px 2px 1px #253812;
   }
   
 .add-more-button {
-    background-color: #c8cdcf;
-    box-shadow: 3px 3px 2px 1px #807878;
+    background-color: #253812;
+    color: white;
+    box-shadow: 3px 3px 2px 1px #253812;
   }
   
-legend {
-    float: none;
-    padding: inherit;
-  }
+// legend {
+//     float: none;
+//     padding: inherit;
+//   }
