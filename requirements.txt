@@ -5,3 +5,4 @@ SPARQLWrapper
 rdflib==4.2.2
 configparser
 pyparsing==2.2.0
+requests==2.18.4
