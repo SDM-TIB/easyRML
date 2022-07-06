@@ -20,7 +20,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
 
 # this line is added for angular
-cors = CORS(app,resources={r"*":{"origins":["http://localhost:5500"]}})
+cors = CORS(app,resources={r"*":{"origins":["http://localhost:4200"]}})
 responseConfig = {}
 
 '''

@@ -15,7 +15,7 @@ RUN npm install -g @angular/cli
 RUN npm install -g npm
 RUN pip3 install -r requirements.txt
 
-EXPOSE 5500
+EXPOSE 4200
 
 RUN sed -i 's/\r$//' ./run_service.sh  && \  
 chmod +x ./run_service.sh
