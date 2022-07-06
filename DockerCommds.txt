@@ -1,6 +1,7 @@
 Build the image:
 docker build -t sdmtib/easyrml:2.0 .
 
+docker login -u="" -p=""
 
 Push the image:
 docker push sdmtib/easyrml:2.0
