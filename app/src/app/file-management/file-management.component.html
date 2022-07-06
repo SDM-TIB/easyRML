@@ -1,0 +1,178 @@
+<div class="container-fluid firat">
+
+
+    <div class="row">
+
+        <!--file management-->
+
+        <fieldset class="col-4 border border-secondary border-4 first-input bg-light">
+            <legend class="w-auto" data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="Give the path and name that you want your mapping file to be generated in and be named.">Output File Information</legend>
+
+            <div class="row first-row">
+                <div class="col-7">
+                    <input type="text" class="form-control border border-secondary border-2"
+                        placeholder="Insert output mapping file name" [(ngModel)]="formData.outputFileName">
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control border border-secondary border-2"
+                        placeholder="Insert output path" [(ngModel)]="formData.outputFilePath" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="Provide the path with the correct format, e.g., /sources/output/">
+                </div>
+            </div>
+
+        </fieldset>
+
+        <!--#################################file management end#######################################################-->
+        <fieldset class="col-4 border border-secondary border-4 first-input bg-light ms-3">
+            <legend class="w-auto" data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="Select from the existing prefixes or add yours that you wish to be applied in your mapping file.">Prefix Information</legend>
+
+            <div class="row second-row">
+
+                <div class="col-10">
+  
+                    <ng-multiselect-dropdown [placeholder]="'select prefix from the available suggestion'"
+                        [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)"
+                        (onDeSelect)="onItemDeSelect($event)">
+                    </ng-multiselect-dropdown>
+
+
+                    <!-- </div> -->
+
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-3">
+                    <input type="text" class="form-control border border-secondary border-2" placeholder="write prefix"
+                        [(ngModel)]="formData.manualPrefix" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="Add the prefix for e.g. rr,rml...">
+                </div>
+
+                <div class="col-5">
+                    <input type="text" class="form-control border border-secondary border-2"
+                        placeholder="Url for Prefix" [(ngModel)]="formData.manualUrl" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="Use proper url as 'http://www.w3.org/ns/r2rml'">
+                </div>
+
+                <div class="col-4">
+                    <button class="btn border border-secondary border-2 add-more-button"
+                        [disabled]="formData.manualPrefix === '' || formData.manualUrl === ''" (click)="addPrefixdata()"
+                        type="button">+ add prefix</button>
+                </div>
+
+
+            </div>
+
+        </fieldset>
+
+         <!--#################################prefix information start#######################################################-->
+         
+        <!--#################################prefix information end#######################################################-->
+
+
+
+        <!--Ontology-->
+                    <fieldset class="col-3 border border-4 border-secondary bg-light ms-3">
+                        <legend class="w-auto">Ontology</legend>
+
+                        <div class="row">
+                            <input class="file-upload-input" type='file' (change)="onOntologyUpload($event)"
+                                accept=".ttl" name="file" id="uploadttlfile" />
+
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <label for="uploadttlfile">
+                                    <img src="../../assets/upload-file.jpg" 
+                                        class="rounded float-start image-upload bg-white" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Upload Ontology File Here" alt="...">
+                                </label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </fieldset>
+        <!--############################Ontology end#####################################-->
+
+
+    </div>
+
+
+</div>
+
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-10">
+
+        </div>
+        <div class="col-2">
+            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="Have you filled the output and prefix information? Have you uploaded your ontology? If yes and yes, then press this bottom before moving to the triplesMap definitions."
+                (click)="onSave()"> send Json</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<ng-container *ngFor="let triplesmap of triplesMapData">
+    <app-triplesmap [classOptions]="classOptions" [propertyOptions]="propertyOptions" [triplesMap]="triplesmap"></app-triplesmap>
+</ng-container>
+
+
+<!--plus - minus button for triplesmap-->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10"></div>
+
+        <div class="col-1">
+            <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-4"
+                [disabled]="triplesMapData.length === 1" (click)="triplesMapData.pop()"
+                data-bs-toggle="tooltip" data-bs-placement="bottom" title="remove triplemap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-dash"
+                    viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="col-1">
+            <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-5"
+                (click)="addNewTriplesMap()" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="add another triplesMap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-plus-lg"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+<!--########################end plus - minus button for triplesmap##############################-->
+
+
+
+<!--create mapping file button-->
+<div class="container-fluid mt-5">
+    <div class="row mb-3">
+        <div class="col-10">
+        </div>
+
+        <div class="col-2">
+            <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+                <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" [disabled]="checkFormData()" (click)="onCreateMappingFile()"
+                     type="button">Create Mapping File</button>
+            </span>
+        </div>
+
+    </div>
+
+</div>
+<!--#######################3end create mapping file button##############################-->

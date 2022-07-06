@@ -288,6 +288,10 @@ legend {
   margin-top: 0px !important;
 }
 
+.mt-2{
+  margin-top: 20px !important;
+}
+
 .mt-3 {
   margin-top: 40px !important;
 }
@@ -305,6 +309,10 @@ legend {
   box-shadow: 3px 3px 2px 1px #807878;
 }
 
+.plus-btn {
+  background-color: #c8cdcf;
+  box-shadow: 3px 3px 2px 1px #807878;
+}
 .thirdbox {
   margin: 20px;
   margin-top: 0px !important;
@@ -325,6 +333,11 @@ legend {
   border-radius: 3px !important;
 }
 
+
 .active{
   text-decoration: underline;
+}
+
+.tool-tip {
+  display: inline-block;
 }

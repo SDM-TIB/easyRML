@@ -7,6 +7,7 @@ import json
 import MappingGenerator
 import dataExtractor
 from werkzeug.utils import secure_filename
+from flask_cors import CORS, cross_origin
 
 ############################################################################
 
@@ -18,6 +19,11 @@ app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
 
+# this line is added for angular
+cors = CORS(app,resources={r"*":{"origins":["http://localhost:5500"]}})
+responseConfig = {}
+
+'''
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
@@ -31,6 +37,7 @@ def guideline_url():
 @app.route('/aboutUs_url', methods=['GET'])
 def aboutUs_url():
     return render_template('contact.html')
+'''
 
 #### checking if the format of the ontology file uploaded by the user is correct ####
 def ontology_allowed_file(filename):
@@ -165,5 +172,4 @@ def generateMapping():
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5000, host="0.0.0.0")
-
+    app.run(debug=True)

@@ -1,0 +1,97 @@
+
+.firat {
+    margin: 20px;
+  }
+  
+.first-row {
+    margin-bottom: 20px;
+  }
+  
+
+.second-row {
+    margin-bottom: 30px;
+  }
+  
+.plus-btn {
+  background-color: #f8f9fa;
+  // color: white;
+  box-shadow: 3px 3px 2px 1px #807878;
+}
+
+.first-input{
+  // background-color: #6B4633;
+  // background-color:rgba(153, 212, 2, 0.33);
+  // color: white;
+}
+// input[type=text],input[type=text]::placeholder{
+//   // color:white;
+//   background-color: #F8DFB8;
+//  }
+
+//  select{
+//   background-color: #F8DFB8;
+//  }
+  
+.file-upper,
+.file-down {
+    height: 50px;
+  }
+.file-upload-input {
+    outline: none;
+    opacity: 0;
+  }
+.image-upload-wrap {
+    margin-top: 20px;
+    position: relative;
+  }
+  
+.file-upload-content {
+    display: none;
+    text-align: center;
+  }
+  
+.file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+.image-upload {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+.pt-1 {
+    padding-top: 20px !important;
+  }
+
+  
+.mt-2{
+    margin-top: 20px !important;
+  }
+  
+.mt-3 {
+    margin-top: 40px !important;
+  }
+  
+.mb-3{
+    margin-bottom: 40px !important;
+  }
+  
+.add-another-triplesmap {
+    background-color: #253812;
+    color: white;
+    box-shadow: 3px 3px 2px 1px #253812;
+  }
+  
+.add-more-button {
+    background-color: #253812;
+    color: white;
+    box-shadow: 3px 3px 2px 1px #253812;
+  }
+  
+// legend {
+//     float: none;
+//     padding: inherit;
+//   }

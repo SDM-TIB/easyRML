@@ -1,0 +1,270 @@
+
+    <div class="row mt-3">
+
+      <div class="col-12">
+        <div class="row">
+          <fieldset class="border border-secondary border-4 d-block predicatebox">
+            <legend class="w-auto mb-0">PredicateObjectMap</legend>
+            <div class="col-12">
+              <!--select property option-->
+
+              <div class="row mt-0 mb-2">
+                <div class="col-11">
+
+                </div>
+                <div class="col-1">
+                  <button class="float-end border-0 bg-btn-color" *ngIf="!showPredicate" (click)="showPredicate=!showPredicate">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                      class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                      <path
+                        d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg>
+                  </button>
+                  <button class="float-end border-0 bg-btn-color" *ngIf="showPredicate" (click)="showPredicate=!showPredicate" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                      class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                      <path
+                        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                    </svg>
+                  </button>
+                </div>
+
+              </div>
+
+              <ng-container *ngIf="showPredicate">
+              <div class="row mt-3">
+                <div class="col-7">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary selectpropertyvalue"
+                       data-placeholder="select the property (based on the Ontology)" [(ngModel)]="predicatePropertyValue" (ngModelChange)="setPredicatePropertyValue()">
+                      <option value="" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="you can't find option until you not upload proper ontology file" selected
+                        disabled>
+                        --select the property (based on the Ontology)--</option>
+                        <option *ngFor="let propertyOption of propertyOptions">{{propertyOption}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-5"></div>
+              </div>
+              <!--#############################################select property option end#####################################################-->
+
+              <!--select object type option-->
+              <div class="row mt-3">
+                <div class="col-4">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary"
+                      data-placeholder="select the Object type" [(ngModel)]="selectedPredicateType" (ngModelChange)="setPredciateObjectMap()">
+                      <option value="0" selected disabled>--select the Object type--</option>
+                      <option value="1">Class</option>
+                      <option value="2">Reference to data</option>
+                      <option value="3">Reference to data as URI</option>
+                      <option value="4">Reference to another triplesMap with the same data source</option>
+                      <option value="5">Reference to another triplesMap with a different data source</option>
+                      <!-- <option value="6">Reference to a FunctionMap</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="col-8"></div>
+              </div>
+              <!--#############################################select object type option end#####################################################-->
+
+              <!--select class from suggestion option-->
+              <ng-container *ngIf="selectedPredicateType === '1'">
+              <div class="row mt-3">
+                <div class="col-7">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary selectclasssuggestion"
+                      [(ngModel)] = "selectClassSuggestion" (ngModelChange)="setSelectClassSuggestion()"
+                      data-placeholder="select the class (based on the Ontology)">
+                      <option value="" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="you can't find option until you not upload proper ontology file" selected
+                        disabled>
+                        --select the class (based on the Ontology)--</option>
+                        <option *ngFor="let classOption of classOptions">{{classOption}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-5"></div>
+              </div>
+            </ng-container>
+              <!--#############################################select class from suggestion option end#####################################################-->
+
+              <!--select data field from suggestion option-->
+              <ng-container *ngIf="selectedPredicateType === '2'">
+              <div class="row mt-3" >
+                <div class="col-5">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary selectdatafieldsuggestion"
+                       data-placeholder="select the data field" [(ngModel)]="dataFieldSuggestion" (ngModelChange)="setDataFieldSuggestion">
+                      <option value="" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="you can't find option until you not upload proper csv file" selected disabled>
+                        --select
+                        the data field--</option>
+                        <option *ngFor="let dataFieldOption of dataFieldOptions">{{dataFieldOption}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-7"></div>
+              </div>
+              </ng-container>
+              <!--#############################################select data field from suggestion option end#####################################################-->
+
+              <!--select predicate reference to data as uri option box-->
+              <ng-container *ngIf="selectedPredicateType === '3'">
+              <div class="row mt-3" >
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-7">
+                      <!-- <div class="input-group mb-3 ">
+                        <select
+                          class="form-select chosen-select border border-2 border-secondary predicateselectdatafield"
+                          multiple  data-placeholder="select the data field">
+                          <option value="default" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            title="you can't find option until you not upload proper csv file" disabled>
+                            --select
+                            the
+                            data field --</option>
+                        </select>
+                      </div> -->
+                      
+                      <ng-multiselect-dropdown [placeholder]="'--select data field--'"
+                      [settings]="dropdownSettings" [data]="dataFieldDropDown"
+                      (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)">
+                  </ng-multiselect-dropdown>
+
+                    </div>
+                    <div class="col-5"></div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-9">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary predicateselectclass"
+                          data-placeholder="select the corresponding class (based on Ontology)" [(ngModel)]="predicateSelectClass" (ngModelChange)="setPredicateSelectClass()">
+                          <option value="" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            title="you can't find option until you not upload proper ontology file" selected
+                            disabled>
+                            --select the corresponding class (based on Ontology)--
+                          </option>
+                          <option *ngFor="let classOption of classOptions">{{classOption}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+                </div>
+              </div>
+              </ng-container>
+              <!--##########################################################select predicate reference to data as uri option box end########################################################################-->
+
+              <!--select triplemaps from declred one option for same data-->
+              <ng-container *ngIf="selectedPredicateType === '4'">
+              <div class="row mt-3">
+                <div class="col-10">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary predicateselecttriplesmap"
+                     [(ngModel)]="predicateSelectSame" (ngModelChange)="setPredicateSelectSame()"
+                      data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                      <option value="" selected disabled>--select the TriplesMap from the already
+                        declared
+                        ones ( If you have not defined the triplesMap that you want to refer to yet, please
+                        first
+                        define it)--</option>
+                        <option *ngFor="let triplesMapName of triplesMapNameOption">{{triplesMapName}}</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col-2"></div>
+              </div>
+              </ng-container>
+              <!--#############################################select triplemaps from declred one option for same data end#####################################################-->
+
+              <!--select triplemaps from declred one option for different data-->
+              <ng-container *ngIf="selectedPredicateType === '5'">
+              <div class="row mt-3">
+                <div class="col-10">
+                  <div class="row">
+                    <div class="col-10">
+                      <div class="input-group mb-3 ">
+                        <select
+                          class="form-select border border-2 border-secondary predicateselecttriplesmapdifferentdata"
+                          [(ngModel)]="predicateSelectDifferent" (ngModelChange)="setPredicateSelectDifferent()"
+                          data-placeholder="select the TriplesMap from the already declared ones (if you haven't declared TriplesMap yet, first declare it)">
+                          <option value="" selected disabled>--select the TriplesMap from the already
+                            declared ones
+                            for different data (if you haven't declared TriplesMap yet, first declare it)--
+                          </option>
+                          
+                          <option *ngFor="let triplesMapName of triplesMapNameOption">{{triplesMapName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-2"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-7">
+                      <div class="input-group mb-3 ">
+                        <select class="form-select border border-2 border-secondary joinconditionchild"
+                           data-placeholder="joinCondition child" [(ngModel)]="childData" (ngModelChange)="setChildData()">
+                          <option value="" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            title="you can't find option until you not upload proper csv file" selected
+                            disabled>
+                            --joinCondition child--</option>
+                            <option *ngFor="let dataFieldOption of dataFieldOptions">{{dataFieldOption}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-3">
+                      <input type="text" class="form-control border border-secondary border-2"
+                        placeholder="joinCondition parent" [(ngModel)]="parentData">
+                    </div>
+                    <div class="col-1"></div>
+                  </div>
+                </div>
+                <div class="col-2"></div>
+              </div>
+              </ng-container>
+              <!--#############################################select triplemaps from declred one option for different data end#####################################################-->
+
+              <!--select functionmap from declred one option-->
+              <!-- <div class="row mt-3 default">
+                <div class="col-10">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary"
+                      
+                      data-placeholder="select the FunctionMap from the already declared ones (if you haven't declared FunctionMap yet, first declare it)">
+                      <option value="default" selected>--select the FunctionMap from the already declared ones
+                        (if
+                        you haven't declared FunctionMap yet, first declare it)--</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-2"></div>
+              </div> -->
+              <!--#############################################select functionmap from declred one option end#####################################################-->
+
+              <!--Term type PredicateObjectMap-->
+              <div class="row mt-3">
+                <div class="col-2">
+                  <div class="input-group mb-3 ">
+                    <select class="form-select border border-2 border-secondary" [(ngModel)]="predicateTermType" (ngModelChange)="setPredicateTermType()"
+                       data-placeholder="Term Type">
+                      <option value="" selected disabled>Term Type</option>
+                      <option value="1">rr:IRI</option>
+                      <option value="2">rr:BlankNode</option>
+                      <option value="3">rr:Literal</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-10"></div>
+              </div>
+              <!--#############################################Term type PredicateObjectMap end#####################################################-->
+            </ng-container>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>

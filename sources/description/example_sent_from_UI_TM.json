@@ -41,8 +41,10 @@
               "databaseurl":"URL",
               "databasedriver":"driver",
               "databaseusername":"username",
+              "databasepassword":"password",
               "databasetable":"table",
               "databasequery":"query",
+              "sqlqueryversion":"SQL2008",
             }
           ],
           "subjectMap":[
