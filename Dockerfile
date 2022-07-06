@@ -15,7 +15,7 @@ RUN npm install -g @angular/cli
 RUN npm install -g npm
 RUN pip3 install -r requirements.txt
 
-RUN ng serve --host 0.0.0.0 --port 5000
+RUN ng serve --host 0.0.0.0 --port 5500
 EXPOSE 5000
 
 RUN sed -i 's/\r$//' ./run_service.sh  && \  
