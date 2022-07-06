@@ -55,9 +55,6 @@ export class FileManagementComponent implements OnInit {
 
     this.triplesMapData = this.formService.getFormdata();
 
-    this.formService.resetData.subscribe((data:Triplesmaptype[])=>{this.triplesMapData = data});
-
-
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'prefix',
@@ -105,12 +102,28 @@ export class FileManagementComponent implements OnInit {
 
   onSave() {
 
-
     this.prefixObject.output[0].output_file_name = this.formData.outputFileName;
     this.prefixObject.output[0].output_file_path = this.formData.outputFilePath;
 
     this.backendConnection.UploadPreliminaryUserInput([{ output: this.prefixObject.output }, { defaultPrefixes: this.prefixObject.defaultPrefixes }, { newPrefixes: this.prefixObject.newPrefixs }]).subscribe(() => alert("successfull"), () => alert('unsuccessfull'));
 
+  }
+
+  checkFormData(){
+
+    for(const d of this.triplesMapData){
+      if(d.name === '' || !d.logicalSource.length || !d.subjectMap.length){
+        return true;
+      }
+      else{
+        for(const p of d.predicateObjectMap){
+          if(p.predicate === '' || p.object === '' || p.objectType === '' || p.termType === '' || p.child || p.child === '' || p.objectClass || p.objectClass === '' || p.parent || p.parent === ''){
+            return true;
+          }
+        }    
+      }   
+    };  
+    return false;
   }
 
   onItemSelect(event: any) {
@@ -174,7 +187,7 @@ export class FileManagementComponent implements OnInit {
   onCreateMappingFile(){
     // console.log(this.formService.getFormdata())
 
-    this.backendConnection.UploadTriplesMapUserInput([{triplesMap:this.formService.getFormdata()}]).subscribe(() => {alert("successfull");this.formService.resetFormData();}, () => alert('unsuccessfull'));
+    this.backendConnection.UploadTriplesMapUserInput([{triplesMap:this.formService.getFormdata()}]).subscribe(() => {alert("successfull");this.triplesMapData=this.formService.resetFormData();}, () => alert('unsuccessfull'));
   }
 
 }

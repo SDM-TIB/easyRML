@@ -41,13 +41,17 @@ export class FormServiceService {
 
   resetFormData(){
     
-  this.resetData.next([{name: '',
+  this.formData = [{name: '',
   logicalSource: [],
   subjectMap: [],
   predicateObjectMap: [{predicate: '',
     objectType: '',
     object: '',
-    termType: ''}]}]);
+    termType: ''}]}];
+    
+  return this.formData;
   }
+
+
 
 }

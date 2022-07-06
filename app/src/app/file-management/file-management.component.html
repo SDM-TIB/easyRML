@@ -6,7 +6,8 @@
         <!--file management-->
 
         <fieldset class="col-4 border border-secondary border-4 first-input bg-light">
-            <legend class="w-auto">Output File Information</legend>
+            <legend class="w-auto" data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="Give the path and name that you want your mapping file to be generated in and be named.">Output File Information</legend>
 
             <div class="row first-row">
                 <div class="col-7">
@@ -16,7 +17,7 @@
                 <div class="col-5">
                     <input type="text" class="form-control border border-secondary border-2"
                         placeholder="Insert output path" [(ngModel)]="formData.outputFilePath" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" title="Add the input as...'C:/Users/Desktop/folder/'">
+                        data-bs-placement="bottom" title="Provide the path with the correct format, e.g., /sources/output/">
                 </div>
             </div>
 
@@ -24,7 +25,8 @@
 
         <!--#################################file management end#######################################################-->
         <fieldset class="col-4 border border-secondary border-4 first-input bg-light ms-3">
-            <legend class="w-auto">Prefix Information</legend>
+            <legend class="w-auto" data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="Select from the existing prefixes or add yours that you wish to be applied in your mapping file.">Prefix Information</legend>
 
             <div class="row second-row">
 
@@ -107,7 +109,8 @@
         </div>
         <div class="col-2">
             <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5"
-                [disabled]="prefixObject.defaultPrefixes.length === 0 && prefixObject.newPrefixs.length === 0"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="Have you filled the output and prefix information? Have you uploaded your ontology? If yes and yes, then press this bottom before moving to the triplesMap definitions."
                 (click)="onSave()"> send Json</button>
         </div>
 
@@ -142,7 +145,7 @@
         <div class="col-1">
             <button class="btn border border-secondary border-2 plus-btn float-end mt-2 me-5"
                 (click)="addNewTriplesMap()" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="add another ">
+                title="add another triplesMap">
                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-plus-lg"
                     viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -164,7 +167,7 @@
 
         <div class="col-2">
             <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
-                <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" (click)="onCreateMappingFile()"
+                <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" [disabled]="checkFormData()" (click)="onCreateMappingFile()"
                      type="button">Create Mapping File</button>
             </span>
         </div>
