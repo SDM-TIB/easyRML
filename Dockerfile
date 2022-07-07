@@ -16,6 +16,7 @@ RUN npm install @angular/cli --save-dev
 RUN npm install -g @angular/cli
 RUN npm install -g npm
 RUN pip3 install -r requirements.txt
+# RUN ng serve --port 4401 
 
 EXPOSE 4200
 
