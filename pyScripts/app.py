@@ -149,7 +149,7 @@ def readUserInput_preliminary():
 def readUserInput_triplesMap():
     if request.is_json:
         userInputData = request.get_json() 
-        MappingGenerator.generator_tripleMap(userInputData)
+        MappingGenerator.generator_mapping(userInputData)
     else:
         print ("NOT JSON")
     return ''
