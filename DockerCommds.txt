@@ -12,5 +12,5 @@ docker image rm sdmtib/easyrml:3.0
 Pull and run the image:
 docker run -d --name easyrml -p 4200:4200 sdmtib/easyrml:3.1
 
-docker exec -it easyRML bash -c "npm install @angular/cli --save-dev"
+docker exec -it easyrml bash -c "npm install @angular/cli --save-dev"
 
