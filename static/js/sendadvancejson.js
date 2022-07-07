@@ -838,7 +838,7 @@ $(document).ready(function () {
         alert("Mapping file has been generated successfully");
 
         $.ajax({
-          url: '/receiveMappingFile',
+          url: '/downloadMappingFile',
           type: 'GET',
           contentType: "application/json",
           dataType: 'json',
