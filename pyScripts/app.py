@@ -165,7 +165,7 @@ def readUserInput_triplesMap():
     return ''
 
 ############ received the stored mapping file to download #########
-@app.route('/receiveMappingFile', methods=['GET'])
+@app.route('/downloadMappingFile', methods=['GET'])
 def downloadMappingFile():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     outputPath = MappingGenerator.outputInformation()
@@ -190,5 +190,5 @@ def generateMapping():
 ############################################
 
 if __name__ == "__main__":
-    app.run(port=5021, host="0.0.0.0")
+    app.run(port=5025, host="0.0.0.0")
 

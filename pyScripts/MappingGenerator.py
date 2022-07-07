@@ -10,7 +10,7 @@ import SPARQLWrapper
 #################################################################################
 prefixDict = dict()
 mapping = ""
-ouputFile = ""
+outputFile = ""
 Tnames_list = []
 
 def generatePrefix(default,new):
@@ -162,18 +162,18 @@ def writePrefix():
 	return prefixes
 
 def generator_preliminary(userInputData):
-	global ouputFile
+	global outputFile
 	#output = generateOutput(userInputData[0])
 	#output_file_path = "/mnt/e/easyRML-Developing_v2.0/output/"
 	output_file_path = "../output/"
 	output_file_name = userInputData[0]["output"][0]["output_file_name"]
-	ouputFile = output_file_path + str(output_file_name) + ".ttl"
+	outputFile = output_file_path + str(output_file_name) + ".ttl"
 	generatePrefix(userInputData[1],userInputData[2])
 	return ""
 
 def outputInformation():
-	global ouputFile
-	return ouputFile
+	global outputFile
+	return outputFile
 
 def generator_mapping(userInputData): ## Generating the triplesMaps and writing everything (preliminary and triplesMap) in the mapping file
 	#with open("../sources/example_sent_from_UI_TM1.json") as inputFile:
@@ -187,10 +187,10 @@ def generator_mapping(userInputData): ## Generating the triplesMaps and writing 
 	mapping = writePrefix()
 	for i in range(0,len(TM_list)):
 		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
-	global ouputFile
-	if not os.path.exists(ouputFile):
-		os.mknod(ouputFile)
-	mappingFile = open(ouputFile, "w")
+	global outputFile
+	if not os.path.exists(outputFile):
+		os.mknod(outputFile)
+	mappingFile = open(outputFile, "w")
 	mappingFile.write(mapping)
 	mappingFile.close()
 	return ""
