@@ -70,9 +70,13 @@ body {
 .pt-1 {
   padding-top: 20px !important;
 }
-legend {
+/* legend {
   float: none;
   padding: inherit;
+} */
+
+.predicatebox{
+  background-color: #c7f3c77d;
 }
 
 #checkboxes {

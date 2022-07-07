@@ -9,11 +9,9 @@ $(document).ready(function(){
 
 
       var jsonFile = {"output":[]};
-      var output_file_path =  $("#outputfilepath").val();
       var output_file_name =  $("#outputfilename").val();
 
       jsonFile.output.push({
-        output_file_path: output_file_path,
         output_file_name: output_file_name
       });
 

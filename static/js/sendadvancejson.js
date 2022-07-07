@@ -362,15 +362,15 @@ $(document).ready(function () {
     $("#datasourcepath").val("");
     $("#selectsubject").val("default").change();
     $("#selectfirstclass").val("default").change();
-    // $("#selectdatafield").val("default").change();
+    $("#selecttypedatasource").val("default").change();
 
     $('#selectdatafield option:selected').prop("selected", false);
     $("#selectdatafield").trigger("chosen:updated");
 
     $("#selectclass").val("default").change();
     $("#selecttermtype").val("default").change();
-    $("#selectproperty").val("default").change();
-    $("#selectobjecttype").val("default").change();
+    $(".selectpropertyvalue").val("default").change();
+    $(".selectobjecttype").val("default").change();
     $("#selectclasssuggestion").val("default").change();
     $("#selectdatafieldsuggestion").val("default").change();
 
@@ -383,7 +383,7 @@ $(document).ready(function () {
     $("#predicateselecttriplesmap").val("default").change();
     $("#predicateselecttriplesmapdifferentdata").val("default").change();
     $("#joinconditionchild").val("default").change();
-    $("#selecttermtypepredicateobjectmap").val("default").change();
+    $(".selecttermtypepredicateobjectmap").val("default").change();
     $("#joinconditionparent").val("");
 
     $('#databasename').val("");
@@ -847,8 +847,8 @@ $(document).ready(function () {
 
         $("#selectclass").val("default").change();
         $("#selecttermtype").val("default").change();
-        $("#selectproperty").val("default").change();
-        $("#selectobjecttype").val("default").change();
+        $(".selectpropertyvalue").val("default").change();
+        $(".selectobjecttype").val("default").change();
         $("#selectclasssuggestion").val("default").change();
         $("#selectdatafieldsuggestion").val("default").change();
 
@@ -861,7 +861,7 @@ $(document).ready(function () {
         $("#predicateselecttriplesmap").val("default").change();
         $("#predicateselecttriplesmapdifferentdata").val("default").change();
         $("#joinconditionchild").val("default").change();
-        $("#selecttermtypepredicateobjectmap").val("default").change();
+        $(".selecttermtypepredicateobjectmap").val("default").change();
         $("#joinconditionparent").val("");
 
         $('#databasename').val("");
