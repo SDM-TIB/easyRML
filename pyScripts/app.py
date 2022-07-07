@@ -163,16 +163,15 @@ def readUserInput_triplesMap():
     else:
         print ("NOT JSON")
     return ''
-'''
+
 ############ received the stored mapping file to download #########
 @app.route('/receiveMappingFile', methods=['GET'])
 def downloadMappingFile():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    outputname = MappingGenerator.outputInformation()
-    outputPath = "../sources/output/" + outputname
+    outputPath = MappingGenerator.outputInformation()
     return send_from_directory(app.config['UPLOAD_FOLDER'], outputPath, as_attachment=True)
     s
-
+'''
 ################ store the user input / generate the mapping file ##################
 @app.route('/generateMapping', methods=['POST','GET'])
 def generateMapping():

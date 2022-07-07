@@ -164,12 +164,16 @@ def writePrefix():
 def generator_preliminary(userInputData):
 	global ouputFile
 	#output = generateOutput(userInputData[0])
-	output_file_path = "/mnt/e/easyRML-Developing_v2.0/output/"
-	print (userInputData[0]["output"])
+	#output_file_path = "/mnt/e/easyRML-Developing_v2.0/output/"
+	output_file_path = "../output/"
 	output_file_name = userInputData[0]["output"][0]["output_file_name"]
 	ouputFile = output_file_path + str(output_file_name) + ".ttl"
 	generatePrefix(userInputData[1],userInputData[2])
 	return ""
+
+def outputInformation():
+	global ouputFile
+	return ouputFile
 
 def generator_mapping(userInputData): ## Generating the triplesMaps and writing everything (preliminary and triplesMap) in the mapping file
 	#with open("../sources/example_sent_from_UI_TM1.json") as inputFile:
