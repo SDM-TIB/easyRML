@@ -5,32 +5,29 @@
 
         <!--file management-->
 
-        <fieldset class="col-4 border border-secondary border-4 first-input bg-light">
+        <fieldset class="col-3 border border-secondary border-4 first-input bg-light ms-3">
             <legend class="w-auto" data-bs-toggle="tooltip"
             data-bs-placement="bottom" title="Give the path and name that you want your mapping file to be generated in and be named.">Output File Information</legend>
 
             <div class="row first-row">
-                <div class="col-7">
+                <div class="col-2"></div>
+                <div class="col-8 mt-3">
                     <input type="text" class="form-control border border-secondary border-2"
                         placeholder="Insert output mapping file name" [(ngModel)]="formData.outputFileName">
                 </div>
-                <div class="col-5">
-                    <input type="text" class="form-control border border-secondary border-2"
-                        placeholder="Insert output path" [(ngModel)]="formData.outputFilePath" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" title="Provide the path with the correct format, e.g., /sources/output/">
-                </div>
+                <div class="col-2"></div>
             </div>
 
         </fieldset>
 
         <!--#################################file management end#######################################################-->
-        <fieldset class="col-4 border border-secondary border-4 first-input bg-light ms-3">
+        <fieldset class="col-3 border border-secondary border-4 first-input bg-light ms-3">
             <legend class="w-auto" data-bs-toggle="tooltip"
             data-bs-placement="bottom" title="Select from the existing prefixes or add yours that you wish to be applied in your mapping file.">Prefix Information</legend>
 
             <div class="row second-row">
 
-                <div class="col-10">
+                <div class="col-12">
   
                     <ng-multiselect-dropdown [placeholder]="'select prefix from the available suggestion'"
                         [settings]="dropdownSettings" [data]="dropdownList" (onSelect)="onItemSelect($event)"
@@ -40,8 +37,6 @@
 
                     <!-- </div> -->
 
-                </div>
-                <div class="col-2">
                 </div>
             </div>
 
@@ -77,7 +72,7 @@
 
 
         <!--Ontology-->
-                    <fieldset class="col-3 border border-4 border-secondary bg-light ms-3">
+                    <fieldset class="col-2 border border-4 border-secondary bg-light ms-3">
                         <legend class="w-auto">Ontology</legend>
 
                         <div class="row">
@@ -97,24 +92,25 @@
         <!--############################Ontology end#####################################-->
 
 
-    </div>
-
-
-</div>
-
-<div class="container-fluid">
-    <div class="row mb-3">
-        <div class="col-10">
-
-        </div>
+        <!--############################send json start#####################################-->
         <div class="col-2">
-            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom" title="Have you filled the output and prefix information? Have you uploaded your ontology? If yes and yes, then press this bottom before moving to the triplesMap definitions."
-                (click)="onSave()"> send Json</button>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 mt-5 pt-4">
+                <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Have you filled the output and prefix information? Have you uploaded your ontology? If yes and yes, then press this bottom before moving to the triplesMap definitions."
+                    (click)="onSave()"> send Json</button>
+                </div>
+                    <div class="col-2"></div>
+            </div>
+    
         </div>
+        <!--############################send json end#####################################-->
+
 
     </div>
+
 
 </div>
 
@@ -175,4 +171,24 @@
     </div>
 
 </div>
-<!--#######################3end create mapping file button##############################-->
+<!--#######################end create mapping file button##############################-->
+
+
+
+<!--download mapping file button-->
+<div class="container-fluid mt-5">
+    <div class="row mb-3">
+        <div class="col-10">
+        </div>
+
+        <div class="col-2">
+            <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+                <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5"  [disabled]="downloadButton" (click)="downloadMappingFile()"
+                     type="button">Download Mapping File</button>
+            </span>
+        </div>
+
+    </div>
+
+</div>
+<!--#######################download create mapping file button##############################-->

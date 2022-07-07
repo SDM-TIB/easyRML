@@ -25,6 +25,7 @@ export class FileManagementComponent implements OnInit {
   PrefixValue: string = '';
   classOptions: any[] = [];
   propertyOptions: any[] = [];
+  downloadButton=true;
 
   manualPrefixArray: any[] = [];
 
@@ -35,8 +36,8 @@ export class FileManagementComponent implements OnInit {
   triplesMapData:Triplesmaptype[] = [];
 
 
-  prefixObject: { output: [{ output_file_path: string, output_file_name: string }], defaultPrefixes: any[], newPrefixs: any[] } = {
-    output: [{ output_file_path: '', output_file_name: '' }],
+  prefixObject: { output: [{  output_file_name: string }], defaultPrefixes: any[], newPrefixs: any[] } = {
+    output: [{ output_file_name: '' }],
     defaultPrefixes: [],
     newPrefixs: []
   };
@@ -103,7 +104,8 @@ export class FileManagementComponent implements OnInit {
   onSave() {
 
     this.prefixObject.output[0].output_file_name = this.formData.outputFileName;
-    this.prefixObject.output[0].output_file_path = this.formData.outputFilePath;
+
+    console.log(JSON.stringify([{ output: this.prefixObject.output }, { defaultPrefixes: this.prefixObject.defaultPrefixes }, { newPrefixes: this.prefixObject.newPrefixs }]));
 
     this.backendConnection.UploadPreliminaryUserInput([{ output: this.prefixObject.output }, { defaultPrefixes: this.prefixObject.defaultPrefixes }, { newPrefixes: this.prefixObject.newPrefixs }]).subscribe(() => alert("successfull"), () => alert('unsuccessfull'));
 
@@ -187,7 +189,11 @@ export class FileManagementComponent implements OnInit {
   onCreateMappingFile(){
     // console.log(this.formService.getFormdata())
 
-    this.backendConnection.UploadTriplesMapUserInput([{triplesMap:this.formService.getFormdata()}]).subscribe(() => {alert("successfull");this.triplesMapData=this.formService.resetFormData();}, () => alert('unsuccessfull'));
+    this.backendConnection.UploadTriplesMapUserInput([{triplesMap:this.formService.getFormdata()}]).subscribe(() => {alert("successfull");!this.downloadButton;this.triplesMapData=this.formService.resetFormData();}, () => alert('unsuccessfull'));
+  }
+
+  downloadMappingFile(){
+    !this.downloadButton;
   }
 
 }
