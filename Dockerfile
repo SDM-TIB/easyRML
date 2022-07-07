@@ -13,7 +13,7 @@ RUN apt-get install -y nodejs
 RUN npm i @angular-devkit/build-angular@12.2.13 --force
 RUN npm install @angular/compiler --save
 RUN npm install @angular/cli --save-dev
-RUN npm install -g @angular/cli
+# RUN npm install -g @angular/cli
 RUN npm install -g npm
 RUN pip3 install -r requirements.txt
 # RUN ng serve --port 4401 
