@@ -15,8 +15,8 @@ Tnames_list = []
 
 
 def generateOutput(outputInfo):
-	output_file_path = outputInfo["output"][0]["output_file_path"]
-	#output_file_path = "/mnt/e/GitHub/easyRML/sources/"
+	#output_file_path = outputInfo["output"][0]["output_file_path"]
+	output_file_path = "../sources/output/"
 	output_file_name = outputInfo["output"][0]["output_file_name"]
 	ouputFile = str(output_file_path) + str(output_file_name) + ".ttl"
 	return ouputFile
