@@ -201,7 +201,7 @@ def outputInformation():
 
 
 if __name__ == "__main__":
-	#generator_tripleMap()
+	generator_tripleMap()
 	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
 	#data = json.load(f)
 	#generator_tripleMap(data)
