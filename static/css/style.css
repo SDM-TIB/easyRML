@@ -2,6 +2,7 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  background-color: #8080805e;
 }
 
 .navbar {
@@ -22,8 +23,9 @@ body {
   padding: 20px;
 }
 .add-more-button {
-  background-color: #c8cdcf;
-  box-shadow: 3px 3px 2px 1px #807878;
+  background-color: #253812;
+  color: white;
+  box-shadow: 3px 3px 2px 1px #253812;
 }
 .firat {
   margin: 20px;
@@ -283,8 +285,9 @@ body {
 }
 
 .add-another-triplesmap {
-  background-color: #c8cdcf;
-  box-shadow: 3px 3px 2px 1px #807878;
+  background-color: #253812;
+  color: white;
+  box-shadow: 3px 3px 2px 1px #253812;
 }
 
 .secondbox {
@@ -308,14 +311,19 @@ body {
   display: none;
 }
 
+.btn:hover{
+  color: white;
+}
+
 .add-another-predicate {
   background-color: #c8cdcf;
   box-shadow: 3px 3px 2px 1px #807878;
 }
 
 .plus-btn {
-  background-color: #c8cdcf;
-  box-shadow: 3px 3px 2px 1px #807878;
+  background-color: #253812;
+  color: white;
+  box-shadow: 3px 3px 2px 1px #253812;
 }
 .thirdbox {
   margin: 20px;
