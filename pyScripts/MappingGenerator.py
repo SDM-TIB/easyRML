@@ -4,22 +4,14 @@
 from configparser import ConfigParser, ExtendedInterpolation
 import pandas as pd
 import json
-#import sys
-#import os
+import sys
+import os
 import SPARQLWrapper
 #################################################################################
 prefixDict = dict()
 mapping = ""
-output = ""
+ouputFile = ""
 Tnames_list = []
-
-
-def generateOutput(outputInfo):
-	#output_file_path = outputInfo["output"][0]["output_file_path"]
-	output_file_path = "../sources/output/"
-	output_file_name = outputInfo["output"][0]["output_file_name"]
-	ouputFile = str(output_file_path) + str(output_file_name) + ".ttl"
-	return ouputFile
 
 def generatePrefix(default,new):
 	global prefixDict
@@ -111,7 +103,8 @@ def generatePOM(data):
 				predicate_url = "".join((predicateURL.rsplit("/",1)[0],"/"))
 				predicate_value = predicateURL.rsplit("/",1)[1]
 			predicate_prefix = ""
-			for p,u in prefixDict.items():
+			temp_prefixDict = prefixDict
+			for p,u in list(temp_prefixDict.items()):
 				if u == predicate_url:
 					predicate_prefix = p
 				else:
@@ -169,8 +162,12 @@ def writePrefix():
 	return prefixes
 
 def generator_preliminary(userInputData):
-	global output
-	output = generateOutput(userInputData[0])
+	global ouputFile
+	#output = generateOutput(userInputData[0])
+	output_file_path = "/mnt/e/easyRML-Developing_v2.0/output/"
+	print (userInputData[0]["output"])
+	output_file_name = userInputData[0]["output"][0]["output_file_name"]
+	ouputFile = output_file_path + str(output_file_name) + ".ttl"
 	generatePrefix(userInputData[1],userInputData[2])
 	return ""
 
@@ -186,9 +183,10 @@ def generator_mapping(userInputData): ## Generating the triplesMaps and writing 
 	mapping = writePrefix()
 	for i in range(0,len(TM_list)):
 		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
-	global output
-	#output = "/Users/sam/Desktop/easyRML-Developing_v2.0/sda_test.ttl"
-	mappingFile = open(output, "w+")
+	global ouputFile
+	if not os.path.exists(ouputFile):
+		os.mknod(ouputFile)
+	mappingFile = open(ouputFile, "w")
 	mappingFile.write(mapping)
 	mappingFile.close()
 	return ""
