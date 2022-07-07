@@ -15,6 +15,7 @@ Tnames_list = []
 
 
 def generateOutput(outputInfo):
+	global ouputFile
 	#output_file_path = outputInfo["output"][0]["output_file_path"]
 	output_file_path = "../sources/output/"
 	output_file_name = outputInfo["output"][0]["output_file_name"]
@@ -192,6 +193,10 @@ def generator_mapping(userInputData): ## Generating the triplesMaps and writing 
 	mappingFile.write(mapping)
 	mappingFile.close()
 	return ""
+
+def outputInformation():
+	global ouputFile
+	return ouputFile
 
 
 
