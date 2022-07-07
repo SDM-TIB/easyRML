@@ -15,8 +15,8 @@ Tnames_list = []
 
 
 def generateOutput(outputInfo):
-	output_file_path = outputInfo["output"][0]["output_file_path"]
-	#output_file_path = "/mnt/e/GitHub/easyRML/sources/"
+	#output_file_path = outputInfo["output"][0]["output_file_path"]
+	output_file_path = "../sources/output/"
 	output_file_name = outputInfo["output"][0]["output_file_name"]
 	ouputFile = str(output_file_path) + str(output_file_name) + ".ttl"
 	return ouputFile
@@ -196,7 +196,7 @@ def generator_mapping(userInputData): ## Generating the triplesMaps and writing 
 
 
 if __name__ == "__main__":
-	generator_tripleMap()
+	#generator_tripleMap()
 	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
 	#data = json.load(f)
 	#generator_tripleMap(data)
