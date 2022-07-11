@@ -165,7 +165,7 @@ def generator_preliminary(userInputData):
 	global outputFile
 	#output = generateOutput(userInputData[0])
 	#output_file_path = "/mnt/e/easyRML-Developing_v2.0/output/"
-	output_file_path = "../output/"
+	output_file_path = os.path.abspath(__file__).split("pyScripts/")[0] + "output/"
 	output_file_name = userInputData[0]["output"][0]["output_file_name"]
 	outputFile = output_file_path + str(output_file_name) + ".ttl"
 	generatePrefix(userInputData[1],userInputData[2])
@@ -199,6 +199,11 @@ def generator_mapping(userInputData): ## Generating the triplesMaps and writing 
 
 if __name__ == "__main__":
 	generator_tripleMap()
+	#cwd = os.getcwd()
+	#os.chdir("../../")
+	#os.chdir(os.path.dirname(os.path.abspath(__file__)))
+	#newPath = os.path.abspath(__file__).split("pyScripts/")[0] + "output/"
+	#print (newPath)
 	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
 	#data = json.load(f)
 	#generator_tripleMap(data)
