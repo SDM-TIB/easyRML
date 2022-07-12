@@ -179,7 +179,7 @@ def readUserInput_triplesMap():
 
 app.config['MAPPING_FILE'] = os.path.abspath(__file__).split("pyScripts/")[0] + "output/"
 
-@app.route('/downloadMappingFile', methods=['GET'])
+@app.route('/sdm/easyrml/downloadMappingFile', methods=['GET'])
 def downloadMappingFile():
     outputFileName = MappingGenerator.outputInformation()
     return send_from_directory(app.config['MAPPING_FILE'],filename=outputFileName,as_attachment=True)
