@@ -826,6 +826,7 @@ $(document).ready(function () {
 
     console.log(JSON.stringify(final))
 
+    
 
 
     $.ajax({
@@ -836,22 +837,6 @@ $(document).ready(function () {
       success: function (data) {
         // alert(data);
         alert("Mapping file has been generated successfully");
-
-        $.ajax({
-          url: '/downloadMappingFile',
-          type: 'GET',
-          contentType: "application/json",
-          dataType: 'json',
-          success: function (json) {
-            alert("Mapping file hase been download to your folder")
-          },
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
-          }
-        })
-
 
         for (let i = childrenCount; i > 1; --i) {
           click = 1;
@@ -907,6 +892,9 @@ $(document).ready(function () {
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);
+
+        
+      $('#downloadjsonMap').prop('disabled', false);
       },
     });
   });

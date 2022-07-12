@@ -84,6 +84,9 @@
   <script type="text/javascript">
     $(document).ready(function () {
 
+      
+  $('#downloadjsonMap').prop('disabled', true);
+
 
 
       $("#selectclass").select2({
@@ -1021,7 +1024,7 @@
     <!--add another triplesmap button-->
     <div class="container-fluid">
       <div class="row mb-3">
-        <div class="col-10">
+        <div class="col-8">
 
         </div>
 
@@ -1029,7 +1032,15 @@
         <div class="col-2">
           <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
             <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjsonMap"
-              type="button">Create & Download Mapping File</button>
+              type="button">Create Mapping File</button>
+          </span>
+        </div>
+
+        
+        <div class="col-2">
+          <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+            <a href="{{url_for('downloadMappingFile')}}"><button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="downloadjsonMap"
+              type="button" onclick="this.disabled = true;">Download Mapping File</button></a>
           </span>
         </div>
 
