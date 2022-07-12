@@ -1,15 +1,15 @@
 Build the image:
-docker build -t sdmtib/easyrml:3.2 .
+docker build -t sdmtib/easyrml:3.3 .
 
 docker login -u="" -p=""
 
 Push the image:
-docker push sdmtib/easyrml:3.2
+docker push sdmtib/easyrml:3.3
 
 To remove previous image locally:
-docker image rm sdmtib/easyrml:3.2
+docker image rm sdmtib/easyrml:3.3
 
 Pull and run the image:
-docker run -d --name easyrml -p 5000:5000 sdmtib/easyrml:3.2
+docker run -d --name easyrml -p 5000:5000 sdmtib/easyrml:3.3
 
 docker exec -it easyrml bash -c "cd ./output && ls -l"
