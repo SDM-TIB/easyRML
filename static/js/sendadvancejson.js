@@ -838,6 +838,9 @@ $(document).ready(function () {
         // alert(data);
         alert("Mapping file has been generated successfully");
 
+        
+      $('#downloadjsonMap').prop('disabled', false);
+
         for (let i = childrenCount; i > 1; --i) {
           click = 1;
           disableremovebutton();
@@ -894,7 +897,6 @@ $(document).ready(function () {
         console.log(errorThrown);
 
         
-      $('#downloadjsonMap').prop('disabled', false);
       },
     });
   });
