@@ -5,7 +5,7 @@ $(document).on("change", "#uploadsourcefile", function () {
   
     $.ajax({
       type: "POST",
-      url: "/readDataSource_csv",
+      url: "/sdm/easyrml/readDataSource_csv",
       data: form_data1,
       contentType: false,
       cache: false,
@@ -29,7 +29,7 @@ $(document).on("change", "#uploadsourcefile", function () {
         $('.joinconditionchild').append($('<option>' , {value: "default", text: "--joinCondition child--" }).prop({'selected':true, 'disabled':true}));
 
         $.ajax({
-          url:'/receiveDataFields_csv',
+          url:'/sdm/easyrml/receiveDataFields_csv',
           type:'GET',
           contentType: "application/json",
           dataType: 'json',

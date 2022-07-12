@@ -5,7 +5,7 @@ $(document).on("change", "#uploadttlfile", function () {
 
   $.ajax({
     type: "POST",
-    url: "/readOntology",
+    url: "/sdm/easyrml/readOntology",
     data: form_data,
     contentType: false,
     cache: false,
@@ -31,7 +31,7 @@ $(document).on("change", "#uploadttlfile", function () {
       $('.selectpropertyvalue').append($('<option>' , {value: "default", text: "--select the property (based on the Ontology)--" }).prop({'selected':true, 'disabled':true}));
 
       $.ajax({
-        url:'/receiveClasses',
+        url:'/sdm/easyrml/receiveClasses',
         type:'GET',
         contentType: "application/json",
         dataType: 'json',
@@ -47,7 +47,7 @@ $(document).on("change", "#uploadttlfile", function () {
           });
 
       $.ajax({
-        url:'/receiveProperties',
+        url:'/sdm/easyrml/receiveProperties',
         type:'GET',
         contentType: "application/json",
         dataType: 'json',

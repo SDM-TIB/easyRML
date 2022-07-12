@@ -831,7 +831,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "/readUserInput_triplesMap",
+      url: "/sdm/easyrml/readUserInput_triplesMap",
       data: JSON.stringify(final),
       contentType: "application/json; charset=utf-8",
       success: function (data) {

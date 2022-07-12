@@ -27,7 +27,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "/readDataSource_rdb",
+            url: "/sdm/easyrml/readDataSource_rdb",
             data: JSON.stringify(RDBdata),
             contentType: "application/json; charset=utf-8",
             success: function (data) {
@@ -49,7 +49,7 @@ $(document).ready(function () {
                 $('.joinconditionchild').append($('<option>', { value: "default", text: "--joinCondition child--" }).prop('selected', true));
 
                 $.ajax({
-                    url: '/receiveDataFields_rdb',
+                    url: '/sdm/easyrml/receiveDataFields_rdb',
                     type: 'GET',
                     contentType: "application/json",
                     dataType: 'json',

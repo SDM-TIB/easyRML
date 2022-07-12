@@ -126,16 +126,6 @@ $(document).ready(function () {
 
     var buttonDisabled = triplesmapname || selectsubject || selecttypedatasource || selecttermtype || selectproperty || selectobjecttype || selecttermtypepredicateobjectmap;
 
-    console.log(buttonDisabled);
-    
-    // console.log("trip",triplesmapname);  
-    // console.log("sub",selectsubject) 
-    // console.log("data",selecttypedatasource)
-    // console.log("term",selecttermtype )
-    // console.log("prop",selectproperty )
-    console.log("obj",selectobjecttype)
-    // console.log("predicateobje",selecttermtypepredicateobjectmap);
-
     $('#sendjsonMap').prop('disabled', buttonDisabled);
     changetooltip();
   }

@@ -80,7 +80,7 @@ $(document).ready(function(){
 
       $.ajax({
         type: "POST",
-        url: "/readUserInput_preliminary",
+        url: "/sdm/easyrml/readUserInput_preliminary",
         data: JSON.stringify(final),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
