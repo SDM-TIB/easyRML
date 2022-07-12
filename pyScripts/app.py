@@ -182,8 +182,9 @@ def readUserInput_triplesMap():
 def downloadMappingFile():
     # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     outputPath = MappingGenerator.outputInformation()
-    return send_from_directory(app.config['UPLOAD_FOLDER'], outputPath, as_attachment=True)
-    s
+    return send_from_directory(outputPath, as_attachment=True)
+    #return send_from_directory(app.config['UPLOAD_FOLDER'], outputPath, as_attachment=True)
+    
 '''
 ################ store the user input / generate the mapping file ##################
 @app.route('/generateMapping', methods=['POST','GET'])
