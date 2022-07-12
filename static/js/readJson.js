@@ -1,5 +1,5 @@
 $.ajax({
-  url: "/receivePrefix",
+  url: "/sdm/easyrml/receivePrefix",
   type: "GET",
   contentType: "application/json",
   dataType: "json",
