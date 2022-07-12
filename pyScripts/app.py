@@ -12,12 +12,10 @@ import os
 
 ############################################################################
 
-UPLOAD_FOLDER = './'
 ontology_allowed_extensions = {'ttl'}
 dataSource_allowed_extensions = {'csv'}
 userInput_allowed_extensions = {'json'}
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 responseConfig = {}
 
 @app.route('/', methods=['GET'])
@@ -178,12 +176,13 @@ def readUserInput_triplesMap():
     return ''
 
 ############ received the stored mapping file to download #########
-@app.route('/downloadMappingFile', methods=['GET'])
+
+app.config['MAPPING_FILE'] = os.path.abspath(__file__).split("pyScripts/")[0] + "output/"
+
+@app.route('/downloadMappingFile')
 def downloadMappingFile():
-    # directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
-    outputPath = MappingGenerator.outputInformation()
-    return send_from_directory(outputPath, as_attachment=True)
-    #return send_from_directory(app.config['UPLOAD_FOLDER'], outputPath, as_attachment=True)
+    outputFileName = MappingGenerator.outputInformation()
+    return send_from_directory(app.config['MAPPING_FILE'],filename=outputFileName,as_attachment=True)
     
 '''
 ################ store the user input / generate the mapping file ##################
@@ -205,5 +204,5 @@ def generateMapping():
 
 if __name__ == "__main__":
     #receivePrefix()
-    app.run(port=5000, host="0.0.0.0")
+    app.run(port=5006, host="0.0.0.0")
 
