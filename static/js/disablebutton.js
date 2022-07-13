@@ -70,12 +70,9 @@ $(document).ready(function () {
     }
     else if ($('#selecttypedatasource option:selected').val() == 1) {
       selecttypedatasource = $('#databasename').val().trim() === '' ||
-                              $('#databaseurl').val().trim() === '' ||
-                              $('#databasedriver').val().trim() === '' ||
                               $('#databaseusername').val().trim() === '' ||
                               $('#databasepassword').val().trim() === '' ||
                               $('#databasetable').val().trim() === '' ||
-                              $('#databasequery').val().trim() === '' ||
                               $('#databaseqeryversion').val().trim() === '' ||
                               $('#databasehost').val().trim() === '' ||
                               $('#databaseport').val().trim() === '';
