@@ -52,9 +52,9 @@ def userInput_allowed_file(filename):
 def receivePrefix():
     #directory = Path(os.path.abspath(os.path.join(os.getcwd(), os.path.dirname(__file__)))).parent.absolute()
     #print (directory)
-    directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/defaultPrefixes.csv"
-    prefix_list = dataExtractor.readURLs(directory)
-    #prefix_list = dataExtractor.readURLs("../sources/defaultPrefixes.csv") 
+    # directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/defaultPrefixes.csv"
+    # prefix_list = dataExtractor.readURLs(directory)
+    prefix_list = dataExtractor.readURLs("easyRML\sources\defaultPrefixes.csv") 
     prefix_json = json.dumps(prefix_list)
     return Response(prefix_json, mimetype="application/json")
 
@@ -64,15 +64,15 @@ def readOntology():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and ontology_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename)
-        directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/"
-        uploaded_file.save(directory + filename)        
-        #uploaded_file.save('../sources/' + filename)
-#        flash('Successfully Uploaded!')
+        # directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/"
+        # uploaded_file.save(directory + filename)        
+        uploaded_file.save('easyRML\sources' + filename)
+    #    flash('Successfully Uploaded!')
 #    else:
 #        error = 'Invalid File Format'   
     global ontologyFileAddress
-    ontologyFileAddress = directory + filename
-    #ontologyFileAddress = "../sources/" + filename
+    # ontologyFileAddress = directory + filename
+    ontologyFileAddress = "easyRML\sources" + filename
     return ''   
 
 ################ uploading the data source file ##################
@@ -81,14 +81,15 @@ def readDataSource_csv():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and dataSource_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename) 
-        directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/"
-        uploaded_file.save(directory + filename)        
-        #uploaded_file.save('../sources/' + filename)
+        # directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/"
+        # uploaded_file.save(directory + filename)        
+        uploaded_file.save('easyRML\sources' + filename)
 #        flash('Successfully Uploaded!')
 #    else:
 #        error = 'Invalid File Format'
     global dataFileAddress
-    dataFileAddress = directory + filename
+    dataFileAddress = "easyRML\sources" + filename
+    # dataFileAddress = directory + filename
     #MappingGenerator.receiveSource(dataFileAddress)
     return ""
 
@@ -134,24 +135,24 @@ def readTriplesNames():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '' and userInput_allowed_file(uploaded_file.filename):
         filename = secure_filename(uploaded_file.filename) 
-        directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/TriplesMapsNames.json"
-        uploaded_file.save(directory)        
-        #uploaded_file.save('../sources/TriplesMapsNames.json') 
+        # directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/TriplesMapsNames.json"
+        # uploaded_file.save(directory)        
+        uploaded_file.save('../sources/TriplesMapsNames.json') 
     return ''
 
 ################ extract and provide TriplesMaps Names ##################
 @app.route('/receiveTriplesNames', methods=['GET'])
 def receiveTriplesNames():
-    directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/TriplesMapsNames.json"
-    property_list = dataExtractor.extractTriplesMapsNames(directory)       
+    # directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/TriplesMapsNames.json"
+    property_list = dataExtractor.extractTriplesMapsNames("../sources/TriplesMapsNames.json")       
     property_json = json.dumps(property_list)       
     return Response(TriplesNames_json, mimetype="application/json")
 
 ################ extract and provide FunctionMaps Names ##################
 @app.route('/receiveFunctionMapNames', methods=['GET'])
 def receiveFunctionMapNames():
-    directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/TriplesMapsNames.json"
-    property_list = dataExtractor.extractFunctionMapsNames(directory)       
+    # directory = os.path.abspath(__file__).split("pyScripts/")[0] + "sources/TriplesMapsNames.json"
+    property_list = dataExtractor.extractFunctionMapsNames("../sources/TriplesMapsNames.json")       
     property_json = json.dumps(property_list)       
     return Response(TriplesNames_json, mimetype="application/json")
 
@@ -204,5 +205,5 @@ def generateMapping():
 
 if __name__ == "__main__":
     #receivePrefix()
-    app.run(port=5007, host="0.0.0.0")
+    app.run(debug=True)
 
