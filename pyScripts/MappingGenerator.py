@@ -31,10 +31,7 @@ def generateTriplesMap(data):
 	for t in range (0,len(triplesList)):
 		TM_name = data[t]["name"]
 		if data[t]["logicalSource"][0]["sourceType"] == "RDB":
-			temp_prefixDict = prefixDict
-			for p,u in list(temp_prefixDict.items()):
-				if u != "http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#":
-					prefixDict.update({"d2rq":"http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"})
+			prefixDict.update({"d2rq":"http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"})
 			logicalSource_data = data[t]["logicalSource"][0]
 			db_name = logicalSource_data["databasename"]
 			Tnames_list.append(db_name)
