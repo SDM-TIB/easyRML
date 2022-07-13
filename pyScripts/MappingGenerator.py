@@ -26,8 +26,8 @@ def generatePrefix(default,new):
 
 def generateTriplesMap(data):
 	triplesList = data
+	global prefixDict
 	TM_list = []
-	prefixes = ""
 	for t in range (0,len(triplesList)):
 		TM_name = data[t]["name"]
 		if data[t]["logicalSource"][0]["sourceType"] == "RDB":
@@ -155,6 +155,7 @@ def generatePOM(data):
 	return POM_list
 
 def writePrefix():
+	global prefixDict
 	prefixes = ""
 	for prefix in prefixDict.keys():
 		prefixString = "@prefix "+ prefix + ": <" + str(prefixDict[prefix]) + "> ."
