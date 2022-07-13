@@ -8,7 +8,7 @@ from SPARQLWrapper import SPARQLWrapper,JSON
 import json
 from rdflib import Graph
 import csv
-from mysql.connector import (connection)
+import mysql.connector
 
 ##############################################################################
 
@@ -92,20 +92,11 @@ def extractFields_csv(file):
     else:
         dataFields_json = {}
     return dataFields_json
-'''
-    mydb = mysql.connector.connect(
-          host=file["RDBdata"][0]["RDB_host"],
-          port=file["RDBdata"][0]["RDB_port"],
-          user=file["RDBdata"][0]["databaseusername"],
-          passwd=file["RDBdata"][0]["databasepassword"],
-          database=file["RDBdata"][0]["databasename"] 
-        )
-'''
+    
 ###################### Extract columns from RDB ########################
 
 def extractFields_rdb(file):
-
-    mydb = connection.MySQLConnection(
+    mydb = mysql.connector.connect(
           host=file["RDBdata"][0]["RDB_host"],
           port=file["RDBdata"][0]["RDB_port"],
           user=file["RDBdata"][0]["databaseusername"],
