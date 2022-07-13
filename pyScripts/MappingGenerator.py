@@ -27,7 +27,7 @@ def generatePrefix(default,new):
 def generateTriplesMap(data):
 	triplesList = data
 	TM_list = []
-	prefix = ""
+	prefixes = ""
 	for t in range (0,len(triplesList)):
 		TM_name = data[t]["name"]
 		if data[t]["logicalSource"][0]["sourceType"] == "RDB":
