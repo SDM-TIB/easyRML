@@ -124,6 +124,17 @@
       $("#inputGroupSelect02").trigger("chosen:updated");
       $("#selectdatafield").trigger("chosen:updated");
       $("#predicateselectdatafield1").trigger("chosen:updated");
+
+      function deleteCookies() {
+                var allCookies = document.cookie.split(';');
+                for (var i = 0; i < allCookies.length; i++)
+                    document.cookie = allCookies[i] + "=;expires="
+                    + new Date(0).toUTCString();
+
+      }
+
+
+
     });
 
 
@@ -1038,7 +1049,7 @@
         <div class="col-2">
           <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
             <a href="/sdm/easyrml/downloadMappingFile"><button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="downloadjsonMap"
-              type="button" onclick="this.disabled = true;">Download Mapping File</button></a>
+              type="button" onclick="this.disabled = true; deleteCookies();">Download Mapping File</button></a>
           </span>
         </div>
 
