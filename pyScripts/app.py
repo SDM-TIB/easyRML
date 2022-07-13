@@ -204,5 +204,5 @@ def generateMapping():
 
 if __name__ == "__main__":
     #receivePrefix()
-    app.run(port=5008, host="0.0.0.0")
+    app.run(port=5010, host="0.0.0.0")
 

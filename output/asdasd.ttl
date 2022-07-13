@@ -1,0 +1,30 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix fsd: <sdfsd> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix clarify2020: <http://clarify2020.eu/vocab/> .
+
+<easyRML> a d2rq:Database;
+	d2rq:jdbcDSN "easyRML";
+	 d2rq:jdbcDriver "";
+	d2rq:username "sam";
+	 d2rq:password "slhki" .
+
+<asdas>
+	rml:logicalSource [
+		 rml:source <easyRML>;
+		 rr:sqlVersion rr:SQL2008;
+		rr:tableName "biomarkers_drugs";
+	];
+	rr:subjectMap [
+		rr:constant "http://clarify2020.eu/vocab/METHOD_OF";
+		rr:termType rr:IRI;
+	];
+	rr:predicateObjectMap [
+		rr:predicate clarify2020:precipitant_drug_cui;
+		rr:objectMap [
+			rml:reference "biomarker";
+			rr:termType rr:Literal;
+		];
+	].
