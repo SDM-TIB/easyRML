@@ -92,11 +92,10 @@ def extractFields_csv(file):
     else:
         dataFields_json = {}
     return dataFields_json
-
+    
 ###################### Extract columns from RDB ########################
 
 def extractFields_rdb(file):
- 
     mydb = mysql.connector.connect(
           host=file["RDBdata"][0]["RDB_host"],
           port=file["RDBdata"][0]["RDB_port"],

@@ -1,7 +1,7 @@
-Flask==1.0.2
-https://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
+Flask==1.1.1
+mysql-connector-python==8.0.5
 pandas
-werkzeug
+werkzeug==0.15.4
 SPARQLWrapper
 rdflib==4.2.2
 configparser
