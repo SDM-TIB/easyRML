@@ -4,23 +4,14 @@
 from configparser import ConfigParser, ExtendedInterpolation
 import pandas as pd
 import json
-#import sys
-#import os
+import sys
+import os
 import SPARQLWrapper
 #################################################################################
 prefixDict = dict()
 mapping = ""
-output = ""
+outputFile = ""
 Tnames_list = []
-
-
-def generateOutput(outputInfo):
-	global ouputFile
-	#output_file_path = outputInfo["output"][0]["output_file_path"]
-	output_file_path = "../sources/output/"
-	output_file_name = outputInfo["output"][0]["output_file_name"]
-	ouputFile = str(output_file_path) + str(output_file_name) + ".ttl"
-	return ouputFile
 
 def generatePrefix(default,new):
 	global prefixDict
@@ -35,12 +26,12 @@ def generatePrefix(default,new):
 
 def generateTriplesMap(data):
 	triplesList = data
+	global prefixDict
 	TM_list = []
 	for t in range (0,len(triplesList)):
 		TM_name = data[t]["name"]
 		if data[t]["logicalSource"][0]["sourceType"] == "RDB":
-			rdbPrefixString = "@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> ."
-			prefixes = prefixes + rdbPrefixString
+			prefixDict.update({"d2rq":"http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#"})
 			logicalSource_data = data[t]["logicalSource"][0]
 			db_name = logicalSource_data["databasename"]
 			Tnames_list.append(db_name)
@@ -112,7 +103,8 @@ def generatePOM(data):
 				predicate_url = "".join((predicateURL.rsplit("/",1)[0],"/"))
 				predicate_value = predicateURL.rsplit("/",1)[1]
 			predicate_prefix = ""
-			for p,u in prefixDict.items():
+			temp_prefixDict = prefixDict
+			for p,u in list(temp_prefixDict.items()):
 				if u == predicate_url:
 					predicate_prefix = p
 				else:
@@ -170,10 +162,20 @@ def writePrefix():
 	return prefixes
 
 def generator_preliminary(userInputData):
-	global output
-	output = generateOutput(userInputData[0])
+	global outputFile
+	global outputPath
+	global outputFileName
+	#output = generateOutput(userInputData[0])
+	#output_file_path = "/mnt/e/easyRML-Developing_v2.0/output/"
+	outputPath = os.path.abspath(__file__).split("pyScripts/")[0] + "output/"
+	outputFileName = str(userInputData[0]["output"][0]["output_file_name"]) + ".ttl"
+	outputFile = outputPath + outputFileName
 	generatePrefix(userInputData[1],userInputData[2])
 	return ""
+
+def outputInformation():
+	global outputFileName
+	return outputFileName
 
 def generator_mapping(userInputData): ## Generating the triplesMaps and writing everything (preliminary and triplesMap) in the mapping file
 	#with open("../sources/example_sent_from_UI_TM1.json") as inputFile:
@@ -187,21 +189,23 @@ def generator_mapping(userInputData): ## Generating the triplesMaps and writing 
 	mapping = writePrefix()
 	for i in range(0,len(TM_list)):
 		mapping = mapping + str(TM_list[i]) + str(SM_list[i]) + str(POM_list[i])
-	global output
-	#output = "/Users/sam/Desktop/easyRML-Developing_v2.0/sda_test.ttl"
-	mappingFile = open(output, "w+")
+	global outputFile
+	if not os.path.exists(outputFile):
+		os.mknod(outputFile)
+	mappingFile = open(outputFile, "w")
 	mappingFile.write(mapping)
 	mappingFile.close()
 	return ""
-
-def outputInformation():
-	global ouputFile
-	return ouputFile
 
 
 
 if __name__ == "__main__":
 	generator_tripleMap()
+	#cwd = os.getcwd()
+	#os.chdir("../../")
+	#os.chdir(os.path.dirname(os.path.abspath(__file__)))
+	#newPath = os.path.abspath(__file__).split("pyScripts/")[0] + "output/"
+	#print (newPath)
 	#f = open("/Users/sam/Desktop/easyRML-Developing_v2.0/sources/description/test.json")
 	#data = json.load(f)
 	#generator_tripleMap(data)

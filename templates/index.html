@@ -76,13 +76,16 @@
   <script src="../static/js/sendRDBdata.js"></script>
 
   <!--send only final json for new view-->
-  <script src="../static/js/sendadvancejsonnew.js"></script>
+  <script src="../static/js/downloadmappingfile.js"></script>
 
   <script src="../static/js/manual_id_predicate.js"></script>
 
 
   <script type="text/javascript">
     $(document).ready(function () {
+
+      
+  $('#downloadjsonMap').prop('disabled', true);
 
 
 
@@ -169,28 +172,36 @@
 
     <!--file management & Ontology-->
 
+    
+
+
     <div class="container-fluid firat">
 
 
       <div class="row">
 
         <!--file management-->
-        <fieldset class="col-6 border border-secondary border-4 first-input bg-light">
-          <legend class="w-auto">File Management</legend>
-          <div class="row first-row">
-            <div class="col-7">
+        <fieldset class="col-3 border border-secondary border-4 bg-light">
+          <legend class="w-auto" data-bs-toggle="tooltip"
+          data-bs-placement="bottom" title="Give the path and name that you want your mapping file to be generated in and be named.">Output File Information</legend>
+          <div class="row first-row first-input">
+            <div class="col-2"></div>
+            <div class="col-8">
               <input type="text" class="form-control border border-secondary border-2" id="outputfilename"
                 placeholder="Insert output mapping file name">
             </div>
-            <div class="col-5">
-              <input type="text" class="form-control border border-secondary border-2" id="outputfilepath"
-                placeholder="Insert output path" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                title="Add the input as...'C:/Users/Desktop/folder/'">
-            </div>
+            <div class="col-2"></div>
           </div>
 
+        </fieldset>
+        <!--#################################file management end#######################################################-->
 
-          <div class="row second-row">
+         <!--#################################file management end#######################################################-->
+         <fieldset class="col-3 border border-secondary border-4 bg-light ms-3">
+          <legend class="w-auto" data-bs-toggle="tooltip"
+          data-bs-placement="bottom" title="Select from the existing prefixes or add yours that you wish to be applied in your mapping file.">Prefix Information</legend>
+
+          <div class="row first-input">
 
             <div class="col-10">
               <div class="input-group mb-3 ">
@@ -209,7 +220,7 @@
           </div>
 
 
-          <div class="row">
+          <div class="row second-row">
             <div class="col-3">
               <input type="text" class="form-control border border-secondary border-2" placeholder="write prefix"
                 id="manualPrefix" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -228,82 +239,70 @@
             </div>
 
 
-          </div>
+      </fieldset>
 
-        </fieldset>
-        <!--#################################file management end#######################################################-->
+       <!--#################################prefix information start#######################################################-->
+       
 
 
         <!--Ontology-->
-        <div class="col-6">
-          <div class="row file-upper"></div>
-          <div class="row">
-            <div class="col-10 d-block justify-content-center">
-              <fieldset class="container image-upload-wrap border border-4 border-secondary bg-light">
-                <legend class="w-auto">Ontology</legend>
+        
+        <fieldset class="col-2 border border-4 border-secondary bg-light ms-3">
+          <legend class="w-auto">Ontology</legend>
 
-                <div class="row">
-                  <form method="POST" enctype="multipart/form-data" id="formttl">
-                    <input class="file-upload-input" type='file' accept=".ttl" name="file" id="uploadttlfile" hidden />
-                  </form>
-                  <div class="col-3">
-                    <label for="uploadttlfile">
-                      <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
-                        alt="...">
-                    </label>
-                  </div>
-                  <div class="col-9">
-                    <h4 class="pt-1"> &lt; Upload the Ontology</h4>
-                  </div>
+          <div class="col-10 d-block justify-content-center">
+
+              <div class="row first-input">
+                <form method="POST" enctype="multipart/form-data" id="formttl">
+                  <input class="file-upload-input" type='file' accept=".ttl" name="file" id="uploadttlfile" hidden />
+                </form>
+                <div class="col-4"></div>
+                <div class="col-4">
+                  <label for="uploadttlfile">
+                    <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
+                      alt="...">
+                  </label>
                 </div>
-              </fieldset>
-            </div>
-
-            <div class="file-upload-content">
-              <img class="file-upload-image" src="#" alt="your image" />
-              <div class="image-title-wrap">
-                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
-                    class="image-title">Uploaded Image</span></button>
+                <div class="col-4">
+                </div>
               </div>
-            </div>
-
           </div>
-          <div class="row file-down"></div>
-        </div>
+      </fieldset>
         <!--############################Ontology end#####################################-->
 
+        
+        <!--############################send json start#####################################-->
+        <div class="col-2">
+          <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8 mt-5 pt-5">
+                <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjson"
+                type="button" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Have you filled the output and prefix information? Have you uploaded your ontology? If yes and yes, then press this bottom before moving to the triplesMap definitions."> send Json</button>
+                  </div>
+                      <div class="col-2"></div>
+              </div>
+      
+          </div>
+          <!--############################send json end#####################################-->
+  
 
       </div>
 
 
-    </div>
+   </div>
     <!--#############################file management & Ontology#############################################-->
 
-    <div class="container-fluid ">
-      <div class="row mb-3">
-        <div class="col-10">
-
-        </div>
-        <div class="col-2">
-          <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="sendjson"
-            type="button"> send Json</button>
-        </div>
-
-      </div>
-
-    </div>
-
-
-
     <!--add another triplesmap button-->
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
       <div class="row">
         <div class="col-9">
 
         </div>
         <div class="col-3">
           <button class="btn border border-secondary border-2 add-another-triplesmap" id="addanothertriples"
-            type="button"> + add another TriplesMap</button>
+            type="button" data-bs-toggle="tooltip"
+            data-bs-placement="bottom" title="add another triplesmap"> + add another TriplesMap</button>
         </div>
 
       </div>
@@ -315,9 +314,9 @@
     <!--Triple map main block-->
     <div class="container-fluid">
       <div class="row secondbox">
-        <fieldset class="border border-secondary border-4 bg-light d-block first-input">
+        <fieldset class="border border-secondary border-4 bg-light d-block">
           <legend class="w-auto">TriplesMap</legend>
-          <div class="col-12">
+          <div class="col-12 first-input">
 
             <!--first line-->
             <div class="row">
@@ -380,12 +379,13 @@
                     </form>
                     <div class="col-2">
                       <label for="uploadsourcefile">
-                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white"
+                        <img src="../static/images/upload-file.jpg" class="rounded float-start image-upload bg-white" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="You can upload the header of your csv data source and select from it while defining triplesMaps."
                           alt="...">
                       </label>
                     </div>
                     <div class="col-8">
-                      <h4 class="pt-1"> &lt; Upload source here</h4>
+                      <h4 class="pt-1"> &lt; Upload the header of csv file here</h4>
                     </div>
                     <div class="col-1"></div>
                   </div>
@@ -626,11 +626,11 @@
 
             <!-- predicate object map block-->
             <div id="first-container">
-              <div class="row" id="first-element1">
+              <div class="row mt-2" id="first-element1">
 
                 <div class="col-12">
                   <div class="row">
-                    <fieldset class="border border-secondary border-4 d-block">
+                    <fieldset class="border border-secondary border-4 d-block predicatebox">
                       <legend class="w-auto mb-0">PredicateObjectMap</legend>
                       <div class="col-12">
                         <!--select property option-->
@@ -679,7 +679,7 @@
                         <div class="row mt-3" id="second-predicate-element1">
                           <div class="col-4">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary" id="selectobjecttype1"
+                              <select class="form-select border border-2 border-secondary selectobjecttype" id="selectobjecttype1"
                                 data-placeholder="select the Object type" onchange="showSelectPredicateBlock(this);">
                                 <option value="default" selected disabled>--select the Object type--</option>
                                 <option value="1">Class</option>
@@ -820,7 +820,7 @@
                               </div>
                               <div class="col-1"></div>
                               <div class="col-3">
-                                <input type="text" class="form-control border border-secondary border-2"
+                                <input type="text" class="form-control border border-secondary border-2 joinconditionparent"
                                   placeholder="joinCondition parent" id="joinconditionparent1">
                               </div>
                               <div class="col-1"></div>
@@ -851,7 +851,7 @@
                         <div class="row mt-3" id="third-predicate-element1">
                           <div class="col-2">
                             <div class="input-group mb-3 ">
-                              <select class="form-select border border-2 border-secondary"
+                              <select class="form-select border border-2 border-secondary selecttermtypepredicateobjectmap"
                                 id="selecttermtypepredicateobjectmap1" data-placeholder="Term Type">
                                 <option value="default" selected disabled>Term Type</option>
                                 <option value="1">rr:IRI</option>
@@ -1024,7 +1024,7 @@
     <!--add another triplesmap button-->
     <div class="container-fluid">
       <div class="row mb-3">
-        <div class="col-10">
+        <div class="col-8">
 
         </div>
 
@@ -1036,9 +1036,36 @@
           </span>
         </div>
 
+        
+        <div class="col-2">
+          <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+            <a href="/downloadMappingFile"><button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="downloadjsonMap"
+              type="button" onclick="this.disabled = true;">Download Mapping File</button></a>
+          </span>
+        </div>
+
       </div>
 
     </div>
+
+     <!--download mapping file button-->
+     <!-- <div class="container-fluid">
+      <div class="row mb-3">
+        <div class="col-10">
+
+        </div>
+
+
+        <div class="col-2">
+          <span class="tool-tip" id="tooltipfinal" data-toggle="tooltip" data-placement="top">
+            <button class="btn border border-secondary border-2 add-another-triplesmap float-end mx-5" id="downloadjsonfile"
+              type="button">Download Mapping File</button>
+          </span>
+        </div>
+
+      </div>
+
+    </div> -->
 
   </div>
   <!-- </form> -->

@@ -1,4 +1,0 @@
-drug_id,toxicity_Label,toxicity_CUI,toxicity_type
-DB00001,Bleeding,C0019080,Analytical
-DB00002,Pneumonitis,C0032285,Pneumological
-DB00003,Conjunctivitis,C0009763,Other
