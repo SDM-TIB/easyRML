@@ -1,5 +1,5 @@
 Flask==1.1.1
-mysql-connector-python==8.0.17
+mysql-connector-python==2.2
 pandas
 werkzeug
 SPARQLWrapper
