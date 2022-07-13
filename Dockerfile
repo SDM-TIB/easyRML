@@ -4,7 +4,7 @@ WORKDIR /easyRML
 ADD . /easyRML
 
 RUN apt-get --assume-yes update
-RUN apt-get --assume-yes install python3 python3-flask python3-pip
+RUN apt-get --assume-yes install python3.8 python3-flask python3-pip
 # Make port 5003 available to the world outside this container
 
 RUN pip3 install -r requirements.txt
